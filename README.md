@@ -238,5 +238,3 @@ docs/html/index.html
 ## 常见问题
 
 ## 附录
-
-### 参考资料
