@@ -1,0 +1,130 @@
+\doxysection{rc\+\_\+vision\+::core 命名空间参考}
+\hypertarget{namespacerc__vision_1_1core}{}\label{namespacerc__vision_1_1core}\index{rc\_vision::core@{rc\_vision::core}}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacerc__vision_1_1core_1_1filters}{filters}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}}
+\begin{DoxyCompactList}\small\item\em 相机模型类，包含内参、畸变系数和外参，并提供投影、去畸变等功能。 \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classrc__vision_1_1core_1_1_config}{Config}}
+\begin{DoxyCompactList}\small\item\em 配置管理类，支持 YAML 和 JSON 格式的配置文件加载与访问。 \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{Edge\+Detection\+Result}}
+\begin{DoxyCompactList}\small\item\em 边缘检测结果结构体。 \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector}{Edge\+Detector}}
+\begin{DoxyCompactList}\small\item\em 边缘检测类，支持多种边缘检测方法和边缘类型分类。 \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}}
+\begin{DoxyCompactList}\small\item\em 图像处理类，封装了多种常用的图像操作和分析功能。 \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger}{Logger}}
+\begin{DoxyCompactList}\small\item\em 日志记录类，提供多级别日志记录功能，支持异步写入和日志文件旋转。 \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structrc__vision_1_1core_1_1_point}{Point}}
+\begin{DoxyCompactList}\small\item\em 点结构体，表示三维空间中的一个点。 \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud}{Point\+Cloud}}
+\begin{DoxyCompactList}\small\item\em 点云类，管理和处理三维点云数据。 \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_cloud_stats}{Point\+Cloud\+Stats}}
+\begin{DoxyCompactList}\small\item\em 点云统计信息结构体。 \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera}{Stereo\+Camera}}
+\begin{DoxyCompactList}\small\item\em 立体相机模型类，包含左右相机及其相对外参，并提供图像校正和视差计算功能。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacerc__vision_1_1core_aa2f681867cdda0c2c1ae50537b983689}{Config\+Format}} \{ \mbox{\hyperlink{namespacerc__vision_1_1core_aa2f681867cdda0c2c1ae50537b983689a9463f87bbed1fcdacfb8d40e185ca2bc}{YAML}}
+, \mbox{\hyperlink{namespacerc__vision_1_1core_aa2f681867cdda0c2c1ae50537b983689a0ecd11c1d7a287401d148a23bbd7a2f8}{JSON}}
+ \}
+\begin{DoxyCompactList}\small\item\em 配置文件支持的格式。 \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10}{Edge\+Detection\+Method}} \{ \mbox{\hyperlink{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10a3701051f20fd8dd55bcd9f355a511745}{CANNY}}
+, \mbox{\hyperlink{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10a2eb35f75582ca62917714c438551bba5}{SOBEL}}
+, \mbox{\hyperlink{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10a1c2d5f3f8e6cbb0c7b033c388c905d22}{LAPLACIAN}}
+ \}
+\begin{DoxyCompactList}\small\item\em 枚举不同的边缘检测方法。 \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048}{Edge\+Type}} \{ \newline
+\mbox{\hyperlink{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048ab61773b9b3968a9988d765d728985862}{GENERAL}}
+, \mbox{\hyperlink{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048a17b8ef2c330f1430e00c9de5469fc7e7}{LINE}}
+, \mbox{\hyperlink{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048ac411afd31d32cec664d372acc12f404a}{CORNER}}
+, \mbox{\hyperlink{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048a0af50777920c1401ab975cab64c4d491}{CIRCLE}}
+, \newline
+\mbox{\hyperlink{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048aecdc92bf56d960b73b02ee40125758bc}{POLYGON}}
+ \}
+\begin{DoxyCompactList}\small\item\em 枚举不同的边缘类型。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{枚举类型说明}
+\Hypertarget{namespacerc__vision_1_1core_aa2f681867cdda0c2c1ae50537b983689}\index{rc\_vision::core@{rc\_vision::core}!ConfigFormat@{ConfigFormat}}
+\index{ConfigFormat@{ConfigFormat}!rc\_vision::core@{rc\_vision::core}}
+\doxysubsubsection{\texorpdfstring{ConfigFormat}{ConfigFormat}}
+{\footnotesize\ttfamily \label{namespacerc__vision_1_1core_aa2f681867cdda0c2c1ae50537b983689} 
+enum class \mbox{\hyperlink{namespacerc__vision_1_1core_aa2f681867cdda0c2c1ae50537b983689}{rc\+\_\+vision\+::core\+::\+Config\+Format}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+配置文件支持的格式。 
+
+\begin{DoxyEnumFields}[2]{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{YAML@{YAML}!rc\_vision::core@{rc\_vision::core}}\index{rc\_vision::core@{rc\_vision::core}!YAML@{YAML}}}\Hypertarget{namespacerc__vision_1_1core_aa2f681867cdda0c2c1ae50537b983689a9463f87bbed1fcdacfb8d40e185ca2bc}\label{namespacerc__vision_1_1core_aa2f681867cdda0c2c1ae50537b983689} 
+YAML&YAML 格式 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{JSON@{JSON}!rc\_vision::core@{rc\_vision::core}}\index{rc\_vision::core@{rc\_vision::core}!JSON@{JSON}}}\Hypertarget{namespacerc__vision_1_1core_aa2f681867cdda0c2c1ae50537b983689a0ecd11c1d7a287401d148a23bbd7a2f8}\label{namespacerc__vision_1_1core_aa2f681867cdda0c2c1ae50537b983689} 
+JSON&JSON 格式 \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10}\index{rc\_vision::core@{rc\_vision::core}!EdgeDetectionMethod@{EdgeDetectionMethod}}
+\index{EdgeDetectionMethod@{EdgeDetectionMethod}!rc\_vision::core@{rc\_vision::core}}
+\doxysubsubsection{\texorpdfstring{EdgeDetectionMethod}{EdgeDetectionMethod}}
+{\footnotesize\ttfamily \label{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10} 
+enum class \mbox{\hyperlink{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10}{rc\+\_\+vision\+::core\+::\+Edge\+Detection\+Method}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+枚举不同的边缘检测方法。 
+
+\begin{DoxyEnumFields}[2]{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CANNY@{CANNY}!rc\_vision::core@{rc\_vision::core}}\index{rc\_vision::core@{rc\_vision::core}!CANNY@{CANNY}}}\Hypertarget{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10a3701051f20fd8dd55bcd9f355a511745}\label{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10} 
+CANNY&使用 Canny 边缘检测方法。 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SOBEL@{SOBEL}!rc\_vision::core@{rc\_vision::core}}\index{rc\_vision::core@{rc\_vision::core}!SOBEL@{SOBEL}}}\Hypertarget{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10a2eb35f75582ca62917714c438551bba5}\label{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10} 
+SOBEL&使用 Sobel 边缘检测方法。 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LAPLACIAN@{LAPLACIAN}!rc\_vision::core@{rc\_vision::core}}\index{rc\_vision::core@{rc\_vision::core}!LAPLACIAN@{LAPLACIAN}}}\Hypertarget{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10a1c2d5f3f8e6cbb0c7b033c388c905d22}\label{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10} 
+LAPLACIAN&使用 Laplacian 边缘检测方法。 \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048}\index{rc\_vision::core@{rc\_vision::core}!EdgeType@{EdgeType}}
+\index{EdgeType@{EdgeType}!rc\_vision::core@{rc\_vision::core}}
+\doxysubsubsection{\texorpdfstring{EdgeType}{EdgeType}}
+{\footnotesize\ttfamily \label{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048} 
+enum class \mbox{\hyperlink{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048}{rc\+\_\+vision\+::core\+::\+Edge\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+枚举不同的边缘类型。 
+
+\begin{DoxyEnumFields}[2]{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GENERAL@{GENERAL}!rc\_vision::core@{rc\_vision::core}}\index{rc\_vision::core@{rc\_vision::core}!GENERAL@{GENERAL}}}\Hypertarget{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048ab61773b9b3968a9988d765d728985862}\label{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048} 
+GENERAL&一般边缘。 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LINE@{LINE}!rc\_vision::core@{rc\_vision::core}}\index{rc\_vision::core@{rc\_vision::core}!LINE@{LINE}}}\Hypertarget{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048a17b8ef2c330f1430e00c9de5469fc7e7}\label{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048} 
+LINE&直线边缘。 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CORNER@{CORNER}!rc\_vision::core@{rc\_vision::core}}\index{rc\_vision::core@{rc\_vision::core}!CORNER@{CORNER}}}\Hypertarget{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048ac411afd31d32cec664d372acc12f404a}\label{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048} 
+CORNER&角点边缘。 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CIRCLE@{CIRCLE}!rc\_vision::core@{rc\_vision::core}}\index{rc\_vision::core@{rc\_vision::core}!CIRCLE@{CIRCLE}}}\Hypertarget{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048a0af50777920c1401ab975cab64c4d491}\label{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048} 
+CIRCLE&圆形边缘。 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{POLYGON@{POLYGON}!rc\_vision::core@{rc\_vision::core}}\index{rc\_vision::core@{rc\_vision::core}!POLYGON@{POLYGON}}}\Hypertarget{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048aecdc92bf56d960b73b02ee40125758bc}\label{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048} 
+POLYGON&多边形边缘。 \\
+\hline
+
+\end{DoxyEnumFields}

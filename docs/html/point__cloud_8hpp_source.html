@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RC vision: C:/Users/14168/1/rc_vision/core_lib/include/rc_vision/core/point_cloud.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RC vision<span id="projectnumber">&#160;beta0.1.0</span>
+   </div>
+   <div id="projectbrief">机器人视觉库</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_6b71f9c233d9519f4af35a38b852209b.html">core_lib</a></li><li class="navelem"><a class="el" href="dir_91bce8cc46c2d1a1c49b6c892b066b0d.html">include</a></li><li class="navelem"><a class="el" href="dir_8027d5a996a7752b55704260e4cc0697.html">rc_vision</a></li><li class="navelem"><a class="el" href="dir_cd238af50b2a6e1d947d51424d846599.html">core</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">point_cloud.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="point__cloud_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef RC_VISION_CORE_POINT_CLOUD_HPP</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define RC_VISION_CORE_POINT_CLOUD_HPP</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;Eigen/Dense&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;opencv2/opencv.hpp&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacerc__vision.html">rc_vision</a> {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">namespace </span>core {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="structrc__vision_1_1core_1_1_point.html">   19</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structrc__vision_1_1core_1_1_point.html">Point</a> {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="structrc__vision_1_1core_1_1_point.html#a06d7bc322a5c1c8fd1de6b667dc4098c">   20</a></span>            <span class="keywordtype">double</span> <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point.html#a06d7bc322a5c1c8fd1de6b667dc4098c">x</a>; </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structrc__vision_1_1core_1_1_point.html#a12a1a698ea0e10c16cf97be69c70edb9">   21</a></span>            <span class="keywordtype">double</span> <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point.html#a12a1a698ea0e10c16cf97be69c70edb9">y</a>; </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="structrc__vision_1_1core_1_1_point.html#a493c0be6f8e417edb2a30e40de5c5753">   22</a></span>            <span class="keywordtype">double</span> <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point.html#a493c0be6f8e417edb2a30e40de5c5753">z</a>; </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="structrc__vision_1_1core_1_1_point.html#a505f2048929037a152c39190a58120ed">   23</a></span>            std::optional&lt;Eigen::Vector3d&gt; <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point.html#a505f2048929037a152c39190a58120ed">color</a>;      </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structrc__vision_1_1core_1_1_point.html#a4f9667434169fb5f33af797065e18c1f">   24</a></span>            std::optional&lt;Eigen::Vector3d&gt; <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point.html#a4f9667434169fb5f33af797065e18c1f">normal</a>;     </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="structrc__vision_1_1core_1_1_point.html#a3fa8e01e07cfc3392b95d52cf2f903ce">   25</a></span>            std::optional&lt;double&gt; <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point.html#a3fa8e01e07cfc3392b95d52cf2f903ce">intensity</a>;           </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="structrc__vision_1_1core_1_1_point.html#a3bd60b42a602b5942c97448a88b5e1ab">   34</a></span>            <a class="code hl_function" href="structrc__vision_1_1core_1_1_point.html#a3bd60b42a602b5942c97448a88b5e1ab">Point</a>(<span class="keywordtype">double</span> x_, <span class="keywordtype">double</span> y_, <span class="keywordtype">double</span> z_) : <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point.html#a06d7bc322a5c1c8fd1de6b667dc4098c">x</a>(x_), <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point.html#a12a1a698ea0e10c16cf97be69c70edb9">y</a>(y_), <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point.html#a493c0be6f8e417edb2a30e40de5c5753">z</a>(z_) {}</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="}">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="structrc__vision_1_1core_1_1_point.html#a040147cdad1ad0242f26ae691b70b9e6">   44</a></span>            <a class="code hl_function" href="structrc__vision_1_1core_1_1_point.html#a040147cdad1ad0242f26ae691b70b9e6">Point</a>(<span class="keywordtype">double</span> x_, <span class="keywordtype">double</span> y_, <span class="keywordtype">double</span> z_, <span class="keyword">const</span> Eigen::Vector3d&amp; color_)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                    : <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point.html#a06d7bc322a5c1c8fd1de6b667dc4098c">x</a>(x_), <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point.html#a12a1a698ea0e10c16cf97be69c70edb9">y</a>(y_), <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point.html#a493c0be6f8e417edb2a30e40de5c5753">z</a>(z_), <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point.html#a505f2048929037a152c39190a58120ed">color</a>(color_) {}</div>
+</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <span class="comment">// 可根据需要添加更多构造函数</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        };</div>
+</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="};">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="structrc__vision_1_1core_1_1_point_cloud_stats.html">   55</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structrc__vision_1_1core_1_1_point_cloud_stats.html">PointCloudStats</a> {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="structrc__vision_1_1core_1_1_point_cloud_stats.html#addb4251c714b58159c190f02025ed9c2">   56</a></span>            <span class="keywordtype">double</span> <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point_cloud_stats.html#a4ed0bc15f417f20753d1d958d1867108">min_x</a>, <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point_cloud_stats.html#addb4251c714b58159c190f02025ed9c2">max_x</a>; </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="structrc__vision_1_1core_1_1_point_cloud_stats.html#abd1c9cad921f3609118728fb88eb53dc">   57</a></span>            <span class="keywordtype">double</span> <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point_cloud_stats.html#a67ee58a7b7db72b6e257b3f202f4f904">min_y</a>, <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point_cloud_stats.html#abd1c9cad921f3609118728fb88eb53dc">max_y</a>; </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="structrc__vision_1_1core_1_1_point_cloud_stats.html#ae8e80cfe2350ec00736546b974606ed0">   58</a></span>            <span class="keywordtype">double</span> <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point_cloud_stats.html#aadf3dfdbe5d31cf0f3df8bb8b1d81bf8">min_z</a>, <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point_cloud_stats.html#ae8e80cfe2350ec00736546b974606ed0">max_z</a>; </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="structrc__vision_1_1core_1_1_point_cloud_stats.html#a30b6b300a7e6e93bca9b475ef25e806b">   59</a></span>            <span class="keywordtype">double</span> <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point_cloud_stats.html#a30b6b300a7e6e93bca9b475ef25e806b">mean_x</a>, <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point_cloud_stats.html#ac38b64427aeb5233157b4fbb4580f5de">mean_y</a>, <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point_cloud_stats.html#a025612b5dcbb4b7b3c2ad39f73134d29">mean_z</a>; </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="structrc__vision_1_1core_1_1_point_cloud_stats.html#ab3441cc69dd94247a5c9748da9a8e488">   60</a></span>            <span class="keywordtype">double</span> <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point_cloud_stats.html#ab3441cc69dd94247a5c9748da9a8e488">variance_x</a>, <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point_cloud_stats.html#ada7cd91b8a444ca632769b9b595e36e9">variance_y</a>, <a class="code hl_variable" href="structrc__vision_1_1core_1_1_point_cloud_stats.html#a36ff54c82fcd9536bb1cd43cc068e2de">variance_z</a>; </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        };</div>
+</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="foldopen" id="foldopen00068" data-start="{" data-end="};">
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html">   68</a></span>        <span class="keyword">class </span><a class="code hl_class" href="classrc__vision_1_1core_1_1_point_cloud.html">PointCloud</a> {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#a334ba717b6ce6da62cd2e2acab90c1fc">   73</a></span>            <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#a334ba717b6ce6da62cd2e2acab90c1fc">PointCloud</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#a33e0800bec14d451d87c00a78ea7e639">   80</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#a33e0800bec14d451d87c00a78ea7e639">addPoint</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structrc__vision_1_1core_1_1_point.html">Point</a>&amp; point);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#a43eefa6138e5c856e6d1aa4211359322">   89</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#a43eefa6138e5c856e6d1aa4211359322">addPoint</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y, <span class="keywordtype">double</span> z);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#a751523ee14d085a4e960356f44421991">   99</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#a751523ee14d085a4e960356f44421991">addPoint</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y, <span class="keywordtype">double</span> z, <span class="keyword">const</span> Eigen::Vector3d&amp; color);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#a87b437110fcaa83268bf1282b4a02966">  106</a></span>            <span class="keywordtype">size_t</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#a87b437110fcaa83268bf1282b4a02966">size</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#a80b8a324eddcf4b45d554042c6e817c5">  113</a></span>            <span class="keyword">const</span> std::vector&lt;Point&gt;&amp; <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#a80b8a324eddcf4b45d554042c6e817c5">getPoints</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#abc398f49f61d543eb9401aef6dd0326d">  120</a></span>            Eigen::Vector3d <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#abc398f49f61d543eb9401aef6dd0326d">computeCentroid</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#a3024890c90b45397b012a94664690d25">  125</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#a3024890c90b45397b012a94664690d25">clear</a>();</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#ada57fc208892103f87f7ce350bd6ad70">  132</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#ada57fc208892103f87f7ce350bd6ad70">transform</a>(<span class="keyword">const</span> Eigen::Matrix4d&amp; transformation);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#a35c20a96b89f6190e176cd777a5f6331">  139</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#a35c20a96b89f6190e176cd777a5f6331">rotate</a>(<span class="keyword">const</span> Eigen::Matrix3d&amp; rotation_matrix);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#a49c22e1632475589e3ac4165d1a48e2c">  146</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#a49c22e1632475589e3ac4165d1a48e2c">translate</a>(<span class="keyword">const</span> Eigen::Vector3d&amp; translation_vector);</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#a972cfb43f6d2d41acb72c429b6285594">  155</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#a972cfb43f6d2d41acb72c429b6285594">downsample</a>(<span class="keywordtype">double</span> voxel_size);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#aecbaf044caa6f09ec56f4d8316b061bf">  165</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#aecbaf044caa6f09ec56f4d8316b061bf">statisticalOutlierRemoval</a>(<span class="keywordtype">int</span> mean_k = 50, <span class="keywordtype">double</span> std_dev_mul_thresh = 1.0);</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#ad53aa9613d5d3d42be00a5c73f4b2158">  175</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#ad53aa9613d5d3d42be00a5c73f4b2158">radiusOutlierRemoval</a>(<span class="keywordtype">double</span> radius, <span class="keywordtype">int</span> min_neighbors);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#a7ed32a0a585be15470df1977bbe3fd51">  184</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#a7ed32a0a585be15470df1977bbe3fd51">computeNormals</a>(<span class="keywordtype">int</span> k = 10);</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#a0cd8d7006aa19ce750444e00f1ed71b6">  196</a></span>            Eigen::Matrix4d <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#a0cd8d7006aa19ce750444e00f1ed71b6">icp</a>(<span class="keyword">const</span> <a class="code hl_class" href="classrc__vision_1_1core_1_1_point_cloud.html">PointCloud</a>&amp; target, <span class="keywordtype">int</span> max_iterations = 50, <span class="keywordtype">double</span> tolerance = 1e-6);</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#ac29fc4cb9e4b2bdc9d9286a945777a0c">  208</a></span>            std::vector&lt;PointCloud&gt; <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#ac29fc4cb9e4b2bdc9d9286a945777a0c">euclideanClustering</a>(<span class="keywordtype">double</span> cluster_tolerance, <span class="keywordtype">int</span> min_size, <span class="keywordtype">int</span> max_size) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#a6c47a42a53c785a27d2daeb27702a575">  215</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#a6c47a42a53c785a27d2daeb27702a575">merge</a>(<span class="keyword">const</span> <a class="code hl_class" href="classrc__vision_1_1core_1_1_point_cloud.html">PointCloud</a>&amp; other);</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#ab1d040a42d66df872acb26a7019fb60b">  223</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#ab1d040a42d66df872acb26a7019fb60b">mergeWith</a>(<span class="keyword">const</span> <a class="code hl_class" href="classrc__vision_1_1core_1_1_point_cloud.html">PointCloud</a>&amp; other, <span class="keyword">const</span> Eigen::Matrix4d&amp; transformation);</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#a0d6537d33979a1ada7d5ad32c9c87b69">  230</a></span>            <a class="code hl_struct" href="structrc__vision_1_1core_1_1_point_cloud_stats.html">PointCloudStats</a> <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#a0d6537d33979a1ada7d5ad32c9c87b69">computeStats</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#aff92bbfb11f0875f8964342060674ccb">  238</a></span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#aff92bbfb11f0875f8964342060674ccb">loadFromPLY</a>(<span class="keyword">const</span> std::string&amp; file_path);</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#af3c87ac8c0d9939920f8d7d2c2c72734">  246</a></span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#af3c87ac8c0d9939920f8d7d2c2c72734">saveToPLY</a>(<span class="keyword">const</span> std::string&amp; file_path) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#a7d28cc313c004bd8e889ad02340d26c5">  254</a></span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#a7d28cc313c004bd8e889ad02340d26c5">loadFromPCD</a>(<span class="keyword">const</span> std::string&amp; file_path);</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#afad42fe7d0dda2669855b6ae3baf21f3">  262</a></span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#afad42fe7d0dda2669855b6ae3baf21f3">saveToPCD</a>(<span class="keyword">const</span> std::string&amp; file_path) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#a08060c954a98698c9d30501e42c5030f">  265</a></span>            std::vector&lt;Point&gt; <a class="code hl_variable" href="classrc__vision_1_1core_1_1_point_cloud.html#a08060c954a98698c9d30501e42c5030f">points_</a>; </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_point_cloud.html#a4560c6ddb8c33524063dcb39306c82d2">  272</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_point_cloud.html#a4560c6ddb8c33524063dcb39306c82d2">applyTransformation</a>(<span class="keyword">const</span> Eigen::Matrix4d&amp; transformation);</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        };</div>
+</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    } <span class="comment">// namespace core</span></div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>} <span class="comment">// namespace rc_vision</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="preprocessor">#endif </span><span class="comment">// RC_VISION_CORE_POINT_CLOUD_HPP</span></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html">rc_vision::core::PointCloud</a></div><div class="ttdoc">点云类，管理和处理三维点云数据。</div><div class="ttdef"><b>定义</b> point_cloud.hpp:68</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_a08060c954a98698c9d30501e42c5030f"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#a08060c954a98698c9d30501e42c5030f">rc_vision::core::PointCloud::points_</a></div><div class="ttdeci">std::vector&lt; Point &gt; points_</div><div class="ttdef"><b>定义</b> point_cloud.hpp:265</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_a0cd8d7006aa19ce750444e00f1ed71b6"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#a0cd8d7006aa19ce750444e00f1ed71b6">rc_vision::core::PointCloud::icp</a></div><div class="ttdeci">Eigen::Matrix4d icp(const PointCloud &amp;target, int max_iterations=50, double tolerance=1e-6)</div><div class="ttdoc">使用ICP算法进行点云配准。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_a0d6537d33979a1ada7d5ad32c9c87b69"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#a0d6537d33979a1ada7d5ad32c9c87b69">rc_vision::core::PointCloud::computeStats</a></div><div class="ttdeci">PointCloudStats computeStats() const</div><div class="ttdoc">计算点云的统计信息。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_a3024890c90b45397b012a94664690d25"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#a3024890c90b45397b012a94664690d25">rc_vision::core::PointCloud::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">清空点云中的所有点。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_a334ba717b6ce6da62cd2e2acab90c1fc"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#a334ba717b6ce6da62cd2e2acab90c1fc">rc_vision::core::PointCloud::PointCloud</a></div><div class="ttdeci">PointCloud()=default</div><div class="ttdoc">默认构造函数。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_a33e0800bec14d451d87c00a78ea7e639"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#a33e0800bec14d451d87c00a78ea7e639">rc_vision::core::PointCloud::addPoint</a></div><div class="ttdeci">void addPoint(const Point &amp;point)</div><div class="ttdoc">添加一个点到点云。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_a35c20a96b89f6190e176cd777a5f6331"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#a35c20a96b89f6190e176cd777a5f6331">rc_vision::core::PointCloud::rotate</a></div><div class="ttdeci">void rotate(const Eigen::Matrix3d &amp;rotation_matrix)</div><div class="ttdoc">对点云进行旋转。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_a43eefa6138e5c856e6d1aa4211359322"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#a43eefa6138e5c856e6d1aa4211359322">rc_vision::core::PointCloud::addPoint</a></div><div class="ttdeci">void addPoint(double x, double y, double z)</div><div class="ttdoc">添加一个点到点云。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_a4560c6ddb8c33524063dcb39306c82d2"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#a4560c6ddb8c33524063dcb39306c82d2">rc_vision::core::PointCloud::applyTransformation</a></div><div class="ttdeci">void applyTransformation(const Eigen::Matrix4d &amp;transformation)</div><div class="ttdoc">应用4x4变换矩阵到点云。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_a49c22e1632475589e3ac4165d1a48e2c"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#a49c22e1632475589e3ac4165d1a48e2c">rc_vision::core::PointCloud::translate</a></div><div class="ttdeci">void translate(const Eigen::Vector3d &amp;translation_vector)</div><div class="ttdoc">对点云进行平移。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_a6c47a42a53c785a27d2daeb27702a575"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#a6c47a42a53c785a27d2daeb27702a575">rc_vision::core::PointCloud::merge</a></div><div class="ttdeci">void merge(const PointCloud &amp;other)</div><div class="ttdoc">合并另一个点云到当前点云中。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_a751523ee14d085a4e960356f44421991"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#a751523ee14d085a4e960356f44421991">rc_vision::core::PointCloud::addPoint</a></div><div class="ttdeci">void addPoint(double x, double y, double z, const Eigen::Vector3d &amp;color)</div><div class="ttdoc">添加一个带颜色的点到点云。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_a7d28cc313c004bd8e889ad02340d26c5"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#a7d28cc313c004bd8e889ad02340d26c5">rc_vision::core::PointCloud::loadFromPCD</a></div><div class="ttdeci">bool loadFromPCD(const std::string &amp;file_path)</div><div class="ttdoc">从PCD文件加载点云数据。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_a7ed32a0a585be15470df1977bbe3fd51"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#a7ed32a0a585be15470df1977bbe3fd51">rc_vision::core::PointCloud::computeNormals</a></div><div class="ttdeci">void computeNormals(int k=10)</div><div class="ttdoc">计算点云中每个点的法向量。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_a80b8a324eddcf4b45d554042c6e817c5"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#a80b8a324eddcf4b45d554042c6e817c5">rc_vision::core::PointCloud::getPoints</a></div><div class="ttdeci">const std::vector&lt; Point &gt; &amp; getPoints() const</div><div class="ttdoc">获取所有点的集合。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_a87b437110fcaa83268bf1282b4a02966"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#a87b437110fcaa83268bf1282b4a02966">rc_vision::core::PointCloud::size</a></div><div class="ttdeci">size_t size() const</div><div class="ttdoc">获取点云中的点数。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_a972cfb43f6d2d41acb72c429b6285594"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#a972cfb43f6d2d41acb72c429b6285594">rc_vision::core::PointCloud::downsample</a></div><div class="ttdeci">void downsample(double voxel_size)</div><div class="ttdoc">对点云进行下采样。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_ab1d040a42d66df872acb26a7019fb60b"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#ab1d040a42d66df872acb26a7019fb60b">rc_vision::core::PointCloud::mergeWith</a></div><div class="ttdeci">void mergeWith(const PointCloud &amp;other, const Eigen::Matrix4d &amp;transformation)</div><div class="ttdoc">合并另一个点云到当前点云中，并应用变换。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_abc398f49f61d543eb9401aef6dd0326d"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#abc398f49f61d543eb9401aef6dd0326d">rc_vision::core::PointCloud::computeCentroid</a></div><div class="ttdeci">Eigen::Vector3d computeCentroid() const</div><div class="ttdoc">计算点云的质心。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_ac29fc4cb9e4b2bdc9d9286a945777a0c"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#ac29fc4cb9e4b2bdc9d9286a945777a0c">rc_vision::core::PointCloud::euclideanClustering</a></div><div class="ttdeci">std::vector&lt; PointCloud &gt; euclideanClustering(double cluster_tolerance, int min_size, int max_size) const</div><div class="ttdoc">使用欧式聚类对点云进行分割。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_ad53aa9613d5d3d42be00a5c73f4b2158"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#ad53aa9613d5d3d42be00a5c73f4b2158">rc_vision::core::PointCloud::radiusOutlierRemoval</a></div><div class="ttdeci">void radiusOutlierRemoval(double radius, int min_neighbors)</div><div class="ttdoc">半径异常点移除。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_ada57fc208892103f87f7ce350bd6ad70"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#ada57fc208892103f87f7ce350bd6ad70">rc_vision::core::PointCloud::transform</a></div><div class="ttdeci">void transform(const Eigen::Matrix4d &amp;transformation)</div><div class="ttdoc">使用4x4变换矩阵对点云进行变换。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_aecbaf044caa6f09ec56f4d8316b061bf"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#aecbaf044caa6f09ec56f4d8316b061bf">rc_vision::core::PointCloud::statisticalOutlierRemoval</a></div><div class="ttdeci">void statisticalOutlierRemoval(int mean_k=50, double std_dev_mul_thresh=1.0)</div><div class="ttdoc">统计异常点移除。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_af3c87ac8c0d9939920f8d7d2c2c72734"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#af3c87ac8c0d9939920f8d7d2c2c72734">rc_vision::core::PointCloud::saveToPLY</a></div><div class="ttdeci">bool saveToPLY(const std::string &amp;file_path) const</div><div class="ttdoc">将点云数据保存到PLY文件。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_afad42fe7d0dda2669855b6ae3baf21f3"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#afad42fe7d0dda2669855b6ae3baf21f3">rc_vision::core::PointCloud::saveToPCD</a></div><div class="ttdeci">bool saveToPCD(const std::string &amp;file_path) const</div><div class="ttdoc">将点云数据保存到PCD文件。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_point_cloud_html_aff92bbfb11f0875f8964342060674ccb"><div class="ttname"><a href="classrc__vision_1_1core_1_1_point_cloud.html#aff92bbfb11f0875f8964342060674ccb">rc_vision::core::PointCloud::loadFromPLY</a></div><div class="ttdeci">bool loadFromPLY(const std::string &amp;file_path)</div><div class="ttdoc">从PLY文件加载点云数据。</div></div>
+<div class="ttc" id="anamespacerc__vision_html"><div class="ttname"><a href="namespacerc__vision.html">rc_vision</a></div><div class="ttdef"><b>定义</b> camera.hpp:10</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_point_cloud_stats_html"><div class="ttname"><a href="structrc__vision_1_1core_1_1_point_cloud_stats.html">rc_vision::core::PointCloudStats</a></div><div class="ttdoc">点云统计信息结构体。</div><div class="ttdef"><b>定义</b> point_cloud.hpp:55</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_point_cloud_stats_html_a025612b5dcbb4b7b3c2ad39f73134d29"><div class="ttname"><a href="structrc__vision_1_1core_1_1_point_cloud_stats.html#a025612b5dcbb4b7b3c2ad39f73134d29">rc_vision::core::PointCloudStats::mean_z</a></div><div class="ttdeci">double mean_z</div><div class="ttdef"><b>定义</b> point_cloud.hpp:59</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_point_cloud_stats_html_a30b6b300a7e6e93bca9b475ef25e806b"><div class="ttname"><a href="structrc__vision_1_1core_1_1_point_cloud_stats.html#a30b6b300a7e6e93bca9b475ef25e806b">rc_vision::core::PointCloudStats::mean_x</a></div><div class="ttdeci">double mean_x</div><div class="ttdef"><b>定义</b> point_cloud.hpp:59</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_point_cloud_stats_html_a36ff54c82fcd9536bb1cd43cc068e2de"><div class="ttname"><a href="structrc__vision_1_1core_1_1_point_cloud_stats.html#a36ff54c82fcd9536bb1cd43cc068e2de">rc_vision::core::PointCloudStats::variance_z</a></div><div class="ttdeci">double variance_z</div><div class="ttdef"><b>定义</b> point_cloud.hpp:60</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_point_cloud_stats_html_a4ed0bc15f417f20753d1d958d1867108"><div class="ttname"><a href="structrc__vision_1_1core_1_1_point_cloud_stats.html#a4ed0bc15f417f20753d1d958d1867108">rc_vision::core::PointCloudStats::min_x</a></div><div class="ttdeci">double min_x</div><div class="ttdef"><b>定义</b> point_cloud.hpp:56</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_point_cloud_stats_html_a67ee58a7b7db72b6e257b3f202f4f904"><div class="ttname"><a href="structrc__vision_1_1core_1_1_point_cloud_stats.html#a67ee58a7b7db72b6e257b3f202f4f904">rc_vision::core::PointCloudStats::min_y</a></div><div class="ttdeci">double min_y</div><div class="ttdef"><b>定义</b> point_cloud.hpp:57</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_point_cloud_stats_html_aadf3dfdbe5d31cf0f3df8bb8b1d81bf8"><div class="ttname"><a href="structrc__vision_1_1core_1_1_point_cloud_stats.html#aadf3dfdbe5d31cf0f3df8bb8b1d81bf8">rc_vision::core::PointCloudStats::min_z</a></div><div class="ttdeci">double min_z</div><div class="ttdef"><b>定义</b> point_cloud.hpp:58</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_point_cloud_stats_html_ab3441cc69dd94247a5c9748da9a8e488"><div class="ttname"><a href="structrc__vision_1_1core_1_1_point_cloud_stats.html#ab3441cc69dd94247a5c9748da9a8e488">rc_vision::core::PointCloudStats::variance_x</a></div><div class="ttdeci">double variance_x</div><div class="ttdef"><b>定义</b> point_cloud.hpp:60</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_point_cloud_stats_html_abd1c9cad921f3609118728fb88eb53dc"><div class="ttname"><a href="structrc__vision_1_1core_1_1_point_cloud_stats.html#abd1c9cad921f3609118728fb88eb53dc">rc_vision::core::PointCloudStats::max_y</a></div><div class="ttdeci">double max_y</div><div class="ttdef"><b>定义</b> point_cloud.hpp:57</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_point_cloud_stats_html_ac38b64427aeb5233157b4fbb4580f5de"><div class="ttname"><a href="structrc__vision_1_1core_1_1_point_cloud_stats.html#ac38b64427aeb5233157b4fbb4580f5de">rc_vision::core::PointCloudStats::mean_y</a></div><div class="ttdeci">double mean_y</div><div class="ttdef"><b>定义</b> point_cloud.hpp:59</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_point_cloud_stats_html_ada7cd91b8a444ca632769b9b595e36e9"><div class="ttname"><a href="structrc__vision_1_1core_1_1_point_cloud_stats.html#ada7cd91b8a444ca632769b9b595e36e9">rc_vision::core::PointCloudStats::variance_y</a></div><div class="ttdeci">double variance_y</div><div class="ttdef"><b>定义</b> point_cloud.hpp:60</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_point_cloud_stats_html_addb4251c714b58159c190f02025ed9c2"><div class="ttname"><a href="structrc__vision_1_1core_1_1_point_cloud_stats.html#addb4251c714b58159c190f02025ed9c2">rc_vision::core::PointCloudStats::max_x</a></div><div class="ttdeci">double max_x</div><div class="ttdef"><b>定义</b> point_cloud.hpp:56</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_point_cloud_stats_html_ae8e80cfe2350ec00736546b974606ed0"><div class="ttname"><a href="structrc__vision_1_1core_1_1_point_cloud_stats.html#ae8e80cfe2350ec00736546b974606ed0">rc_vision::core::PointCloudStats::max_z</a></div><div class="ttdeci">double max_z</div><div class="ttdef"><b>定义</b> point_cloud.hpp:58</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_point_html"><div class="ttname"><a href="structrc__vision_1_1core_1_1_point.html">rc_vision::core::Point</a></div><div class="ttdoc">点结构体，表示三维空间中的一个点。</div><div class="ttdef"><b>定义</b> point_cloud.hpp:19</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_point_html_a040147cdad1ad0242f26ae691b70b9e6"><div class="ttname"><a href="structrc__vision_1_1core_1_1_point.html#a040147cdad1ad0242f26ae691b70b9e6">rc_vision::core::Point::Point</a></div><div class="ttdeci">Point(double x_, double y_, double z_, const Eigen::Vector3d &amp;color_)</div><div class="ttdoc">带颜色的构造函数，初始化坐标和颜色。</div><div class="ttdef"><b>定义</b> point_cloud.hpp:44</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_point_html_a06d7bc322a5c1c8fd1de6b667dc4098c"><div class="ttname"><a href="structrc__vision_1_1core_1_1_point.html#a06d7bc322a5c1c8fd1de6b667dc4098c">rc_vision::core::Point::x</a></div><div class="ttdeci">double x</div><div class="ttdef"><b>定义</b> point_cloud.hpp:20</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_point_html_a12a1a698ea0e10c16cf97be69c70edb9"><div class="ttname"><a href="structrc__vision_1_1core_1_1_point.html#a12a1a698ea0e10c16cf97be69c70edb9">rc_vision::core::Point::y</a></div><div class="ttdeci">double y</div><div class="ttdef"><b>定义</b> point_cloud.hpp:21</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_point_html_a3bd60b42a602b5942c97448a88b5e1ab"><div class="ttname"><a href="structrc__vision_1_1core_1_1_point.html#a3bd60b42a602b5942c97448a88b5e1ab">rc_vision::core::Point::Point</a></div><div class="ttdeci">Point(double x_, double y_, double z_)</div><div class="ttdoc">默认构造函数，仅初始化坐标。</div><div class="ttdef"><b>定义</b> point_cloud.hpp:34</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_point_html_a3fa8e01e07cfc3392b95d52cf2f903ce"><div class="ttname"><a href="structrc__vision_1_1core_1_1_point.html#a3fa8e01e07cfc3392b95d52cf2f903ce">rc_vision::core::Point::intensity</a></div><div class="ttdeci">std::optional&lt; double &gt; intensity</div><div class="ttdef"><b>定义</b> point_cloud.hpp:25</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_point_html_a493c0be6f8e417edb2a30e40de5c5753"><div class="ttname"><a href="structrc__vision_1_1core_1_1_point.html#a493c0be6f8e417edb2a30e40de5c5753">rc_vision::core::Point::z</a></div><div class="ttdeci">double z</div><div class="ttdef"><b>定义</b> point_cloud.hpp:22</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_point_html_a4f9667434169fb5f33af797065e18c1f"><div class="ttname"><a href="structrc__vision_1_1core_1_1_point.html#a4f9667434169fb5f33af797065e18c1f">rc_vision::core::Point::normal</a></div><div class="ttdeci">std::optional&lt; Eigen::Vector3d &gt; normal</div><div class="ttdef"><b>定义</b> point_cloud.hpp:24</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_point_html_a505f2048929037a152c39190a58120ed"><div class="ttname"><a href="structrc__vision_1_1core_1_1_point.html#a505f2048929037a152c39190a58120ed">rc_vision::core::Point::color</a></div><div class="ttdeci">std::optional&lt; Eigen::Vector3d &gt; color</div><div class="ttdef"><b>定义</b> point_cloud.hpp:23</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

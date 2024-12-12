@@ -1,0 +1,917 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RC vision: rc_vision::core::PointCloud类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RC vision<span id="projectnumber">&#160;beta0.1.0</span>
+   </div>
+   <div id="projectbrief">机器人视觉库</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacerc__vision.html">rc_vision</a></li><li class="navelem"><a class="el" href="namespacerc__vision_1_1core.html">core</a></li><li class="navelem"><a class="el" href="classrc__vision_1_1core_1_1_point_cloud.html">PointCloud</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pri-methods">Private 成员函数</a> &#124;
+<a href="#pri-attribs">Private 属性</a> &#124;
+<a href="classrc__vision_1_1core_1_1_point_cloud-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">rc_vision::core::PointCloud类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>点云类，管理和处理三维点云数据。  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="point__cloud_8hpp_source.html">point_cloud.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a334ba717b6ce6da62cd2e2acab90c1fc" id="r_a334ba717b6ce6da62cd2e2acab90c1fc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a334ba717b6ce6da62cd2e2acab90c1fc">PointCloud</a> ()=default</td></tr>
+<tr class="memdesc:a334ba717b6ce6da62cd2e2acab90c1fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认构造函数。  <br /></td></tr>
+<tr class="separator:a334ba717b6ce6da62cd2e2acab90c1fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33e0800bec14d451d87c00a78ea7e639" id="r_a33e0800bec14d451d87c00a78ea7e639"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33e0800bec14d451d87c00a78ea7e639">addPoint</a> (const <a class="el" href="structrc__vision_1_1core_1_1_point.html">Point</a> &amp;point)</td></tr>
+<tr class="memdesc:a33e0800bec14d451d87c00a78ea7e639"><td class="mdescLeft">&#160;</td><td class="mdescRight">添加一个点到点云。  <br /></td></tr>
+<tr class="separator:a33e0800bec14d451d87c00a78ea7e639"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43eefa6138e5c856e6d1aa4211359322" id="r_a43eefa6138e5c856e6d1aa4211359322"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43eefa6138e5c856e6d1aa4211359322">addPoint</a> (double x, double y, double z)</td></tr>
+<tr class="memdesc:a43eefa6138e5c856e6d1aa4211359322"><td class="mdescLeft">&#160;</td><td class="mdescRight">添加一个点到点云。  <br /></td></tr>
+<tr class="separator:a43eefa6138e5c856e6d1aa4211359322"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a751523ee14d085a4e960356f44421991" id="r_a751523ee14d085a4e960356f44421991"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a751523ee14d085a4e960356f44421991">addPoint</a> (double x, double y, double z, const Eigen::Vector3d &amp;color)</td></tr>
+<tr class="memdesc:a751523ee14d085a4e960356f44421991"><td class="mdescLeft">&#160;</td><td class="mdescRight">添加一个带颜色的点到点云。  <br /></td></tr>
+<tr class="separator:a751523ee14d085a4e960356f44421991"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87b437110fcaa83268bf1282b4a02966" id="r_a87b437110fcaa83268bf1282b4a02966"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87b437110fcaa83268bf1282b4a02966">size</a> () const</td></tr>
+<tr class="memdesc:a87b437110fcaa83268bf1282b4a02966"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取点云中的点数。  <br /></td></tr>
+<tr class="separator:a87b437110fcaa83268bf1282b4a02966"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80b8a324eddcf4b45d554042c6e817c5" id="r_a80b8a324eddcf4b45d554042c6e817c5"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="structrc__vision_1_1core_1_1_point.html">Point</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a80b8a324eddcf4b45d554042c6e817c5">getPoints</a> () const</td></tr>
+<tr class="memdesc:a80b8a324eddcf4b45d554042c6e817c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取所有点的集合。  <br /></td></tr>
+<tr class="separator:a80b8a324eddcf4b45d554042c6e817c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc398f49f61d543eb9401aef6dd0326d" id="r_abc398f49f61d543eb9401aef6dd0326d"><td class="memItemLeft" align="right" valign="top">Eigen::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc398f49f61d543eb9401aef6dd0326d">computeCentroid</a> () const</td></tr>
+<tr class="memdesc:abc398f49f61d543eb9401aef6dd0326d"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算点云的质心。  <br /></td></tr>
+<tr class="separator:abc398f49f61d543eb9401aef6dd0326d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3024890c90b45397b012a94664690d25" id="r_a3024890c90b45397b012a94664690d25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3024890c90b45397b012a94664690d25">clear</a> ()</td></tr>
+<tr class="memdesc:a3024890c90b45397b012a94664690d25"><td class="mdescLeft">&#160;</td><td class="mdescRight">清空点云中的所有点。  <br /></td></tr>
+<tr class="separator:a3024890c90b45397b012a94664690d25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada57fc208892103f87f7ce350bd6ad70" id="r_ada57fc208892103f87f7ce350bd6ad70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada57fc208892103f87f7ce350bd6ad70">transform</a> (const Eigen::Matrix4d &amp;transformation)</td></tr>
+<tr class="memdesc:ada57fc208892103f87f7ce350bd6ad70"><td class="mdescLeft">&#160;</td><td class="mdescRight">使用4x4变换矩阵对点云进行变换。  <br /></td></tr>
+<tr class="separator:ada57fc208892103f87f7ce350bd6ad70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35c20a96b89f6190e176cd777a5f6331" id="r_a35c20a96b89f6190e176cd777a5f6331"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35c20a96b89f6190e176cd777a5f6331">rotate</a> (const Eigen::Matrix3d &amp;rotation_matrix)</td></tr>
+<tr class="memdesc:a35c20a96b89f6190e176cd777a5f6331"><td class="mdescLeft">&#160;</td><td class="mdescRight">对点云进行旋转。  <br /></td></tr>
+<tr class="separator:a35c20a96b89f6190e176cd777a5f6331"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49c22e1632475589e3ac4165d1a48e2c" id="r_a49c22e1632475589e3ac4165d1a48e2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49c22e1632475589e3ac4165d1a48e2c">translate</a> (const Eigen::Vector3d &amp;translation_vector)</td></tr>
+<tr class="memdesc:a49c22e1632475589e3ac4165d1a48e2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">对点云进行平移。  <br /></td></tr>
+<tr class="separator:a49c22e1632475589e3ac4165d1a48e2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a972cfb43f6d2d41acb72c429b6285594" id="r_a972cfb43f6d2d41acb72c429b6285594"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a972cfb43f6d2d41acb72c429b6285594">downsample</a> (double voxel_size)</td></tr>
+<tr class="memdesc:a972cfb43f6d2d41acb72c429b6285594"><td class="mdescLeft">&#160;</td><td class="mdescRight">对点云进行下采样。  <br /></td></tr>
+<tr class="separator:a972cfb43f6d2d41acb72c429b6285594"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecbaf044caa6f09ec56f4d8316b061bf" id="r_aecbaf044caa6f09ec56f4d8316b061bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecbaf044caa6f09ec56f4d8316b061bf">statisticalOutlierRemoval</a> (int mean_k=50, double std_dev_mul_thresh=1.0)</td></tr>
+<tr class="memdesc:aecbaf044caa6f09ec56f4d8316b061bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">统计异常点移除。  <br /></td></tr>
+<tr class="separator:aecbaf044caa6f09ec56f4d8316b061bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad53aa9613d5d3d42be00a5c73f4b2158" id="r_ad53aa9613d5d3d42be00a5c73f4b2158"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad53aa9613d5d3d42be00a5c73f4b2158">radiusOutlierRemoval</a> (double radius, int min_neighbors)</td></tr>
+<tr class="memdesc:ad53aa9613d5d3d42be00a5c73f4b2158"><td class="mdescLeft">&#160;</td><td class="mdescRight">半径异常点移除。  <br /></td></tr>
+<tr class="separator:ad53aa9613d5d3d42be00a5c73f4b2158"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ed32a0a585be15470df1977bbe3fd51" id="r_a7ed32a0a585be15470df1977bbe3fd51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ed32a0a585be15470df1977bbe3fd51">computeNormals</a> (int k=10)</td></tr>
+<tr class="memdesc:a7ed32a0a585be15470df1977bbe3fd51"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算点云中每个点的法向量。  <br /></td></tr>
+<tr class="separator:a7ed32a0a585be15470df1977bbe3fd51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cd8d7006aa19ce750444e00f1ed71b6" id="r_a0cd8d7006aa19ce750444e00f1ed71b6"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix4d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0cd8d7006aa19ce750444e00f1ed71b6">icp</a> (const <a class="el" href="classrc__vision_1_1core_1_1_point_cloud.html">PointCloud</a> &amp;target, int max_iterations=50, double tolerance=1e-6)</td></tr>
+<tr class="memdesc:a0cd8d7006aa19ce750444e00f1ed71b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">使用ICP算法进行点云配准。  <br /></td></tr>
+<tr class="separator:a0cd8d7006aa19ce750444e00f1ed71b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac29fc4cb9e4b2bdc9d9286a945777a0c" id="r_ac29fc4cb9e4b2bdc9d9286a945777a0c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classrc__vision_1_1core_1_1_point_cloud.html">PointCloud</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac29fc4cb9e4b2bdc9d9286a945777a0c">euclideanClustering</a> (double cluster_tolerance, int min_size, int max_size) const</td></tr>
+<tr class="memdesc:ac29fc4cb9e4b2bdc9d9286a945777a0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">使用欧式聚类对点云进行分割。  <br /></td></tr>
+<tr class="separator:ac29fc4cb9e4b2bdc9d9286a945777a0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c47a42a53c785a27d2daeb27702a575" id="r_a6c47a42a53c785a27d2daeb27702a575"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c47a42a53c785a27d2daeb27702a575">merge</a> (const <a class="el" href="classrc__vision_1_1core_1_1_point_cloud.html">PointCloud</a> &amp;other)</td></tr>
+<tr class="memdesc:a6c47a42a53c785a27d2daeb27702a575"><td class="mdescLeft">&#160;</td><td class="mdescRight">合并另一个点云到当前点云中。  <br /></td></tr>
+<tr class="separator:a6c47a42a53c785a27d2daeb27702a575"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1d040a42d66df872acb26a7019fb60b" id="r_ab1d040a42d66df872acb26a7019fb60b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1d040a42d66df872acb26a7019fb60b">mergeWith</a> (const <a class="el" href="classrc__vision_1_1core_1_1_point_cloud.html">PointCloud</a> &amp;other, const Eigen::Matrix4d &amp;transformation)</td></tr>
+<tr class="memdesc:ab1d040a42d66df872acb26a7019fb60b"><td class="mdescLeft">&#160;</td><td class="mdescRight">合并另一个点云到当前点云中，并应用变换。  <br /></td></tr>
+<tr class="separator:ab1d040a42d66df872acb26a7019fb60b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d6537d33979a1ada7d5ad32c9c87b69" id="r_a0d6537d33979a1ada7d5ad32c9c87b69"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structrc__vision_1_1core_1_1_point_cloud_stats.html">PointCloudStats</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d6537d33979a1ada7d5ad32c9c87b69">computeStats</a> () const</td></tr>
+<tr class="memdesc:a0d6537d33979a1ada7d5ad32c9c87b69"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算点云的统计信息。  <br /></td></tr>
+<tr class="separator:a0d6537d33979a1ada7d5ad32c9c87b69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff92bbfb11f0875f8964342060674ccb" id="r_aff92bbfb11f0875f8964342060674ccb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff92bbfb11f0875f8964342060674ccb">loadFromPLY</a> (const std::string &amp;file_path)</td></tr>
+<tr class="memdesc:aff92bbfb11f0875f8964342060674ccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">从PLY文件加载点云数据。  <br /></td></tr>
+<tr class="separator:aff92bbfb11f0875f8964342060674ccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3c87ac8c0d9939920f8d7d2c2c72734" id="r_af3c87ac8c0d9939920f8d7d2c2c72734"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3c87ac8c0d9939920f8d7d2c2c72734">saveToPLY</a> (const std::string &amp;file_path) const</td></tr>
+<tr class="memdesc:af3c87ac8c0d9939920f8d7d2c2c72734"><td class="mdescLeft">&#160;</td><td class="mdescRight">将点云数据保存到PLY文件。  <br /></td></tr>
+<tr class="separator:af3c87ac8c0d9939920f8d7d2c2c72734"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d28cc313c004bd8e889ad02340d26c5" id="r_a7d28cc313c004bd8e889ad02340d26c5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d28cc313c004bd8e889ad02340d26c5">loadFromPCD</a> (const std::string &amp;file_path)</td></tr>
+<tr class="memdesc:a7d28cc313c004bd8e889ad02340d26c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">从PCD文件加载点云数据。  <br /></td></tr>
+<tr class="separator:a7d28cc313c004bd8e889ad02340d26c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afad42fe7d0dda2669855b6ae3baf21f3" id="r_afad42fe7d0dda2669855b6ae3baf21f3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afad42fe7d0dda2669855b6ae3baf21f3">saveToPCD</a> (const std::string &amp;file_path) const</td></tr>
+<tr class="memdesc:afad42fe7d0dda2669855b6ae3baf21f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">将点云数据保存到PCD文件。  <br /></td></tr>
+<tr class="separator:afad42fe7d0dda2669855b6ae3baf21f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private 成员函数</h2></td></tr>
+<tr class="memitem:a4560c6ddb8c33524063dcb39306c82d2" id="r_a4560c6ddb8c33524063dcb39306c82d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4560c6ddb8c33524063dcb39306c82d2">applyTransformation</a> (const Eigen::Matrix4d &amp;transformation)</td></tr>
+<tr class="memdesc:a4560c6ddb8c33524063dcb39306c82d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">应用4x4变换矩阵到点云。  <br /></td></tr>
+<tr class="separator:a4560c6ddb8c33524063dcb39306c82d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private 属性</h2></td></tr>
+<tr class="memitem:a08060c954a98698c9d30501e42c5030f" id="r_a08060c954a98698c9d30501e42c5030f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structrc__vision_1_1core_1_1_point.html">Point</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08060c954a98698c9d30501e42c5030f">points_</a></td></tr>
+<tr class="separator:a08060c954a98698c9d30501e42c5030f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>点云类，管理和处理三维点云数据。 </p>
+<p>提供点的添加、变换、滤波、法向量估计、配准、分割、合并以及统计信息计算等功能。 </p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a334ba717b6ce6da62cd2e2acab90c1fc" name="a334ba717b6ce6da62cd2e2acab90c1fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a334ba717b6ce6da62cd2e2acab90c1fc">&#9670;&#160;</a></span>PointCloud()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">rc_vision::core::PointCloud::PointCloud </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>默认构造函数。 </p>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a33e0800bec14d451d87c00a78ea7e639" name="a33e0800bec14d451d87c00a78ea7e639"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33e0800bec14d451d87c00a78ea7e639">&#9670;&#160;</a></span>addPoint() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::PointCloud::addPoint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structrc__vision_1_1core_1_1_point.html">Point</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>point</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>添加一个点到点云。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point</td><td>需要添加的点。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a43eefa6138e5c856e6d1aa4211359322" name="a43eefa6138e5c856e6d1aa4211359322"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43eefa6138e5c856e6d1aa4211359322">&#9670;&#160;</a></span>addPoint() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::PointCloud::addPoint </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>z</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>添加一个点到点云。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>点的X坐标。 </td></tr>
+    <tr><td class="paramname">y</td><td>点的Y坐标。 </td></tr>
+    <tr><td class="paramname">z</td><td>点的Z坐标。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a751523ee14d085a4e960356f44421991" name="a751523ee14d085a4e960356f44421991"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a751523ee14d085a4e960356f44421991">&#9670;&#160;</a></span>addPoint() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::PointCloud::addPoint </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>z</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Eigen::Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>添加一个带颜色的点到点云。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>点的X坐标。 </td></tr>
+    <tr><td class="paramname">y</td><td>点的Y坐标。 </td></tr>
+    <tr><td class="paramname">z</td><td>点的Z坐标。 </td></tr>
+    <tr><td class="paramname">color</td><td>点的RGB颜色。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4560c6ddb8c33524063dcb39306c82d2" name="a4560c6ddb8c33524063dcb39306c82d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4560c6ddb8c33524063dcb39306c82d2">&#9670;&#160;</a></span>applyTransformation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::PointCloud::applyTransformation </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::Matrix4d &amp;</td>          <td class="paramname"><span class="paramname"><em>transformation</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>应用4x4变换矩阵到点云。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">transformation</td><td>4x4的变换矩阵。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3024890c90b45397b012a94664690d25" name="a3024890c90b45397b012a94664690d25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3024890c90b45397b012a94664690d25">&#9670;&#160;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::PointCloud::clear </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>清空点云中的所有点。 </p>
+
+</div>
+</div>
+<a id="abc398f49f61d543eb9401aef6dd0326d" name="abc398f49f61d543eb9401aef6dd0326d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc398f49f61d543eb9401aef6dd0326d">&#9670;&#160;</a></span>computeCentroid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Vector3d rc_vision::core::PointCloud::computeCentroid </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算点云的质心。 </p>
+<dl class="section return"><dt>返回</dt><dd>点云的质心坐标。 </dd></dl>
+
+</div>
+</div>
+<a id="a7ed32a0a585be15470df1977bbe3fd51" name="a7ed32a0a585be15470df1977bbe3fd51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ed32a0a585be15470df1977bbe3fd51">&#9670;&#160;</a></span>computeNormals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::PointCloud::computeNormals </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>k</em></span><span class="paramdefsep"> = </span><span class="paramdefval">10</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算点云中每个点的法向量。 </p>
+<p>使用K最近邻方法估计法向量。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td>用于法向量估计的邻居点数量。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0d6537d33979a1ada7d5ad32c9c87b69" name="a0d6537d33979a1ada7d5ad32c9c87b69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d6537d33979a1ada7d5ad32c9c87b69">&#9670;&#160;</a></span>computeStats()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structrc__vision_1_1core_1_1_point_cloud_stats.html">PointCloudStats</a> rc_vision::core::PointCloud::computeStats </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算点云的统计信息。 </p>
+<dl class="section return"><dt>返回</dt><dd>点云的统计信息结构体。 </dd></dl>
+
+</div>
+</div>
+<a id="a972cfb43f6d2d41acb72c429b6285594" name="a972cfb43f6d2d41acb72c429b6285594"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a972cfb43f6d2d41acb72c429b6285594">&#9670;&#160;</a></span>downsample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::PointCloud::downsample </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>voxel_size</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>对点云进行下采样。 </p>
+<p>使用体素网格滤波器进行下采样。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">voxel_size</td><td>体素大小。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac29fc4cb9e4b2bdc9d9286a945777a0c" name="ac29fc4cb9e4b2bdc9d9286a945777a0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac29fc4cb9e4b2bdc9d9286a945777a0c">&#9670;&#160;</a></span>euclideanClustering()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classrc__vision_1_1core_1_1_point_cloud.html">PointCloud</a> &gt; rc_vision::core::PointCloud::euclideanClustering </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>cluster_tolerance</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>min_size</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>max_size</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>使用欧式聚类对点云进行分割。 </p>
+<p>将点云分割为多个独立的聚类。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cluster_tolerance</td><td>聚类容差半径。 </td></tr>
+    <tr><td class="paramname">min_size</td><td>每个聚类的最小点数。 </td></tr>
+    <tr><td class="paramname">max_size</td><td>每个聚类的最大点数。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>分割后的点云集合。 </dd></dl>
+
+</div>
+</div>
+<a id="a80b8a324eddcf4b45d554042c6e817c5" name="a80b8a324eddcf4b45d554042c6e817c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80b8a324eddcf4b45d554042c6e817c5">&#9670;&#160;</a></span>getPoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; <a class="el" href="structrc__vision_1_1core_1_1_point.html">Point</a> &gt; &amp; rc_vision::core::PointCloud::getPoints </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取所有点的集合。 </p>
+<dl class="section return"><dt>返回</dt><dd>常量引用，指向点云中的所有点。 </dd></dl>
+
+</div>
+</div>
+<a id="a0cd8d7006aa19ce750444e00f1ed71b6" name="a0cd8d7006aa19ce750444e00f1ed71b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cd8d7006aa19ce750444e00f1ed71b6">&#9670;&#160;</a></span>icp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Matrix4d rc_vision::core::PointCloud::icp </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classrc__vision_1_1core_1_1_point_cloud.html">PointCloud</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>target</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>max_iterations</em></span><span class="paramdefsep"> = </span><span class="paramdefval">50</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>tolerance</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1e-6</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>使用ICP算法进行点云配准。 </p>
+<p>将当前点云与目标点云对齐。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>目标点云。 </td></tr>
+    <tr><td class="paramname">max_iterations</td><td>最大迭代次数。 </td></tr>
+    <tr><td class="paramname">tolerance</td><td>收敛容差。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>最优的4x4变换矩阵。 </dd></dl>
+
+</div>
+</div>
+<a id="a7d28cc313c004bd8e889ad02340d26c5" name="a7d28cc313c004bd8e889ad02340d26c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d28cc313c004bd8e889ad02340d26c5">&#9670;&#160;</a></span>loadFromPCD()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool rc_vision::core::PointCloud::loadFromPCD </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>file_path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从PCD文件加载点云数据。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_path</td><td>PCD文件路径。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>成功返回true，失败返回false。 </dd></dl>
+
+</div>
+</div>
+<a id="aff92bbfb11f0875f8964342060674ccb" name="aff92bbfb11f0875f8964342060674ccb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff92bbfb11f0875f8964342060674ccb">&#9670;&#160;</a></span>loadFromPLY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool rc_vision::core::PointCloud::loadFromPLY </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>file_path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从PLY文件加载点云数据。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_path</td><td>PLY文件路径。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>成功返回true，失败返回false。 </dd></dl>
+
+</div>
+</div>
+<a id="a6c47a42a53c785a27d2daeb27702a575" name="a6c47a42a53c785a27d2daeb27702a575"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c47a42a53c785a27d2daeb27702a575">&#9670;&#160;</a></span>merge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::PointCloud::merge </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classrc__vision_1_1core_1_1_point_cloud.html">PointCloud</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>合并另一个点云到当前点云中。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>需要合并的点云。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab1d040a42d66df872acb26a7019fb60b" name="ab1d040a42d66df872acb26a7019fb60b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1d040a42d66df872acb26a7019fb60b">&#9670;&#160;</a></span>mergeWith()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::PointCloud::mergeWith </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classrc__vision_1_1core_1_1_point_cloud.html">PointCloud</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Eigen::Matrix4d &amp;</td>          <td class="paramname"><span class="paramname"><em>transformation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>合并另一个点云到当前点云中，并应用变换。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>需要合并的点云。 </td></tr>
+    <tr><td class="paramname">transformation</td><td>需要应用的4x4变换矩阵。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad53aa9613d5d3d42be00a5c73f4b2158" name="ad53aa9613d5d3d42be00a5c73f4b2158"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad53aa9613d5d3d42be00a5c73f4b2158">&#9670;&#160;</a></span>radiusOutlierRemoval()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::PointCloud::radiusOutlierRemoval </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>radius</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>min_neighbors</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>半径异常点移除。 </p>
+<p>移除点云中邻居点少于指定数量的点。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">radius</td><td>搜索半径。 </td></tr>
+    <tr><td class="paramname">min_neighbors</td><td>最小邻居数量。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a35c20a96b89f6190e176cd777a5f6331" name="a35c20a96b89f6190e176cd777a5f6331"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35c20a96b89f6190e176cd777a5f6331">&#9670;&#160;</a></span>rotate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::PointCloud::rotate </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::Matrix3d &amp;</td>          <td class="paramname"><span class="paramname"><em>rotation_matrix</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>对点云进行旋转。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rotation_matrix</td><td>3x3的旋转矩阵。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afad42fe7d0dda2669855b6ae3baf21f3" name="afad42fe7d0dda2669855b6ae3baf21f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afad42fe7d0dda2669855b6ae3baf21f3">&#9670;&#160;</a></span>saveToPCD()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool rc_vision::core::PointCloud::saveToPCD </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>file_path</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将点云数据保存到PCD文件。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_path</td><td>PCD文件路径。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>成功返回true，失败返回false。 </dd></dl>
+
+</div>
+</div>
+<a id="af3c87ac8c0d9939920f8d7d2c2c72734" name="af3c87ac8c0d9939920f8d7d2c2c72734"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3c87ac8c0d9939920f8d7d2c2c72734">&#9670;&#160;</a></span>saveToPLY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool rc_vision::core::PointCloud::saveToPLY </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>file_path</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将点云数据保存到PLY文件。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_path</td><td>PLY文件路径。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>成功返回true，失败返回false。 </dd></dl>
+
+</div>
+</div>
+<a id="a87b437110fcaa83268bf1282b4a02966" name="a87b437110fcaa83268bf1282b4a02966"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87b437110fcaa83268bf1282b4a02966">&#9670;&#160;</a></span>size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t rc_vision::core::PointCloud::size </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取点云中的点数。 </p>
+<dl class="section return"><dt>返回</dt><dd>点云中的点数。 </dd></dl>
+
+</div>
+</div>
+<a id="aecbaf044caa6f09ec56f4d8316b061bf" name="aecbaf044caa6f09ec56f4d8316b061bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecbaf044caa6f09ec56f4d8316b061bf">&#9670;&#160;</a></span>statisticalOutlierRemoval()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::PointCloud::statisticalOutlierRemoval </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>mean_k</em></span><span class="paramdefsep"> = </span><span class="paramdefval">50</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>std_dev_mul_thresh</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1.0</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>统计异常点移除。 </p>
+<p>移除点云中的统计异常点。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mean_k</td><td>邻域内点的数量。 </td></tr>
+    <tr><td class="paramname">std_dev_mul_thresh</td><td>标准差倍数阈值。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ada57fc208892103f87f7ce350bd6ad70" name="ada57fc208892103f87f7ce350bd6ad70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada57fc208892103f87f7ce350bd6ad70">&#9670;&#160;</a></span>transform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::PointCloud::transform </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::Matrix4d &amp;</td>          <td class="paramname"><span class="paramname"><em>transformation</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>使用4x4变换矩阵对点云进行变换。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">transformation</td><td>4x4的变换矩阵。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a49c22e1632475589e3ac4165d1a48e2c" name="a49c22e1632475589e3ac4165d1a48e2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49c22e1632475589e3ac4165d1a48e2c">&#9670;&#160;</a></span>translate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::PointCloud::translate </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>translation_vector</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>对点云进行平移。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">translation_vector</td><td>3维的平移向量。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="a08060c954a98698c9d30501e42c5030f" name="a08060c954a98698c9d30501e42c5030f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08060c954a98698c9d30501e42c5030f">&#9670;&#160;</a></span>points_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structrc__vision_1_1core_1_1_point.html">Point</a>&gt; rc_vision::core::PointCloud::points_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>存储点云中的所有点。 </p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>C:/Users/14168/1/rc_vision/core_lib/include/rc_vision/core/<a class="el" href="point__cloud_8hpp_source.html">point_cloud.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

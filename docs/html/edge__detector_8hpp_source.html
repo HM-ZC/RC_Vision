@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RC vision: C:/Users/14168/1/rc_vision/core_lib/include/rc_vision/core/edge_detector.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RC vision<span id="projectnumber">&#160;beta0.1.0</span>
+   </div>
+   <div id="projectbrief">机器人视觉库</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_6b71f9c233d9519f4af35a38b852209b.html">core_lib</a></li><li class="navelem"><a class="el" href="dir_91bce8cc46c2d1a1c49b6c892b066b0d.html">include</a></li><li class="navelem"><a class="el" href="dir_8027d5a996a7752b55704260e4cc0697.html">rc_vision</a></li><li class="navelem"><a class="el" href="dir_cd238af50b2a6e1d947d51424d846599.html">core</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">edge_detector.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="edge__detector_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef RC_VISION_CORE_EDGE_DETECTOR_HPP</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define RC_VISION_CORE_EDGE_DETECTOR_HPP</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;opencv2/opencv.hpp&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="logger_8hpp.html">rc_vision/core/logger.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacerc__vision.html">rc_vision</a> {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keyword">namespace </span>core {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespacerc__vision_1_1core.html#ac65d8a5ae9c897b6ffd74a4f1a417b10">   16</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespacerc__vision_1_1core.html#ac65d8a5ae9c897b6ffd74a4f1a417b10">EdgeDetectionMethod</a> {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            <a class="code hl_enumvalue" href="namespacerc__vision_1_1core.html#ac65d8a5ae9c897b6ffd74a4f1a417b10a3701051f20fd8dd55bcd9f355a511745">CANNY</a>,      </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            <a class="code hl_enumvalue" href="namespacerc__vision_1_1core.html#ac65d8a5ae9c897b6ffd74a4f1a417b10a2eb35f75582ca62917714c438551bba5">SOBEL</a>,      </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            <a class="code hl_enumvalue" href="namespacerc__vision_1_1core.html#ac65d8a5ae9c897b6ffd74a4f1a417b10a1c2d5f3f8e6cbb0c7b033c388c905d22">LAPLACIAN</a>,  </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            <span class="comment">// 可以添加更多方法</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        };</div>
+</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="namespacerc__vision_1_1core.html#aaa2e7cf3c8acdaf99158aecd76cba048">   27</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespacerc__vision_1_1core.html#aaa2e7cf3c8acdaf99158aecd76cba048">EdgeType</a> {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <a class="code hl_enumvalue" href="namespacerc__vision_1_1core.html#aaa2e7cf3c8acdaf99158aecd76cba048ab61773b9b3968a9988d765d728985862">GENERAL</a>,    </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            <a class="code hl_enumvalue" href="namespacerc__vision_1_1core.html#aaa2e7cf3c8acdaf99158aecd76cba048a17b8ef2c330f1430e00c9de5469fc7e7">LINE</a>,       </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <a class="code hl_enumvalue" href="namespacerc__vision_1_1core.html#aaa2e7cf3c8acdaf99158aecd76cba048ac411afd31d32cec664d372acc12f404a">CORNER</a>,     </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            <a class="code hl_enumvalue" href="namespacerc__vision_1_1core.html#aaa2e7cf3c8acdaf99158aecd76cba048a0af50777920c1401ab975cab64c4d491">CIRCLE</a>,     </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <a class="code hl_enumvalue" href="namespacerc__vision_1_1core.html#aaa2e7cf3c8acdaf99158aecd76cba048aecdc92bf56d960b73b02ee40125758bc">POLYGON</a>,    </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <span class="comment">// 可以添加更多类型</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        };</div>
+</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="};">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="structrc__vision_1_1core_1_1_edge_detection_result.html">   40</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a> {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="structrc__vision_1_1core_1_1_edge_detection_result.html#a0407d29cbd22b49eda6720a63e0c2fda">   41</a></span>            cv::Mat <a class="code hl_variable" href="structrc__vision_1_1core_1_1_edge_detection_result.html#a0407d29cbd22b49eda6720a63e0c2fda">edges</a>;                         </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="structrc__vision_1_1core_1_1_edge_detection_result.html#a72865c65d00551367de418fda206995a">   42</a></span>            std::vector&lt;cv::Point&gt; <a class="code hl_variable" href="structrc__vision_1_1core_1_1_edge_detection_result.html#a72865c65d00551367de418fda206995a">edge_points</a>;    </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="structrc__vision_1_1core_1_1_edge_detection_result.html#a5169866f9b69eb118161494bd34ddbc5">   43</a></span>            std::vector&lt;EdgeType&gt; <a class="code hl_variable" href="structrc__vision_1_1core_1_1_edge_detection_result.html#a5169866f9b69eb118161494bd34ddbc5">edge_types</a>;      </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        };</div>
+</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="foldopen" id="foldopen00052" data-start="{" data-end="};">
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_edge_detector.html">   52</a></span>        <span class="keyword">class </span><a class="code hl_class" href="classrc__vision_1_1core_1_1_edge_detector.html">EdgeDetector</a> {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_edge_detector.html#aa3e8133d4c347807da0490436a728ba0">   57</a></span>            <a class="code hl_function" href="classrc__vision_1_1core_1_1_edge_detector.html#aa3e8133d4c347807da0490436a728ba0">EdgeDetector</a>();</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_edge_detector.html#a44a4ee20a173202df13785af4ed138f2">   62</a></span>            <a class="code hl_function" href="classrc__vision_1_1core_1_1_edge_detector.html#a44a4ee20a173202df13785af4ed138f2">~EdgeDetector</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_edge_detector.html#a32a008786bcf0212965bacbf3bbecf07">   68</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_edge_detector.html#a32a008786bcf0212965bacbf3bbecf07">setMethod</a>(<a class="code hl_enumeration" href="namespacerc__vision_1_1core.html#ac65d8a5ae9c897b6ffd74a4f1a417b10">EdgeDetectionMethod</a> method);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_edge_detector.html#a1dc37a0731980fae2c010e0331618e24">   77</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_edge_detector.html#a1dc37a0731980fae2c010e0331618e24">setParameters</a>(<span class="keyword">const</span> std::vector&lt;double&gt;&amp; params);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_edge_detector.html#abfffa612a5025c2a60c79203b4df8ccb">   84</a></span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_edge_detector.html#abfffa612a5025c2a60c79203b4df8ccb">loadConfig</a>(<span class="keyword">const</span> std::string&amp; config_file);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_edge_detector.html#ade22230c04ed0c6909eebd4c1a8e824d">   91</a></span>            <a class="code hl_struct" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a> <a class="code hl_function" href="classrc__vision_1_1core_1_1_edge_detector.html#ade22230c04ed0c6909eebd4c1a8e824d">detectEdges</a>(<span class="keyword">const</span> cv::Mat&amp; image);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_edge_detector.html#a7989cc2a039cf069a124856e54f321bd">   97</a></span>            <a class="code hl_enumeration" href="namespacerc__vision_1_1core.html#ac65d8a5ae9c897b6ffd74a4f1a417b10">EdgeDetectionMethod</a> <a class="code hl_function" href="classrc__vision_1_1core_1_1_edge_detector.html#a7989cc2a039cf069a124856e54f321bd">getMethod</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_edge_detector.html#acbe4e47208e3e1f1f44e77b0df35d9c8">  103</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_edge_detector.html#acbe4e47208e3e1f1f44e77b0df35d9c8">setDetectEdgeTypes</a>(<span class="keyword">const</span> std::vector&lt;EdgeType&gt;&amp; types);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_edge_detector.html#a9eb3069d7bcb59fa399559811e276fae">  106</a></span>            <a class="code hl_enumeration" href="namespacerc__vision_1_1core.html#ac65d8a5ae9c897b6ffd74a4f1a417b10">EdgeDetectionMethod</a> <a class="code hl_variable" href="classrc__vision_1_1core_1_1_edge_detector.html#a9eb3069d7bcb59fa399559811e276fae">current_method_</a>;        </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_edge_detector.html#a9be0beaa54b33ba298157c64ba938194">  107</a></span>            std::vector&lt;double&gt; <a class="code hl_variable" href="classrc__vision_1_1core_1_1_edge_detector.html#a9be0beaa54b33ba298157c64ba938194">parameters_</a>;            </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_edge_detector.html#a7befbc0174178ddb0a52a82dcd23d52d">  108</a></span>            std::vector&lt;EdgeType&gt; <a class="code hl_variable" href="classrc__vision_1_1core_1_1_edge_detector.html#a7befbc0174178ddb0a52a82dcd23d52d">detect_edge_types_</a>;   </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_edge_detector.html#a3c353a11b619867c58aa5280dd56879a">  115</a></span>            <a class="code hl_struct" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a> <a class="code hl_function" href="classrc__vision_1_1core_1_1_edge_detector.html#a3c353a11b619867c58aa5280dd56879a">detectCanny</a>(<span class="keyword">const</span> cv::Mat&amp; image);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_edge_detector.html#a4e810b938cc293cfebbd0e0c21dc95f0">  122</a></span>            <a class="code hl_struct" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a> <a class="code hl_function" href="classrc__vision_1_1core_1_1_edge_detector.html#a4e810b938cc293cfebbd0e0c21dc95f0">detectSobel</a>(<span class="keyword">const</span> cv::Mat&amp; image);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_edge_detector.html#aadacff19a254613068ec7d602b80c985">  129</a></span>            <a class="code hl_struct" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a> <a class="code hl_function" href="classrc__vision_1_1core_1_1_edge_detector.html#aadacff19a254613068ec7d602b80c985">detectLaplacian</a>(<span class="keyword">const</span> cv::Mat&amp; image);</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_edge_detector.html#ac79c4298197b96be4418966c08deaa24">  139</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_edge_detector.html#ac79c4298197b96be4418966c08deaa24">classifyEdgeTypes</a>(<span class="keyword">const</span> cv::Mat&amp; edges, <a class="code hl_struct" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a>&amp; result);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_edge_detector.html#a673c672de9ca9038bca93e51e86ca8ae">  146</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_edge_detector.html#a673c672de9ca9038bca93e51e86ca8ae">detectLines</a>(<span class="keyword">const</span> cv::Mat&amp; edges, <a class="code hl_struct" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a>&amp; result);</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_edge_detector.html#a9cd15d95746ea9cdd99f67e89f6a979f">  153</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_edge_detector.html#a9cd15d95746ea9cdd99f67e89f6a979f">detectCorners</a>(<span class="keyword">const</span> cv::Mat&amp; edges, <a class="code hl_struct" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a>&amp; result);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_edge_detector.html#a2fb3d0af93c47c1773ce69826ce12ab6">  160</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_edge_detector.html#a2fb3d0af93c47c1773ce69826ce12ab6">detectCircles</a>(<span class="keyword">const</span> cv::Mat&amp; edges, <a class="code hl_struct" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a>&amp; result);     <span class="comment">// 新增</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_edge_detector.html#af4ff19f1105bd35ab6513c6f89dc4141">  167</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_edge_detector.html#af4ff19f1105bd35ab6513c6f89dc4141">detectPolygons</a>(<span class="keyword">const</span> cv::Mat&amp; edges, <a class="code hl_struct" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a>&amp; result);    <span class="comment">// 新增</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        };</div>
+</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    } <span class="comment">// namespace core</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>} <span class="comment">// namespace rc_vision</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="preprocessor">#endif </span><span class="comment">// RC_VISION_CORE_EDGE_DETECTOR_HPP</span></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_edge_detector_html"><div class="ttname"><a href="classrc__vision_1_1core_1_1_edge_detector.html">rc_vision::core::EdgeDetector</a></div><div class="ttdoc">边缘检测类，支持多种边缘检测方法和边缘类型分类。</div><div class="ttdef"><b>定义</b> edge_detector.hpp:52</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_edge_detector_html_a1dc37a0731980fae2c010e0331618e24"><div class="ttname"><a href="classrc__vision_1_1core_1_1_edge_detector.html#a1dc37a0731980fae2c010e0331618e24">rc_vision::core::EdgeDetector::setParameters</a></div><div class="ttdeci">void setParameters(const std::vector&lt; double &gt; &amp;params)</div><div class="ttdoc">配置算法参数。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_edge_detector_html_a2fb3d0af93c47c1773ce69826ce12ab6"><div class="ttname"><a href="classrc__vision_1_1core_1_1_edge_detector.html#a2fb3d0af93c47c1773ce69826ce12ab6">rc_vision::core::EdgeDetector::detectCircles</a></div><div class="ttdeci">void detectCircles(const cv::Mat &amp;edges, EdgeDetectionResult &amp;result)</div><div class="ttdoc">检测圆形边缘。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_edge_detector_html_a32a008786bcf0212965bacbf3bbecf07"><div class="ttname"><a href="classrc__vision_1_1core_1_1_edge_detector.html#a32a008786bcf0212965bacbf3bbecf07">rc_vision::core::EdgeDetector::setMethod</a></div><div class="ttdeci">void setMethod(EdgeDetectionMethod method)</div><div class="ttdoc">设置边缘检测方法。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_edge_detector_html_a3c353a11b619867c58aa5280dd56879a"><div class="ttname"><a href="classrc__vision_1_1core_1_1_edge_detector.html#a3c353a11b619867c58aa5280dd56879a">rc_vision::core::EdgeDetector::detectCanny</a></div><div class="ttdeci">EdgeDetectionResult detectCanny(const cv::Mat &amp;image)</div><div class="ttdoc">执行 Canny 边缘检测。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_edge_detector_html_a44a4ee20a173202df13785af4ed138f2"><div class="ttname"><a href="classrc__vision_1_1core_1_1_edge_detector.html#a44a4ee20a173202df13785af4ed138f2">rc_vision::core::EdgeDetector::~EdgeDetector</a></div><div class="ttdeci">~EdgeDetector()=default</div><div class="ttdoc">默认析构函数。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_edge_detector_html_a4e810b938cc293cfebbd0e0c21dc95f0"><div class="ttname"><a href="classrc__vision_1_1core_1_1_edge_detector.html#a4e810b938cc293cfebbd0e0c21dc95f0">rc_vision::core::EdgeDetector::detectSobel</a></div><div class="ttdeci">EdgeDetectionResult detectSobel(const cv::Mat &amp;image)</div><div class="ttdoc">执行 Sobel 边缘检测。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_edge_detector_html_a673c672de9ca9038bca93e51e86ca8ae"><div class="ttname"><a href="classrc__vision_1_1core_1_1_edge_detector.html#a673c672de9ca9038bca93e51e86ca8ae">rc_vision::core::EdgeDetector::detectLines</a></div><div class="ttdeci">void detectLines(const cv::Mat &amp;edges, EdgeDetectionResult &amp;result)</div><div class="ttdoc">检测直线边缘。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_edge_detector_html_a7989cc2a039cf069a124856e54f321bd"><div class="ttname"><a href="classrc__vision_1_1core_1_1_edge_detector.html#a7989cc2a039cf069a124856e54f321bd">rc_vision::core::EdgeDetector::getMethod</a></div><div class="ttdeci">EdgeDetectionMethod getMethod() const</div><div class="ttdoc">获取当前使用的边缘检测方法。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_edge_detector_html_a7befbc0174178ddb0a52a82dcd23d52d"><div class="ttname"><a href="classrc__vision_1_1core_1_1_edge_detector.html#a7befbc0174178ddb0a52a82dcd23d52d">rc_vision::core::EdgeDetector::detect_edge_types_</a></div><div class="ttdeci">std::vector&lt; EdgeType &gt; detect_edge_types_</div><div class="ttdef"><b>定义</b> edge_detector.hpp:108</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_edge_detector_html_a9be0beaa54b33ba298157c64ba938194"><div class="ttname"><a href="classrc__vision_1_1core_1_1_edge_detector.html#a9be0beaa54b33ba298157c64ba938194">rc_vision::core::EdgeDetector::parameters_</a></div><div class="ttdeci">std::vector&lt; double &gt; parameters_</div><div class="ttdef"><b>定义</b> edge_detector.hpp:107</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_edge_detector_html_a9cd15d95746ea9cdd99f67e89f6a979f"><div class="ttname"><a href="classrc__vision_1_1core_1_1_edge_detector.html#a9cd15d95746ea9cdd99f67e89f6a979f">rc_vision::core::EdgeDetector::detectCorners</a></div><div class="ttdeci">void detectCorners(const cv::Mat &amp;edges, EdgeDetectionResult &amp;result)</div><div class="ttdoc">检测角点边缘。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_edge_detector_html_a9eb3069d7bcb59fa399559811e276fae"><div class="ttname"><a href="classrc__vision_1_1core_1_1_edge_detector.html#a9eb3069d7bcb59fa399559811e276fae">rc_vision::core::EdgeDetector::current_method_</a></div><div class="ttdeci">EdgeDetectionMethod current_method_</div><div class="ttdef"><b>定义</b> edge_detector.hpp:106</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_edge_detector_html_aa3e8133d4c347807da0490436a728ba0"><div class="ttname"><a href="classrc__vision_1_1core_1_1_edge_detector.html#aa3e8133d4c347807da0490436a728ba0">rc_vision::core::EdgeDetector::EdgeDetector</a></div><div class="ttdeci">EdgeDetector()</div><div class="ttdoc">默认构造函数，初始化边缘检测方法为 CANNY。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_edge_detector_html_aadacff19a254613068ec7d602b80c985"><div class="ttname"><a href="classrc__vision_1_1core_1_1_edge_detector.html#aadacff19a254613068ec7d602b80c985">rc_vision::core::EdgeDetector::detectLaplacian</a></div><div class="ttdeci">EdgeDetectionResult detectLaplacian(const cv::Mat &amp;image)</div><div class="ttdoc">执行 Laplacian 边缘检测。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_edge_detector_html_abfffa612a5025c2a60c79203b4df8ccb"><div class="ttname"><a href="classrc__vision_1_1core_1_1_edge_detector.html#abfffa612a5025c2a60c79203b4df8ccb">rc_vision::core::EdgeDetector::loadConfig</a></div><div class="ttdeci">bool loadConfig(const std::string &amp;config_file)</div><div class="ttdoc">从配置文件加载边缘检测配置。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_edge_detector_html_ac79c4298197b96be4418966c08deaa24"><div class="ttname"><a href="classrc__vision_1_1core_1_1_edge_detector.html#ac79c4298197b96be4418966c08deaa24">rc_vision::core::EdgeDetector::classifyEdgeTypes</a></div><div class="ttdeci">void classifyEdgeTypes(const cv::Mat &amp;edges, EdgeDetectionResult &amp;result)</div><div class="ttdoc">分类边缘类型。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_edge_detector_html_acbe4e47208e3e1f1f44e77b0df35d9c8"><div class="ttname"><a href="classrc__vision_1_1core_1_1_edge_detector.html#acbe4e47208e3e1f1f44e77b0df35d9c8">rc_vision::core::EdgeDetector::setDetectEdgeTypes</a></div><div class="ttdeci">void setDetectEdgeTypes(const std::vector&lt; EdgeType &gt; &amp;types)</div><div class="ttdoc">设置要检测的边缘类型。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_edge_detector_html_ade22230c04ed0c6909eebd4c1a8e824d"><div class="ttname"><a href="classrc__vision_1_1core_1_1_edge_detector.html#ade22230c04ed0c6909eebd4c1a8e824d">rc_vision::core::EdgeDetector::detectEdges</a></div><div class="ttdeci">EdgeDetectionResult detectEdges(const cv::Mat &amp;image)</div><div class="ttdoc">执行边缘检测。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_edge_detector_html_af4ff19f1105bd35ab6513c6f89dc4141"><div class="ttname"><a href="classrc__vision_1_1core_1_1_edge_detector.html#af4ff19f1105bd35ab6513c6f89dc4141">rc_vision::core::EdgeDetector::detectPolygons</a></div><div class="ttdeci">void detectPolygons(const cv::Mat &amp;edges, EdgeDetectionResult &amp;result)</div><div class="ttdoc">检测多边形边缘。</div></div>
+<div class="ttc" id="alogger_8hpp_html"><div class="ttname"><a href="logger_8hpp.html">logger.hpp</a></div></div>
+<div class="ttc" id="anamespacerc__vision_1_1core_html_aaa2e7cf3c8acdaf99158aecd76cba048"><div class="ttname"><a href="namespacerc__vision_1_1core.html#aaa2e7cf3c8acdaf99158aecd76cba048">rc_vision::core::EdgeType</a></div><div class="ttdeci">EdgeType</div><div class="ttdoc">枚举不同的边缘类型。</div><div class="ttdef"><b>定义</b> edge_detector.hpp:27</div></div>
+<div class="ttc" id="anamespacerc__vision_1_1core_html_aaa2e7cf3c8acdaf99158aecd76cba048a0af50777920c1401ab975cab64c4d491"><div class="ttname"><a href="namespacerc__vision_1_1core.html#aaa2e7cf3c8acdaf99158aecd76cba048a0af50777920c1401ab975cab64c4d491">rc_vision::core::EdgeType::CIRCLE</a></div><div class="ttdeci">@ CIRCLE</div></div>
+<div class="ttc" id="anamespacerc__vision_1_1core_html_aaa2e7cf3c8acdaf99158aecd76cba048a17b8ef2c330f1430e00c9de5469fc7e7"><div class="ttname"><a href="namespacerc__vision_1_1core.html#aaa2e7cf3c8acdaf99158aecd76cba048a17b8ef2c330f1430e00c9de5469fc7e7">rc_vision::core::EdgeType::LINE</a></div><div class="ttdeci">@ LINE</div></div>
+<div class="ttc" id="anamespacerc__vision_1_1core_html_aaa2e7cf3c8acdaf99158aecd76cba048ab61773b9b3968a9988d765d728985862"><div class="ttname"><a href="namespacerc__vision_1_1core.html#aaa2e7cf3c8acdaf99158aecd76cba048ab61773b9b3968a9988d765d728985862">rc_vision::core::EdgeType::GENERAL</a></div><div class="ttdeci">@ GENERAL</div></div>
+<div class="ttc" id="anamespacerc__vision_1_1core_html_aaa2e7cf3c8acdaf99158aecd76cba048ac411afd31d32cec664d372acc12f404a"><div class="ttname"><a href="namespacerc__vision_1_1core.html#aaa2e7cf3c8acdaf99158aecd76cba048ac411afd31d32cec664d372acc12f404a">rc_vision::core::EdgeType::CORNER</a></div><div class="ttdeci">@ CORNER</div></div>
+<div class="ttc" id="anamespacerc__vision_1_1core_html_aaa2e7cf3c8acdaf99158aecd76cba048aecdc92bf56d960b73b02ee40125758bc"><div class="ttname"><a href="namespacerc__vision_1_1core.html#aaa2e7cf3c8acdaf99158aecd76cba048aecdc92bf56d960b73b02ee40125758bc">rc_vision::core::EdgeType::POLYGON</a></div><div class="ttdeci">@ POLYGON</div></div>
+<div class="ttc" id="anamespacerc__vision_1_1core_html_ac65d8a5ae9c897b6ffd74a4f1a417b10"><div class="ttname"><a href="namespacerc__vision_1_1core.html#ac65d8a5ae9c897b6ffd74a4f1a417b10">rc_vision::core::EdgeDetectionMethod</a></div><div class="ttdeci">EdgeDetectionMethod</div><div class="ttdoc">枚举不同的边缘检测方法。</div><div class="ttdef"><b>定义</b> edge_detector.hpp:16</div></div>
+<div class="ttc" id="anamespacerc__vision_1_1core_html_ac65d8a5ae9c897b6ffd74a4f1a417b10a1c2d5f3f8e6cbb0c7b033c388c905d22"><div class="ttname"><a href="namespacerc__vision_1_1core.html#ac65d8a5ae9c897b6ffd74a4f1a417b10a1c2d5f3f8e6cbb0c7b033c388c905d22">rc_vision::core::EdgeDetectionMethod::LAPLACIAN</a></div><div class="ttdeci">@ LAPLACIAN</div></div>
+<div class="ttc" id="anamespacerc__vision_1_1core_html_ac65d8a5ae9c897b6ffd74a4f1a417b10a2eb35f75582ca62917714c438551bba5"><div class="ttname"><a href="namespacerc__vision_1_1core.html#ac65d8a5ae9c897b6ffd74a4f1a417b10a2eb35f75582ca62917714c438551bba5">rc_vision::core::EdgeDetectionMethod::SOBEL</a></div><div class="ttdeci">@ SOBEL</div></div>
+<div class="ttc" id="anamespacerc__vision_1_1core_html_ac65d8a5ae9c897b6ffd74a4f1a417b10a3701051f20fd8dd55bcd9f355a511745"><div class="ttname"><a href="namespacerc__vision_1_1core.html#ac65d8a5ae9c897b6ffd74a4f1a417b10a3701051f20fd8dd55bcd9f355a511745">rc_vision::core::EdgeDetectionMethod::CANNY</a></div><div class="ttdeci">@ CANNY</div></div>
+<div class="ttc" id="anamespacerc__vision_html"><div class="ttname"><a href="namespacerc__vision.html">rc_vision</a></div><div class="ttdef"><b>定义</b> camera.hpp:10</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_edge_detection_result_html"><div class="ttname"><a href="structrc__vision_1_1core_1_1_edge_detection_result.html">rc_vision::core::EdgeDetectionResult</a></div><div class="ttdoc">边缘检测结果结构体。</div><div class="ttdef"><b>定义</b> edge_detector.hpp:40</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_edge_detection_result_html_a0407d29cbd22b49eda6720a63e0c2fda"><div class="ttname"><a href="structrc__vision_1_1core_1_1_edge_detection_result.html#a0407d29cbd22b49eda6720a63e0c2fda">rc_vision::core::EdgeDetectionResult::edges</a></div><div class="ttdeci">cv::Mat edges</div><div class="ttdef"><b>定义</b> edge_detector.hpp:41</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_edge_detection_result_html_a5169866f9b69eb118161494bd34ddbc5"><div class="ttname"><a href="structrc__vision_1_1core_1_1_edge_detection_result.html#a5169866f9b69eb118161494bd34ddbc5">rc_vision::core::EdgeDetectionResult::edge_types</a></div><div class="ttdeci">std::vector&lt; EdgeType &gt; edge_types</div><div class="ttdef"><b>定义</b> edge_detector.hpp:43</div></div>
+<div class="ttc" id="astructrc__vision_1_1core_1_1_edge_detection_result_html_a72865c65d00551367de418fda206995a"><div class="ttname"><a href="structrc__vision_1_1core_1_1_edge_detection_result.html#a72865c65d00551367de418fda206995a">rc_vision::core::EdgeDetectionResult::edge_points</a></div><div class="ttdeci">std::vector&lt; cv::Point &gt; edge_points</div><div class="ttdef"><b>定义</b> edge_detector.hpp:42</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

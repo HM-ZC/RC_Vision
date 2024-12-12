@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RC vision: rc_vision::core::filters::MovingAverageFilter&lt; T, Dim &gt; 模板类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RC vision<span id="projectnumber">&#160;beta0.1.0</span>
+   </div>
+   <div id="projectbrief">机器人视觉库</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacerc__vision.html">rc_vision</a></li><li class="navelem"><a class="el" href="namespacerc__vision_1_1core.html">core</a></li><li class="navelem"><a class="el" href="namespacerc__vision_1_1core_1_1filters.html">filters</a></li><li class="navelem"><a class="el" href="classrc__vision_1_1core_1_1filters_1_1_moving_average_filter.html">MovingAverageFilter</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pri-attribs">Private 属性</a> &#124;
+<a href="classrc__vision_1_1core_1_1filters_1_1_moving_average_filter-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">rc_vision::core::filters::MovingAverageFilter&lt; T, Dim &gt; 模板类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>移动平均滤波器模板类。  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="filters_8hpp_source.html">filters.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a99d7f6b227c31c2d2784036566641355" id="r_a99d7f6b227c31c2d2784036566641355"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99d7f6b227c31c2d2784036566641355">MovingAverageFilter</a> (int window_size)</td></tr>
+<tr class="memdesc:a99d7f6b227c31c2d2784036566641355"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数，初始化窗口大小。  <br /></td></tr>
+<tr class="separator:a99d7f6b227c31c2d2784036566641355"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a833f8720e4a1bbbd6565e480a66f3c53" id="r_a833f8720e4a1bbbd6565e480a66f3c53"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a833f8720e4a1bbbd6565e480a66f3c53">addMeasurement</a> (const Eigen::Matrix&lt; T, Dim, 1 &gt; &amp;measurement)</td></tr>
+<tr class="memdesc:a833f8720e4a1bbbd6565e480a66f3c53"><td class="mdescLeft">&#160;</td><td class="mdescRight">添加一个新的观测值。  <br /></td></tr>
+<tr class="separator:a833f8720e4a1bbbd6565e480a66f3c53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8d7d82078d7e30be00299fd93319653" id="r_af8d7d82078d7e30be00299fd93319653"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; T, Dim, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8d7d82078d7e30be00299fd93319653">getAverage</a> () const</td></tr>
+<tr class="memdesc:af8d7d82078d7e30be00299fd93319653"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前的平均值。  <br /></td></tr>
+<tr class="separator:af8d7d82078d7e30be00299fd93319653"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private 属性</h2></td></tr>
+<tr class="memitem:a4361ec79bc79328bfd83c585ea52159f" id="r_a4361ec79bc79328bfd83c585ea52159f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4361ec79bc79328bfd83c585ea52159f">window_size_</a></td></tr>
+<tr class="separator:a4361ec79bc79328bfd83c585ea52159f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa91a934fc5e94c6535892d21af2b9597" id="r_aa91a934fc5e94c6535892d21af2b9597"><td class="memItemLeft" align="right" valign="top">std::deque&lt; Eigen::Matrix&lt; T, Dim, 1 &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa91a934fc5e94c6535892d21af2b9597">measurements_</a></td></tr>
+<tr class="separator:aa91a934fc5e94c6535892d21af2b9597"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T, int Dim&gt;<br />
+class rc_vision::core::filters::MovingAverageFilter&lt; T, Dim &gt;</div><p>移动平均滤波器模板类。 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>数据类型（通常为 float 或 double）。 </td></tr>
+    <tr><td class="paramname">Dim</td><td>向量的维度。 </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a99d7f6b227c31c2d2784036566641355" name="a99d7f6b227c31c2d2784036566641355"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99d7f6b227c31c2d2784036566641355">&#9670;&#160;</a></span>MovingAverageFilter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int Dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrc__vision_1_1core_1_1filters_1_1_moving_average_filter.html">rc_vision::core::filters::MovingAverageFilter</a>&lt; T, Dim &gt;::MovingAverageFilter </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>window_size</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>构造函数，初始化窗口大小。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window_size</td><td>移动平均窗口的大小。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a833f8720e4a1bbbd6565e480a66f3c53" name="a833f8720e4a1bbbd6565e480a66f3c53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a833f8720e4a1bbbd6565e480a66f3c53">&#9670;&#160;</a></span>addMeasurement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int Dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classrc__vision_1_1core_1_1filters_1_1_moving_average_filter.html">rc_vision::core::filters::MovingAverageFilter</a>&lt; T, Dim &gt;::addMeasurement </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::Matrix&lt; T, Dim, 1 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>measurement</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>添加一个新的观测值。 </p>
+<p>如果窗口已满，则移除最旧的观测值。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">measurement</td><td>新的观测向量。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af8d7d82078d7e30be00299fd93319653" name="af8d7d82078d7e30be00299fd93319653"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8d7d82078d7e30be00299fd93319653">&#9670;&#160;</a></span>getAverage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int Dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Matrix&lt; T, Dim, 1 &gt; <a class="el" href="classrc__vision_1_1core_1_1filters_1_1_moving_average_filter.html">rc_vision::core::filters::MovingAverageFilter</a>&lt; T, Dim &gt;::getAverage </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前的平均值。 </p>
+<dl class="section return"><dt>返回</dt><dd>Eigen::Matrix&lt;T, Dim, 1&gt; 当前窗口的平均向量。 </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="aa91a934fc5e94c6535892d21af2b9597" name="aa91a934fc5e94c6535892d21af2b9597"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa91a934fc5e94c6535892d21af2b9597">&#9670;&#160;</a></span>measurements_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int Dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::deque&lt;Eigen::Matrix&lt;T, Dim, 1&gt; &gt; <a class="el" href="classrc__vision_1_1core_1_1filters_1_1_moving_average_filter.html">rc_vision::core::filters::MovingAverageFilter</a>&lt; T, Dim &gt;::measurements_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>存储观测值的双端队列。 </p>
+
+</div>
+</div>
+<a id="a4361ec79bc79328bfd83c585ea52159f" name="a4361ec79bc79328bfd83c585ea52159f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4361ec79bc79328bfd83c585ea52159f">&#9670;&#160;</a></span>window_size_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int Dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classrc__vision_1_1core_1_1filters_1_1_moving_average_filter.html">rc_vision::core::filters::MovingAverageFilter</a>&lt; T, Dim &gt;::window_size_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>移动平均窗口的大小。 </p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>C:/Users/14168/1/rc_vision/core_lib/include/rc_vision/core/<a class="el" href="filters_8hpp_source.html">filters.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

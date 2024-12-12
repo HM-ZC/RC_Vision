@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RC vision: rc_vision::core::PointCloudStats结构体 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RC vision<span id="projectnumber">&#160;beta0.1.0</span>
+   </div>
+   <div id="projectbrief">机器人视觉库</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacerc__vision.html">rc_vision</a></li><li class="navelem"><a class="el" href="namespacerc__vision_1_1core.html">core</a></li><li class="navelem"><a class="el" href="structrc__vision_1_1core_1_1_point_cloud_stats.html">PointCloudStats</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Public 属性</a> &#124;
+<a href="structrc__vision_1_1core_1_1_point_cloud_stats-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">rc_vision::core::PointCloudStats结构体 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>点云统计信息结构体。  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="point__cloud_8hpp_source.html">point_cloud.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public 属性</h2></td></tr>
+<tr class="memitem:a4ed0bc15f417f20753d1d958d1867108" id="r_a4ed0bc15f417f20753d1d958d1867108"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ed0bc15f417f20753d1d958d1867108">min_x</a></td></tr>
+<tr class="separator:a4ed0bc15f417f20753d1d958d1867108"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addb4251c714b58159c190f02025ed9c2" id="r_addb4251c714b58159c190f02025ed9c2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#addb4251c714b58159c190f02025ed9c2">max_x</a></td></tr>
+<tr class="separator:addb4251c714b58159c190f02025ed9c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67ee58a7b7db72b6e257b3f202f4f904" id="r_a67ee58a7b7db72b6e257b3f202f4f904"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67ee58a7b7db72b6e257b3f202f4f904">min_y</a></td></tr>
+<tr class="separator:a67ee58a7b7db72b6e257b3f202f4f904"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd1c9cad921f3609118728fb88eb53dc" id="r_abd1c9cad921f3609118728fb88eb53dc"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd1c9cad921f3609118728fb88eb53dc">max_y</a></td></tr>
+<tr class="separator:abd1c9cad921f3609118728fb88eb53dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadf3dfdbe5d31cf0f3df8bb8b1d81bf8" id="r_aadf3dfdbe5d31cf0f3df8bb8b1d81bf8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aadf3dfdbe5d31cf0f3df8bb8b1d81bf8">min_z</a></td></tr>
+<tr class="separator:aadf3dfdbe5d31cf0f3df8bb8b1d81bf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8e80cfe2350ec00736546b974606ed0" id="r_ae8e80cfe2350ec00736546b974606ed0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8e80cfe2350ec00736546b974606ed0">max_z</a></td></tr>
+<tr class="separator:ae8e80cfe2350ec00736546b974606ed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30b6b300a7e6e93bca9b475ef25e806b" id="r_a30b6b300a7e6e93bca9b475ef25e806b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30b6b300a7e6e93bca9b475ef25e806b">mean_x</a></td></tr>
+<tr class="separator:a30b6b300a7e6e93bca9b475ef25e806b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac38b64427aeb5233157b4fbb4580f5de" id="r_ac38b64427aeb5233157b4fbb4580f5de"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac38b64427aeb5233157b4fbb4580f5de">mean_y</a></td></tr>
+<tr class="separator:ac38b64427aeb5233157b4fbb4580f5de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a025612b5dcbb4b7b3c2ad39f73134d29" id="r_a025612b5dcbb4b7b3c2ad39f73134d29"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a025612b5dcbb4b7b3c2ad39f73134d29">mean_z</a></td></tr>
+<tr class="separator:a025612b5dcbb4b7b3c2ad39f73134d29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3441cc69dd94247a5c9748da9a8e488" id="r_ab3441cc69dd94247a5c9748da9a8e488"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab3441cc69dd94247a5c9748da9a8e488">variance_x</a></td></tr>
+<tr class="separator:ab3441cc69dd94247a5c9748da9a8e488"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada7cd91b8a444ca632769b9b595e36e9" id="r_ada7cd91b8a444ca632769b9b595e36e9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada7cd91b8a444ca632769b9b595e36e9">variance_y</a></td></tr>
+<tr class="separator:ada7cd91b8a444ca632769b9b595e36e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36ff54c82fcd9536bb1cd43cc068e2de" id="r_a36ff54c82fcd9536bb1cd43cc068e2de"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36ff54c82fcd9536bb1cd43cc068e2de">variance_z</a></td></tr>
+<tr class="separator:a36ff54c82fcd9536bb1cd43cc068e2de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>点云统计信息结构体。 </p>
+<p>包含点云在各个轴上的最小值、最大值、均值和方差。 </p>
+</div><h2 class="groupheader">类成员变量说明</h2>
+<a id="addb4251c714b58159c190f02025ed9c2" name="addb4251c714b58159c190f02025ed9c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addb4251c714b58159c190f02025ed9c2">&#9670;&#160;</a></span>max_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double rc_vision::core::PointCloudStats::max_x</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>点云在X轴的最小值和最大值。 </p>
+
+</div>
+</div>
+<a id="abd1c9cad921f3609118728fb88eb53dc" name="abd1c9cad921f3609118728fb88eb53dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd1c9cad921f3609118728fb88eb53dc">&#9670;&#160;</a></span>max_y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double rc_vision::core::PointCloudStats::max_y</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>点云在Y轴的最小值和最大值。 </p>
+
+</div>
+</div>
+<a id="ae8e80cfe2350ec00736546b974606ed0" name="ae8e80cfe2350ec00736546b974606ed0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8e80cfe2350ec00736546b974606ed0">&#9670;&#160;</a></span>max_z</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double rc_vision::core::PointCloudStats::max_z</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>点云在Z轴的最小值和最大值。 </p>
+
+</div>
+</div>
+<a id="a30b6b300a7e6e93bca9b475ef25e806b" name="a30b6b300a7e6e93bca9b475ef25e806b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30b6b300a7e6e93bca9b475ef25e806b">&#9670;&#160;</a></span>mean_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double rc_vision::core::PointCloudStats::mean_x</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac38b64427aeb5233157b4fbb4580f5de" name="ac38b64427aeb5233157b4fbb4580f5de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac38b64427aeb5233157b4fbb4580f5de">&#9670;&#160;</a></span>mean_y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double rc_vision::core::PointCloudStats::mean_y</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a025612b5dcbb4b7b3c2ad39f73134d29" name="a025612b5dcbb4b7b3c2ad39f73134d29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a025612b5dcbb4b7b3c2ad39f73134d29">&#9670;&#160;</a></span>mean_z</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double rc_vision::core::PointCloudStats::mean_z</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>点云在各轴上的均值。 </p>
+
+</div>
+</div>
+<a id="a4ed0bc15f417f20753d1d958d1867108" name="a4ed0bc15f417f20753d1d958d1867108"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ed0bc15f417f20753d1d958d1867108">&#9670;&#160;</a></span>min_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double rc_vision::core::PointCloudStats::min_x</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a67ee58a7b7db72b6e257b3f202f4f904" name="a67ee58a7b7db72b6e257b3f202f4f904"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67ee58a7b7db72b6e257b3f202f4f904">&#9670;&#160;</a></span>min_y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double rc_vision::core::PointCloudStats::min_y</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aadf3dfdbe5d31cf0f3df8bb8b1d81bf8" name="aadf3dfdbe5d31cf0f3df8bb8b1d81bf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadf3dfdbe5d31cf0f3df8bb8b1d81bf8">&#9670;&#160;</a></span>min_z</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double rc_vision::core::PointCloudStats::min_z</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab3441cc69dd94247a5c9748da9a8e488" name="ab3441cc69dd94247a5c9748da9a8e488"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3441cc69dd94247a5c9748da9a8e488">&#9670;&#160;</a></span>variance_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double rc_vision::core::PointCloudStats::variance_x</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ada7cd91b8a444ca632769b9b595e36e9" name="ada7cd91b8a444ca632769b9b595e36e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada7cd91b8a444ca632769b9b595e36e9">&#9670;&#160;</a></span>variance_y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double rc_vision::core::PointCloudStats::variance_y</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a36ff54c82fcd9536bb1cd43cc068e2de" name="a36ff54c82fcd9536bb1cd43cc068e2de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36ff54c82fcd9536bb1cd43cc068e2de">&#9670;&#160;</a></span>variance_z</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double rc_vision::core::PointCloudStats::variance_z</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>点云在各轴上的方差。 </p>
+
+</div>
+</div>
+<hr/>该结构体的文档由以下文件生成:<ul>
+<li>C:/Users/14168/1/rc_vision/core_lib/include/rc_vision/core/<a class="el" href="point__cloud_8hpp_source.html">point_cloud.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

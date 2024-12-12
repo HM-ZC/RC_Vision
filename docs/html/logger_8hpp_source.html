@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RC vision: C:/Users/14168/1/rc_vision/core_lib/include/rc_vision/core/logger.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RC vision<span id="projectnumber">&#160;beta0.1.0</span>
+   </div>
+   <div id="projectbrief">机器人视觉库</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_6b71f9c233d9519f4af35a38b852209b.html">core_lib</a></li><li class="navelem"><a class="el" href="dir_91bce8cc46c2d1a1c49b6c892b066b0d.html">include</a></li><li class="navelem"><a class="el" href="dir_8027d5a996a7752b55704260e4cc0697.html">rc_vision</a></li><li class="navelem"><a class="el" href="dir_cd238af50b2a6e1d947d51424d846599.html">core</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">logger.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="logger_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef RC_VISION_CORE_LOGGER_HPP</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define RC_VISION_CORE_LOGGER_HPP</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;mutex&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;iomanip&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;filesystem&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;queue&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;thread&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;condition_variable&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;atomic&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacerc__vision.html">rc_vision</a> {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">namespace </span>core {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html">   26</a></span>        <span class="keyword">class </span><a class="code hl_class" href="classrc__vision_1_1core_1_1_logger.html">Logger</a> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220e">   33</a></span>            <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220e">LogLevel</a> { <a class="code hl_enumvalue" href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220eadc30ec20708ef7b0f641ef78b7880a15">DEBUG</a>, <a class="code hl_enumvalue" href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220ea551b723eafd6a31d444fcb2f5920fbd3">INFO</a>, <a class="code hl_enumvalue" href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220ea32bd8a1db2275458673903bdb84cb277">WARN</a>, <a class="code hl_enumvalue" href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220eabb1ca97ec761fc37101737ba0aa2e7c5">ERROR</a> };</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#aa1ab603542fca1a65433fca4f4ed9991">   40</a></span>            <span class="keyword">static</span> <a class="code hl_class" href="classrc__vision_1_1core_1_1_logger.html">Logger</a>&amp; <a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#aa1ab603542fca1a65433fca4f4ed9991">getInstance</a>();</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#a848d4bea1667e3fd44060b8a3e7c3554">   49</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#a848d4bea1667e3fd44060b8a3e7c3554">setLogLevel</a>(<a class="code hl_enumeration" href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220e">LogLevel</a> level);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#acaffa4ff667094538a48ba46db50ffba">   62</a></span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#acaffa4ff667094538a48ba46db50ffba">setLogFile</a>(<span class="keyword">const</span> std::string&amp; file_path, std::size_t max_file_size = 10 * 1024 * 1024); <span class="comment">// 默认10MB</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#a52933946cc1c4dd5d442f073d05eb868">   76</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#a52933946cc1c4dd5d442f073d05eb868">log</a>(<a class="code hl_enumeration" href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220e">LogLevel</a> level, <span class="keyword">const</span> std::string&amp; message,</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                     <span class="keyword">const</span> std::string&amp; file = <span class="stringliteral">&quot;&quot;</span>, <span class="keywordtype">int</span> line = 0, <span class="keyword">const</span> std::string&amp; func = <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#a974ba16a470e83f6b8c278b44aa5c9f0">   84</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#a974ba16a470e83f6b8c278b44aa5c9f0">shutdown</a>();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#a7492dd577ec9d03c86413aaaa64f94e5">   92</a></span>            <a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#a7492dd577ec9d03c86413aaaa64f94e5">Logger</a>();</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#ab38b7bf64da59c25119299136d62c3c3">   99</a></span>            <a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#ab38b7bf64da59c25119299136d62c3c3">~Logger</a>();</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            <span class="comment">// 禁用拷贝构造和赋值操作</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#a29d990b71201052a699cadd0bb355836">  102</a></span>            <a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#a29d990b71201052a699cadd0bb355836">Logger</a>(<span class="keyword">const</span> <a class="code hl_class" href="classrc__vision_1_1core_1_1_logger.html">Logger</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#a657a08aeb7911f3b5c52fe5aafcc11c1">  103</a></span>            <a class="code hl_class" href="classrc__vision_1_1core_1_1_logger.html">Logger</a>&amp; <a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#a657a08aeb7911f3b5c52fe5aafcc11c1">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classrc__vision_1_1core_1_1_logger.html">Logger</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#a2a6fba87b883be298cb97aa6a10ad5b9">  105</a></span>            <a class="code hl_enumeration" href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220e">LogLevel</a> <a class="code hl_variable" href="classrc__vision_1_1core_1_1_logger.html#a2a6fba87b883be298cb97aa6a10ad5b9">current_level_</a>; </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#ae19045a60a9954ac2dc7ea0e82ede130">  106</a></span>            std::mutex <a class="code hl_variable" href="classrc__vision_1_1core_1_1_logger.html#ae19045a60a9954ac2dc7ea0e82ede130">mtx_</a>; </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            <span class="comment">// 日志文件相关</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#a30d50d5fe9e83cf2da33967515baa9cd">  109</a></span>            std::ofstream <a class="code hl_variable" href="classrc__vision_1_1core_1_1_logger.html#a30d50d5fe9e83cf2da33967515baa9cd">log_file_</a>; </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#aeae5fa58ba2e16bb62174e784be7631c">  110</a></span>            std::string <a class="code hl_variable" href="classrc__vision_1_1core_1_1_logger.html#aeae5fa58ba2e16bb62174e784be7631c">log_file_path_</a>; </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#a442b7a6531a764895938428e680d5d77">  111</a></span>            std::size_t <a class="code hl_variable" href="classrc__vision_1_1core_1_1_logger.html#a442b7a6531a764895938428e680d5d77">max_file_size_</a>; </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            <span class="comment">// 日志消息队列及线程相关</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#a0d980454765fe6085ef0ecfc4cf12881">  114</a></span>            std::queue&lt;std::string&gt; <a class="code hl_variable" href="classrc__vision_1_1core_1_1_logger.html#a0d980454765fe6085ef0ecfc4cf12881">log_queue_</a>; </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#ae213092d5e6bfb26b65ebe6aedba93e5">  115</a></span>            std::mutex <a class="code hl_variable" href="classrc__vision_1_1core_1_1_logger.html#ae213092d5e6bfb26b65ebe6aedba93e5">queue_mtx_</a>; </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#a85ca19f5960d7b97c5426e8c4d5a2186">  116</a></span>            std::condition_variable <a class="code hl_variable" href="classrc__vision_1_1core_1_1_logger.html#a85ca19f5960d7b97c5426e8c4d5a2186">cv_</a>; </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#ac3a7343f2dfa46c0cd76dc924abfbb98">  117</a></span>            std::thread <a class="code hl_variable" href="classrc__vision_1_1core_1_1_logger.html#ac3a7343f2dfa46c0cd76dc924abfbb98">logging_thread_</a>; </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#a9104e42f718211c0195493a484fb81f3">  118</a></span>            std::atomic&lt;bool&gt; <a class="code hl_variable" href="classrc__vision_1_1core_1_1_logger.html#a9104e42f718211c0195493a484fb81f3">exit_flag_</a>; </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#ae00ace1909c4670442eccb6acba970cc">  126</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#ae00ace1909c4670442eccb6acba970cc">processLogs</a>();</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#ae82e6082a3f34d0f8ba06eeac376026c">  135</a></span>            std::string <a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#ae82e6082a3f34d0f8ba06eeac376026c">getCurrentTime</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#a502b5d1666947c8951ab229314eb56b0">  143</a></span>            std::string <a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#a502b5d1666947c8951ab229314eb56b0">getLogLevelString</a>(<a class="code hl_enumeration" href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220e">LogLevel</a> level) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#ae80cce9a3e03f0578f1a39b306ff6720">  153</a></span>            std::string <a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#ae80cce9a3e03f0578f1a39b306ff6720">getColorCode</a>(<a class="code hl_enumeration" href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220e">LogLevel</a> level) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#ac50d68d9647e2fafbc38b05e09bdcb91">  160</a></span>            std::string <a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#ac50d68d9647e2fafbc38b05e09bdcb91">resetColor</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_logger.html#a999e0b43a9fd334b45197a742ddad6d4">  167</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#a999e0b43a9fd334b45197a742ddad6d4">rotateLogFile</a>();</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        };</div>
+</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="foldopen" id="foldopen00175" data-start="" data-end="">
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="logger_8hpp.html#a87f39d92adfc939c31320aaf4b9f7a37">  175</a></span><span class="preprocessor">#define LOG_DEBUG(message) \</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="preprocessor">            rc_vision::core::Logger::getInstance().log(rc_vision::core::Logger::LogLevel::DEBUG, message, __FILE__, __LINE__, __func__)</span></div>
+</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="foldopen" id="foldopen00178" data-start="" data-end="">
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="logger_8hpp.html#a1df2a84bb8d3b43c8c49f1aff655190a">  178</a></span><span class="preprocessor">#define LOG_INFO(message) \</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="preprocessor">            rc_vision::core::Logger::getInstance().log(rc_vision::core::Logger::LogLevel::INFO, message, __FILE__, __LINE__, __func__)</span></div>
+</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="foldopen" id="foldopen00181" data-start="" data-end="">
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="logger_8hpp.html#abfe0c293b360dc335041f1bc67b00647">  181</a></span><span class="preprocessor">#define LOG_WARN(message) \</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="preprocessor">            rc_vision::core::Logger::getInstance().log(rc_vision::core::Logger::LogLevel::WARN, message, __FILE__, __LINE__, __func__)</span></div>
+</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="foldopen" id="foldopen00184" data-start="" data-end="">
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="logger_8hpp.html#a27d98b18ba06759c6ef5c71b1e1a9904">  184</a></span><span class="preprocessor">#define LOG_ERROR(message) \</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="preprocessor">            rc_vision::core::Logger::getInstance().log(rc_vision::core::Logger::LogLevel::ERROR, message, __FILE__, __LINE__, __func__)</span></div>
+</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    } <span class="comment">// namespace core</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>} <span class="comment">// namespace rc_vision</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="preprocessor">#endif </span><span class="comment">// RC_VISION_CORE_LOGGER_HPP</span></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html">rc_vision::core::Logger</a></div><div class="ttdoc">日志记录类，提供多级别日志记录功能，支持异步写入和日志文件旋转。</div><div class="ttdef"><b>定义</b> logger.hpp:26</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_a0d980454765fe6085ef0ecfc4cf12881"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#a0d980454765fe6085ef0ecfc4cf12881">rc_vision::core::Logger::log_queue_</a></div><div class="ttdeci">std::queue&lt; std::string &gt; log_queue_</div><div class="ttdef"><b>定义</b> logger.hpp:114</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_a29d990b71201052a699cadd0bb355836"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#a29d990b71201052a699cadd0bb355836">rc_vision::core::Logger::Logger</a></div><div class="ttdeci">Logger(const Logger &amp;)=delete</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_a2a6fba87b883be298cb97aa6a10ad5b9"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#a2a6fba87b883be298cb97aa6a10ad5b9">rc_vision::core::Logger::current_level_</a></div><div class="ttdeci">LogLevel current_level_</div><div class="ttdef"><b>定义</b> logger.hpp:105</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_a30d50d5fe9e83cf2da33967515baa9cd"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#a30d50d5fe9e83cf2da33967515baa9cd">rc_vision::core::Logger::log_file_</a></div><div class="ttdeci">std::ofstream log_file_</div><div class="ttdef"><b>定义</b> logger.hpp:109</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_a442b7a6531a764895938428e680d5d77"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#a442b7a6531a764895938428e680d5d77">rc_vision::core::Logger::max_file_size_</a></div><div class="ttdeci">std::size_t max_file_size_</div><div class="ttdef"><b>定义</b> logger.hpp:111</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_a502b5d1666947c8951ab229314eb56b0"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#a502b5d1666947c8951ab229314eb56b0">rc_vision::core::Logger::getLogLevelString</a></div><div class="ttdeci">std::string getLogLevelString(LogLevel level) const</div><div class="ttdoc">获取日志级别的字符串表示。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_a52933946cc1c4dd5d442f073d05eb868"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#a52933946cc1c4dd5d442f073d05eb868">rc_vision::core::Logger::log</a></div><div class="ttdeci">void log(LogLevel level, const std::string &amp;message, const std::string &amp;file=&quot;&quot;, int line=0, const std::string &amp;func=&quot;&quot;)</div><div class="ttdoc">记录日志消息。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_a657a08aeb7911f3b5c52fe5aafcc11c1"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#a657a08aeb7911f3b5c52fe5aafcc11c1">rc_vision::core::Logger::operator=</a></div><div class="ttdeci">Logger &amp; operator=(const Logger &amp;)=delete</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_a7492dd577ec9d03c86413aaaa64f94e5"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#a7492dd577ec9d03c86413aaaa64f94e5">rc_vision::core::Logger::Logger</a></div><div class="ttdeci">Logger()</div><div class="ttdoc">默认构造函数。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_a848d4bea1667e3fd44060b8a3e7c3554"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#a848d4bea1667e3fd44060b8a3e7c3554">rc_vision::core::Logger::setLogLevel</a></div><div class="ttdeci">void setLogLevel(LogLevel level)</div><div class="ttdoc">设置当前日志级别。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_a85ca19f5960d7b97c5426e8c4d5a2186"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#a85ca19f5960d7b97c5426e8c4d5a2186">rc_vision::core::Logger::cv_</a></div><div class="ttdeci">std::condition_variable cv_</div><div class="ttdef"><b>定义</b> logger.hpp:116</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_a9104e42f718211c0195493a484fb81f3"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#a9104e42f718211c0195493a484fb81f3">rc_vision::core::Logger::exit_flag_</a></div><div class="ttdeci">std::atomic&lt; bool &gt; exit_flag_</div><div class="ttdef"><b>定义</b> logger.hpp:118</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_a974ba16a470e83f6b8c278b44aa5c9f0"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#a974ba16a470e83f6b8c278b44aa5c9f0">rc_vision::core::Logger::shutdown</a></div><div class="ttdeci">void shutdown()</div><div class="ttdoc">关闭日志系统。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_a999e0b43a9fd334b45197a742ddad6d4"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#a999e0b43a9fd334b45197a742ddad6d4">rc_vision::core::Logger::rotateLogFile</a></div><div class="ttdeci">void rotateLogFile()</div><div class="ttdoc">检查日志文件大小，并在必要时执行日志文件旋转。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_aa1ab603542fca1a65433fca4f4ed9991"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#aa1ab603542fca1a65433fca4f4ed9991">rc_vision::core::Logger::getInstance</a></div><div class="ttdeci">static Logger &amp; getInstance()</div><div class="ttdoc">获取 Logger 的单例实例。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_ab38b7bf64da59c25119299136d62c3c3"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#ab38b7bf64da59c25119299136d62c3c3">rc_vision::core::Logger::~Logger</a></div><div class="ttdeci">~Logger()</div><div class="ttdoc">析构函数。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_ac3a7343f2dfa46c0cd76dc924abfbb98"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#ac3a7343f2dfa46c0cd76dc924abfbb98">rc_vision::core::Logger::logging_thread_</a></div><div class="ttdeci">std::thread logging_thread_</div><div class="ttdef"><b>定义</b> logger.hpp:117</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_ac50d68d9647e2fafbc38b05e09bdcb91"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#ac50d68d9647e2fafbc38b05e09bdcb91">rc_vision::core::Logger::resetColor</a></div><div class="ttdeci">std::string resetColor() const</div><div class="ttdoc">重置终端颜色。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_acaffa4ff667094538a48ba46db50ffba"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#acaffa4ff667094538a48ba46db50ffba">rc_vision::core::Logger::setLogFile</a></div><div class="ttdeci">bool setLogFile(const std::string &amp;file_path, std::size_t max_file_size=10 *1024 *1024)</div><div class="ttdoc">设置日志文件输出，并指定最大文件大小。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_ae00ace1909c4670442eccb6acba970cc"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#ae00ace1909c4670442eccb6acba970cc">rc_vision::core::Logger::processLogs</a></div><div class="ttdeci">void processLogs()</div><div class="ttdoc">日志处理线程的方法。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_ae19045a60a9954ac2dc7ea0e82ede130"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#ae19045a60a9954ac2dc7ea0e82ede130">rc_vision::core::Logger::mtx_</a></div><div class="ttdeci">std::mutex mtx_</div><div class="ttdef"><b>定义</b> logger.hpp:106</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_ae213092d5e6bfb26b65ebe6aedba93e5"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#ae213092d5e6bfb26b65ebe6aedba93e5">rc_vision::core::Logger::queue_mtx_</a></div><div class="ttdeci">std::mutex queue_mtx_</div><div class="ttdef"><b>定义</b> logger.hpp:115</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_ae470bd63a16ab67d5a48d0ef6972220e"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220e">rc_vision::core::Logger::LogLevel</a></div><div class="ttdeci">LogLevel</div><div class="ttdoc">日志级别枚举。</div><div class="ttdef"><b>定义</b> logger.hpp:33</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_ae470bd63a16ab67d5a48d0ef6972220ea32bd8a1db2275458673903bdb84cb277"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220ea32bd8a1db2275458673903bdb84cb277">rc_vision::core::Logger::LogLevel::WARN</a></div><div class="ttdeci">@ WARN</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_ae470bd63a16ab67d5a48d0ef6972220ea551b723eafd6a31d444fcb2f5920fbd3"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220ea551b723eafd6a31d444fcb2f5920fbd3">rc_vision::core::Logger::LogLevel::INFO</a></div><div class="ttdeci">@ INFO</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_ae470bd63a16ab67d5a48d0ef6972220eabb1ca97ec761fc37101737ba0aa2e7c5"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220eabb1ca97ec761fc37101737ba0aa2e7c5">rc_vision::core::Logger::LogLevel::ERROR</a></div><div class="ttdeci">@ ERROR</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_ae470bd63a16ab67d5a48d0ef6972220eadc30ec20708ef7b0f641ef78b7880a15"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220eadc30ec20708ef7b0f641ef78b7880a15">rc_vision::core::Logger::LogLevel::DEBUG</a></div><div class="ttdeci">@ DEBUG</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_ae80cce9a3e03f0578f1a39b306ff6720"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#ae80cce9a3e03f0578f1a39b306ff6720">rc_vision::core::Logger::getColorCode</a></div><div class="ttdeci">std::string getColorCode(LogLevel level) const</div><div class="ttdoc">获取对应日志级别的颜色代码。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_ae82e6082a3f34d0f8ba06eeac376026c"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#ae82e6082a3f34d0f8ba06eeac376026c">rc_vision::core::Logger::getCurrentTime</a></div><div class="ttdeci">std::string getCurrentTime() const</div><div class="ttdoc">获取当前时间的字符串表示。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_aeae5fa58ba2e16bb62174e784be7631c"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#aeae5fa58ba2e16bb62174e784be7631c">rc_vision::core::Logger::log_file_path_</a></div><div class="ttdeci">std::string log_file_path_</div><div class="ttdef"><b>定义</b> logger.hpp:110</div></div>
+<div class="ttc" id="anamespacerc__vision_html"><div class="ttname"><a href="namespacerc__vision.html">rc_vision</a></div><div class="ttdef"><b>定义</b> camera.hpp:10</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

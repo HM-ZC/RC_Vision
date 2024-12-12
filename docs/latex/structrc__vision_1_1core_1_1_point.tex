@@ -1,0 +1,125 @@
+\doxysection{rc\+\_\+vision\+::core\+::Point结构体 参考}
+\hypertarget{structrc__vision_1_1core_1_1_point}{}\label{structrc__vision_1_1core_1_1_point}\index{rc\_vision::core::Point@{rc\_vision::core::Point}}
+
+
+点结构体，表示三维空间中的一个点。  
+
+
+
+
+{\ttfamily \#include $<$point\+\_\+cloud.\+hpp$>$}
+
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structrc__vision_1_1core_1_1_point_a3bd60b42a602b5942c97448a88b5e1ab}{Point}} (double x\+\_\+, double y\+\_\+, double z\+\_\+)
+\begin{DoxyCompactList}\small\item\em 默认构造函数，仅初始化坐标。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structrc__vision_1_1core_1_1_point_a040147cdad1ad0242f26ae691b70b9e6}{Point}} (double x\+\_\+, double y\+\_\+, double z\+\_\+, const Eigen\+::\+Vector3d \&color\+\_\+)
+\begin{DoxyCompactList}\small\item\em 带颜色的构造函数，初始化坐标和颜色。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_a06d7bc322a5c1c8fd1de6b667dc4098c}{x}}
+\item 
+double \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_a12a1a698ea0e10c16cf97be69c70edb9}{y}}
+\item 
+double \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_a493c0be6f8e417edb2a30e40de5c5753}{z}}
+\item 
+std\+::optional$<$ Eigen\+::\+Vector3d $>$ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_a505f2048929037a152c39190a58120ed}{color}}
+\item 
+std\+::optional$<$ Eigen\+::\+Vector3d $>$ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_a4f9667434169fb5f33af797065e18c1f}{normal}}
+\item 
+std\+::optional$<$ double $>$ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_a3fa8e01e07cfc3392b95d52cf2f903ce}{intensity}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+点结构体，表示三维空间中的一个点。 
+
+支持可选的颜色（\+RGB）、法向量和强度信息。 
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{structrc__vision_1_1core_1_1_point_a3bd60b42a602b5942c97448a88b5e1ab}\index{rc\_vision::core::Point@{rc\_vision::core::Point}!Point@{Point}}
+\index{Point@{Point}!rc\_vision::core::Point@{rc\_vision::core::Point}}
+\doxysubsubsection{\texorpdfstring{Point()}{Point()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structrc__vision_1_1core_1_1_point_a3bd60b42a602b5942c97448a88b5e1ab} 
+rc\+\_\+vision\+::core\+::\+Point\+::\+Point (\begin{DoxyParamCaption}\item[{double}]{x\+\_\+}{, }\item[{double}]{y\+\_\+}{, }\item[{double}]{z\+\_\+}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+默认构造函数，仅初始化坐标。 
+
+
+\begin{DoxyParams}{参数}
+{\em x\+\_\+} & 点的\+X坐标。 \\
+\hline
+{\em y\+\_\+} & 点的\+Y坐标。 \\
+\hline
+{\em z\+\_\+} & 点的\+Z坐标。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{structrc__vision_1_1core_1_1_point_a040147cdad1ad0242f26ae691b70b9e6}\index{rc\_vision::core::Point@{rc\_vision::core::Point}!Point@{Point}}
+\index{Point@{Point}!rc\_vision::core::Point@{rc\_vision::core::Point}}
+\doxysubsubsection{\texorpdfstring{Point()}{Point()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structrc__vision_1_1core_1_1_point_a040147cdad1ad0242f26ae691b70b9e6} 
+rc\+\_\+vision\+::core\+::\+Point\+::\+Point (\begin{DoxyParamCaption}\item[{double}]{x\+\_\+}{, }\item[{double}]{y\+\_\+}{, }\item[{double}]{z\+\_\+}{, }\item[{const Eigen\+::\+Vector3d \&}]{color\+\_\+}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+带颜色的构造函数，初始化坐标和颜色。 
+
+
+\begin{DoxyParams}{参数}
+{\em x\+\_\+} & 点的\+X坐标。 \\
+\hline
+{\em y\+\_\+} & 点的\+Y坐标。 \\
+\hline
+{\em z\+\_\+} & 点的\+Z坐标。 \\
+\hline
+{\em color\+\_\+} & 点的\+RGB颜色。 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{structrc__vision_1_1core_1_1_point_a505f2048929037a152c39190a58120ed}\index{rc\_vision::core::Point@{rc\_vision::core::Point}!color@{color}}
+\index{color@{color}!rc\_vision::core::Point@{rc\_vision::core::Point}}
+\doxysubsubsection{\texorpdfstring{color}{color}}
+{\footnotesize\ttfamily \label{structrc__vision_1_1core_1_1_point_a505f2048929037a152c39190a58120ed} 
+std\+::optional$<$Eigen\+::\+Vector3d$>$ rc\+\_\+vision\+::core\+::\+Point\+::color}
+
+可选的\+RGB颜色信息。 \Hypertarget{structrc__vision_1_1core_1_1_point_a3fa8e01e07cfc3392b95d52cf2f903ce}\index{rc\_vision::core::Point@{rc\_vision::core::Point}!intensity@{intensity}}
+\index{intensity@{intensity}!rc\_vision::core::Point@{rc\_vision::core::Point}}
+\doxysubsubsection{\texorpdfstring{intensity}{intensity}}
+{\footnotesize\ttfamily \label{structrc__vision_1_1core_1_1_point_a3fa8e01e07cfc3392b95d52cf2f903ce} 
+std\+::optional$<$double$>$ rc\+\_\+vision\+::core\+::\+Point\+::intensity}
+
+可选的强度信息。 \Hypertarget{structrc__vision_1_1core_1_1_point_a4f9667434169fb5f33af797065e18c1f}\index{rc\_vision::core::Point@{rc\_vision::core::Point}!normal@{normal}}
+\index{normal@{normal}!rc\_vision::core::Point@{rc\_vision::core::Point}}
+\doxysubsubsection{\texorpdfstring{normal}{normal}}
+{\footnotesize\ttfamily \label{structrc__vision_1_1core_1_1_point_a4f9667434169fb5f33af797065e18c1f} 
+std\+::optional$<$Eigen\+::\+Vector3d$>$ rc\+\_\+vision\+::core\+::\+Point\+::normal}
+
+可选的法向量信息。 \Hypertarget{structrc__vision_1_1core_1_1_point_a06d7bc322a5c1c8fd1de6b667dc4098c}\index{rc\_vision::core::Point@{rc\_vision::core::Point}!x@{x}}
+\index{x@{x}!rc\_vision::core::Point@{rc\_vision::core::Point}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily \label{structrc__vision_1_1core_1_1_point_a06d7bc322a5c1c8fd1de6b667dc4098c} 
+double rc\+\_\+vision\+::core\+::\+Point\+::x}
+
+点的\+X坐标。 \Hypertarget{structrc__vision_1_1core_1_1_point_a12a1a698ea0e10c16cf97be69c70edb9}\index{rc\_vision::core::Point@{rc\_vision::core::Point}!y@{y}}
+\index{y@{y}!rc\_vision::core::Point@{rc\_vision::core::Point}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily \label{structrc__vision_1_1core_1_1_point_a12a1a698ea0e10c16cf97be69c70edb9} 
+double rc\+\_\+vision\+::core\+::\+Point\+::y}
+
+点的\+Y坐标。 \Hypertarget{structrc__vision_1_1core_1_1_point_a493c0be6f8e417edb2a30e40de5c5753}\index{rc\_vision::core::Point@{rc\_vision::core::Point}!z@{z}}
+\index{z@{z}!rc\_vision::core::Point@{rc\_vision::core::Point}}
+\doxysubsubsection{\texorpdfstring{z}{z}}
+{\footnotesize\ttfamily \label{structrc__vision_1_1core_1_1_point_a493c0be6f8e417edb2a30e40de5c5753} 
+double rc\+\_\+vision\+::core\+::\+Point\+::z}
+
+点的\+Z坐标。 
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/14168/1/rc\+\_\+vision/core\+\_\+lib/include/rc\+\_\+vision/core/\mbox{\hyperlink{point__cloud_8hpp}{point\+\_\+cloud.\+hpp}}\end{DoxyCompactItemize}

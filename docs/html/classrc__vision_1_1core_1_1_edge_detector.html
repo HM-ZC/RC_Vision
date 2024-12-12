@@ -1,0 +1,741 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RC vision: rc_vision::core::EdgeDetector类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RC vision<span id="projectnumber">&#160;beta0.1.0</span>
+   </div>
+   <div id="projectbrief">机器人视觉库</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacerc__vision.html">rc_vision</a></li><li class="navelem"><a class="el" href="namespacerc__vision_1_1core.html">core</a></li><li class="navelem"><a class="el" href="classrc__vision_1_1core_1_1_edge_detector.html">EdgeDetector</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pri-methods">Private 成员函数</a> &#124;
+<a href="#pri-attribs">Private 属性</a> &#124;
+<a href="classrc__vision_1_1core_1_1_edge_detector-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">rc_vision::core::EdgeDetector类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>边缘检测类，支持多种边缘检测方法和边缘类型分类。  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="edge__detector_8hpp_source.html">edge_detector.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:aa3e8133d4c347807da0490436a728ba0" id="r_aa3e8133d4c347807da0490436a728ba0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3e8133d4c347807da0490436a728ba0">EdgeDetector</a> ()</td></tr>
+<tr class="memdesc:aa3e8133d4c347807da0490436a728ba0"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认构造函数，初始化边缘检测方法为 CANNY。  <br /></td></tr>
+<tr class="separator:aa3e8133d4c347807da0490436a728ba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44a4ee20a173202df13785af4ed138f2" id="r_a44a4ee20a173202df13785af4ed138f2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44a4ee20a173202df13785af4ed138f2">~EdgeDetector</a> ()=default</td></tr>
+<tr class="memdesc:a44a4ee20a173202df13785af4ed138f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认析构函数。  <br /></td></tr>
+<tr class="separator:a44a4ee20a173202df13785af4ed138f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32a008786bcf0212965bacbf3bbecf07" id="r_a32a008786bcf0212965bacbf3bbecf07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a32a008786bcf0212965bacbf3bbecf07">setMethod</a> (<a class="el" href="namespacerc__vision_1_1core.html#ac65d8a5ae9c897b6ffd74a4f1a417b10">EdgeDetectionMethod</a> method)</td></tr>
+<tr class="memdesc:a32a008786bcf0212965bacbf3bbecf07"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置边缘检测方法。  <br /></td></tr>
+<tr class="separator:a32a008786bcf0212965bacbf3bbecf07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dc37a0731980fae2c010e0331618e24" id="r_a1dc37a0731980fae2c010e0331618e24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1dc37a0731980fae2c010e0331618e24">setParameters</a> (const std::vector&lt; double &gt; &amp;params)</td></tr>
+<tr class="memdesc:a1dc37a0731980fae2c010e0331618e24"><td class="mdescLeft">&#160;</td><td class="mdescRight">配置算法参数。  <br /></td></tr>
+<tr class="separator:a1dc37a0731980fae2c010e0331618e24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfffa612a5025c2a60c79203b4df8ccb" id="r_abfffa612a5025c2a60c79203b4df8ccb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abfffa612a5025c2a60c79203b4df8ccb">loadConfig</a> (const std::string &amp;config_file)</td></tr>
+<tr class="memdesc:abfffa612a5025c2a60c79203b4df8ccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">从配置文件加载边缘检测配置。  <br /></td></tr>
+<tr class="separator:abfffa612a5025c2a60c79203b4df8ccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade22230c04ed0c6909eebd4c1a8e824d" id="r_ade22230c04ed0c6909eebd4c1a8e824d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade22230c04ed0c6909eebd4c1a8e824d">detectEdges</a> (const cv::Mat &amp;image)</td></tr>
+<tr class="memdesc:ade22230c04ed0c6909eebd4c1a8e824d"><td class="mdescLeft">&#160;</td><td class="mdescRight">执行边缘检测。  <br /></td></tr>
+<tr class="separator:ade22230c04ed0c6909eebd4c1a8e824d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7989cc2a039cf069a124856e54f321bd" id="r_a7989cc2a039cf069a124856e54f321bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacerc__vision_1_1core.html#ac65d8a5ae9c897b6ffd74a4f1a417b10">EdgeDetectionMethod</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7989cc2a039cf069a124856e54f321bd">getMethod</a> () const</td></tr>
+<tr class="memdesc:a7989cc2a039cf069a124856e54f321bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前使用的边缘检测方法。  <br /></td></tr>
+<tr class="separator:a7989cc2a039cf069a124856e54f321bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbe4e47208e3e1f1f44e77b0df35d9c8" id="r_acbe4e47208e3e1f1f44e77b0df35d9c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acbe4e47208e3e1f1f44e77b0df35d9c8">setDetectEdgeTypes</a> (const std::vector&lt; <a class="el" href="namespacerc__vision_1_1core.html#aaa2e7cf3c8acdaf99158aecd76cba048">EdgeType</a> &gt; &amp;types)</td></tr>
+<tr class="memdesc:acbe4e47208e3e1f1f44e77b0df35d9c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置要检测的边缘类型。  <br /></td></tr>
+<tr class="separator:acbe4e47208e3e1f1f44e77b0df35d9c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private 成员函数</h2></td></tr>
+<tr class="memitem:a3c353a11b619867c58aa5280dd56879a" id="r_a3c353a11b619867c58aa5280dd56879a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c353a11b619867c58aa5280dd56879a">detectCanny</a> (const cv::Mat &amp;image)</td></tr>
+<tr class="memdesc:a3c353a11b619867c58aa5280dd56879a"><td class="mdescLeft">&#160;</td><td class="mdescRight">执行 Canny 边缘检测。  <br /></td></tr>
+<tr class="separator:a3c353a11b619867c58aa5280dd56879a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e810b938cc293cfebbd0e0c21dc95f0" id="r_a4e810b938cc293cfebbd0e0c21dc95f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e810b938cc293cfebbd0e0c21dc95f0">detectSobel</a> (const cv::Mat &amp;image)</td></tr>
+<tr class="memdesc:a4e810b938cc293cfebbd0e0c21dc95f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">执行 Sobel 边缘检测。  <br /></td></tr>
+<tr class="separator:a4e810b938cc293cfebbd0e0c21dc95f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadacff19a254613068ec7d602b80c985" id="r_aadacff19a254613068ec7d602b80c985"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aadacff19a254613068ec7d602b80c985">detectLaplacian</a> (const cv::Mat &amp;image)</td></tr>
+<tr class="memdesc:aadacff19a254613068ec7d602b80c985"><td class="mdescLeft">&#160;</td><td class="mdescRight">执行 Laplacian 边缘检测。  <br /></td></tr>
+<tr class="separator:aadacff19a254613068ec7d602b80c985"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac79c4298197b96be4418966c08deaa24" id="r_ac79c4298197b96be4418966c08deaa24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac79c4298197b96be4418966c08deaa24">classifyEdgeTypes</a> (const cv::Mat &amp;edges, <a class="el" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a> &amp;result)</td></tr>
+<tr class="memdesc:ac79c4298197b96be4418966c08deaa24"><td class="mdescLeft">&#160;</td><td class="mdescRight">分类边缘类型。  <br /></td></tr>
+<tr class="separator:ac79c4298197b96be4418966c08deaa24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a673c672de9ca9038bca93e51e86ca8ae" id="r_a673c672de9ca9038bca93e51e86ca8ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a673c672de9ca9038bca93e51e86ca8ae">detectLines</a> (const cv::Mat &amp;edges, <a class="el" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a> &amp;result)</td></tr>
+<tr class="memdesc:a673c672de9ca9038bca93e51e86ca8ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">检测直线边缘。  <br /></td></tr>
+<tr class="separator:a673c672de9ca9038bca93e51e86ca8ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cd15d95746ea9cdd99f67e89f6a979f" id="r_a9cd15d95746ea9cdd99f67e89f6a979f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9cd15d95746ea9cdd99f67e89f6a979f">detectCorners</a> (const cv::Mat &amp;edges, <a class="el" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a> &amp;result)</td></tr>
+<tr class="memdesc:a9cd15d95746ea9cdd99f67e89f6a979f"><td class="mdescLeft">&#160;</td><td class="mdescRight">检测角点边缘。  <br /></td></tr>
+<tr class="separator:a9cd15d95746ea9cdd99f67e89f6a979f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fb3d0af93c47c1773ce69826ce12ab6" id="r_a2fb3d0af93c47c1773ce69826ce12ab6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2fb3d0af93c47c1773ce69826ce12ab6">detectCircles</a> (const cv::Mat &amp;edges, <a class="el" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a> &amp;result)</td></tr>
+<tr class="memdesc:a2fb3d0af93c47c1773ce69826ce12ab6"><td class="mdescLeft">&#160;</td><td class="mdescRight">检测圆形边缘。  <br /></td></tr>
+<tr class="separator:a2fb3d0af93c47c1773ce69826ce12ab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4ff19f1105bd35ab6513c6f89dc4141" id="r_af4ff19f1105bd35ab6513c6f89dc4141"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af4ff19f1105bd35ab6513c6f89dc4141">detectPolygons</a> (const cv::Mat &amp;edges, <a class="el" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a> &amp;result)</td></tr>
+<tr class="memdesc:af4ff19f1105bd35ab6513c6f89dc4141"><td class="mdescLeft">&#160;</td><td class="mdescRight">检测多边形边缘。  <br /></td></tr>
+<tr class="separator:af4ff19f1105bd35ab6513c6f89dc4141"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private 属性</h2></td></tr>
+<tr class="memitem:a9eb3069d7bcb59fa399559811e276fae" id="r_a9eb3069d7bcb59fa399559811e276fae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacerc__vision_1_1core.html#ac65d8a5ae9c897b6ffd74a4f1a417b10">EdgeDetectionMethod</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9eb3069d7bcb59fa399559811e276fae">current_method_</a></td></tr>
+<tr class="separator:a9eb3069d7bcb59fa399559811e276fae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9be0beaa54b33ba298157c64ba938194" id="r_a9be0beaa54b33ba298157c64ba938194"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9be0beaa54b33ba298157c64ba938194">parameters_</a></td></tr>
+<tr class="separator:a9be0beaa54b33ba298157c64ba938194"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7befbc0174178ddb0a52a82dcd23d52d" id="r_a7befbc0174178ddb0a52a82dcd23d52d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespacerc__vision_1_1core.html#aaa2e7cf3c8acdaf99158aecd76cba048">EdgeType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7befbc0174178ddb0a52a82dcd23d52d">detect_edge_types_</a></td></tr>
+<tr class="separator:a7befbc0174178ddb0a52a82dcd23d52d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>边缘检测类，支持多种边缘检测方法和边缘类型分类。 </p>
+<p><a class="el" href="classrc__vision_1_1core_1_1_edge_detector.html" title="边缘检测类，支持多种边缘检测方法和边缘类型分类。">EdgeDetector</a> 提供了多种边缘检测算法，并能够根据检测到的边缘特征将其分类为不同类型的边缘。 </p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="aa3e8133d4c347807da0490436a728ba0" name="aa3e8133d4c347807da0490436a728ba0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3e8133d4c347807da0490436a728ba0">&#9670;&#160;</a></span>EdgeDetector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">rc_vision::core::EdgeDetector::EdgeDetector </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>默认构造函数，初始化边缘检测方法为 CANNY。 </p>
+
+</div>
+</div>
+<a id="a44a4ee20a173202df13785af4ed138f2" name="a44a4ee20a173202df13785af4ed138f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44a4ee20a173202df13785af4ed138f2">&#9670;&#160;</a></span>~EdgeDetector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">rc_vision::core::EdgeDetector::~EdgeDetector </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>默认析构函数。 </p>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="ac79c4298197b96be4418966c08deaa24" name="ac79c4298197b96be4418966c08deaa24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac79c4298197b96be4418966c08deaa24">&#9670;&#160;</a></span>classifyEdgeTypes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::EdgeDetector::classifyEdgeTypes </td>
+          <td>(</td>
+          <td class="paramtype">const cv::Mat &amp;</td>          <td class="paramname"><span class="paramname"><em>edges</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>分类边缘类型。 </p>
+<p>根据检测到的边缘图像，对边缘点进行类型分类。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">edges</td><td>边缘图像。 </td></tr>
+    <tr><td class="paramname">result</td><td>边缘检测结果结构体。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3c353a11b619867c58aa5280dd56879a" name="a3c353a11b619867c58aa5280dd56879a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c353a11b619867c58aa5280dd56879a">&#9670;&#160;</a></span>detectCanny()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a> rc_vision::core::EdgeDetector::detectCanny </td>
+          <td>(</td>
+          <td class="paramtype">const cv::Mat &amp;</td>          <td class="paramname"><span class="paramname"><em>image</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>执行 Canny 边缘检测。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>输入图像。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>边缘检测结果结构体。 </dd></dl>
+
+</div>
+</div>
+<a id="a2fb3d0af93c47c1773ce69826ce12ab6" name="a2fb3d0af93c47c1773ce69826ce12ab6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fb3d0af93c47c1773ce69826ce12ab6">&#9670;&#160;</a></span>detectCircles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::EdgeDetector::detectCircles </td>
+          <td>(</td>
+          <td class="paramtype">const cv::Mat &amp;</td>          <td class="paramname"><span class="paramname"><em>edges</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>检测圆形边缘。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">edges</td><td>边缘图像。 </td></tr>
+    <tr><td class="paramname">result</td><td>边缘检测结果结构体。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9cd15d95746ea9cdd99f67e89f6a979f" name="a9cd15d95746ea9cdd99f67e89f6a979f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cd15d95746ea9cdd99f67e89f6a979f">&#9670;&#160;</a></span>detectCorners()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::EdgeDetector::detectCorners </td>
+          <td>(</td>
+          <td class="paramtype">const cv::Mat &amp;</td>          <td class="paramname"><span class="paramname"><em>edges</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>检测角点边缘。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">edges</td><td>边缘图像。 </td></tr>
+    <tr><td class="paramname">result</td><td>边缘检测结果结构体。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ade22230c04ed0c6909eebd4c1a8e824d" name="ade22230c04ed0c6909eebd4c1a8e824d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade22230c04ed0c6909eebd4c1a8e824d">&#9670;&#160;</a></span>detectEdges()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a> rc_vision::core::EdgeDetector::detectEdges </td>
+          <td>(</td>
+          <td class="paramtype">const cv::Mat &amp;</td>          <td class="paramname"><span class="paramname"><em>image</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>执行边缘检测。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>输入图像。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>边缘检测结果结构体。 </dd></dl>
+
+</div>
+</div>
+<a id="aadacff19a254613068ec7d602b80c985" name="aadacff19a254613068ec7d602b80c985"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadacff19a254613068ec7d602b80c985">&#9670;&#160;</a></span>detectLaplacian()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a> rc_vision::core::EdgeDetector::detectLaplacian </td>
+          <td>(</td>
+          <td class="paramtype">const cv::Mat &amp;</td>          <td class="paramname"><span class="paramname"><em>image</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>执行 Laplacian 边缘检测。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>输入图像。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>边缘检测结果结构体。 </dd></dl>
+
+</div>
+</div>
+<a id="a673c672de9ca9038bca93e51e86ca8ae" name="a673c672de9ca9038bca93e51e86ca8ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a673c672de9ca9038bca93e51e86ca8ae">&#9670;&#160;</a></span>detectLines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::EdgeDetector::detectLines </td>
+          <td>(</td>
+          <td class="paramtype">const cv::Mat &amp;</td>          <td class="paramname"><span class="paramname"><em>edges</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>检测直线边缘。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">edges</td><td>边缘图像。 </td></tr>
+    <tr><td class="paramname">result</td><td>边缘检测结果结构体。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af4ff19f1105bd35ab6513c6f89dc4141" name="af4ff19f1105bd35ab6513c6f89dc4141"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4ff19f1105bd35ab6513c6f89dc4141">&#9670;&#160;</a></span>detectPolygons()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::EdgeDetector::detectPolygons </td>
+          <td>(</td>
+          <td class="paramtype">const cv::Mat &amp;</td>          <td class="paramname"><span class="paramname"><em>edges</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>检测多边形边缘。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">edges</td><td>边缘图像。 </td></tr>
+    <tr><td class="paramname">result</td><td>边缘检测结果结构体。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4e810b938cc293cfebbd0e0c21dc95f0" name="a4e810b938cc293cfebbd0e0c21dc95f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e810b938cc293cfebbd0e0c21dc95f0">&#9670;&#160;</a></span>detectSobel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structrc__vision_1_1core_1_1_edge_detection_result.html">EdgeDetectionResult</a> rc_vision::core::EdgeDetector::detectSobel </td>
+          <td>(</td>
+          <td class="paramtype">const cv::Mat &amp;</td>          <td class="paramname"><span class="paramname"><em>image</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>执行 Sobel 边缘检测。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>输入图像。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>边缘检测结果结构体。 </dd></dl>
+
+</div>
+</div>
+<a id="a7989cc2a039cf069a124856e54f321bd" name="a7989cc2a039cf069a124856e54f321bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7989cc2a039cf069a124856e54f321bd">&#9670;&#160;</a></span>getMethod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacerc__vision_1_1core.html#ac65d8a5ae9c897b6ffd74a4f1a417b10">EdgeDetectionMethod</a> rc_vision::core::EdgeDetector::getMethod </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取当前使用的边缘检测方法。 </p>
+<dl class="section return"><dt>返回</dt><dd>当前边缘检测方法枚举值。 </dd></dl>
+
+</div>
+</div>
+<a id="abfffa612a5025c2a60c79203b4df8ccb" name="abfffa612a5025c2a60c79203b4df8ccb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfffa612a5025c2a60c79203b4df8ccb">&#9670;&#160;</a></span>loadConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool rc_vision::core::EdgeDetector::loadConfig </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>config_file</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从配置文件加载边缘检测配置。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config_file</td><td>配置文件路径（例如 YAML 文件）。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>成功加载返回 true，失败返回 false。 </dd></dl>
+
+</div>
+</div>
+<a id="acbe4e47208e3e1f1f44e77b0df35d9c8" name="acbe4e47208e3e1f1f44e77b0df35d9c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbe4e47208e3e1f1f44e77b0df35d9c8">&#9670;&#160;</a></span>setDetectEdgeTypes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::EdgeDetector::setDetectEdgeTypes </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="namespacerc__vision_1_1core.html#aaa2e7cf3c8acdaf99158aecd76cba048">EdgeType</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>types</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置要检测的边缘类型。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">types</td><td>边缘类型枚举值的向量。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a32a008786bcf0212965bacbf3bbecf07" name="a32a008786bcf0212965bacbf3bbecf07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32a008786bcf0212965bacbf3bbecf07">&#9670;&#160;</a></span>setMethod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::EdgeDetector::setMethod </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacerc__vision_1_1core.html#ac65d8a5ae9c897b6ffd74a4f1a417b10">EdgeDetectionMethod</a></td>          <td class="paramname"><span class="paramname"><em>method</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置边缘检测方法。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">method</td><td>边缘检测方法枚举值。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1dc37a0731980fae2c010e0331618e24" name="a1dc37a0731980fae2c010e0331618e24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dc37a0731980fae2c010e0331618e24">&#9670;&#160;</a></span>setParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::EdgeDetector::setParameters </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>params</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>配置算法参数。 </p>
+<p>根据不同的边缘检测方法，参数的含义可能不同。例如，Canny 边缘检测需要设置阈值。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">params</td><td>参数列表。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="a9eb3069d7bcb59fa399559811e276fae" name="a9eb3069d7bcb59fa399559811e276fae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9eb3069d7bcb59fa399559811e276fae">&#9670;&#160;</a></span>current_method_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacerc__vision_1_1core.html#ac65d8a5ae9c897b6ffd74a4f1a417b10">EdgeDetectionMethod</a> rc_vision::core::EdgeDetector::current_method_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>当前使用的边缘检测方法。 </p>
+
+</div>
+</div>
+<a id="a7befbc0174178ddb0a52a82dcd23d52d" name="a7befbc0174178ddb0a52a82dcd23d52d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7befbc0174178ddb0a52a82dcd23d52d">&#9670;&#160;</a></span>detect_edge_types_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="namespacerc__vision_1_1core.html#aaa2e7cf3c8acdaf99158aecd76cba048">EdgeType</a>&gt; rc_vision::core::EdgeDetector::detect_edge_types_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>要检测的边缘类型。 </p>
+
+</div>
+</div>
+<a id="a9be0beaa54b33ba298157c64ba938194" name="a9be0beaa54b33ba298157c64ba938194"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9be0beaa54b33ba298157c64ba938194">&#9670;&#160;</a></span>parameters_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt; rc_vision::core::EdgeDetector::parameters_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>边缘检测算法参数。 </p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>C:/Users/14168/1/rc_vision/core_lib/include/rc_vision/core/<a class="el" href="edge__detector_8hpp_source.html">edge_detector.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

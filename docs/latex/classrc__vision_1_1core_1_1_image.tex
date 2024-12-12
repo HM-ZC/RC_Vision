@@ -1,0 +1,684 @@
+\doxysection{rc\+\_\+vision\+::core\+::Image类 参考}
+\hypertarget{classrc__vision_1_1core_1_1_image}{}\label{classrc__vision_1_1core_1_1_image}\index{rc\_vision::core::Image@{rc\_vision::core::Image}}
+
+
+图像处理类，封装了多种常用的图像操作和分析功能。  
+
+
+
+
+{\ttfamily \#include $<$image.\+hpp$>$}
+
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a3e284c964579e23e5ce0f1ab25c7c17f}{Image}} ()
+\begin{DoxyCompactList}\small\item\em 默认构造函数，创建一个空的图像对象。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_image_ab18dabb3b2dcec58a1bb7148671c756b}{Image}} (const std\+::string \&file\+\_\+path)
+\begin{DoxyCompactList}\small\item\em 从文件路径加载图像。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a9b7f97077f0d209d18450cb35639fc26}{Image}} (const cv\+::\+Mat \&mat)
+\begin{DoxyCompactList}\small\item\em 使用给定的 cv\+::\+Mat 对象初始化图像。 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a7b3ba5773d4bad440da0fac4efe3afcb}{load}} (const std\+::string \&file\+\_\+path)
+\begin{DoxyCompactList}\small\item\em 从文件路径加载图像。 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a6346ed51fa1b7968d8c85616694fa789}{save}} (const std\+::string \&file\+\_\+path) const
+\begin{DoxyCompactList}\small\item\em 将图像保存到指定的文件路径。 \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_ac974a50ca3f91291a6de7d196151f88a}{get\+Mat}} () const
+\begin{DoxyCompactList}\small\item\em 获取当前图像的 cv\+::\+Mat 对象。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a3fa3e47c0390695e94489be676aaf79e}{set\+Mat}} (const cv\+::\+Mat \&mat)
+\begin{DoxyCompactList}\small\item\em 设置当前图像的数据矩阵。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_ade5bc5b6bde666fff305dea90ff4a153}{convert\+Color}} (int code)
+\begin{DoxyCompactList}\small\item\em 将图像转换为指定的颜色空间。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a615a30a1ef52e9392b63b62f23997380}{resize}} (int width, int height, int interpolation=cv\+::\+INTER\+\_\+\+LINEAR)
+\begin{DoxyCompactList}\small\item\em 调整图像的尺寸。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a244507abee57f7960401bd6383a706de}{crop}} (int x, int y, int width, int height) const
+\begin{DoxyCompactList}\small\item\em 裁剪图像的一部分。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_acd4d670fec0cae15f288100dab2dba39}{rotate}} (double angle, const cv\+::\+Point2f \&center=cv\+::\+Point2f(-\/1,-\/1), double scale=1.\+0)
+\begin{DoxyCompactList}\small\item\em 旋转图像。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_aabbb14266f2fa29ac80ef8b1a61f817a}{flip}} (int flip\+\_\+code)
+\begin{DoxyCompactList}\small\item\em 翻转图像。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a63d93b811fd1bd7516c547e211985cc5}{gaussian\+Blur}} (int ksize=5, double sigmaX=1.\+0)
+\begin{DoxyCompactList}\small\item\em 对图像应用高斯模糊滤波。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a9b2aae72c940b098d4455223e5f9abce}{median\+Blur}} (int ksize=5)
+\begin{DoxyCompactList}\small\item\em 对图像应用中值滤波。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a75975e5300481c381474669e7b98f055}{edge\+Detection}} (int threshold1=100, int threshold2=200)
+\begin{DoxyCompactList}\small\item\em 对图像应用边缘检测。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_ac4987dc5d9770c24448784aa11783c16}{equalize\+Hist}} ()
+\begin{DoxyCompactList}\small\item\em 对图像应用直方图均衡化。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a0b6a459bd8c03d19041799ea76deee48}{adjust\+Contrast}} (double alpha, double beta)
+\begin{DoxyCompactList}\small\item\em 调整图像的对比度和亮度。 \end{DoxyCompactList}\item 
+std\+::vector$<$ cv\+::\+Key\+Point $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a1d572e03ac32ee1e173c7fd0b92ae935}{detect\+Keypoints}} (const std\+::string \&detector\+\_\+type="{}ORB"{}) const
+\begin{DoxyCompactList}\small\item\em 检测图像中的关键点。 \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a82c69ac0cca7a587e23572e7e9462118}{compute\+Descriptors}} (const std\+::string \&descriptor\+\_\+type="{}ORB"{}) const
+\begin{DoxyCompactList}\small\item\em 计算图像中的描述子。 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_aba77ced7239dc98c06a9f4788131b2d0}{mean}} () const
+\begin{DoxyCompactList}\small\item\em 计算图像的平均值。 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a64ce95ec69d27066752f2dbe707ac308}{stddev}} () const
+\begin{DoxyCompactList}\small\item\em 计算图像的标准差。 \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a4681726b99b2959921d547d5509dfa01}{histogram}} (int hist\+Size=256, float range\mbox{[}$\,$\mbox{]}=\{0, 256\}) const
+\begin{DoxyCompactList}\small\item\em 计算图像的直方图。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a18f86cbd918a508f7047160f42158f29}{operator+}} (const \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} \&other) const
+\begin{DoxyCompactList}\small\item\em 图像的加法运算。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a9d56e1763683d14efbf47f06c1172c97}{operator-\/}} (const \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} \&other) const
+\begin{DoxyCompactList}\small\item\em 图像的减法运算。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_ac7b1bc93816b769c4aea2325967367de}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} \&other) const
+\begin{DoxyCompactList}\small\item\em 图像的乘法运算。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_afd2384c9c2343bf230ed6e1c48ee2c5c}{operator/}} (const \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} \&other) const
+\begin{DoxyCompactList}\small\item\em 图像的除法运算。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a8c14e5958524f3d6e4f2340b9416ea72}{set\+ROI}} (const cv\+::\+Rect \&roi)
+\begin{DoxyCompactList}\small\item\em 设置图像的感兴趣区域（\+ROI）。 \end{DoxyCompactList}\item 
+cv\+::\+Rect \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a631f3726b8743392db4bed4cc2ee7451}{get\+ROI}} () const
+\begin{DoxyCompactList}\small\item\em 获取当前图像的感兴趣区域（\+ROI）。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_aa81f7ec15eba684bc68de557fdc7deb6}{get\+ROIImage}} () const
+\begin{DoxyCompactList}\small\item\em 获取当前 ROI 区域内的图像。 \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a93a4596f44fb5a92b07499ea53cf3157}{match\+Template}} (const \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} \&template\+\_\+img, int method=cv\+::\+TM\+\_\+\+CCOEFF) const
+\begin{DoxyCompactList}\small\item\em 执行模板匹配。 \end{DoxyCompactList}\item 
+cv\+::\+Point \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a692c49ffd0b7e724296f5b249836cedf}{find\+Best\+Match}} (const \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} \&template\+\_\+img, int method=cv\+::\+TM\+\_\+\+CCOEFF, double \texorpdfstring{$\ast$}{*}min\+\_\+max\+\_\+vals=nullptr) const
+\begin{DoxyCompactList}\small\item\em 查找模板在源图像中的最佳匹配位置。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_ad2bab0073376795efd2366993540c7ba}{draw\+Match}} (const \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} \&template\+\_\+img, const cv\+::\+Point \&top\+\_\+left, const cv\+::\+Scalar \&color=cv\+::\+Scalar(0, 0, 255), int thickness=2)
+\begin{DoxyCompactList}\small\item\em 在源图像上绘制模板匹配结果。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a0de12c6fd705ce825b0fe1088b77292b}{apply\+ROI}} ()
+\begin{DoxyCompactList}\small\item\em 应用当前设置的 ROI 到图像数据。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+cv\+::\+Mat \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_aed5226eb2126f8c15ec0142d07f01268}{mat\+\_\+}}
+\item 
+cv\+::\+Rect \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a1604638901e019c433315e2ca8f0deb8}{roi\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+图像处理类，封装了多种常用的图像操作和分析功能。 
+
+该类提供了图像的加载、保存、转换、滤波、特征检测与描述、统计分析等多种功能， 以及图像的算术操作和模板匹配等高级操作。 
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classrc__vision_1_1core_1_1_image_a3e284c964579e23e5ce0f1ab25c7c17f}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!Image@{Image}}
+\index{Image@{Image}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{Image()}{Image()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_a3e284c964579e23e5ce0f1ab25c7c17f} 
+rc\+\_\+vision\+::core\+::\+Image\+::\+Image (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+默认构造函数，创建一个空的图像对象。 
+
+\Hypertarget{classrc__vision_1_1core_1_1_image_ab18dabb3b2dcec58a1bb7148671c756b}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!Image@{Image}}
+\index{Image@{Image}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{Image()}{Image()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_ab18dabb3b2dcec58a1bb7148671c756b} 
+rc\+\_\+vision\+::core\+::\+Image\+::\+Image (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+\_\+path}{}\end{DoxyParamCaption})}
+
+
+
+从文件路径加载图像。 
+
+
+\begin{DoxyParams}{参数}
+{\em file\+\_\+path} & 要加载的图像文件路径。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true 如果图像成功加载。 
+
+false 如果加载失败。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_image_a9b7f97077f0d209d18450cb35639fc26}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!Image@{Image}}
+\index{Image@{Image}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{Image()}{Image()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_a9b7f97077f0d209d18450cb35639fc26} 
+rc\+\_\+vision\+::core\+::\+Image\+::\+Image (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat \&}]{mat}{}\end{DoxyParamCaption})}
+
+
+
+使用给定的 cv\+::\+Mat 对象初始化图像。 
+
+
+\begin{DoxyParams}{参数}
+{\em mat} & 要使用的 Open\+CV 图像矩阵。 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classrc__vision_1_1core_1_1_image_a0b6a459bd8c03d19041799ea76deee48}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!adjustContrast@{adjustContrast}}
+\index{adjustContrast@{adjustContrast}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{adjustContrast()}{adjustContrast()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_a0b6a459bd8c03d19041799ea76deee48} 
+void rc\+\_\+vision\+::core\+::\+Image\+::adjust\+Contrast (\begin{DoxyParamCaption}\item[{double}]{alpha}{, }\item[{double}]{beta}{}\end{DoxyParamCaption})}
+
+
+
+调整图像的对比度和亮度。 
+
+新图像 = alpha \texorpdfstring{$\ast$}{*} 原图像 + beta
+
+
+\begin{DoxyParams}{参数}
+{\em alpha} & 对比度控制（1.0-\/3.\+0）。 \\
+\hline
+{\em beta} & 亮度控制（0-\/100）。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_image_a0de12c6fd705ce825b0fe1088b77292b}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!applyROI@{applyROI}}
+\index{applyROI@{applyROI}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{applyROI()}{applyROI()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_a0de12c6fd705ce825b0fe1088b77292b} 
+void rc\+\_\+vision\+::core\+::\+Image\+::apply\+ROI (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+应用当前设置的 ROI 到图像数据。 
+
+如果 ROI 被设置，则裁剪图像到 ROI 区域。 \Hypertarget{classrc__vision_1_1core_1_1_image_a82c69ac0cca7a587e23572e7e9462118}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!computeDescriptors@{computeDescriptors}}
+\index{computeDescriptors@{computeDescriptors}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{computeDescriptors()}{computeDescriptors()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_a82c69ac0cca7a587e23572e7e9462118} 
+cv\+::\+Mat rc\+\_\+vision\+::core\+::\+Image\+::compute\+Descriptors (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{descriptor\+\_\+type}{ = {\ttfamily "{}ORB"{}}}\end{DoxyParamCaption}) const}
+
+
+
+计算图像中的描述子。 
+
+支持多种描述子计算器，例如 ORB、\+SIFT、\+SURF 等。
+
+
+\begin{DoxyParams}{参数}
+{\em descriptor\+\_\+type} & 描述子类型，默认为 "{}\+ORB"{}。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+cv\+::\+Mat 计算得到的描述子矩阵。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_image_ade5bc5b6bde666fff305dea90ff4a153}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!convertColor@{convertColor}}
+\index{convertColor@{convertColor}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{convertColor()}{convertColor()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_ade5bc5b6bde666fff305dea90ff4a153} 
+void rc\+\_\+vision\+::core\+::\+Image\+::convert\+Color (\begin{DoxyParamCaption}\item[{int}]{code}{}\end{DoxyParamCaption})}
+
+
+
+将图像转换为指定的颜色空间。 
+
+
+\begin{DoxyParams}{参数}
+{\em code} & 颜色转换代码，例如 cv\+::\+COLOR\+\_\+\+BGR2\+GRAY。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_image_a244507abee57f7960401bd6383a706de}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!crop@{crop}}
+\index{crop@{crop}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{crop()}{crop()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_a244507abee57f7960401bd6383a706de} 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} rc\+\_\+vision\+::core\+::\+Image\+::crop (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{int}]{width}{, }\item[{int}]{height}{}\end{DoxyParamCaption}) const}
+
+
+
+裁剪图像的一部分。 
+
+
+\begin{DoxyParams}{参数}
+{\em x} & 裁剪区域左上角的 x 坐标。 \\
+\hline
+{\em y} & 裁剪区域左上角的 y 坐标。 \\
+\hline
+{\em width} & 裁剪区域的宽度。 \\
+\hline
+{\em height} & 裁剪区域的高度。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+\doxylink{classrc__vision_1_1core_1_1_image}{Image} 裁剪后的新图像对象。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_image_a1d572e03ac32ee1e173c7fd0b92ae935}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!detectKeypoints@{detectKeypoints}}
+\index{detectKeypoints@{detectKeypoints}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{detectKeypoints()}{detectKeypoints()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_a1d572e03ac32ee1e173c7fd0b92ae935} 
+std\+::vector$<$ cv\+::\+Key\+Point $>$ rc\+\_\+vision\+::core\+::\+Image\+::detect\+Keypoints (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{detector\+\_\+type}{ = {\ttfamily "{}ORB"{}}}\end{DoxyParamCaption}) const}
+
+
+
+检测图像中的关键点。 
+
+支持多种关键点检测器，例如 ORB、\+SIFT、\+SURF 等。
+
+
+\begin{DoxyParams}{参数}
+{\em detector\+\_\+type} & 关键点检测器类型，默认为 "{}\+ORB"{}。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+std\+::vector$<$cv\+::\+Key\+Point$>$ 检测到的关键点列表。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_image_ad2bab0073376795efd2366993540c7ba}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!drawMatch@{drawMatch}}
+\index{drawMatch@{drawMatch}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{drawMatch()}{drawMatch()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_ad2bab0073376795efd2366993540c7ba} 
+void rc\+\_\+vision\+::core\+::\+Image\+::draw\+Match (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} \&}]{template\+\_\+img}{, }\item[{const cv\+::\+Point \&}]{top\+\_\+left}{, }\item[{const cv\+::\+Scalar \&}]{color}{ = {\ttfamily cv\+:\+:Scalar(0,~0,~255)}, }\item[{int}]{thickness}{ = {\ttfamily 2}}\end{DoxyParamCaption})}
+
+
+
+在源图像上绘制模板匹配结果。 
+
+绘制一个矩形框标记出模板匹配的位置。
+
+
+\begin{DoxyParams}{参数}
+{\em template\+\_\+img} & 模板图像对象。 \\
+\hline
+{\em top\+\_\+left} & 匹配区域的左上角坐标。 \\
+\hline
+{\em color} & 绘制矩形的颜色，默认为红色 (0, 0, 255)。 \\
+\hline
+{\em thickness} & 矩形边框的厚度，默认为 2。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_image_a75975e5300481c381474669e7b98f055}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!edgeDetection@{edgeDetection}}
+\index{edgeDetection@{edgeDetection}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{edgeDetection()}{edgeDetection()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_a75975e5300481c381474669e7b98f055} 
+void rc\+\_\+vision\+::core\+::\+Image\+::edge\+Detection (\begin{DoxyParamCaption}\item[{int}]{threshold1}{ = {\ttfamily 100}, }\item[{int}]{threshold2}{ = {\ttfamily 200}}\end{DoxyParamCaption})}
+
+
+
+对图像应用边缘检测。 
+
+使用 Canny 边缘检测算法。
+
+
+\begin{DoxyParams}{参数}
+{\em threshold1} & 第一个阈值，默认为 100。 \\
+\hline
+{\em threshold2} & 第二个阈值，默认为 200。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_image_ac4987dc5d9770c24448784aa11783c16}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!equalizeHist@{equalizeHist}}
+\index{equalizeHist@{equalizeHist}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{equalizeHist()}{equalizeHist()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_ac4987dc5d9770c24448784aa11783c16} 
+void rc\+\_\+vision\+::core\+::\+Image\+::equalize\+Hist (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+对图像应用直方图均衡化。 
+
+仅适用于单通道图像。 \Hypertarget{classrc__vision_1_1core_1_1_image_a692c49ffd0b7e724296f5b249836cedf}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!findBestMatch@{findBestMatch}}
+\index{findBestMatch@{findBestMatch}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{findBestMatch()}{findBestMatch()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_a692c49ffd0b7e724296f5b249836cedf} 
+cv\+::\+Point rc\+\_\+vision\+::core\+::\+Image\+::find\+Best\+Match (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} \&}]{template\+\_\+img}{, }\item[{int}]{method}{ = {\ttfamily cv\+:\+:TM\+\_\+CCOEFF}, }\item[{double \texorpdfstring{$\ast$}{*}}]{min\+\_\+max\+\_\+vals}{ = {\ttfamily nullptr}}\end{DoxyParamCaption}) const}
+
+
+
+查找模板在源图像中的最佳匹配位置。 
+
+使用 Open\+CV 的 min\+Max\+Loc 函数查找最佳匹配位置。
+
+
+\begin{DoxyParams}{参数}
+{\em template\+\_\+img} & 模板图像对象。 \\
+\hline
+{\em method} & 匹配方法，如 cv\+::\+TM\+\_\+\+CCOEFF, cv\+::\+TM\+\_\+\+SQDIFF 等，默认为 cv\+::\+TM\+\_\+\+CCOEFF。 \\
+\hline
+{\em min\+\_\+max\+\_\+vals} & 返回匹配结果的最小值和最大值，可为 nullptr。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+cv\+::\+Point 最佳匹配位置的左上角坐标。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_image_aabbb14266f2fa29ac80ef8b1a61f817a}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!flip@{flip}}
+\index{flip@{flip}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{flip()}{flip()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_aabbb14266f2fa29ac80ef8b1a61f817a} 
+void rc\+\_\+vision\+::core\+::\+Image\+::flip (\begin{DoxyParamCaption}\item[{int}]{flip\+\_\+code}{}\end{DoxyParamCaption})}
+
+
+
+翻转图像。 
+
+
+\begin{DoxyParams}{参数}
+{\em flip\+\_\+code} & 翻转代码： 0 -\/ 垂直翻转， 1 -\/ 水平翻转， -\/1 -\/ 同时水平和垂直翻转。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_image_a63d93b811fd1bd7516c547e211985cc5}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!gaussianBlur@{gaussianBlur}}
+\index{gaussianBlur@{gaussianBlur}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{gaussianBlur()}{gaussianBlur()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_a63d93b811fd1bd7516c547e211985cc5} 
+void rc\+\_\+vision\+::core\+::\+Image\+::gaussian\+Blur (\begin{DoxyParamCaption}\item[{int}]{ksize}{ = {\ttfamily 5}, }\item[{double}]{sigmaX}{ = {\ttfamily 1.0}}\end{DoxyParamCaption})}
+
+
+
+对图像应用高斯模糊滤波。 
+
+
+\begin{DoxyParams}{参数}
+{\em ksize} & 核大小，默认为 5。 \\
+\hline
+{\em sigmaX} & 高斯核在 X 方向的标准差，默认为 1.\+0。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_image_ac974a50ca3f91291a6de7d196151f88a}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!getMat@{getMat}}
+\index{getMat@{getMat}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{getMat()}{getMat()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_ac974a50ca3f91291a6de7d196151f88a} 
+cv\+::\+Mat rc\+\_\+vision\+::core\+::\+Image\+::get\+Mat (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+获取当前图像的 cv\+::\+Mat 对象。 
+
+\begin{DoxyReturn}{返回}
+cv\+::\+Mat 当前图像的数据矩阵。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_image_a631f3726b8743392db4bed4cc2ee7451}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!getROI@{getROI}}
+\index{getROI@{getROI}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{getROI()}{getROI()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_a631f3726b8743392db4bed4cc2ee7451} 
+cv\+::\+Rect rc\+\_\+vision\+::core\+::\+Image\+::get\+ROI (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+获取当前图像的感兴趣区域（\+ROI）。 
+
+\begin{DoxyReturn}{返回}
+cv\+::\+Rect 当前的 ROI 区域。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_image_aa81f7ec15eba684bc68de557fdc7deb6}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!getROIImage@{getROIImage}}
+\index{getROIImage@{getROIImage}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{getROIImage()}{getROIImage()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_aa81f7ec15eba684bc68de557fdc7deb6} 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} rc\+\_\+vision\+::core\+::\+Image\+::get\+ROIImage (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+获取当前 ROI 区域内的图像。 
+
+\begin{DoxyReturn}{返回}
+\doxylink{classrc__vision_1_1core_1_1_image}{Image} ROI 区域内的新图像对象。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_image_a4681726b99b2959921d547d5509dfa01}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!histogram@{histogram}}
+\index{histogram@{histogram}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{histogram()}{histogram()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_a4681726b99b2959921d547d5509dfa01} 
+cv\+::\+Mat rc\+\_\+vision\+::core\+::\+Image\+::histogram (\begin{DoxyParamCaption}\item[{int}]{hist\+Size}{ = {\ttfamily 256}, }\item[{float}]{range}{\mbox{[}$\,$\mbox{]} = {\ttfamily \{0,~256\}}}\end{DoxyParamCaption}) const}
+
+
+
+计算图像的直方图。 
+
+
+\begin{DoxyParams}{参数}
+{\em hist\+Size} & 直方图大小，默认为 256。 \\
+\hline
+{\em range} & 直方图范围，默认为 \{0, 256\}。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+cv\+::\+Mat 计算得到的直方图矩阵。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_image_a7b3ba5773d4bad440da0fac4efe3afcb}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!load@{load}}
+\index{load@{load}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_a7b3ba5773d4bad440da0fac4efe3afcb} 
+bool rc\+\_\+vision\+::core\+::\+Image\+::load (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+\_\+path}{}\end{DoxyParamCaption})}
+
+
+
+从文件路径加载图像。 
+
+
+\begin{DoxyParams}{参数}
+{\em file\+\_\+path} & 要加载的图像文件路径。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true 如果图像成功加载。 
+
+false 如果加载失败。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_image_a93a4596f44fb5a92b07499ea53cf3157}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!matchTemplate@{matchTemplate}}
+\index{matchTemplate@{matchTemplate}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{matchTemplate()}{matchTemplate()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_a93a4596f44fb5a92b07499ea53cf3157} 
+cv\+::\+Mat rc\+\_\+vision\+::core\+::\+Image\+::match\+Template (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} \&}]{template\+\_\+img}{, }\item[{int}]{method}{ = {\ttfamily cv\+:\+:TM\+\_\+CCOEFF}}\end{DoxyParamCaption}) const}
+
+
+
+执行模板匹配。 
+
+使用 Open\+CV 的 match\+Template 函数进行模板匹配。
+
+
+\begin{DoxyParams}{参数}
+{\em template\+\_\+img} & 模板图像对象。 \\
+\hline
+{\em method} & 匹配方法，如 cv\+::\+TM\+\_\+\+CCOEFF, cv\+::\+TM\+\_\+\+SQDIFF 等，默认为 cv\+::\+TM\+\_\+\+CCOEFF。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+cv\+::\+Mat 匹配结果矩阵。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_image_aba77ced7239dc98c06a9f4788131b2d0}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!mean@{mean}}
+\index{mean@{mean}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{mean()}{mean()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_aba77ced7239dc98c06a9f4788131b2d0} 
+double rc\+\_\+vision\+::core\+::\+Image\+::mean (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+计算图像的平均值。 
+
+\begin{DoxyReturn}{返回}
+double 图像像素的平均值。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_image_a9b2aae72c940b098d4455223e5f9abce}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!medianBlur@{medianBlur}}
+\index{medianBlur@{medianBlur}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{medianBlur()}{medianBlur()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_a9b2aae72c940b098d4455223e5f9abce} 
+void rc\+\_\+vision\+::core\+::\+Image\+::median\+Blur (\begin{DoxyParamCaption}\item[{int}]{ksize}{ = {\ttfamily 5}}\end{DoxyParamCaption})}
+
+
+
+对图像应用中值滤波。 
+
+
+\begin{DoxyParams}{参数}
+{\em ksize} & 核大小，默认为 5。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_image_ac7b1bc93816b769c4aea2325967367de}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_ac7b1bc93816b769c4aea2325967367de} 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} rc\+\_\+vision\+::core\+::\+Image\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} \&}]{other}{}\end{DoxyParamCaption}) const}
+
+
+
+图像的乘法运算。 
+
+
+\begin{DoxyParams}{参数}
+{\em other} & 另一个图像对象。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+\doxylink{classrc__vision_1_1core_1_1_image}{Image} 结果图像。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_image_a18f86cbd918a508f7047160f42158f29}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!operator+@{operator+}}
+\index{operator+@{operator+}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_a18f86cbd918a508f7047160f42158f29} 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} rc\+\_\+vision\+::core\+::\+Image\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} \&}]{other}{}\end{DoxyParamCaption}) const}
+
+
+
+图像的加法运算。 
+
+
+\begin{DoxyParams}{参数}
+{\em other} & 另一个图像对象。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+\doxylink{classrc__vision_1_1core_1_1_image}{Image} 结果图像。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_image_a9d56e1763683d14efbf47f06c1172c97}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_a9d56e1763683d14efbf47f06c1172c97} 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} rc\+\_\+vision\+::core\+::\+Image\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} \&}]{other}{}\end{DoxyParamCaption}) const}
+
+
+
+图像的减法运算。 
+
+
+\begin{DoxyParams}{参数}
+{\em other} & 另一个图像对象。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+\doxylink{classrc__vision_1_1core_1_1_image}{Image} 结果图像。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_image_afd2384c9c2343bf230ed6e1c48ee2c5c}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!operator/@{operator/}}
+\index{operator/@{operator/}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_afd2384c9c2343bf230ed6e1c48ee2c5c} 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} rc\+\_\+vision\+::core\+::\+Image\+::operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}} \&}]{other}{}\end{DoxyParamCaption}) const}
+
+
+
+图像的除法运算。 
+
+
+\begin{DoxyParams}{参数}
+{\em other} & 另一个图像对象。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+\doxylink{classrc__vision_1_1core_1_1_image}{Image} 结果图像。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_image_a615a30a1ef52e9392b63b62f23997380}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!resize@{resize}}
+\index{resize@{resize}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_a615a30a1ef52e9392b63b62f23997380} 
+void rc\+\_\+vision\+::core\+::\+Image\+::resize (\begin{DoxyParamCaption}\item[{int}]{width}{, }\item[{int}]{height}{, }\item[{int}]{interpolation}{ = {\ttfamily cv\+:\+:INTER\+\_\+LINEAR}}\end{DoxyParamCaption})}
+
+
+
+调整图像的尺寸。 
+
+
+\begin{DoxyParams}{参数}
+{\em width} & 目标宽度。 \\
+\hline
+{\em height} & 目标高度。 \\
+\hline
+{\em interpolation} & 插值方法，默认为 cv\+::\+INTER\+\_\+\+LINEAR。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_image_acd4d670fec0cae15f288100dab2dba39}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!rotate@{rotate}}
+\index{rotate@{rotate}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{rotate()}{rotate()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_acd4d670fec0cae15f288100dab2dba39} 
+void rc\+\_\+vision\+::core\+::\+Image\+::rotate (\begin{DoxyParamCaption}\item[{double}]{angle}{, }\item[{const cv\+::\+Point2f \&}]{center}{ = {\ttfamily cv\+:\+:Point2f(-\/1,-\/1)}, }\item[{double}]{scale}{ = {\ttfamily 1.0}}\end{DoxyParamCaption})}
+
+
+
+旋转图像。 
+
+
+\begin{DoxyParams}{参数}
+{\em angle} & 旋转角度，以度为单位。 \\
+\hline
+{\em center} & 旋转中心点，默认为 (-\/1, -\/1) 表示图像中心。 \\
+\hline
+{\em scale} & 缩放因子，默认为 1.\+0。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_image_a6346ed51fa1b7968d8c85616694fa789}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!save@{save}}
+\index{save@{save}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_a6346ed51fa1b7968d8c85616694fa789} 
+bool rc\+\_\+vision\+::core\+::\+Image\+::save (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+\_\+path}{}\end{DoxyParamCaption}) const}
+
+
+
+将图像保存到指定的文件路径。 
+
+
+\begin{DoxyParams}{参数}
+{\em file\+\_\+path} & 要保存的图像文件路径。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true 如果图像成功保存。 
+
+false 如果保存失败。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_image_a3fa3e47c0390695e94489be676aaf79e}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!setMat@{setMat}}
+\index{setMat@{setMat}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{setMat()}{setMat()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_a3fa3e47c0390695e94489be676aaf79e} 
+void rc\+\_\+vision\+::core\+::\+Image\+::set\+Mat (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat \&}]{mat}{}\end{DoxyParamCaption})}
+
+
+
+设置当前图像的数据矩阵。 
+
+
+\begin{DoxyParams}{参数}
+{\em mat} & 要设置的 Open\+CV 图像矩阵。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_image_a8c14e5958524f3d6e4f2340b9416ea72}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!setROI@{setROI}}
+\index{setROI@{setROI}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{setROI()}{setROI()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_a8c14e5958524f3d6e4f2340b9416ea72} 
+void rc\+\_\+vision\+::core\+::\+Image\+::set\+ROI (\begin{DoxyParamCaption}\item[{const cv\+::\+Rect \&}]{roi}{}\end{DoxyParamCaption})}
+
+
+
+设置图像的感兴趣区域（\+ROI）。 
+
+
+\begin{DoxyParams}{参数}
+{\em roi} & 要设置的 ROI 区域。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_image_a64ce95ec69d27066752f2dbe707ac308}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!stddev@{stddev}}
+\index{stddev@{stddev}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{stddev()}{stddev()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_a64ce95ec69d27066752f2dbe707ac308} 
+double rc\+\_\+vision\+::core\+::\+Image\+::stddev (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+计算图像的标准差。 
+
+\begin{DoxyReturn}{返回}
+double 图像像素的标准差。 
+\end{DoxyReturn}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classrc__vision_1_1core_1_1_image_aed5226eb2126f8c15ec0142d07f01268}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!mat\_@{mat\_}}
+\index{mat\_@{mat\_}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{mat\_}{mat\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_aed5226eb2126f8c15ec0142d07f01268} 
+cv\+::\+Mat rc\+\_\+vision\+::core\+::\+Image\+::mat\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+存储图像数据的 Open\+CV 矩阵。 \Hypertarget{classrc__vision_1_1core_1_1_image_a1604638901e019c433315e2ca8f0deb8}\index{rc\_vision::core::Image@{rc\_vision::core::Image}!roi\_@{roi\_}}
+\index{roi\_@{roi\_}!rc\_vision::core::Image@{rc\_vision::core::Image}}
+\doxysubsubsection{\texorpdfstring{roi\_}{roi\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_image_a1604638901e019c433315e2ca8f0deb8} 
+cv\+::\+Rect rc\+\_\+vision\+::core\+::\+Image\+::roi\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+当前图像的感兴趣区域（\+ROI）。 
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/14168/1/rc\+\_\+vision/core\+\_\+lib/include/rc\+\_\+vision/core/\mbox{\hyperlink{image_8hpp}{image.\+hpp}}\end{DoxyCompactItemize}

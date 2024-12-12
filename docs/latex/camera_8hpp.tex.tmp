@@ -1,0 +1,23 @@
+\doxysection{C\+:/\+Users/14168/1/rc\+\_\+vision/core\+\_\+lib/include/rc\+\_\+vision/core/camera.hpp 文件参考}
+\hypertarget{camera_8hpp}{}\label{camera_8hpp}\index{C:/Users/14168/1/rc\_vision/core\_lib/include/rc\_vision/core/camera.hpp@{C:/Users/14168/1/rc\_vision/core\_lib/include/rc\_vision/core/camera.hpp}}
+{\ttfamily \#include $<$Eigen/\+Dense$>$}\newline
+{\ttfamily \#include $<$opencv2/opencv.\+hpp$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+camera.\+hpp 的引用(Include)关系图\+:
+% FIG 0
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{rc\+\_\+vision\+::core\+::\+Camera}}
+\begin{DoxyCompactList}\small\item\em 相机模型类，包含内参、畸变系数和外参，并提供投影、去畸变等功能。 \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera}{rc\+\_\+vision\+::core\+::\+Stereo\+Camera}}
+\begin{DoxyCompactList}\small\item\em 立体相机模型类，包含左右相机及其相对外参，并提供图像校正和视差计算功能。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacerc__vision}{rc\+\_\+vision}}
+\item 
+namespace \mbox{\hyperlink{namespacerc__vision_1_1core}{rc\+\_\+vision\+::core}}
+\end{DoxyCompactItemize}

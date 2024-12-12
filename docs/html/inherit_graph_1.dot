@@ -1,0 +1,9 @@
+digraph "类继承关系图"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node0 [id="Node000000",label="rc_vision::core::Config",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classrc__vision_1_1core_1_1_config.html",tooltip="配置管理类，支持 YAML 和 JSON 格式的配置文件加载与访问。"];
+}

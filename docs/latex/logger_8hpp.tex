@@ -1,0 +1,92 @@
+\doxysection{C\+:/\+Users/14168/1/rc\+\_\+vision/core\+\_\+lib/include/rc\+\_\+vision/core/logger.hpp 文件参考}
+\hypertarget{logger_8hpp}{}\label{logger_8hpp}\index{C:/Users/14168/1/rc\_vision/core\_lib/include/rc\_vision/core/logger.hpp@{C:/Users/14168/1/rc\_vision/core\_lib/include/rc\_vision/core/logger.hpp}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$filesystem$>$}\newline
+{\ttfamily \#include $<$queue$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include $<$condition\+\_\+variable$>$}\newline
+{\ttfamily \#include $<$atomic$>$}\newline
+logger.\+hpp 的引用(Include)关系图\+:
+% FIG 0
+此图展示该文件被哪些文件直接或间接地引用了\+:
+% FIG 1
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger}{rc\+\_\+vision\+::core\+::\+Logger}}
+\begin{DoxyCompactList}\small\item\em 日志记录类，提供多级别日志记录功能，支持异步写入和日志文件旋转。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacerc__vision}{rc\+\_\+vision}}
+\item 
+namespace \mbox{\hyperlink{namespacerc__vision_1_1core}{rc\+\_\+vision\+::core}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{宏定义}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{logger_8hpp_a87f39d92adfc939c31320aaf4b9f7a37}{LOG\+\_\+\+DEBUG}}(message)
+\begin{DoxyCompactList}\small\item\em 宏定义用于简化日志记录。 \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{logger_8hpp_a1df2a84bb8d3b43c8c49f1aff655190a}{LOG\+\_\+\+INFO}}(message)
+\item 
+\#define \mbox{\hyperlink{logger_8hpp_abfe0c293b360dc335041f1bc67b00647}{LOG\+\_\+\+WARN}}(message)
+\item 
+\#define \mbox{\hyperlink{logger_8hpp_a27d98b18ba06759c6ef5c71b1e1a9904}{LOG\+\_\+\+ERROR}}(message)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{宏定义说明}
+\Hypertarget{logger_8hpp_a87f39d92adfc939c31320aaf4b9f7a37}\index{logger.hpp@{logger.hpp}!LOG\_DEBUG@{LOG\_DEBUG}}
+\index{LOG\_DEBUG@{LOG\_DEBUG}!logger.hpp@{logger.hpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_DEBUG}{LOG\_DEBUG}}
+{\footnotesize\ttfamily \label{logger_8hpp_a87f39d92adfc939c31320aaf4b9f7a37} 
+\#define LOG\+\_\+\+DEBUG(\begin{DoxyParamCaption}\item[{}]{message}{}\end{DoxyParamCaption})}
+
+{\bfseries 值\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_aa1ab603542fca1a65433fca4f4ed9991}{rc\_vision::core::Logger::getInstance}}().\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a52933946cc1c4dd5d442f073d05eb868}{log}}(\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220eadc30ec20708ef7b0f641ef78b7880a15}{rc\_vision::core::Logger::LogLevel::DEBUG}},\ message,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_func\_\_)}
+
+\end{DoxyCode}
+
+
+宏定义用于简化日志记录。 
+
+这些宏会自动填充源文件名、行号和函数名，方便调试和追踪日志来源。 \Hypertarget{logger_8hpp_a27d98b18ba06759c6ef5c71b1e1a9904}\index{logger.hpp@{logger.hpp}!LOG\_ERROR@{LOG\_ERROR}}
+\index{LOG\_ERROR@{LOG\_ERROR}!logger.hpp@{logger.hpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_ERROR}{LOG\_ERROR}}
+{\footnotesize\ttfamily \label{logger_8hpp_a27d98b18ba06759c6ef5c71b1e1a9904} 
+\#define LOG\+\_\+\+ERROR(\begin{DoxyParamCaption}\item[{}]{message}{}\end{DoxyParamCaption})}
+
+{\bfseries 值\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_aa1ab603542fca1a65433fca4f4ed9991}{rc\_vision::core::Logger::getInstance}}().\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a52933946cc1c4dd5d442f073d05eb868}{log}}(\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220eabb1ca97ec761fc37101737ba0aa2e7c5}{rc\_vision::core::Logger::LogLevel::ERROR}},\ message,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_func\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{logger_8hpp_a1df2a84bb8d3b43c8c49f1aff655190a}\index{logger.hpp@{logger.hpp}!LOG\_INFO@{LOG\_INFO}}
+\index{LOG\_INFO@{LOG\_INFO}!logger.hpp@{logger.hpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_INFO}{LOG\_INFO}}
+{\footnotesize\ttfamily \label{logger_8hpp_a1df2a84bb8d3b43c8c49f1aff655190a} 
+\#define LOG\+\_\+\+INFO(\begin{DoxyParamCaption}\item[{}]{message}{}\end{DoxyParamCaption})}
+
+{\bfseries 值\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_aa1ab603542fca1a65433fca4f4ed9991}{rc\_vision::core::Logger::getInstance}}().\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a52933946cc1c4dd5d442f073d05eb868}{log}}(\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220ea551b723eafd6a31d444fcb2f5920fbd3}{rc\_vision::core::Logger::LogLevel::INFO}},\ message,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_func\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{logger_8hpp_abfe0c293b360dc335041f1bc67b00647}\index{logger.hpp@{logger.hpp}!LOG\_WARN@{LOG\_WARN}}
+\index{LOG\_WARN@{LOG\_WARN}!logger.hpp@{logger.hpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_WARN}{LOG\_WARN}}
+{\footnotesize\ttfamily \label{logger_8hpp_abfe0c293b360dc335041f1bc67b00647} 
+\#define LOG\+\_\+\+WARN(\begin{DoxyParamCaption}\item[{}]{message}{}\end{DoxyParamCaption})}
+
+{\bfseries 值\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_aa1ab603542fca1a65433fca4f4ed9991}{rc\_vision::core::Logger::getInstance}}().\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a52933946cc1c4dd5d442f073d05eb868}{log}}(\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220ea32bd8a1db2275458673903bdb84cb277}{rc\_vision::core::Logger::LogLevel::WARN}},\ message,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_func\_\_)}
+
+\end{DoxyCode}

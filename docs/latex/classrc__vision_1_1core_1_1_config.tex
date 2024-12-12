@@ -1,0 +1,184 @@
+\doxysection{rc\+\_\+vision\+::core\+::Config类 参考}
+\hypertarget{classrc__vision_1_1core_1_1_config}{}\label{classrc__vision_1_1core_1_1_config}\index{rc\_vision::core::Config@{rc\_vision::core::Config}}
+
+
+配置管理类，支持 YAML 和 JSON 格式的配置文件加载与访问。  
+
+
+
+
+{\ttfamily \#include $<$config.\+hpp$>$}
+
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classrc__vision_1_1core_1_1_config_a6d1fc7702bdc3c5348752b0defe59e83}{load\+From\+File}} (const std\+::string \&file\+\_\+path)
+\begin{DoxyCompactList}\small\item\em 从指定文件加载配置。 \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{classrc__vision_1_1core_1_1_config_a23d5b6563d78aeb622ac3c6b223b707d}{get}} (const std\+::string \&key) const
+\begin{DoxyCompactList}\small\item\em 根据键获取配置值。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacerc__vision_1_1core_aa2f681867cdda0c2c1ae50537b983689}{Config\+Format}} \mbox{\hyperlink{classrc__vision_1_1core_1_1_config_a544d6407f4e26e46a23d4f800caf5c6c}{format}} = \mbox{\hyperlink{namespacerc__vision_1_1core_aa2f681867cdda0c2c1ae50537b983689a9463f87bbed1fcdacfb8d40e185ca2bc}{Config\+Format\+::\+YAML}}
+\begin{DoxyCompactList}\small\item\em 构造函数，默认配置格式为 YAML。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classrc__vision_1_1core_1_1_config_af85c4dae283114e823281244d7128009}{load\+YAML}} (const std\+::string \&file\+\_\+path)
+\begin{DoxyCompactList}\small\item\em 从 YAML 文件加载配置。 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrc__vision_1_1core_1_1_config_ae85168267d824247efb5d3d843224070}{load\+JSON}} (const std\+::string \&file\+\_\+path)
+\begin{DoxyCompactList}\small\item\em 从 JSON 文件加载配置。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+YAML\+::\+Node \mbox{\hyperlink{classrc__vision_1_1core_1_1_config_a543f425dca7f01aa69ec9579dc03f021}{config\+\_\+yaml\+\_\+}}
+\item 
+nlohmann\+::json \mbox{\hyperlink{classrc__vision_1_1core_1_1_config_a7242a53bb02dbb8d4aaab905c592b381}{config\+\_\+json\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+配置管理类，支持 YAML 和 JSON 格式的配置文件加载与访问。 
+
+该类提供了从文件中加载配置，并通过键值对的方式访问配置参数的功能。默认支持 YAML 格式，也可以通过设置 {\ttfamily format} 为 JSON 来加载 JSON 格式的配置文件。 
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classrc__vision_1_1core_1_1_config_a23d5b6563d78aeb622ac3c6b223b707d}\index{rc\_vision::core::Config@{rc\_vision::core::Config}!get@{get}}
+\index{get@{get}!rc\_vision::core::Config@{rc\_vision::core::Config}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_config_a23d5b6563d78aeb622ac3c6b223b707d} 
+template$<$typename T $>$ \\
+T rc\+\_\+vision\+::core\+::\+Config\+::get (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption}) const}
+
+
+
+根据键获取配置值。 
+
+根据键获取配置值的模板实现。
+
+支持模板类型，根据配置文件的格式（\+YAML 或 JSON）返回对应类型的值。
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & 配置值的类型。 \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em key} & 配置项的键。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+配置项的值。 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{异常}
+{\em std\+::runtime\+\_\+error} & 如果键不存在或格式不支持。\\
+\hline
+\end{DoxyExceptions}
+根据 {\ttfamily format} 的值，选择从 YAML 或 JSON 配置中获取值。如果键不存在，将记录错误日志并抛出异常。
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & 配置值的类型。 \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em key} & 配置项的键。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+配置项的值。 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{异常}
+{\em std\+::runtime\+\_\+error} & 如果键不存在或格式不支持。 \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classrc__vision_1_1core_1_1_config_a6d1fc7702bdc3c5348752b0defe59e83}\index{rc\_vision::core::Config@{rc\_vision::core::Config}!loadFromFile@{loadFromFile}}
+\index{loadFromFile@{loadFromFile}!rc\_vision::core::Config@{rc\_vision::core::Config}}
+\doxysubsubsection{\texorpdfstring{loadFromFile()}{loadFromFile()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_config_a6d1fc7702bdc3c5348752b0defe59e83} 
+bool rc\+\_\+vision\+::core\+::\+Config\+::load\+From\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+\_\+path}{}\end{DoxyParamCaption})}
+
+
+
+从指定文件加载配置。 
+
+根据 {\ttfamily format} 成员变量的值，选择相应的加载方法（\+YAML 或 JSON）。
+
+
+\begin{DoxyParams}{参数}
+{\em file\+\_\+path} & 配置文件的路径。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+成功加载返回 {\ttfamily true}，否则返回 {\ttfamily false}。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_config_ae85168267d824247efb5d3d843224070}\index{rc\_vision::core::Config@{rc\_vision::core::Config}!loadJSON@{loadJSON}}
+\index{loadJSON@{loadJSON}!rc\_vision::core::Config@{rc\_vision::core::Config}}
+\doxysubsubsection{\texorpdfstring{loadJSON()}{loadJSON()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_config_ae85168267d824247efb5d3d843224070} 
+bool rc\+\_\+vision\+::core\+::\+Config\+::load\+JSON (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+\_\+path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+从 JSON 文件加载配置。 
+
+
+\begin{DoxyParams}{参数}
+{\em file\+\_\+path} & JSON 配置文件的路径。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+成功加载返回 {\ttfamily true}，否则返回 {\ttfamily false}。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_config_af85c4dae283114e823281244d7128009}\index{rc\_vision::core::Config@{rc\_vision::core::Config}!loadYAML@{loadYAML}}
+\index{loadYAML@{loadYAML}!rc\_vision::core::Config@{rc\_vision::core::Config}}
+\doxysubsubsection{\texorpdfstring{loadYAML()}{loadYAML()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_config_af85c4dae283114e823281244d7128009} 
+bool rc\+\_\+vision\+::core\+::\+Config\+::load\+YAML (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+\_\+path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+从 YAML 文件加载配置。 
+
+
+\begin{DoxyParams}{参数}
+{\em file\+\_\+path} & YAML 配置文件的路径。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+成功加载返回 {\ttfamily true}，否则返回 {\ttfamily false}。 
+\end{DoxyReturn}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classrc__vision_1_1core_1_1_config_a7242a53bb02dbb8d4aaab905c592b381}\index{rc\_vision::core::Config@{rc\_vision::core::Config}!config\_json\_@{config\_json\_}}
+\index{config\_json\_@{config\_json\_}!rc\_vision::core::Config@{rc\_vision::core::Config}}
+\doxysubsubsection{\texorpdfstring{config\_json\_}{config\_json\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_config_a7242a53bb02dbb8d4aaab905c592b381} 
+nlohmann\+::json rc\+\_\+vision\+::core\+::\+Config\+::config\+\_\+json\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+存储 JSON 格式的配置数据 \Hypertarget{classrc__vision_1_1core_1_1_config_a543f425dca7f01aa69ec9579dc03f021}\index{rc\_vision::core::Config@{rc\_vision::core::Config}!config\_yaml\_@{config\_yaml\_}}
+\index{config\_yaml\_@{config\_yaml\_}!rc\_vision::core::Config@{rc\_vision::core::Config}}
+\doxysubsubsection{\texorpdfstring{config\_yaml\_}{config\_yaml\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_config_a543f425dca7f01aa69ec9579dc03f021} 
+YAML\+::\+Node rc\+\_\+vision\+::core\+::\+Config\+::config\+\_\+yaml\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+存储 YAML 格式的配置数据 \Hypertarget{classrc__vision_1_1core_1_1_config_a544d6407f4e26e46a23d4f800caf5c6c}\index{rc\_vision::core::Config@{rc\_vision::core::Config}!format@{format}}
+\index{format@{format}!rc\_vision::core::Config@{rc\_vision::core::Config}}
+\doxysubsubsection{\texorpdfstring{format}{format}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_config_a544d6407f4e26e46a23d4f800caf5c6c} 
+\mbox{\hyperlink{namespacerc__vision_1_1core_aa2f681867cdda0c2c1ae50537b983689}{Config\+Format}} rc\+\_\+vision\+::core\+::\+Config\+::format = \mbox{\hyperlink{namespacerc__vision_1_1core_aa2f681867cdda0c2c1ae50537b983689a9463f87bbed1fcdacfb8d40e185ca2bc}{Config\+Format\+::\+YAML}}}
+
+
+
+构造函数，默认配置格式为 YAML。 
+
+配置文件的格式，默认是 YAML 
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/14168/1/rc\+\_\+vision/core\+\_\+lib/include/rc\+\_\+vision/core/\mbox{\hyperlink{config_8hpp}{config.\+hpp}}\end{DoxyCompactItemize}

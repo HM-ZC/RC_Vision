@@ -1,0 +1,117 @@
+\doxysection{rc\+\_\+vision\+::core\+::filters\+::Moving\+Average\+Filter\texorpdfstring{$<$}{<} T, Dim \texorpdfstring{$>$}{>} 模板类 参考}
+\hypertarget{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter}{}\label{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter}\index{rc\_vision::core::filters::MovingAverageFilter$<$ T, Dim $>$@{rc\_vision::core::filters::MovingAverageFilter$<$ T, Dim $>$}}
+
+
+移动平均滤波器模板类。  
+
+
+
+
+{\ttfamily \#include $<$filters.\+hpp$>$}
+
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_a99d7f6b227c31c2d2784036566641355}{Moving\+Average\+Filter}} (int window\+\_\+size)
+\begin{DoxyCompactList}\small\item\em 构造函数，初始化窗口大小。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_a833f8720e4a1bbbd6565e480a66f3c53}{add\+Measurement}} (const Eigen\+::\+Matrix$<$ T, Dim, 1 $>$ \&measurement)
+\begin{DoxyCompactList}\small\item\em 添加一个新的观测值。 \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix$<$ T, Dim, 1 $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_af8d7d82078d7e30be00299fd93319653}{get\+Average}} () const
+\begin{DoxyCompactList}\small\item\em 获取当前的平均值。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_a4361ec79bc79328bfd83c585ea52159f}{window\+\_\+size\+\_\+}}
+\item 
+std\+::deque$<$ Eigen\+::\+Matrix$<$ T, Dim, 1 $>$ $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_aa91a934fc5e94c6535892d21af2b9597}{measurements\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+\subsubsection*{template$<$typename T, int Dim$>$\newline
+class rc\+\_\+vision\+::core\+::filters\+::\+Moving\+Average\+Filter$<$ T, Dim $>$}
+移动平均滤波器模板类。 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & 数据类型（通常为 float 或 double）。 \\
+\hline
+{\em Dim} & 向量的维度。 \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_a99d7f6b227c31c2d2784036566641355}\index{rc\_vision::core::filters::MovingAverageFilter$<$ T, Dim $>$@{rc\_vision::core::filters::MovingAverageFilter$<$ T, Dim $>$}!MovingAverageFilter@{MovingAverageFilter}}
+\index{MovingAverageFilter@{MovingAverageFilter}!rc\_vision::core::filters::MovingAverageFilter$<$ T, Dim $>$@{rc\_vision::core::filters::MovingAverageFilter$<$ T, Dim $>$}}
+\doxysubsubsection{\texorpdfstring{MovingAverageFilter()}{MovingAverageFilter()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_a99d7f6b227c31c2d2784036566641355} 
+template$<$typename T , int Dim$>$ \\
+\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Moving\+Average\+Filter}}$<$ T, Dim $>$\+::\+Moving\+Average\+Filter (\begin{DoxyParamCaption}\item[{int}]{window\+\_\+size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+构造函数，初始化窗口大小。 
+
+
+\begin{DoxyParams}{参数}
+{\em window\+\_\+size} & 移动平均窗口的大小。 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_a833f8720e4a1bbbd6565e480a66f3c53}\index{rc\_vision::core::filters::MovingAverageFilter$<$ T, Dim $>$@{rc\_vision::core::filters::MovingAverageFilter$<$ T, Dim $>$}!addMeasurement@{addMeasurement}}
+\index{addMeasurement@{addMeasurement}!rc\_vision::core::filters::MovingAverageFilter$<$ T, Dim $>$@{rc\_vision::core::filters::MovingAverageFilter$<$ T, Dim $>$}}
+\doxysubsubsection{\texorpdfstring{addMeasurement()}{addMeasurement()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_a833f8720e4a1bbbd6565e480a66f3c53} 
+template$<$typename T , int Dim$>$ \\
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Moving\+Average\+Filter}}$<$ T, Dim $>$\+::add\+Measurement (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix$<$ T, Dim, 1 $>$ \&}]{measurement}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+添加一个新的观测值。 
+
+如果窗口已满，则移除最旧的观测值。
+
+
+\begin{DoxyParams}{参数}
+{\em measurement} & 新的观测向量。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_af8d7d82078d7e30be00299fd93319653}\index{rc\_vision::core::filters::MovingAverageFilter$<$ T, Dim $>$@{rc\_vision::core::filters::MovingAverageFilter$<$ T, Dim $>$}!getAverage@{getAverage}}
+\index{getAverage@{getAverage}!rc\_vision::core::filters::MovingAverageFilter$<$ T, Dim $>$@{rc\_vision::core::filters::MovingAverageFilter$<$ T, Dim $>$}}
+\doxysubsubsection{\texorpdfstring{getAverage()}{getAverage()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_af8d7d82078d7e30be00299fd93319653} 
+template$<$typename T , int Dim$>$ \\
+Eigen\+::\+Matrix$<$ T, Dim, 1 $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Moving\+Average\+Filter}}$<$ T, Dim $>$\+::get\+Average (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+获取当前的平均值。 
+
+\begin{DoxyReturn}{返回}
+Eigen\+::\+Matrix$<$\+T, Dim, 1$>$ 当前窗口的平均向量。 
+\end{DoxyReturn}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_aa91a934fc5e94c6535892d21af2b9597}\index{rc\_vision::core::filters::MovingAverageFilter$<$ T, Dim $>$@{rc\_vision::core::filters::MovingAverageFilter$<$ T, Dim $>$}!measurements\_@{measurements\_}}
+\index{measurements\_@{measurements\_}!rc\_vision::core::filters::MovingAverageFilter$<$ T, Dim $>$@{rc\_vision::core::filters::MovingAverageFilter$<$ T, Dim $>$}}
+\doxysubsubsection{\texorpdfstring{measurements\_}{measurements\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_aa91a934fc5e94c6535892d21af2b9597} 
+template$<$typename T , int Dim$>$ \\
+std\+::deque$<$Eigen\+::\+Matrix$<$T, Dim, 1$>$ $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Moving\+Average\+Filter}}$<$ T, Dim $>$\+::measurements\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+存储观测值的双端队列。 \Hypertarget{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_a4361ec79bc79328bfd83c585ea52159f}\index{rc\_vision::core::filters::MovingAverageFilter$<$ T, Dim $>$@{rc\_vision::core::filters::MovingAverageFilter$<$ T, Dim $>$}!window\_size\_@{window\_size\_}}
+\index{window\_size\_@{window\_size\_}!rc\_vision::core::filters::MovingAverageFilter$<$ T, Dim $>$@{rc\_vision::core::filters::MovingAverageFilter$<$ T, Dim $>$}}
+\doxysubsubsection{\texorpdfstring{window\_size\_}{window\_size\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_a4361ec79bc79328bfd83c585ea52159f} 
+template$<$typename T , int Dim$>$ \\
+int \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Moving\+Average\+Filter}}$<$ T, Dim $>$\+::window\+\_\+size\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+移动平均窗口的大小。 
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/14168/1/rc\+\_\+vision/core\+\_\+lib/include/rc\+\_\+vision/core/\mbox{\hyperlink{filters_8hpp}{filters.\+hpp}}\end{DoxyCompactItemize}

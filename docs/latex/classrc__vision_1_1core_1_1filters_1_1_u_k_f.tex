@@ -1,0 +1,262 @@
+\doxysection{rc\+\_\+vision\+::core\+::filters\+::UKF\texorpdfstring{$<$}{<} T, State\+Dim, Measurement\+Dim \texorpdfstring{$>$}{>} 模板类 参考}
+\hypertarget{classrc__vision_1_1core_1_1filters_1_1_u_k_f}{}\label{classrc__vision_1_1core_1_1filters_1_1_u_k_f}\index{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}}
+
+
+无迹卡尔曼滤波器模板类，适用于非线性系统。  
+
+
+
+
+{\ttfamily \#include $<$filters.\+hpp$>$}
+
+
+
+类 rc\+\_\+vision\+::core\+::filters\+::UKF\texorpdfstring{$<$}{<} T, State\+Dim, Measurement\+Dim \texorpdfstring{$>$}{>} 继承关系图\+:
+% FIG 0
+
+
+rc\+\_\+vision\+::core\+::filters\+::UKF\texorpdfstring{$<$}{<} T, State\+Dim, Measurement\+Dim \texorpdfstring{$>$}{>} 的协作图\+:
+% FIG 1
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a35d40c93e222b4cbb29c60c754978078}{UKF}} ()
+\begin{DoxyCompactList}\small\item\em 默认构造函数，初始化权重和参数。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_abae4df6ee29dde64f301d7b631f2ccc9}{init}} (const std\+::function$<$ Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$(const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&)$>$ \&f, const std\+::function$<$ Eigen\+::\+Matrix$<$ T, Measurement\+Dim, 1 $>$(const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&)$>$ \&h, const std\+::function$<$ Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$(const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&)$>$ \&F\+\_\+jacobian, const std\+::function$<$ Eigen\+::\+Matrix$<$ T, Measurement\+Dim, State\+Dim $>$(const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&)$>$ \&H\+\_\+jacobian, const Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \&Q, const Eigen\+::\+Matrix$<$ T, Measurement\+Dim, Measurement\+Dim $>$ \&R, const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&initial\+\_\+state, const Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \&initial\+\_\+covariance)
+\begin{DoxyCompactList}\small\item\em 初始化滤波器参数。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a4279739780f06a66d3d6f3e427b79b57}{predict}} ()
+\begin{DoxyCompactList}\small\item\em 执行预测步骤（非线性）。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a3fe501845cf45dfe39f5683e5c07703f}{update}} (const Eigen\+::\+Matrix$<$ T, Measurement\+Dim, 1 $>$ \&z)
+\begin{DoxyCompactList}\small\item\em 执行更新步骤（非线性）。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public 成员函数 继承自 \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Kalman\+Filter$<$ T, State\+Dim, Measurement\+Dim $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a189deef97c489ee1b9aae49c34a5e55c}{Kalman\+Filter}} ()
+\begin{DoxyCompactList}\small\item\em 默认构造函数。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a7fe3185c588882ef0112358f40854212}{init}} (const Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \&A, const Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \&Q, const Eigen\+::\+Matrix$<$ T, Measurement\+Dim, State\+Dim $>$ \&H, const Eigen\+::\+Matrix$<$ T, Measurement\+Dim, Measurement\+Dim $>$ \&R, const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&initial\+\_\+state, const Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \&initial\+\_\+covariance)
+\begin{DoxyCompactList}\small\item\em 初始化滤波器参数。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a05e2a10e7ab16b3319b874ee88da0013}{predict}} ()
+\begin{DoxyCompactList}\small\item\em 执行预测步骤。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_aa5563b9da9948d0fe10d2580ea62e24e}{update}} (const Eigen\+::\+Matrix$<$ T, Measurement\+Dim, 1 $>$ \&z)
+\begin{DoxyCompactList}\small\item\em 执行更新步骤。 \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_abeb58d78e6111fe8fda96ed54bd0870f}{get\+State}} () const
+\begin{DoxyCompactList}\small\item\em 获取当前状态向量。 \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a679132e5e8b31f3760c6361ab0cb809c}{get\+Covariance}} () const
+\begin{DoxyCompactList}\small\item\em 获取当前状态协方差矩阵。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+Eigen\+::\+Matrix$<$ T, State\+Dim, 2 \texorpdfstring{$\ast$}{*}State\+Dim+1 $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_aa89d40152843fe79ba3329938bae8938}{compute\+Sigma\+Points}} (const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&x, const Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \&P) const
+\begin{DoxyCompactList}\small\item\em 计算 sigma 点。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+std\+::function$<$ Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$(const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&)$>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a99a37c32d947f45daf2d5f93baab53cf}{f\+\_\+}}
+\item 
+std\+::function$<$ Eigen\+::\+Matrix$<$ T, Measurement\+Dim, 1 $>$(const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&)$>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a6a33c35a0b6ed2a569f38857d0b74d0a}{h\+\_\+}}
+\item 
+std\+::function$<$ Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$(const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&)$>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a48212893fe9dc38e932a2bbf589fff5f}{F\+\_\+jacobian\+\_\+}}
+\item 
+std\+::function$<$ Eigen\+::\+Matrix$<$ T, Measurement\+Dim, State\+Dim $>$(const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&)$>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_aa9aca2e345181f693510df2155a25f22}{H\+\_\+jacobian\+\_\+}}
+\item 
+Eigen\+::\+Matrix$<$ T, 2 \texorpdfstring{$\ast$}{*}State\+Dim+1, 1 $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a5a995fe897edd5a516c2ff54da34496b}{weights\+\_\+}}
+\item 
+double \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a6ca14fcc5e27bbf6e1961f28fc2e289d}{alpha\+\_\+}}
+\item 
+double \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_ad73a1dda4fae6a7c1e25c6d5103b11e5}{beta\+\_\+}}
+\item 
+double \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_ad93f3caae18ae3271c2a4d3d77eb1fa1}{kappa\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{额外继承的成员函数}
+\doxysubsection*{Protected 属性 继承自 \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Kalman\+Filter$<$ T, State\+Dim, Measurement\+Dim $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_aef72d48825815d51df789af924c483ad}{A\+\_\+}}
+\item 
+Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a06d4a192830faa48f32d7dbe5b794e71}{Q\+\_\+}}
+\item 
+Eigen\+::\+Matrix$<$ T, Measurement\+Dim, State\+Dim $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a5506c9960816215f1591d6452bcfb641}{H\+\_\+}}
+\item 
+Eigen\+::\+Matrix$<$ T, Measurement\+Dim, Measurement\+Dim $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a2220056fd9a848f0cfc4a4ee00415e2b}{R\+\_\+}}
+\item 
+Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a19a6878027dff4b2632db50011ca7953}{x\+\_\+}}
+\item 
+Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_abb05428d967a168f1ca0b46db12332ba}{P\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+\subsubsection*{template$<$typename T, int State\+Dim, int Measurement\+Dim$>$\newline
+class rc\+\_\+vision\+::core\+::filters\+::\+UKF$<$ T, State\+Dim, Measurement\+Dim $>$}
+无迹卡尔曼滤波器模板类，适用于非线性系统。 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & 数据类型（通常为 float 或 double）。 \\
+\hline
+{\em State\+Dim} & 状态向量的维度。 \\
+\hline
+{\em Measurement\+Dim} & 测量向量的维度。 \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a35d40c93e222b4cbb29c60c754978078}\index{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}!UKF@{UKF}}
+\index{UKF@{UKF}!rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{UKF()}{UKF()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a35d40c93e222b4cbb29c60c754978078} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f}{rc\+\_\+vision\+::core\+::filters\+::\+UKF}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::\+UKF (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+默认构造函数，初始化权重和参数。 
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_u_k_f_aa89d40152843fe79ba3329938bae8938}\index{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}!computeSigmaPoints@{computeSigmaPoints}}
+\index{computeSigmaPoints@{computeSigmaPoints}!rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{computeSigmaPoints()}{computeSigmaPoints()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_u_k_f_aa89d40152843fe79ba3329938bae8938} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+Eigen\+::\+Matrix$<$ T, State\+Dim, 2 \texorpdfstring{$\ast$}{*}State\+Dim+1 $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f}{rc\+\_\+vision\+::core\+::filters\+::\+UKF}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::compute\+Sigma\+Points (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&}]{x}{, }\item[{const Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \&}]{P}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+计算 sigma 点。 
+
+
+\begin{DoxyParams}{参数}
+{\em x} & 当前状态向量。 \\
+\hline
+{\em P} & 当前状态协方差矩阵。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Eigen\+::\+Matrix\texorpdfstring{$<$}{<}T, State\+Dim, 2 \texorpdfstring{$\ast$}{*} State\+Dim + 1\texorpdfstring{$>$}{>} 生成的 sigma 点矩阵。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_u_k_f_abae4df6ee29dde64f301d7b631f2ccc9}\index{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}!init@{init}}
+\index{init@{init}!rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_u_k_f_abae4df6ee29dde64f301d7b631f2ccc9} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f}{rc\+\_\+vision\+::core\+::filters\+::\+UKF}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::init (\begin{DoxyParamCaption}\item[{const std\+::function$<$ Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$(const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&)$>$ \&}]{f}{, }\item[{const std\+::function$<$ Eigen\+::\+Matrix$<$ T, Measurement\+Dim, 1 $>$(const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&)$>$ \&}]{h}{, }\item[{const std\+::function$<$ Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$(const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&)$>$ \&}]{F\+\_\+jacobian}{, }\item[{const std\+::function$<$ Eigen\+::\+Matrix$<$ T, Measurement\+Dim, State\+Dim $>$(const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&)$>$ \&}]{H\+\_\+jacobian}{, }\item[{const Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \&}]{Q}{, }\item[{const Eigen\+::\+Matrix$<$ T, Measurement\+Dim, Measurement\+Dim $>$ \&}]{R}{, }\item[{const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&}]{initial\+\_\+state}{, }\item[{const Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \&}]{initial\+\_\+covariance}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+初始化滤波器参数。 
+
+
+\begin{DoxyParams}{参数}
+{\em f} & 状态转移函数。 \\
+\hline
+{\em h} & 测量函数。 \\
+\hline
+{\em F\+\_\+jacobian} & 状态转移函数的雅可比矩阵函数。 \\
+\hline
+{\em H\+\_\+jacobian} & 测量函数的雅可比矩阵函数。 \\
+\hline
+{\em Q} & 过程噪声协方差矩阵。 \\
+\hline
+{\em R} & 测量噪声协方差矩阵。 \\
+\hline
+{\em initial\+\_\+state} & 初始状态向量。 \\
+\hline
+{\em initial\+\_\+covariance} & 初始状态协方差矩阵。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a4279739780f06a66d3d6f3e427b79b57}\index{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}!predict@{predict}}
+\index{predict@{predict}!rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{predict()}{predict()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a4279739780f06a66d3d6f3e427b79b57} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f}{rc\+\_\+vision\+::core\+::filters\+::\+UKF}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::predict (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+执行预测步骤（非线性）。 
+
+使用无迹变换生成 sigma 点，通过状态转移函数预测状态，并更新状态向量和协方差矩阵。 \Hypertarget{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a3fe501845cf45dfe39f5683e5c07703f}\index{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}!update@{update}}
+\index{update@{update}!rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a3fe501845cf45dfe39f5683e5c07703f} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f}{rc\+\_\+vision\+::core\+::filters\+::\+UKF}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::update (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix$<$ T, Measurement\+Dim, 1 $>$ \&}]{z}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+执行更新步骤（非线性）。 
+
+使用无迹变换生成测量 sigma 点，通过测量函数预测测量，并更新状态向量和协方差矩阵。
+
+
+\begin{DoxyParams}{参数}
+{\em z} & 测量向量。 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a6ca14fcc5e27bbf6e1961f28fc2e289d}\index{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}!alpha\_@{alpha\_}}
+\index{alpha\_@{alpha\_}!rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{alpha\_}{alpha\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a6ca14fcc5e27bbf6e1961f28fc2e289d} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+double \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f}{rc\+\_\+vision\+::core\+::filters\+::\+UKF}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::alpha\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+超参数 alpha，用于调整 sigma 点的分布。 \Hypertarget{classrc__vision_1_1core_1_1filters_1_1_u_k_f_ad73a1dda4fae6a7c1e25c6d5103b11e5}\index{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}!beta\_@{beta\_}}
+\index{beta\_@{beta\_}!rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{beta\_}{beta\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_u_k_f_ad73a1dda4fae6a7c1e25c6d5103b11e5} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+double \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f}{rc\+\_\+vision\+::core\+::filters\+::\+UKF}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::beta\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+超参数 beta，用于考虑先验知识，通常设置为 2。 \Hypertarget{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a99a37c32d947f45daf2d5f93baab53cf}\index{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}!f\_@{f\_}}
+\index{f\_@{f\_}!rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{f\_}{f\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a99a37c32d947f45daf2d5f93baab53cf} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+std\+::function$<$Eigen\+::\+Matrix$<$T, State\+Dim, 1$>$(const Eigen\+::\+Matrix$<$T, State\+Dim, 1$>$\&)$>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f}{rc\+\_\+vision\+::core\+::filters\+::\+UKF}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::f\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a48212893fe9dc38e932a2bbf589fff5f}\index{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}!F\_jacobian\_@{F\_jacobian\_}}
+\index{F\_jacobian\_@{F\_jacobian\_}!rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{F\_jacobian\_}{F\_jacobian\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a48212893fe9dc38e932a2bbf589fff5f} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+std\+::function$<$Eigen\+::\+Matrix$<$T, State\+Dim, State\+Dim$>$(const Eigen\+::\+Matrix$<$T, State\+Dim, 1$>$\&)$>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f}{rc\+\_\+vision\+::core\+::filters\+::\+UKF}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::\+F\+\_\+jacobian\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a6a33c35a0b6ed2a569f38857d0b74d0a}\index{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}!h\_@{h\_}}
+\index{h\_@{h\_}!rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{h\_}{h\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a6a33c35a0b6ed2a569f38857d0b74d0a} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+std\+::function$<$Eigen\+::\+Matrix$<$T, Measurement\+Dim, 1$>$(const Eigen\+::\+Matrix$<$T, State\+Dim, 1$>$\&)$>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f}{rc\+\_\+vision\+::core\+::filters\+::\+UKF}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::h\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_u_k_f_aa9aca2e345181f693510df2155a25f22}\index{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}!H\_jacobian\_@{H\_jacobian\_}}
+\index{H\_jacobian\_@{H\_jacobian\_}!rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{H\_jacobian\_}{H\_jacobian\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_u_k_f_aa9aca2e345181f693510df2155a25f22} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+std\+::function$<$Eigen\+::\+Matrix$<$T, Measurement\+Dim, State\+Dim$>$(const Eigen\+::\+Matrix$<$T, State\+Dim, 1$>$\&)$>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f}{rc\+\_\+vision\+::core\+::filters\+::\+UKF}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::\+H\+\_\+jacobian\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_u_k_f_ad93f3caae18ae3271c2a4d3d77eb1fa1}\index{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}!kappa\_@{kappa\_}}
+\index{kappa\_@{kappa\_}!rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{kappa\_}{kappa\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_u_k_f_ad93f3caae18ae3271c2a4d3d77eb1fa1} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+double \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f}{rc\+\_\+vision\+::core\+::filters\+::\+UKF}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::kappa\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+超参数 kappa，用于调整 sigma 点的分布。 \Hypertarget{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a5a995fe897edd5a516c2ff54da34496b}\index{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}!weights\_@{weights\_}}
+\index{weights\_@{weights\_}!rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::UKF$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{weights\_}{weights\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a5a995fe897edd5a516c2ff54da34496b} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+Eigen\+::\+Matrix$<$T, 2 \texorpdfstring{$\ast$}{*} State\+Dim + 1, 1$>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f}{rc\+\_\+vision\+::core\+::filters\+::\+UKF}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::weights\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/14168/1/rc\+\_\+vision/core\+\_\+lib/include/rc\+\_\+vision/core/\mbox{\hyperlink{filters_8hpp}{filters.\+hpp}}\end{DoxyCompactItemize}

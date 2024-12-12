@@ -1,0 +1,39 @@
+\doxysection{C\+:/\+Users/14168/1/rc\+\_\+vision/core\+\_\+lib/include/rc\+\_\+vision/core/edge\+\_\+detector.hpp 文件参考}
+\hypertarget{edge__detector_8hpp}{}\label{edge__detector_8hpp}\index{C:/Users/14168/1/rc\_vision/core\_lib/include/rc\_vision/core/edge\_detector.hpp@{C:/Users/14168/1/rc\_vision/core\_lib/include/rc\_vision/core/edge\_detector.hpp}}
+{\ttfamily \#include $<$opencv2/opencv.\+hpp$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}rc\+\_\+vision/core/logger.\+hpp"{}}\newline
+edge\+\_\+detector.\+hpp 的引用(Include)关系图\+:
+% FIG 0
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{rc\+\_\+vision\+::core\+::\+Edge\+Detection\+Result}}
+\begin{DoxyCompactList}\small\item\em 边缘检测结果结构体。 \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector}{rc\+\_\+vision\+::core\+::\+Edge\+Detector}}
+\begin{DoxyCompactList}\small\item\em 边缘检测类，支持多种边缘检测方法和边缘类型分类。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacerc__vision}{rc\+\_\+vision}}
+\item 
+namespace \mbox{\hyperlink{namespacerc__vision_1_1core}{rc\+\_\+vision\+::core}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10}{rc\+\_\+vision\+::core\+::\+Edge\+Detection\+Method}} \{ \mbox{\hyperlink{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10a3701051f20fd8dd55bcd9f355a511745}{rc\+\_\+vision\+::core\+::\+CANNY}}
+, \mbox{\hyperlink{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10a2eb35f75582ca62917714c438551bba5}{rc\+\_\+vision\+::core\+::\+SOBEL}}
+, \mbox{\hyperlink{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10a1c2d5f3f8e6cbb0c7b033c388c905d22}{rc\+\_\+vision\+::core\+::\+LAPLACIAN}}
+ \}
+\begin{DoxyCompactList}\small\item\em 枚举不同的边缘检测方法。 \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048}{rc\+\_\+vision\+::core\+::\+Edge\+Type}} \{ \newline
+\mbox{\hyperlink{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048ab61773b9b3968a9988d765d728985862}{rc\+\_\+vision\+::core\+::\+GENERAL}}
+, \mbox{\hyperlink{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048a17b8ef2c330f1430e00c9de5469fc7e7}{rc\+\_\+vision\+::core\+::\+LINE}}
+, \mbox{\hyperlink{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048ac411afd31d32cec664d372acc12f404a}{rc\+\_\+vision\+::core\+::\+CORNER}}
+, \mbox{\hyperlink{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048a0af50777920c1401ab975cab64c4d491}{rc\+\_\+vision\+::core\+::\+CIRCLE}}
+, \newline
+\mbox{\hyperlink{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048aecdc92bf56d960b73b02ee40125758bc}{rc\+\_\+vision\+::core\+::\+POLYGON}}
+ \}
+\begin{DoxyCompactList}\small\item\em 枚举不同的边缘类型。 \end{DoxyCompactList}\end{DoxyCompactItemize}

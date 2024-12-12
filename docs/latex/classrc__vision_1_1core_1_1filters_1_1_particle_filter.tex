@@ -1,0 +1,230 @@
+\doxysection{rc\+\_\+vision\+::core\+::filters\+::Particle\+Filter\texorpdfstring{$<$}{<} T, State\+Dim, Measurement\+Dim \texorpdfstring{$>$}{>} 模板类 参考}
+\hypertarget{classrc__vision_1_1core_1_1filters_1_1_particle_filter}{}\label{classrc__vision_1_1core_1_1filters_1_1_particle_filter}\index{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}}
+
+
+粒子滤波器模板类。  
+
+
+
+
+{\ttfamily \#include $<$filters.\+hpp$>$}
+
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a4f9dbbe33318c24f1e83b1daa9dfd97f}{Particle\+Filter}} (int num\+\_\+particles)
+\begin{DoxyCompactList}\small\item\em 构造函数，初始化粒子数量。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a0f4a7d3de90e6cbe59c6f853c84581aa}{init}} (const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&initial\+\_\+state, const Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \&initial\+\_\+covariance)
+\begin{DoxyCompactList}\small\item\em 初始化粒子滤波器。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a4acc6d47db805d3c252e803aa5ec71d0}{predict}} (const std\+::function$<$ Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$(const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&)$>$ \&f, const Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \&Q)
+\begin{DoxyCompactList}\small\item\em 执行预测步骤。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_aecea56ea3eec25c258fa012cff217e2b}{update}} (const Eigen\+::\+Matrix$<$ T, Measurement\+Dim, 1 $>$ \&z, const std\+::function$<$ Eigen\+::\+Matrix$<$ T, Measurement\+Dim, 1 $>$(const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&)$>$ \&h, const Eigen\+::\+Matrix$<$ T, Measurement\+Dim, Measurement\+Dim $>$ \&R)
+\begin{DoxyCompactList}\small\item\em 执行更新步骤。 \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a2333dc81f5e8b3bb7c13e45bf6725121}{get\+State}} () const
+\begin{DoxyCompactList}\small\item\em 获取当前估计的状态向量。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_afab964ea1c0f186f1ade9ecefd5e1edc}{normalize\+Weights}} ()
+\begin{DoxyCompactList}\small\item\em 归一化权重。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a3f77d5db226f51bd21bc2b60c5028fb7}{resample}} ()
+\begin{DoxyCompactList}\small\item\em 重采样粒子。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a7cff2c76628f8b0ec453bcf7a774f603}{num\+\_\+particles\+\_\+}}
+\item 
+std\+::vector$<$ Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a8e237f9a738605aa2d1eb1b3cf9718ab}{particles\+\_\+}}
+\item 
+std\+::vector$<$ T $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_aabb8010383826086dafd8314a5712c10}{weights\+\_\+}}
+\item 
+std\+::random\+\_\+device \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a05d1d465374b8561b2fe285284725de3}{rd\+\_\+}}
+\item 
+std\+::mt19937 \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_ad4d6f2fa47b29c60479eaffb4c59dc87}{gen\+\_\+}}
+\item 
+std\+::uniform\+\_\+real\+\_\+distribution \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_ad566b65abb02c1174f0b34f77500a85c}{dist\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+\subsubsection*{template$<$typename T, int State\+Dim, int Measurement\+Dim$>$\newline
+class rc\+\_\+vision\+::core\+::filters\+::\+Particle\+Filter$<$ T, State\+Dim, Measurement\+Dim $>$}
+粒子滤波器模板类。 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & 数据类型（通常为 float 或 double）。 \\
+\hline
+{\em State\+Dim} & 状态向量的维度。 \\
+\hline
+{\em Measurement\+Dim} & 测量向量的维度。 \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a4f9dbbe33318c24f1e83b1daa9dfd97f}\index{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}!ParticleFilter@{ParticleFilter}}
+\index{ParticleFilter@{ParticleFilter}!rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{ParticleFilter()}{ParticleFilter()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a4f9dbbe33318c24f1e83b1daa9dfd97f} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Particle\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::\+Particle\+Filter (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+particles}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+构造函数，初始化粒子数量。 
+
+
+\begin{DoxyParams}{参数}
+{\em num\+\_\+particles} & 粒子数量。 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a2333dc81f5e8b3bb7c13e45bf6725121}\index{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}!getState@{getState}}
+\index{getState@{getState}!rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a2333dc81f5e8b3bb7c13e45bf6725121} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Particle\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::get\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+获取当前估计的状态向量。 
+
+\begin{DoxyReturn}{返回}
+Eigen\+::\+Matrix$<$\+T, State\+Dim, 1$>$ 估计的状态向量。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a0f4a7d3de90e6cbe59c6f853c84581aa}\index{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}!init@{init}}
+\index{init@{init}!rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a0f4a7d3de90e6cbe59c6f853c84581aa} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Particle\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::init (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&}]{initial\+\_\+state}{, }\item[{const Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \&}]{initial\+\_\+covariance}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+初始化粒子滤波器。 
+
+
+\begin{DoxyParams}{参数}
+{\em initial\+\_\+state} & 初始状态向量。 \\
+\hline
+{\em initial\+\_\+covariance} & 初始状态协方差矩阵。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_particle_filter_afab964ea1c0f186f1ade9ecefd5e1edc}\index{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}!normalizeWeights@{normalizeWeights}}
+\index{normalizeWeights@{normalizeWeights}!rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{normalizeWeights()}{normalizeWeights()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_particle_filter_afab964ea1c0f186f1ade9ecefd5e1edc} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Particle\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::normalize\+Weights (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+归一化权重。 
+
+将所有粒子的权重归一化，使其和为 1。 \Hypertarget{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a4acc6d47db805d3c252e803aa5ec71d0}\index{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}!predict@{predict}}
+\index{predict@{predict}!rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{predict()}{predict()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a4acc6d47db805d3c252e803aa5ec71d0} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Particle\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::predict (\begin{DoxyParamCaption}\item[{const std\+::function$<$ Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$(const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&)$>$ \&}]{f}{, }\item[{const Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \&}]{Q}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+执行预测步骤。 
+
+使用状态转移函数和过程噪声协方差矩阵对粒子进行预测。
+
+
+\begin{DoxyParams}{参数}
+{\em f} & 状态转移函数。 \\
+\hline
+{\em Q} & 过程噪声协方差矩阵。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a3f77d5db226f51bd21bc2b60c5028fb7}\index{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}!resample@{resample}}
+\index{resample@{resample}!rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{resample()}{resample()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a3f77d5db226f51bd21bc2b60c5028fb7} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Particle\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::resample (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+重采样粒子。 
+
+使用系统重采样算法，根据粒子的权重重新采样粒子集合。 \Hypertarget{classrc__vision_1_1core_1_1filters_1_1_particle_filter_aecea56ea3eec25c258fa012cff217e2b}\index{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}!update@{update}}
+\index{update@{update}!rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_particle_filter_aecea56ea3eec25c258fa012cff217e2b} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Particle\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::update (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix$<$ T, Measurement\+Dim, 1 $>$ \&}]{z}{, }\item[{const std\+::function$<$ Eigen\+::\+Matrix$<$ T, Measurement\+Dim, 1 $>$(const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&)$>$ \&}]{h}{, }\item[{const Eigen\+::\+Matrix$<$ T, Measurement\+Dim, Measurement\+Dim $>$ \&}]{R}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+执行更新步骤。 
+
+使用测量向量和测量函数更新粒子的权重，并进行重采样。
+
+
+\begin{DoxyParams}{参数}
+{\em z} & 测量向量。 \\
+\hline
+{\em h} & 测量函数。 \\
+\hline
+{\em R} & 测量噪声协方差矩阵。 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_particle_filter_ad566b65abb02c1174f0b34f77500a85c}\index{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}!dist\_@{dist\_}}
+\index{dist\_@{dist\_}!rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{dist\_}{dist\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_particle_filter_ad566b65abb02c1174f0b34f77500a85c} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+std\+::uniform\+\_\+real\+\_\+distribution \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Particle\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::dist\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+均匀分布，用于重采样。 \Hypertarget{classrc__vision_1_1core_1_1filters_1_1_particle_filter_ad4d6f2fa47b29c60479eaffb4c59dc87}\index{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}!gen\_@{gen\_}}
+\index{gen\_@{gen\_}!rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{gen\_}{gen\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_particle_filter_ad4d6f2fa47b29c60479eaffb4c59dc87} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+std\+::mt19937 \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Particle\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::gen\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+随机数生成器。 \Hypertarget{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a7cff2c76628f8b0ec453bcf7a774f603}\index{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}!num\_particles\_@{num\_particles\_}}
+\index{num\_particles\_@{num\_particles\_}!rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{num\_particles\_}{num\_particles\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a7cff2c76628f8b0ec453bcf7a774f603} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+int \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Particle\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::num\+\_\+particles\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+粒子数量。 \Hypertarget{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a8e237f9a738605aa2d1eb1b3cf9718ab}\index{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}!particles\_@{particles\_}}
+\index{particles\_@{particles\_}!rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{particles\_}{particles\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a8e237f9a738605aa2d1eb1b3cf9718ab} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+std\+::vector$<$Eigen\+::\+Matrix$<$T, State\+Dim, 1$>$ $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Particle\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::particles\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+粒子集合。 \Hypertarget{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a05d1d465374b8561b2fe285284725de3}\index{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}!rd\_@{rd\_}}
+\index{rd\_@{rd\_}!rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{rd\_}{rd\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a05d1d465374b8561b2fe285284725de3} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+std\+::random\+\_\+device \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Particle\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::rd\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+随机设备。 \Hypertarget{classrc__vision_1_1core_1_1filters_1_1_particle_filter_aabb8010383826086dafd8314a5712c10}\index{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}!weights\_@{weights\_}}
+\index{weights\_@{weights\_}!rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::ParticleFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{weights\_}{weights\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_particle_filter_aabb8010383826086dafd8314a5712c10} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+std\+::vector$<$T$>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Particle\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::weights\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+粒子权重。 
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/14168/1/rc\+\_\+vision/core\+\_\+lib/include/rc\+\_\+vision/core/\mbox{\hyperlink{filters_8hpp}{filters.\+hpp}}\end{DoxyCompactItemize}

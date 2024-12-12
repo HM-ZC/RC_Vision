@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RC vision: C:/Users/14168/1/rc_vision/core_lib/include/rc_vision/core/camera.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RC vision<span id="projectnumber">&#160;beta0.1.0</span>
+   </div>
+   <div id="projectbrief">机器人视觉库</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_6b71f9c233d9519f4af35a38b852209b.html">core_lib</a></li><li class="navelem"><a class="el" href="dir_91bce8cc46c2d1a1c49b6c892b066b0d.html">include</a></li><li class="navelem"><a class="el" href="dir_8027d5a996a7752b55704260e4cc0697.html">rc_vision</a></li><li class="navelem"><a class="el" href="dir_cd238af50b2a6e1d947d51424d846599.html">core</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">camera.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="camera_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef RC_VISION_CORE_CAMERA_HPP</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define RC_VISION_CORE_CAMERA_HPP</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;Eigen/Dense&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;opencv2/opencv.hpp&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="}">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="namespacerc__vision.html">   10</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacerc__vision.html">rc_vision</a> {</div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="namespacerc__vision_1_1core.html">   11</a></span>    <span class="keyword">namespace </span>core {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html">   16</a></span>        <span class="keyword">class </span><a class="code hl_class" href="classrc__vision_1_1core_1_1_camera.html">Camera</a> {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#aeaba52057ef432da7214deaa4d20fcf5">   21</a></span>            <a class="code hl_function" href="classrc__vision_1_1core_1_1_camera.html#aeaba52057ef432da7214deaa4d20fcf5">Camera</a>();</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#afbd31f5583a5c5ceef9f88ab5505f243">   28</a></span>            <a class="code hl_function" href="classrc__vision_1_1core_1_1_camera.html#afbd31f5583a5c5ceef9f88ab5505f243">Camera</a>(<span class="keyword">const</span> Eigen::Matrix3d&amp; intrinsic, <span class="keyword">const</span> Eigen::Vector&lt;double, 5&gt;&amp; distortion);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            <span class="comment">// Getters</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#a6c1d21372bf607218839c5e74fbf4034">   38</a></span>            <span class="keyword">const</span> Eigen::Matrix3d&amp; <a class="code hl_function" href="classrc__vision_1_1core_1_1_camera.html#a6c1d21372bf607218839c5e74fbf4034">getIntrinsic</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#aa3650fa259003b5c7c0dae7e36421945">   44</a></span>            <span class="keyword">const</span> Eigen::Vector&lt;double, 5&gt;&amp; <a class="code hl_function" href="classrc__vision_1_1core_1_1_camera.html#aa3650fa259003b5c7c0dae7e36421945">getDistortion</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#a79d7979af5240dfb1bee863f210ce341">   50</a></span>            <span class="keyword">const</span> Eigen::Matrix4d&amp; <a class="code hl_function" href="classrc__vision_1_1core_1_1_camera.html#a79d7979af5240dfb1bee863f210ce341">getExtrinsic</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            <span class="comment">// Setters</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#a03785dcc9544b7d7ae40dbd1dd3475ae">   60</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_camera.html#a03785dcc9544b7d7ae40dbd1dd3475ae">setIntrinsic</a>(<span class="keyword">const</span> Eigen::Matrix3d&amp; intrinsic);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#ae698065557c5fcd639f7e5d29dbf15a2">   66</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_camera.html#ae698065557c5fcd639f7e5d29dbf15a2">setDistortion</a>(<span class="keyword">const</span> Eigen::Vector&lt;double, 5&gt;&amp; distortion);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#a4b442f5336c32b36433465fbc218fc16">   72</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_camera.html#a4b442f5336c32b36433465fbc218fc16">setExtrinsic</a>(<span class="keyword">const</span> Eigen::Matrix4d&amp; extrinsic);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            <span class="comment">// Projection</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#a672d6a29718d51d765f01064b8476335">   83</a></span>            Eigen::Vector2d <a class="code hl_function" href="classrc__vision_1_1core_1_1_camera.html#a672d6a29718d51d765f01064b8476335">project</a>(<span class="keyword">const</span> Eigen::Vector3d&amp; point_3d) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#a51554aaa208f81839b2debae64285879">   90</a></span>            std::vector&lt;Eigen::Vector2d&gt; <a class="code hl_function" href="classrc__vision_1_1core_1_1_camera.html#a51554aaa208f81839b2debae64285879">project</a>(<span class="keyword">const</span> std::vector&lt;Eigen::Vector3d&gt;&amp; points_3d) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            <span class="comment">// Undistortion</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#aaf881ba56b195b15bae6342b510e1f0b">  101</a></span>            Eigen::Vector2d <a class="code hl_function" href="classrc__vision_1_1core_1_1_camera.html#aaf881ba56b195b15bae6342b510e1f0b">undistort</a>(<span class="keyword">const</span> Eigen::Vector2d&amp; distorted_point) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#a69c0a49b80b435409e1061d425c59bdc">  108</a></span>            std::vector&lt;Eigen::Vector2d&gt; <a class="code hl_function" href="classrc__vision_1_1core_1_1_camera.html#a69c0a49b80b435409e1061d425c59bdc">undistort</a>(<span class="keyword">const</span> std::vector&lt;Eigen::Vector2d&gt;&amp; distorted_points) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#a82fad57a750257228fbe5edb50d4d48e">  115</a></span>            cv::Mat <a class="code hl_function" href="classrc__vision_1_1core_1_1_camera.html#a82fad57a750257228fbe5edb50d4d48e">undistortImage</a>(<span class="keyword">const</span> cv::Mat&amp; distorted_image) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            <span class="comment">// Distortion Correction</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#a9610ed29a5440ab01bd9b1b857278124">  126</a></span>            cv::Mat <a class="code hl_function" href="classrc__vision_1_1core_1_1_camera.html#a9610ed29a5440ab01bd9b1b857278124">correctDistortion</a>(<span class="keyword">const</span> cv::Mat&amp; distorted_image) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            <span class="comment">// Serialization</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#aed259faedeedaf3bbe036f30ee6afdcc">  137</a></span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_camera.html#aed259faedeedaf3bbe036f30ee6afdcc">saveParameters</a>(<span class="keyword">const</span> std::string&amp; file_path) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#ab2cc7ff629445c55af63990c8abeaa2a">  144</a></span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_camera.html#ab2cc7ff629445c55af63990c8abeaa2a">loadParameters</a>(<span class="keyword">const</span> std::string&amp; file_path);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>            <span class="comment">// Coordinate Transformation</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#a3bb6600ac4ed05df884aa8f976a12121">  155</a></span>            Eigen::Vector3d <a class="code hl_function" href="classrc__vision_1_1core_1_1_camera.html#a3bb6600ac4ed05df884aa8f976a12121">worldToCamera</a>(<span class="keyword">const</span> Eigen::Vector3d&amp; point_world) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#a81c8c9244f2e67988cf3355ab14c0f69">  162</a></span>            Eigen::Vector3d <a class="code hl_function" href="classrc__vision_1_1core_1_1_camera.html#a81c8c9244f2e67988cf3355ab14c0f69">cameraToWorld</a>(<span class="keyword">const</span> Eigen::Vector3d&amp; point_camera) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>            <span class="comment">// Camera Calibration Tool</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#ac8f0427a2e741f6391c8c2c1b6cebc27">  177</a></span>            <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_camera.html#ac8f0427a2e741f6391c8c2c1b6cebc27">calibrateCamera</a>(<span class="keyword">const</span> std::vector&lt;std::vector&lt;cv::Point3f&gt;&gt;&amp; object_points,</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>                                        <span class="keyword">const</span> std::vector&lt;std::vector&lt;cv::Point2f&gt;&gt;&amp; image_points,</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>                                        <span class="keyword">const</span> cv::Size&amp; image_size,</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>                                        Eigen::Matrix3d&amp; out_intrinsic,</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>                                        Eigen::Vector&lt;double, 5&gt;&amp; out_distortion);</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#ab9af192f19d6d9de04abf68d6ae1694e">  184</a></span>            Eigen::Matrix3d <a class="code hl_variable" href="classrc__vision_1_1core_1_1_camera.html#ab9af192f19d6d9de04abf68d6ae1694e">intrinsic_</a>; </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#a0022dbef88fb8c77c9d8f623fa28aaa8">  185</a></span>            Eigen::Vector&lt;double, 5&gt; <a class="code hl_variable" href="classrc__vision_1_1core_1_1_camera.html#a0022dbef88fb8c77c9d8f623fa28aaa8">distortion_</a>; </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#a55daea632f8015586b21590f8a991344">  186</a></span>            Eigen::Matrix4d <a class="code hl_variable" href="classrc__vision_1_1core_1_1_camera.html#a55daea632f8015586b21590f8a991344">extrinsic_</a>; </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>            <span class="comment">// OpenCV camera parameters</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#a0957959c0d695e16dc972b57c52987c4">  189</a></span>            cv::Mat <a class="code hl_variable" href="classrc__vision_1_1core_1_1_camera.html#a0957959c0d695e16dc972b57c52987c4">cv_intrinsic_</a>; </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#af47216de881b06ca0589d6eb87095c0d">  190</a></span>            cv::Mat <a class="code hl_variable" href="classrc__vision_1_1core_1_1_camera.html#af47216de881b06ca0589d6eb87095c0d">cv_distortion_</a>; </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_camera.html#afe8726e46ee75154d937c9b845b83036">  195</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_camera.html#afe8726e46ee75154d937c9b845b83036">updateOpenCVCameraParams</a>();</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        };</div>
+</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="foldopen" id="foldopen00201" data-start="{" data-end="};">
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_stereo_camera.html">  201</a></span>        <span class="keyword">class </span><a class="code hl_class" href="classrc__vision_1_1core_1_1_stereo_camera.html">StereoCamera</a> {</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_stereo_camera.html#a72eef0d42659d4cd49e54ae8a6a37daf">  206</a></span>            <a class="code hl_function" href="classrc__vision_1_1core_1_1_stereo_camera.html#a72eef0d42659d4cd49e54ae8a6a37daf">StereoCamera</a>();</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_stereo_camera.html#a7aad32f0676dcd206fb25ef3cea248b0">  214</a></span>            <a class="code hl_function" href="classrc__vision_1_1core_1_1_stereo_camera.html#a7aad32f0676dcd206fb25ef3cea248b0">StereoCamera</a>(<span class="keyword">const</span> <a class="code hl_class" href="classrc__vision_1_1core_1_1_camera.html">Camera</a>&amp; left_camera, <span class="keyword">const</span> <a class="code hl_class" href="classrc__vision_1_1core_1_1_camera.html">Camera</a>&amp; right_camera, <span class="keyword">const</span> Eigen::Matrix4d&amp; extrinsic);</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>            <span class="comment">// Getters</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_stereo_camera.html#a30cbfd0d1d7e59db5608b0ec3a28452a">  224</a></span>            <span class="keyword">const</span> <a class="code hl_class" href="classrc__vision_1_1core_1_1_camera.html">Camera</a>&amp; <a class="code hl_function" href="classrc__vision_1_1core_1_1_stereo_camera.html#a30cbfd0d1d7e59db5608b0ec3a28452a">getLeftCamera</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_stereo_camera.html#a854c2462e14702c4e9a18253a769b94b">  230</a></span>            <span class="keyword">const</span> <a class="code hl_class" href="classrc__vision_1_1core_1_1_camera.html">Camera</a>&amp; <a class="code hl_function" href="classrc__vision_1_1core_1_1_stereo_camera.html#a854c2462e14702c4e9a18253a769b94b">getRightCamera</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_stereo_camera.html#a88388e02b9df276049facdb521b4310c">  236</a></span>            <span class="keyword">const</span> Eigen::Matrix4d&amp; <a class="code hl_function" href="classrc__vision_1_1core_1_1_stereo_camera.html#a88388e02b9df276049facdb521b4310c">getExtrinsic</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>            <span class="comment">// Setters</span></div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_stereo_camera.html#ab507977a37abed1988ec020bb276c9b5">  246</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_stereo_camera.html#ab507977a37abed1988ec020bb276c9b5">setLeftCamera</a>(<span class="keyword">const</span> <a class="code hl_class" href="classrc__vision_1_1core_1_1_camera.html">Camera</a>&amp; left_camera);</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_stereo_camera.html#a0dbecbdd894b0cc3585585fdcb195689">  252</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_stereo_camera.html#a0dbecbdd894b0cc3585585fdcb195689">setRightCamera</a>(<span class="keyword">const</span> <a class="code hl_class" href="classrc__vision_1_1core_1_1_camera.html">Camera</a>&amp; right_camera);</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_stereo_camera.html#a153e06fe13239607d22181166c30b633">  258</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_stereo_camera.html#a153e06fe13239607d22181166c30b633">setExtrinsic</a>(<span class="keyword">const</span> Eigen::Matrix4d&amp; extrinsic);</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>            <span class="comment">// Rectify Images</span></div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_stereo_camera.html#abcad7887b277fb32479b1301cd6d0dee">  272</a></span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_stereo_camera.html#abcad7887b277fb32479b1301cd6d0dee">rectifyImages</a>(<span class="keyword">const</span> cv::Mat&amp; left_image, <span class="keyword">const</span> cv::Mat&amp; right_image,</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>                               cv::Mat&amp; rectified_left, cv::Mat&amp; rectified_right) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>            <span class="comment">// Compute Disparity</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_stereo_camera.html#afad601374738b16c21464ab8299b8c61">  286</a></span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_stereo_camera.html#afad601374738b16c21464ab8299b8c61">computeDisparity</a>(<span class="keyword">const</span> cv::Mat&amp; rectified_left, <span class="keyword">const</span> cv::Mat&amp; rectified_right,</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>                                  cv::Mat&amp; disparity_map) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span> </div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>            <span class="comment">// Stereo Calibration Tool</span></div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>            <span class="comment">// =====================</span></div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_stereo_camera.html#afc474ba8bf197528b5aa1abe70e1548a">  304</a></span>            <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_stereo_camera.html#afc474ba8bf197528b5aa1abe70e1548a">calibrateStereoCamera</a>(<span class="keyword">const</span> std::vector&lt;std::vector&lt;cv::Point3f&gt;&gt;&amp; object_points,</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>                                              <span class="keyword">const</span> std::vector&lt;std::vector&lt;cv::Point2f&gt;&gt;&amp; image_points_left,</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>                                              <span class="keyword">const</span> std::vector&lt;std::vector&lt;cv::Point2f&gt;&gt;&amp; image_points_right,</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>                                              <span class="keyword">const</span> cv::Size&amp; image_size,</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>                                              <a class="code hl_class" href="classrc__vision_1_1core_1_1_camera.html">Camera</a>&amp; left_camera,</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>                                              <a class="code hl_class" href="classrc__vision_1_1core_1_1_camera.html">Camera</a>&amp; right_camera,</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>                                              Eigen::Matrix4d&amp; out_extrinsic);</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span> </div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>        <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_stereo_camera.html#a115958da9254d2ff40c1a1d55e3ff4cf">  313</a></span>            <a class="code hl_class" href="classrc__vision_1_1core_1_1_camera.html">Camera</a> <a class="code hl_variable" href="classrc__vision_1_1core_1_1_stereo_camera.html#a115958da9254d2ff40c1a1d55e3ff4cf">left_camera_</a>; </div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_stereo_camera.html#a9c08fb78ae5944473018c527c34cb756">  314</a></span>            <a class="code hl_class" href="classrc__vision_1_1core_1_1_camera.html">Camera</a> <a class="code hl_variable" href="classrc__vision_1_1core_1_1_stereo_camera.html#a9c08fb78ae5944473018c527c34cb756">right_camera_</a>; </div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_stereo_camera.html#a4b08b888824be38f601674159cac0536">  315</a></span>            Eigen::Matrix4d <a class="code hl_variable" href="classrc__vision_1_1core_1_1_stereo_camera.html#a4b08b888824be38f601674159cac0536">extrinsic_</a>; </div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>        };</div>
+</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    } <span class="comment">// namespace core</span></div>
+</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>} <span class="comment">// namespace rc_vision</span></div>
+</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span> </div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span><span class="preprocessor">#endif </span><span class="comment">// RC_VISION_CORE_CAMERA_HPP</span></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html">rc_vision::core::Camera</a></div><div class="ttdoc">相机模型类，包含内参、畸变系数和外参，并提供投影、去畸变等功能。</div><div class="ttdef"><b>定义</b> camera.hpp:16</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_a0022dbef88fb8c77c9d8f623fa28aaa8"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#a0022dbef88fb8c77c9d8f623fa28aaa8">rc_vision::core::Camera::distortion_</a></div><div class="ttdeci">Eigen::Vector&lt; double, 5 &gt; distortion_</div><div class="ttdef"><b>定义</b> camera.hpp:185</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_a03785dcc9544b7d7ae40dbd1dd3475ae"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#a03785dcc9544b7d7ae40dbd1dd3475ae">rc_vision::core::Camera::setIntrinsic</a></div><div class="ttdeci">void setIntrinsic(const Eigen::Matrix3d &amp;intrinsic)</div><div class="ttdoc">设置相机内参矩阵。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_a0957959c0d695e16dc972b57c52987c4"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#a0957959c0d695e16dc972b57c52987c4">rc_vision::core::Camera::cv_intrinsic_</a></div><div class="ttdeci">cv::Mat cv_intrinsic_</div><div class="ttdef"><b>定义</b> camera.hpp:189</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_a3bb6600ac4ed05df884aa8f976a12121"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#a3bb6600ac4ed05df884aa8f976a12121">rc_vision::core::Camera::worldToCamera</a></div><div class="ttdeci">Eigen::Vector3d worldToCamera(const Eigen::Vector3d &amp;point_world) const</div><div class="ttdoc">将世界坐标系下的3D点转换到相机坐标系。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_a4b442f5336c32b36433465fbc218fc16"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#a4b442f5336c32b36433465fbc218fc16">rc_vision::core::Camera::setExtrinsic</a></div><div class="ttdeci">void setExtrinsic(const Eigen::Matrix4d &amp;extrinsic)</div><div class="ttdoc">设置相机外参矩阵。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_a51554aaa208f81839b2debae64285879"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#a51554aaa208f81839b2debae64285879">rc_vision::core::Camera::project</a></div><div class="ttdeci">std::vector&lt; Eigen::Vector2d &gt; project(const std::vector&lt; Eigen::Vector3d &gt; &amp;points_3d) const</div><div class="ttdoc">将多个3D点投影到2D图像平面。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_a55daea632f8015586b21590f8a991344"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#a55daea632f8015586b21590f8a991344">rc_vision::core::Camera::extrinsic_</a></div><div class="ttdeci">Eigen::Matrix4d extrinsic_</div><div class="ttdef"><b>定义</b> camera.hpp:186</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_a672d6a29718d51d765f01064b8476335"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#a672d6a29718d51d765f01064b8476335">rc_vision::core::Camera::project</a></div><div class="ttdeci">Eigen::Vector2d project(const Eigen::Vector3d &amp;point_3d) const</div><div class="ttdoc">将3D点投影到2D图像平面。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_a69c0a49b80b435409e1061d425c59bdc"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#a69c0a49b80b435409e1061d425c59bdc">rc_vision::core::Camera::undistort</a></div><div class="ttdeci">std::vector&lt; Eigen::Vector2d &gt; undistort(const std::vector&lt; Eigen::Vector2d &gt; &amp;distorted_points) const</div><div class="ttdoc">去畸变多个2D点。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_a6c1d21372bf607218839c5e74fbf4034"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#a6c1d21372bf607218839c5e74fbf4034">rc_vision::core::Camera::getIntrinsic</a></div><div class="ttdeci">const Eigen::Matrix3d &amp; getIntrinsic() const</div><div class="ttdoc">获取相机内参矩阵。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_a79d7979af5240dfb1bee863f210ce341"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#a79d7979af5240dfb1bee863f210ce341">rc_vision::core::Camera::getExtrinsic</a></div><div class="ttdeci">const Eigen::Matrix4d &amp; getExtrinsic() const</div><div class="ttdoc">获取相机外参矩阵。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_a81c8c9244f2e67988cf3355ab14c0f69"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#a81c8c9244f2e67988cf3355ab14c0f69">rc_vision::core::Camera::cameraToWorld</a></div><div class="ttdeci">Eigen::Vector3d cameraToWorld(const Eigen::Vector3d &amp;point_camera) const</div><div class="ttdoc">将相机坐标系下的3D点转换到世界坐标系。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_a82fad57a750257228fbe5edb50d4d48e"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#a82fad57a750257228fbe5edb50d4d48e">rc_vision::core::Camera::undistortImage</a></div><div class="ttdeci">cv::Mat undistortImage(const cv::Mat &amp;distorted_image) const</div><div class="ttdoc">去畸变一张图像。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_a9610ed29a5440ab01bd9b1b857278124"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#a9610ed29a5440ab01bd9b1b857278124">rc_vision::core::Camera::correctDistortion</a></div><div class="ttdeci">cv::Mat correctDistortion(const cv::Mat &amp;distorted_image) const</div><div class="ttdoc">校正图像畸变。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_aa3650fa259003b5c7c0dae7e36421945"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#aa3650fa259003b5c7c0dae7e36421945">rc_vision::core::Camera::getDistortion</a></div><div class="ttdeci">const Eigen::Vector&lt; double, 5 &gt; &amp; getDistortion() const</div><div class="ttdoc">获取相机畸变系数向量。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_aaf881ba56b195b15bae6342b510e1f0b"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#aaf881ba56b195b15bae6342b510e1f0b">rc_vision::core::Camera::undistort</a></div><div class="ttdeci">Eigen::Vector2d undistort(const Eigen::Vector2d &amp;distorted_point) const</div><div class="ttdoc">去畸变一个2D点。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_ab2cc7ff629445c55af63990c8abeaa2a"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#ab2cc7ff629445c55af63990c8abeaa2a">rc_vision::core::Camera::loadParameters</a></div><div class="ttdeci">bool loadParameters(const std::string &amp;file_path)</div><div class="ttdoc">从文件加载相机参数。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_ab9af192f19d6d9de04abf68d6ae1694e"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#ab9af192f19d6d9de04abf68d6ae1694e">rc_vision::core::Camera::intrinsic_</a></div><div class="ttdeci">Eigen::Matrix3d intrinsic_</div><div class="ttdef"><b>定义</b> camera.hpp:184</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_ac8f0427a2e741f6391c8c2c1b6cebc27"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#ac8f0427a2e741f6391c8c2c1b6cebc27">rc_vision::core::Camera::calibrateCamera</a></div><div class="ttdeci">static bool calibrateCamera(const std::vector&lt; std::vector&lt; cv::Point3f &gt; &gt; &amp;object_points, const std::vector&lt; std::vector&lt; cv::Point2f &gt; &gt; &amp;image_points, const cv::Size &amp;image_size, Eigen::Matrix3d &amp;out_intrinsic, Eigen::Vector&lt; double, 5 &gt; &amp;out_distortion)</div><div class="ttdoc">使用图像点和物体点进行相机标定。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_ae698065557c5fcd639f7e5d29dbf15a2"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#ae698065557c5fcd639f7e5d29dbf15a2">rc_vision::core::Camera::setDistortion</a></div><div class="ttdeci">void setDistortion(const Eigen::Vector&lt; double, 5 &gt; &amp;distortion)</div><div class="ttdoc">设置相机畸变系数向量。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_aeaba52057ef432da7214deaa4d20fcf5"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#aeaba52057ef432da7214deaa4d20fcf5">rc_vision::core::Camera::Camera</a></div><div class="ttdeci">Camera()</div><div class="ttdoc">默认构造函数，初始化内参为单位矩阵，畸变系数和外参为零。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_aed259faedeedaf3bbe036f30ee6afdcc"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#aed259faedeedaf3bbe036f30ee6afdcc">rc_vision::core::Camera::saveParameters</a></div><div class="ttdeci">bool saveParameters(const std::string &amp;file_path) const</div><div class="ttdoc">保存相机参数到文件。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_af47216de881b06ca0589d6eb87095c0d"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#af47216de881b06ca0589d6eb87095c0d">rc_vision::core::Camera::cv_distortion_</a></div><div class="ttdeci">cv::Mat cv_distortion_</div><div class="ttdef"><b>定义</b> camera.hpp:190</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_afbd31f5583a5c5ceef9f88ab5505f243"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#afbd31f5583a5c5ceef9f88ab5505f243">rc_vision::core::Camera::Camera</a></div><div class="ttdeci">Camera(const Eigen::Matrix3d &amp;intrinsic, const Eigen::Vector&lt; double, 5 &gt; &amp;distortion)</div><div class="ttdoc">带参数的构造函数，初始化内参、畸变系数和外参。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_camera_html_afe8726e46ee75154d937c9b845b83036"><div class="ttname"><a href="classrc__vision_1_1core_1_1_camera.html#afe8726e46ee75154d937c9b845b83036">rc_vision::core::Camera::updateOpenCVCameraParams</a></div><div class="ttdeci">void updateOpenCVCameraParams()</div><div class="ttdoc">更新 OpenCV 格式的相机参数矩阵。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_stereo_camera_html"><div class="ttname"><a href="classrc__vision_1_1core_1_1_stereo_camera.html">rc_vision::core::StereoCamera</a></div><div class="ttdoc">立体相机模型类，包含左右相机及其相对外参，并提供图像校正和视差计算功能。</div><div class="ttdef"><b>定义</b> camera.hpp:201</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_stereo_camera_html_a0dbecbdd894b0cc3585585fdcb195689"><div class="ttname"><a href="classrc__vision_1_1core_1_1_stereo_camera.html#a0dbecbdd894b0cc3585585fdcb195689">rc_vision::core::StereoCamera::setRightCamera</a></div><div class="ttdeci">void setRightCamera(const Camera &amp;right_camera)</div><div class="ttdoc">设置右相机模型。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_stereo_camera_html_a115958da9254d2ff40c1a1d55e3ff4cf"><div class="ttname"><a href="classrc__vision_1_1core_1_1_stereo_camera.html#a115958da9254d2ff40c1a1d55e3ff4cf">rc_vision::core::StereoCamera::left_camera_</a></div><div class="ttdeci">Camera left_camera_</div><div class="ttdef"><b>定义</b> camera.hpp:313</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_stereo_camera_html_a153e06fe13239607d22181166c30b633"><div class="ttname"><a href="classrc__vision_1_1core_1_1_stereo_camera.html#a153e06fe13239607d22181166c30b633">rc_vision::core::StereoCamera::setExtrinsic</a></div><div class="ttdeci">void setExtrinsic(const Eigen::Matrix4d &amp;extrinsic)</div><div class="ttdoc">设置左右相机之间的外参矩阵。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_stereo_camera_html_a30cbfd0d1d7e59db5608b0ec3a28452a"><div class="ttname"><a href="classrc__vision_1_1core_1_1_stereo_camera.html#a30cbfd0d1d7e59db5608b0ec3a28452a">rc_vision::core::StereoCamera::getLeftCamera</a></div><div class="ttdeci">const Camera &amp; getLeftCamera() const</div><div class="ttdoc">获取左相机模型。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_stereo_camera_html_a4b08b888824be38f601674159cac0536"><div class="ttname"><a href="classrc__vision_1_1core_1_1_stereo_camera.html#a4b08b888824be38f601674159cac0536">rc_vision::core::StereoCamera::extrinsic_</a></div><div class="ttdeci">Eigen::Matrix4d extrinsic_</div><div class="ttdef"><b>定义</b> camera.hpp:315</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_stereo_camera_html_a72eef0d42659d4cd49e54ae8a6a37daf"><div class="ttname"><a href="classrc__vision_1_1core_1_1_stereo_camera.html#a72eef0d42659d4cd49e54ae8a6a37daf">rc_vision::core::StereoCamera::StereoCamera</a></div><div class="ttdeci">StereoCamera()</div><div class="ttdoc">默认构造函数，初始化左右相机和外参。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_stereo_camera_html_a7aad32f0676dcd206fb25ef3cea248b0"><div class="ttname"><a href="classrc__vision_1_1core_1_1_stereo_camera.html#a7aad32f0676dcd206fb25ef3cea248b0">rc_vision::core::StereoCamera::StereoCamera</a></div><div class="ttdeci">StereoCamera(const Camera &amp;left_camera, const Camera &amp;right_camera, const Eigen::Matrix4d &amp;extrinsic)</div><div class="ttdoc">带参数的构造函数，初始化左右相机及其相对外参。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_stereo_camera_html_a854c2462e14702c4e9a18253a769b94b"><div class="ttname"><a href="classrc__vision_1_1core_1_1_stereo_camera.html#a854c2462e14702c4e9a18253a769b94b">rc_vision::core::StereoCamera::getRightCamera</a></div><div class="ttdeci">const Camera &amp; getRightCamera() const</div><div class="ttdoc">获取右相机模型。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_stereo_camera_html_a88388e02b9df276049facdb521b4310c"><div class="ttname"><a href="classrc__vision_1_1core_1_1_stereo_camera.html#a88388e02b9df276049facdb521b4310c">rc_vision::core::StereoCamera::getExtrinsic</a></div><div class="ttdeci">const Eigen::Matrix4d &amp; getExtrinsic() const</div><div class="ttdoc">获取左右相机之间的外参矩阵。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_stereo_camera_html_a9c08fb78ae5944473018c527c34cb756"><div class="ttname"><a href="classrc__vision_1_1core_1_1_stereo_camera.html#a9c08fb78ae5944473018c527c34cb756">rc_vision::core::StereoCamera::right_camera_</a></div><div class="ttdeci">Camera right_camera_</div><div class="ttdef"><b>定义</b> camera.hpp:314</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_stereo_camera_html_ab507977a37abed1988ec020bb276c9b5"><div class="ttname"><a href="classrc__vision_1_1core_1_1_stereo_camera.html#ab507977a37abed1988ec020bb276c9b5">rc_vision::core::StereoCamera::setLeftCamera</a></div><div class="ttdeci">void setLeftCamera(const Camera &amp;left_camera)</div><div class="ttdoc">设置左相机模型。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_stereo_camera_html_abcad7887b277fb32479b1301cd6d0dee"><div class="ttname"><a href="classrc__vision_1_1core_1_1_stereo_camera.html#abcad7887b277fb32479b1301cd6d0dee">rc_vision::core::StereoCamera::rectifyImages</a></div><div class="ttdeci">bool rectifyImages(const cv::Mat &amp;left_image, const cv::Mat &amp;right_image, cv::Mat &amp;rectified_left, cv::Mat &amp;rectified_right) const</div><div class="ttdoc">对左右图像进行校正。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_stereo_camera_html_afad601374738b16c21464ab8299b8c61"><div class="ttname"><a href="classrc__vision_1_1core_1_1_stereo_camera.html#afad601374738b16c21464ab8299b8c61">rc_vision::core::StereoCamera::computeDisparity</a></div><div class="ttdeci">bool computeDisparity(const cv::Mat &amp;rectified_left, const cv::Mat &amp;rectified_right, cv::Mat &amp;disparity_map) const</div><div class="ttdoc">计算视差图。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_stereo_camera_html_afc474ba8bf197528b5aa1abe70e1548a"><div class="ttname"><a href="classrc__vision_1_1core_1_1_stereo_camera.html#afc474ba8bf197528b5aa1abe70e1548a">rc_vision::core::StereoCamera::calibrateStereoCamera</a></div><div class="ttdeci">static bool calibrateStereoCamera(const std::vector&lt; std::vector&lt; cv::Point3f &gt; &gt; &amp;object_points, const std::vector&lt; std::vector&lt; cv::Point2f &gt; &gt; &amp;image_points_left, const std::vector&lt; std::vector&lt; cv::Point2f &gt; &gt; &amp;image_points_right, const cv::Size &amp;image_size, Camera &amp;left_camera, Camera &amp;right_camera, Eigen::Matrix4d &amp;out_extrinsic)</div><div class="ttdoc">使用图像点和物体点进行立体相机标定。</div></div>
+<div class="ttc" id="anamespacerc__vision_html"><div class="ttname"><a href="namespacerc__vision.html">rc_vision</a></div><div class="ttdef"><b>定义</b> camera.hpp:10</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

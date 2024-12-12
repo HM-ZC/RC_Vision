@@ -1,0 +1,10 @@
+digraph "rc_vision::core::filters::EKF&lt; T, StateDim, MeasurementDim &gt;"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [id="Node000001",label="rc_vision::core::filters\l::EKF\< T, StateDim, MeasurementDim \>",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="扩展卡尔曼滤波器模板类，适用于非线性系统。"];
+  Node2 -> Node1 [id="edge2_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="rc_vision::core::filters\l::KalmanFilter\< T, StateDim,\l MeasurementDim \>",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classrc__vision_1_1core_1_1filters_1_1_kalman_filter.html",tooltip="提供各种滤波器的实现，包括卡尔曼滤波器、扩展卡尔曼滤波器、无迹卡尔曼滤波器、 粒子滤波器和移动平均滤波器。"];
+}

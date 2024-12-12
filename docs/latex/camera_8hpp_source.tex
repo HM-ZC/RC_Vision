@@ -1,0 +1,166 @@
+\doxysection{camera.\+hpp}
+\hypertarget{camera_8hpp_source}{}\label{camera_8hpp_source}\index{C:/Users/14168/1/rc\_vision/core\_lib/include/rc\_vision/core/camera.hpp@{C:/Users/14168/1/rc\_vision/core\_lib/include/rc\_vision/core/camera.hpp}}
+\mbox{\hyperlink{camera_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ RC\_VISION\_CORE\_CAMERA\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ RC\_VISION\_CORE\_CAMERA\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <Eigen/Dense>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <opencv2/opencv.hpp>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerc__vision}{rc\_vision}}\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{namespace\ }core\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_aeaba52057ef432da7214deaa4d20fcf5}{Camera}}();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_afbd31f5583a5c5ceef9f88ab5505f243}{Camera}}(\textcolor{keyword}{const}\ Eigen::Matrix3d\&\ intrinsic,\ \textcolor{keyword}{const}\ Eigen::Vector<double,\ 5>\&\ distortion);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Getters}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Matrix3d\&\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a6c1d21372bf607218839c5e74fbf4034}{getIntrinsic}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Vector<double,\ 5>\&\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_aa3650fa259003b5c7c0dae7e36421945}{getDistortion}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Matrix4d\&\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a79d7979af5240dfb1bee863f210ce341}{getExtrinsic}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Setters}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a03785dcc9544b7d7ae40dbd1dd3475ae}{setIntrinsic}}(\textcolor{keyword}{const}\ Eigen::Matrix3d\&\ intrinsic);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_ae698065557c5fcd639f7e5d29dbf15a2}{setDistortion}}(\textcolor{keyword}{const}\ Eigen::Vector<double,\ 5>\&\ distortion);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a4b442f5336c32b36433465fbc218fc16}{setExtrinsic}}(\textcolor{keyword}{const}\ Eigen::Matrix4d\&\ extrinsic);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Projection}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Vector2d\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a672d6a29718d51d765f01064b8476335}{project}}(\textcolor{keyword}{const}\ Eigen::Vector3d\&\ point\_3d)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Eigen::Vector2d>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a51554aaa208f81839b2debae64285879}{project}}(\textcolor{keyword}{const}\ std::vector<Eigen::Vector3d>\&\ points\_3d)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Undistortion}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Vector2d\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_aaf881ba56b195b15bae6342b510e1f0b}{undistort}}(\textcolor{keyword}{const}\ Eigen::Vector2d\&\ distorted\_point)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Eigen::Vector2d>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a69c0a49b80b435409e1061d425c59bdc}{undistort}}(\textcolor{keyword}{const}\ std::vector<Eigen::Vector2d>\&\ distorted\_points)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ cv::Mat\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a82fad57a750257228fbe5edb50d4d48e}{undistortImage}}(\textcolor{keyword}{const}\ cv::Mat\&\ distorted\_image)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Distortion\ Correction}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ cv::Mat\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a9610ed29a5440ab01bd9b1b857278124}{correctDistortion}}(\textcolor{keyword}{const}\ cv::Mat\&\ distorted\_image)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Serialization}}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_aed259faedeedaf3bbe036f30ee6afdcc}{saveParameters}}(\textcolor{keyword}{const}\ std::string\&\ file\_path)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_ab2cc7ff629445c55af63990c8abeaa2a}{loadParameters}}(\textcolor{keyword}{const}\ std::string\&\ file\_path);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Coordinate\ Transformation}}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Vector3d\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a3bb6600ac4ed05df884aa8f976a12121}{worldToCamera}}(\textcolor{keyword}{const}\ Eigen::Vector3d\&\ point\_world)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Vector3d\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a81c8c9244f2e67988cf3355ab14c0f69}{cameraToWorld}}(\textcolor{keyword}{const}\ Eigen::Vector3d\&\ point\_camera)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Camera\ Calibration\ Tool}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_ac8f0427a2e741f6391c8c2c1b6cebc27}{calibrateCamera}}(\textcolor{keyword}{const}\ std::vector<std::vector<cv::Point3f>>\&\ object\_points,}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<cv::Point2f>>\&\ image\_points,}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ cv::Size\&\ image\_size,}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix3d\&\ out\_intrinsic,}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Vector<double,\ 5>\&\ out\_distortion);}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix3d\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_ab9af192f19d6d9de04abf68d6ae1694e}{intrinsic\_}};\ }
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Vector<double,\ 5>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a0022dbef88fb8c77c9d8f623fa28aaa8}{distortion\_}};\ }
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix4d\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a55daea632f8015586b21590f8a991344}{extrinsic\_}};\ }
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ OpenCV\ camera\ parameters}}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ cv::Mat\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a0957959c0d695e16dc972b57c52987c4}{cv\_intrinsic\_}};\ }
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ cv::Mat\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_af47216de881b06ca0589d6eb87095c0d}{cv\_distortion\_}};\ }
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_afe8726e46ee75154d937c9b845b83036}{updateOpenCVCameraParams}}();}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera}{StereoCamera}}\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_a72eef0d42659d4cd49e54ae8a6a37daf}{StereoCamera}}();}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_a7aad32f0676dcd206fb25ef3cea248b0}{StereoCamera}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}}\&\ left\_camera,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}}\&\ right\_camera,\ \textcolor{keyword}{const}\ Eigen::Matrix4d\&\ extrinsic);}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Getters}}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}}\&\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_a30cbfd0d1d7e59db5608b0ec3a28452a}{getLeftCamera}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}}\&\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_a854c2462e14702c4e9a18253a769b94b}{getRightCamera}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Matrix4d\&\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_a88388e02b9df276049facdb521b4310c}{getExtrinsic}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Setters}}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_ab507977a37abed1988ec020bb276c9b5}{setLeftCamera}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}}\&\ left\_camera);}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_a0dbecbdd894b0cc3585585fdcb195689}{setRightCamera}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}}\&\ right\_camera);}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_a153e06fe13239607d22181166c30b633}{setExtrinsic}}(\textcolor{keyword}{const}\ Eigen::Matrix4d\&\ extrinsic);}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Rectify\ Images}}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_abcad7887b277fb32479b1301cd6d0dee}{rectifyImages}}(\textcolor{keyword}{const}\ cv::Mat\&\ left\_image,\ \textcolor{keyword}{const}\ cv::Mat\&\ right\_image,}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cv::Mat\&\ rectified\_left,\ cv::Mat\&\ rectified\_right)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Compute\ Disparity}}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_afad601374738b16c21464ab8299b8c61}{computeDisparity}}(\textcolor{keyword}{const}\ cv::Mat\&\ rectified\_left,\ \textcolor{keyword}{const}\ cv::Mat\&\ rectified\_right,}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cv::Mat\&\ disparity\_map)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Stereo\ Calibration\ Tool}}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_afc474ba8bf197528b5aa1abe70e1548a}{calibrateStereoCamera}}(\textcolor{keyword}{const}\ std::vector<std::vector<cv::Point3f>>\&\ object\_points,}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<cv::Point2f>>\&\ image\_points\_left,}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<cv::Point2f>>\&\ image\_points\_right,}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ cv::Size\&\ image\_size,}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}}\&\ left\_camera,}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}}\&\ right\_camera,}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix4d\&\ out\_extrinsic);}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_a115958da9254d2ff40c1a1d55e3ff4cf}{left\_camera\_}};\ }
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_a9c08fb78ae5944473018c527c34cb756}{right\_camera\_}};\ }
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix4d\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_a4b08b888824be38f601674159cac0536}{extrinsic\_}};\ }
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ core}}
+\DoxyCodeLine{00319\ \}\ \textcolor{comment}{//\ namespace\ rc\_vision}}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ RC\_VISION\_CORE\_CAMERA\_HPP}}
+
+\end{DoxyCode}

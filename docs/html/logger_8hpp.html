@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RC vision: C:/Users/14168/1/rc_vision/core_lib/include/rc_vision/core/logger.hpp 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RC vision<span id="projectnumber">&#160;beta0.1.0</span>
+   </div>
+   <div id="projectbrief">机器人视觉库</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_6b71f9c233d9519f4af35a38b852209b.html">core_lib</a></li><li class="navelem"><a class="el" href="dir_91bce8cc46c2d1a1c49b6c892b066b0d.html">include</a></li><li class="navelem"><a class="el" href="dir_8027d5a996a7752b55704260e4cc0697.html">rc_vision</a></li><li class="navelem"><a class="el" href="dir_cd238af50b2a6e1d947d51424d846599.html">core</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#define-members">宏定义</a>  </div>
+  <div class="headertitle"><div class="title">logger.hpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;string&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;mutex&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;chrono&gt;</code><br />
+<code>#include &lt;iomanip&gt;</code><br />
+<code>#include &lt;filesystem&gt;</code><br />
+<code>#include &lt;queue&gt;</code><br />
+<code>#include &lt;thread&gt;</code><br />
+<code>#include &lt;condition_variable&gt;</code><br />
+<code>#include &lt;atomic&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+logger.hpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="logger_8hpp__incl.png" border="0" usemap="#a_c_1_2_users_214168_21_2rc__vision_2core__lib_2include_2rc__vision_2core_2logger_8hpp" alt=""/></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+此图展示该文件被哪些文件直接或间接地引用了:</div>
+<div class="dyncontent">
+<div class="center"><img src="logger_8hpp__dep__incl.png" border="0" usemap="#a_c_1_2_users_214168_21_2rc__vision_2core__lib_2include_2rc__vision_2core_2logger_8hppdep" alt=""/></div>
+</div>
+</div>
+<p><a href="logger_8hpp_source.html">浏览该文件的源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrc__vision_1_1core_1_1_logger.html">rc_vision::core::Logger</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">日志记录类，提供多级别日志记录功能，支持异步写入和日志文件旋转。  <a href="classrc__vision_1_1core_1_1_logger.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerc__vision.html">rc_vision</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerc__vision_1_1core.html">rc_vision::core</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a87f39d92adfc939c31320aaf4b9f7a37" id="r_a87f39d92adfc939c31320aaf4b9f7a37"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87f39d92adfc939c31320aaf4b9f7a37">LOG_DEBUG</a>(message)</td></tr>
+<tr class="memdesc:a87f39d92adfc939c31320aaf4b9f7a37"><td class="mdescLeft">&#160;</td><td class="mdescRight">宏定义用于简化日志记录。  <br /></td></tr>
+<tr class="separator:a87f39d92adfc939c31320aaf4b9f7a37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1df2a84bb8d3b43c8c49f1aff655190a" id="r_a1df2a84bb8d3b43c8c49f1aff655190a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1df2a84bb8d3b43c8c49f1aff655190a">LOG_INFO</a>(message)</td></tr>
+<tr class="separator:a1df2a84bb8d3b43c8c49f1aff655190a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfe0c293b360dc335041f1bc67b00647" id="r_abfe0c293b360dc335041f1bc67b00647"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abfe0c293b360dc335041f1bc67b00647">LOG_WARN</a>(message)</td></tr>
+<tr class="separator:abfe0c293b360dc335041f1bc67b00647"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27d98b18ba06759c6ef5c71b1e1a9904" id="r_a27d98b18ba06759c6ef5c71b1e1a9904"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27d98b18ba06759c6ef5c71b1e1a9904">LOG_ERROR</a>(message)</td></tr>
+<tr class="separator:a27d98b18ba06759c6ef5c71b1e1a9904"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">宏定义说明</h2>
+<a id="a87f39d92adfc939c31320aaf4b9f7a37" name="a87f39d92adfc939c31320aaf4b9f7a37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87f39d92adfc939c31320aaf4b9f7a37">&#9670;&#160;</a></span>LOG_DEBUG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOG_DEBUG</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>message</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">            <a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#aa1ab603542fca1a65433fca4f4ed9991">rc_vision::core::Logger::getInstance</a>().<a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#a52933946cc1c4dd5d442f073d05eb868">log</a>(<a class="code hl_enumvalue" href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220eadc30ec20708ef7b0f641ef78b7880a15">rc_vision::core::Logger::LogLevel::DEBUG</a>, message, __FILE__, __LINE__, __func__)</div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_a52933946cc1c4dd5d442f073d05eb868"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#a52933946cc1c4dd5d442f073d05eb868">rc_vision::core::Logger::log</a></div><div class="ttdeci">void log(LogLevel level, const std::string &amp;message, const std::string &amp;file=&quot;&quot;, int line=0, const std::string &amp;func=&quot;&quot;)</div><div class="ttdoc">记录日志消息。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_aa1ab603542fca1a65433fca4f4ed9991"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#aa1ab603542fca1a65433fca4f4ed9991">rc_vision::core::Logger::getInstance</a></div><div class="ttdeci">static Logger &amp; getInstance()</div><div class="ttdoc">获取 Logger 的单例实例。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_ae470bd63a16ab67d5a48d0ef6972220eadc30ec20708ef7b0f641ef78b7880a15"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220eadc30ec20708ef7b0f641ef78b7880a15">rc_vision::core::Logger::LogLevel::DEBUG</a></div><div class="ttdeci">@ DEBUG</div></div>
+</div><!-- fragment -->
+<p>宏定义用于简化日志记录。 </p>
+<p>这些宏会自动填充源文件名、行号和函数名，方便调试和追踪日志来源。 </p>
+
+</div>
+</div>
+<a id="a27d98b18ba06759c6ef5c71b1e1a9904" name="a27d98b18ba06759c6ef5c71b1e1a9904"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27d98b18ba06759c6ef5c71b1e1a9904">&#9670;&#160;</a></span>LOG_ERROR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOG_ERROR</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>message</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">            <a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#aa1ab603542fca1a65433fca4f4ed9991">rc_vision::core::Logger::getInstance</a>().<a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#a52933946cc1c4dd5d442f073d05eb868">log</a>(<a class="code hl_enumvalue" href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220eabb1ca97ec761fc37101737ba0aa2e7c5">rc_vision::core::Logger::LogLevel::ERROR</a>, message, __FILE__, __LINE__, __func__)</div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_ae470bd63a16ab67d5a48d0ef6972220eabb1ca97ec761fc37101737ba0aa2e7c5"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220eabb1ca97ec761fc37101737ba0aa2e7c5">rc_vision::core::Logger::LogLevel::ERROR</a></div><div class="ttdeci">@ ERROR</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a1df2a84bb8d3b43c8c49f1aff655190a" name="a1df2a84bb8d3b43c8c49f1aff655190a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1df2a84bb8d3b43c8c49f1aff655190a">&#9670;&#160;</a></span>LOG_INFO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOG_INFO</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>message</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">            <a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#aa1ab603542fca1a65433fca4f4ed9991">rc_vision::core::Logger::getInstance</a>().<a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#a52933946cc1c4dd5d442f073d05eb868">log</a>(<a class="code hl_enumvalue" href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220ea551b723eafd6a31d444fcb2f5920fbd3">rc_vision::core::Logger::LogLevel::INFO</a>, message, __FILE__, __LINE__, __func__)</div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_ae470bd63a16ab67d5a48d0ef6972220ea551b723eafd6a31d444fcb2f5920fbd3"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220ea551b723eafd6a31d444fcb2f5920fbd3">rc_vision::core::Logger::LogLevel::INFO</a></div><div class="ttdeci">@ INFO</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="abfe0c293b360dc335041f1bc67b00647" name="abfe0c293b360dc335041f1bc67b00647"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfe0c293b360dc335041f1bc67b00647">&#9670;&#160;</a></span>LOG_WARN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOG_WARN</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>message</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">            <a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#aa1ab603542fca1a65433fca4f4ed9991">rc_vision::core::Logger::getInstance</a>().<a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#a52933946cc1c4dd5d442f073d05eb868">log</a>(<a class="code hl_enumvalue" href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220ea32bd8a1db2275458673903bdb84cb277">rc_vision::core::Logger::LogLevel::WARN</a>, message, __FILE__, __LINE__, __func__)</div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_ae470bd63a16ab67d5a48d0ef6972220ea32bd8a1db2275458673903bdb84cb277"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220ea32bd8a1db2275458673903bdb84cb277">rc_vision::core::Logger::LogLevel::WARN</a></div><div class="ttdeci">@ WARN</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

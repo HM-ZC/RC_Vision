@@ -1,0 +1,847 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RC vision: rc_vision::core::Camera类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RC vision<span id="projectnumber">&#160;beta0.1.0</span>
+   </div>
+   <div id="projectbrief">机器人视觉库</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacerc__vision.html">rc_vision</a></li><li class="navelem"><a class="el" href="namespacerc__vision_1_1core.html">core</a></li><li class="navelem"><a class="el" href="classrc__vision_1_1core_1_1_camera.html">Camera</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="#pri-methods">Private 成员函数</a> &#124;
+<a href="#pri-attribs">Private 属性</a> &#124;
+<a href="classrc__vision_1_1core_1_1_camera-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">rc_vision::core::Camera类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>相机模型类，包含内参、畸变系数和外参，并提供投影、去畸变等功能。  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="camera_8hpp_source.html">camera.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:aeaba52057ef432da7214deaa4d20fcf5" id="r_aeaba52057ef432da7214deaa4d20fcf5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeaba52057ef432da7214deaa4d20fcf5">Camera</a> ()</td></tr>
+<tr class="memdesc:aeaba52057ef432da7214deaa4d20fcf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认构造函数，初始化内参为单位矩阵，畸变系数和外参为零。  <br /></td></tr>
+<tr class="separator:aeaba52057ef432da7214deaa4d20fcf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbd31f5583a5c5ceef9f88ab5505f243" id="r_afbd31f5583a5c5ceef9f88ab5505f243"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afbd31f5583a5c5ceef9f88ab5505f243">Camera</a> (const Eigen::Matrix3d &amp;intrinsic, const Eigen::Vector&lt; double, 5 &gt; &amp;distortion)</td></tr>
+<tr class="memdesc:afbd31f5583a5c5ceef9f88ab5505f243"><td class="mdescLeft">&#160;</td><td class="mdescRight">带参数的构造函数，初始化内参、畸变系数和外参。  <br /></td></tr>
+<tr class="separator:afbd31f5583a5c5ceef9f88ab5505f243"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c1d21372bf607218839c5e74fbf4034" id="r_a6c1d21372bf607218839c5e74fbf4034"><td class="memItemLeft" align="right" valign="top">const Eigen::Matrix3d &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c1d21372bf607218839c5e74fbf4034">getIntrinsic</a> () const</td></tr>
+<tr class="memdesc:a6c1d21372bf607218839c5e74fbf4034"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取相机内参矩阵。  <br /></td></tr>
+<tr class="separator:a6c1d21372bf607218839c5e74fbf4034"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3650fa259003b5c7c0dae7e36421945" id="r_aa3650fa259003b5c7c0dae7e36421945"><td class="memItemLeft" align="right" valign="top">const Eigen::Vector&lt; double, 5 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3650fa259003b5c7c0dae7e36421945">getDistortion</a> () const</td></tr>
+<tr class="memdesc:aa3650fa259003b5c7c0dae7e36421945"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取相机畸变系数向量。  <br /></td></tr>
+<tr class="separator:aa3650fa259003b5c7c0dae7e36421945"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79d7979af5240dfb1bee863f210ce341" id="r_a79d7979af5240dfb1bee863f210ce341"><td class="memItemLeft" align="right" valign="top">const Eigen::Matrix4d &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79d7979af5240dfb1bee863f210ce341">getExtrinsic</a> () const</td></tr>
+<tr class="memdesc:a79d7979af5240dfb1bee863f210ce341"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取相机外参矩阵。  <br /></td></tr>
+<tr class="separator:a79d7979af5240dfb1bee863f210ce341"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03785dcc9544b7d7ae40dbd1dd3475ae" id="r_a03785dcc9544b7d7ae40dbd1dd3475ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03785dcc9544b7d7ae40dbd1dd3475ae">setIntrinsic</a> (const Eigen::Matrix3d &amp;intrinsic)</td></tr>
+<tr class="memdesc:a03785dcc9544b7d7ae40dbd1dd3475ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置相机内参矩阵。  <br /></td></tr>
+<tr class="separator:a03785dcc9544b7d7ae40dbd1dd3475ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae698065557c5fcd639f7e5d29dbf15a2" id="r_ae698065557c5fcd639f7e5d29dbf15a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae698065557c5fcd639f7e5d29dbf15a2">setDistortion</a> (const Eigen::Vector&lt; double, 5 &gt; &amp;distortion)</td></tr>
+<tr class="memdesc:ae698065557c5fcd639f7e5d29dbf15a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置相机畸变系数向量。  <br /></td></tr>
+<tr class="separator:ae698065557c5fcd639f7e5d29dbf15a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b442f5336c32b36433465fbc218fc16" id="r_a4b442f5336c32b36433465fbc218fc16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b442f5336c32b36433465fbc218fc16">setExtrinsic</a> (const Eigen::Matrix4d &amp;extrinsic)</td></tr>
+<tr class="memdesc:a4b442f5336c32b36433465fbc218fc16"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置相机外参矩阵。  <br /></td></tr>
+<tr class="separator:a4b442f5336c32b36433465fbc218fc16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a672d6a29718d51d765f01064b8476335" id="r_a672d6a29718d51d765f01064b8476335"><td class="memItemLeft" align="right" valign="top">Eigen::Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a672d6a29718d51d765f01064b8476335">project</a> (const Eigen::Vector3d &amp;point_3d) const</td></tr>
+<tr class="memdesc:a672d6a29718d51d765f01064b8476335"><td class="mdescLeft">&#160;</td><td class="mdescRight">将3D点投影到2D图像平面。  <br /></td></tr>
+<tr class="separator:a672d6a29718d51d765f01064b8476335"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51554aaa208f81839b2debae64285879" id="r_a51554aaa208f81839b2debae64285879"><td class="memItemLeft" align="right" valign="top">std::vector&lt; Eigen::Vector2d &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51554aaa208f81839b2debae64285879">project</a> (const std::vector&lt; Eigen::Vector3d &gt; &amp;points_3d) const</td></tr>
+<tr class="memdesc:a51554aaa208f81839b2debae64285879"><td class="mdescLeft">&#160;</td><td class="mdescRight">将多个3D点投影到2D图像平面。  <br /></td></tr>
+<tr class="separator:a51554aaa208f81839b2debae64285879"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf881ba56b195b15bae6342b510e1f0b" id="r_aaf881ba56b195b15bae6342b510e1f0b"><td class="memItemLeft" align="right" valign="top">Eigen::Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf881ba56b195b15bae6342b510e1f0b">undistort</a> (const Eigen::Vector2d &amp;distorted_point) const</td></tr>
+<tr class="memdesc:aaf881ba56b195b15bae6342b510e1f0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">去畸变一个2D点。  <br /></td></tr>
+<tr class="separator:aaf881ba56b195b15bae6342b510e1f0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69c0a49b80b435409e1061d425c59bdc" id="r_a69c0a49b80b435409e1061d425c59bdc"><td class="memItemLeft" align="right" valign="top">std::vector&lt; Eigen::Vector2d &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a69c0a49b80b435409e1061d425c59bdc">undistort</a> (const std::vector&lt; Eigen::Vector2d &gt; &amp;distorted_points) const</td></tr>
+<tr class="memdesc:a69c0a49b80b435409e1061d425c59bdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">去畸变多个2D点。  <br /></td></tr>
+<tr class="separator:a69c0a49b80b435409e1061d425c59bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82fad57a750257228fbe5edb50d4d48e" id="r_a82fad57a750257228fbe5edb50d4d48e"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82fad57a750257228fbe5edb50d4d48e">undistortImage</a> (const cv::Mat &amp;distorted_image) const</td></tr>
+<tr class="memdesc:a82fad57a750257228fbe5edb50d4d48e"><td class="mdescLeft">&#160;</td><td class="mdescRight">去畸变一张图像。  <br /></td></tr>
+<tr class="separator:a82fad57a750257228fbe5edb50d4d48e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9610ed29a5440ab01bd9b1b857278124" id="r_a9610ed29a5440ab01bd9b1b857278124"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9610ed29a5440ab01bd9b1b857278124">correctDistortion</a> (const cv::Mat &amp;distorted_image) const</td></tr>
+<tr class="memdesc:a9610ed29a5440ab01bd9b1b857278124"><td class="mdescLeft">&#160;</td><td class="mdescRight">校正图像畸变。  <br /></td></tr>
+<tr class="separator:a9610ed29a5440ab01bd9b1b857278124"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed259faedeedaf3bbe036f30ee6afdcc" id="r_aed259faedeedaf3bbe036f30ee6afdcc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed259faedeedaf3bbe036f30ee6afdcc">saveParameters</a> (const std::string &amp;file_path) const</td></tr>
+<tr class="memdesc:aed259faedeedaf3bbe036f30ee6afdcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">保存相机参数到文件。  <br /></td></tr>
+<tr class="separator:aed259faedeedaf3bbe036f30ee6afdcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2cc7ff629445c55af63990c8abeaa2a" id="r_ab2cc7ff629445c55af63990c8abeaa2a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2cc7ff629445c55af63990c8abeaa2a">loadParameters</a> (const std::string &amp;file_path)</td></tr>
+<tr class="memdesc:ab2cc7ff629445c55af63990c8abeaa2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">从文件加载相机参数。  <br /></td></tr>
+<tr class="separator:ab2cc7ff629445c55af63990c8abeaa2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bb6600ac4ed05df884aa8f976a12121" id="r_a3bb6600ac4ed05df884aa8f976a12121"><td class="memItemLeft" align="right" valign="top">Eigen::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3bb6600ac4ed05df884aa8f976a12121">worldToCamera</a> (const Eigen::Vector3d &amp;point_world) const</td></tr>
+<tr class="memdesc:a3bb6600ac4ed05df884aa8f976a12121"><td class="mdescLeft">&#160;</td><td class="mdescRight">将世界坐标系下的3D点转换到相机坐标系。  <br /></td></tr>
+<tr class="separator:a3bb6600ac4ed05df884aa8f976a12121"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81c8c9244f2e67988cf3355ab14c0f69" id="r_a81c8c9244f2e67988cf3355ab14c0f69"><td class="memItemLeft" align="right" valign="top">Eigen::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81c8c9244f2e67988cf3355ab14c0f69">cameraToWorld</a> (const Eigen::Vector3d &amp;point_camera) const</td></tr>
+<tr class="memdesc:a81c8c9244f2e67988cf3355ab14c0f69"><td class="mdescLeft">&#160;</td><td class="mdescRight">将相机坐标系下的3D点转换到世界坐标系。  <br /></td></tr>
+<tr class="separator:a81c8c9244f2e67988cf3355ab14c0f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:ac8f0427a2e741f6391c8c2c1b6cebc27" id="r_ac8f0427a2e741f6391c8c2c1b6cebc27"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8f0427a2e741f6391c8c2c1b6cebc27">calibrateCamera</a> (const std::vector&lt; std::vector&lt; cv::Point3f &gt; &gt; &amp;object_points, const std::vector&lt; std::vector&lt; cv::Point2f &gt; &gt; &amp;image_points, const cv::Size &amp;image_size, Eigen::Matrix3d &amp;out_intrinsic, Eigen::Vector&lt; double, 5 &gt; &amp;out_distortion)</td></tr>
+<tr class="memdesc:ac8f0427a2e741f6391c8c2c1b6cebc27"><td class="mdescLeft">&#160;</td><td class="mdescRight">使用图像点和物体点进行相机标定。  <br /></td></tr>
+<tr class="separator:ac8f0427a2e741f6391c8c2c1b6cebc27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private 成员函数</h2></td></tr>
+<tr class="memitem:afe8726e46ee75154d937c9b845b83036" id="r_afe8726e46ee75154d937c9b845b83036"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe8726e46ee75154d937c9b845b83036">updateOpenCVCameraParams</a> ()</td></tr>
+<tr class="memdesc:afe8726e46ee75154d937c9b845b83036"><td class="mdescLeft">&#160;</td><td class="mdescRight">更新 OpenCV 格式的相机参数矩阵。  <br /></td></tr>
+<tr class="separator:afe8726e46ee75154d937c9b845b83036"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private 属性</h2></td></tr>
+<tr class="memitem:ab9af192f19d6d9de04abf68d6ae1694e" id="r_ab9af192f19d6d9de04abf68d6ae1694e"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9af192f19d6d9de04abf68d6ae1694e">intrinsic_</a></td></tr>
+<tr class="separator:ab9af192f19d6d9de04abf68d6ae1694e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0022dbef88fb8c77c9d8f623fa28aaa8" id="r_a0022dbef88fb8c77c9d8f623fa28aaa8"><td class="memItemLeft" align="right" valign="top">Eigen::Vector&lt; double, 5 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0022dbef88fb8c77c9d8f623fa28aaa8">distortion_</a></td></tr>
+<tr class="separator:a0022dbef88fb8c77c9d8f623fa28aaa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55daea632f8015586b21590f8a991344" id="r_a55daea632f8015586b21590f8a991344"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix4d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55daea632f8015586b21590f8a991344">extrinsic_</a></td></tr>
+<tr class="separator:a55daea632f8015586b21590f8a991344"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0957959c0d695e16dc972b57c52987c4" id="r_a0957959c0d695e16dc972b57c52987c4"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0957959c0d695e16dc972b57c52987c4">cv_intrinsic_</a></td></tr>
+<tr class="separator:a0957959c0d695e16dc972b57c52987c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af47216de881b06ca0589d6eb87095c0d" id="r_af47216de881b06ca0589d6eb87095c0d"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af47216de881b06ca0589d6eb87095c0d">cv_distortion_</a></td></tr>
+<tr class="separator:af47216de881b06ca0589d6eb87095c0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>相机模型类，包含内参、畸变系数和外参，并提供投影、去畸变等功能。 </p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="aeaba52057ef432da7214deaa4d20fcf5" name="aeaba52057ef432da7214deaa4d20fcf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaba52057ef432da7214deaa4d20fcf5">&#9670;&#160;</a></span>Camera() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">rc_vision::core::Camera::Camera </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>默认构造函数，初始化内参为单位矩阵，畸变系数和外参为零。 </p>
+
+</div>
+</div>
+<a id="afbd31f5583a5c5ceef9f88ab5505f243" name="afbd31f5583a5c5ceef9f88ab5505f243"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbd31f5583a5c5ceef9f88ab5505f243">&#9670;&#160;</a></span>Camera() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">rc_vision::core::Camera::Camera </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::Matrix3d &amp;</td>          <td class="paramname"><span class="paramname"><em>intrinsic</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Eigen::Vector&lt; double, 5 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>distortion</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>带参数的构造函数，初始化内参、畸变系数和外参。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">intrinsic</td><td>相机内参矩阵（3x3）。 </td></tr>
+    <tr><td class="paramname">distortion</td><td>相机畸变系数向量（5维）。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="ac8f0427a2e741f6391c8c2c1b6cebc27" name="ac8f0427a2e741f6391c8c2c1b6cebc27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8f0427a2e741f6391c8c2c1b6cebc27">&#9670;&#160;</a></span>calibrateCamera()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool rc_vision::core::Camera::calibrateCamera </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; cv::Point3f &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>object_points</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; cv::Point2f &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>image_points</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const cv::Size &amp;</td>          <td class="paramname"><span class="paramname"><em>image_size</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::Matrix3d &amp;</td>          <td class="paramname"><span class="paramname"><em>out_intrinsic</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::Vector&lt; double, 5 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>out_distortion</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>使用图像点和物体点进行相机标定。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">object_points</td><td>物体点集合，每个视图对应一组3D点。 </td></tr>
+    <tr><td class="paramname">image_points</td><td>图像点集合，每个视图对应一组2D点。 </td></tr>
+    <tr><td class="paramname">image_size</td><td>图像尺寸。 </td></tr>
+    <tr><td class="paramname">out_intrinsic</td><td>输出的相机内参矩阵。 </td></tr>
+    <tr><td class="paramname">out_distortion</td><td>输出的相机畸变系数向量。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果标定成功返回 true，否则返回 false。 </dd></dl>
+
+</div>
+</div>
+<a id="a81c8c9244f2e67988cf3355ab14c0f69" name="a81c8c9244f2e67988cf3355ab14c0f69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81c8c9244f2e67988cf3355ab14c0f69">&#9670;&#160;</a></span>cameraToWorld()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Vector3d rc_vision::core::Camera::cameraToWorld </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>point_camera</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将相机坐标系下的3D点转换到世界坐标系。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point_camera</td><td>相机坐标系下的3D点。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>世界坐标系下的3D点。 </dd></dl>
+
+</div>
+</div>
+<a id="a9610ed29a5440ab01bd9b1b857278124" name="a9610ed29a5440ab01bd9b1b857278124"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9610ed29a5440ab01bd9b1b857278124">&#9670;&#160;</a></span>correctDistortion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cv::Mat rc_vision::core::Camera::correctDistortion </td>
+          <td>(</td>
+          <td class="paramtype">const cv::Mat &amp;</td>          <td class="paramname"><span class="paramname"><em>distorted_image</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>校正图像畸变。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">distorted_image</td><td>畸变的输入图像。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>校正后的输出图像。 </dd></dl>
+
+</div>
+</div>
+<a id="aa3650fa259003b5c7c0dae7e36421945" name="aa3650fa259003b5c7c0dae7e36421945"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3650fa259003b5c7c0dae7e36421945">&#9670;&#160;</a></span>getDistortion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const Eigen::Vector&lt; double, 5 &gt; &amp; rc_vision::core::Camera::getDistortion </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取相机畸变系数向量。 </p>
+<dl class="section return"><dt>返回</dt><dd>5维的畸变系数向量。 </dd></dl>
+
+</div>
+</div>
+<a id="a79d7979af5240dfb1bee863f210ce341" name="a79d7979af5240dfb1bee863f210ce341"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79d7979af5240dfb1bee863f210ce341">&#9670;&#160;</a></span>getExtrinsic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const Eigen::Matrix4d &amp; rc_vision::core::Camera::getExtrinsic </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取相机外参矩阵。 </p>
+<dl class="section return"><dt>返回</dt><dd>4x4 的外参矩阵（世界坐标系到相机坐标系的变换）。 </dd></dl>
+
+</div>
+</div>
+<a id="a6c1d21372bf607218839c5e74fbf4034" name="a6c1d21372bf607218839c5e74fbf4034"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c1d21372bf607218839c5e74fbf4034">&#9670;&#160;</a></span>getIntrinsic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const Eigen::Matrix3d &amp; rc_vision::core::Camera::getIntrinsic </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取相机内参矩阵。 </p>
+<dl class="section return"><dt>返回</dt><dd>3x3 的相机内参矩阵。 </dd></dl>
+
+</div>
+</div>
+<a id="ab2cc7ff629445c55af63990c8abeaa2a" name="ab2cc7ff629445c55af63990c8abeaa2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2cc7ff629445c55af63990c8abeaa2a">&#9670;&#160;</a></span>loadParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool rc_vision::core::Camera::loadParameters </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>file_path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从文件加载相机参数。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_path</td><td>要加载的文件路径。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果加载成功返回 true，否则返回 false。 </dd></dl>
+
+</div>
+</div>
+<a id="a672d6a29718d51d765f01064b8476335" name="a672d6a29718d51d765f01064b8476335"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a672d6a29718d51d765f01064b8476335">&#9670;&#160;</a></span>project() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Vector2d rc_vision::core::Camera::project </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>point_3d</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将3D点投影到2D图像平面。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point_3d</td><td>需要投影的3D点。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>投影后的2D点。 </dd></dl>
+
+</div>
+</div>
+<a id="a51554aaa208f81839b2debae64285879" name="a51554aaa208f81839b2debae64285879"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51554aaa208f81839b2debae64285879">&#9670;&#160;</a></span>project() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; Eigen::Vector2d &gt; rc_vision::core::Camera::project </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; Eigen::Vector3d &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>points_3d</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将多个3D点投影到2D图像平面。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">points_3d</td><td>需要投影的3D点集合。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>投影后的2D点集合。 </dd></dl>
+
+</div>
+</div>
+<a id="aed259faedeedaf3bbe036f30ee6afdcc" name="aed259faedeedaf3bbe036f30ee6afdcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed259faedeedaf3bbe036f30ee6afdcc">&#9670;&#160;</a></span>saveParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool rc_vision::core::Camera::saveParameters </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>file_path</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>保存相机参数到文件。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_path</td><td>要保存的文件路径。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果保存成功返回 true，否则返回 false。 </dd></dl>
+
+</div>
+</div>
+<a id="ae698065557c5fcd639f7e5d29dbf15a2" name="ae698065557c5fcd639f7e5d29dbf15a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae698065557c5fcd639f7e5d29dbf15a2">&#9670;&#160;</a></span>setDistortion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::Camera::setDistortion </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::Vector&lt; double, 5 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>distortion</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置相机畸变系数向量。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">distortion</td><td>新的5维畸变系数向量。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4b442f5336c32b36433465fbc218fc16" name="a4b442f5336c32b36433465fbc218fc16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b442f5336c32b36433465fbc218fc16">&#9670;&#160;</a></span>setExtrinsic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::Camera::setExtrinsic </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::Matrix4d &amp;</td>          <td class="paramname"><span class="paramname"><em>extrinsic</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置相机外参矩阵。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">extrinsic</td><td>新的4x4外参矩阵。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a03785dcc9544b7d7ae40dbd1dd3475ae" name="a03785dcc9544b7d7ae40dbd1dd3475ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03785dcc9544b7d7ae40dbd1dd3475ae">&#9670;&#160;</a></span>setIntrinsic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::Camera::setIntrinsic </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::Matrix3d &amp;</td>          <td class="paramname"><span class="paramname"><em>intrinsic</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置相机内参矩阵。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">intrinsic</td><td>新的3x3相机内参矩阵。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aaf881ba56b195b15bae6342b510e1f0b" name="aaf881ba56b195b15bae6342b510e1f0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf881ba56b195b15bae6342b510e1f0b">&#9670;&#160;</a></span>undistort() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Vector2d rc_vision::core::Camera::undistort </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::Vector2d &amp;</td>          <td class="paramname"><span class="paramname"><em>distorted_point</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>去畸变一个2D点。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">distorted_point</td><td>畸变的2D点。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>去畸变后的2D点。 </dd></dl>
+
+</div>
+</div>
+<a id="a69c0a49b80b435409e1061d425c59bdc" name="a69c0a49b80b435409e1061d425c59bdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69c0a49b80b435409e1061d425c59bdc">&#9670;&#160;</a></span>undistort() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; Eigen::Vector2d &gt; rc_vision::core::Camera::undistort </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; Eigen::Vector2d &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>distorted_points</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>去畸变多个2D点。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">distorted_points</td><td>畸变的2D点集合。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>去畸变后的2D点集合。 </dd></dl>
+
+</div>
+</div>
+<a id="a82fad57a750257228fbe5edb50d4d48e" name="a82fad57a750257228fbe5edb50d4d48e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82fad57a750257228fbe5edb50d4d48e">&#9670;&#160;</a></span>undistortImage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cv::Mat rc_vision::core::Camera::undistortImage </td>
+          <td>(</td>
+          <td class="paramtype">const cv::Mat &amp;</td>          <td class="paramname"><span class="paramname"><em>distorted_image</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>去畸变一张图像。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">distorted_image</td><td>畸变的输入图像。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>去畸变后的输出图像。 </dd></dl>
+
+</div>
+</div>
+<a id="afe8726e46ee75154d937c9b845b83036" name="afe8726e46ee75154d937c9b845b83036"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe8726e46ee75154d937c9b845b83036">&#9670;&#160;</a></span>updateOpenCVCameraParams()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::Camera::updateOpenCVCameraParams </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>更新 OpenCV 格式的相机参数矩阵。 </p>
+
+</div>
+</div>
+<a id="a3bb6600ac4ed05df884aa8f976a12121" name="a3bb6600ac4ed05df884aa8f976a12121"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bb6600ac4ed05df884aa8f976a12121">&#9670;&#160;</a></span>worldToCamera()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Vector3d rc_vision::core::Camera::worldToCamera </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::Vector3d &amp;</td>          <td class="paramname"><span class="paramname"><em>point_world</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将世界坐标系下的3D点转换到相机坐标系。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point_world</td><td>世界坐标系下的3D点。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>相机坐标系下的3D点。 </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="af47216de881b06ca0589d6eb87095c0d" name="af47216de881b06ca0589d6eb87095c0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af47216de881b06ca0589d6eb87095c0d">&#9670;&#160;</a></span>cv_distortion_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">cv::Mat rc_vision::core::Camera::cv_distortion_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>OpenCV 格式的相机畸变系数。 </p>
+
+</div>
+</div>
+<a id="a0957959c0d695e16dc972b57c52987c4" name="a0957959c0d695e16dc972b57c52987c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0957959c0d695e16dc972b57c52987c4">&#9670;&#160;</a></span>cv_intrinsic_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">cv::Mat rc_vision::core::Camera::cv_intrinsic_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>OpenCV 格式的相机内参矩阵。 </p>
+
+</div>
+</div>
+<a id="a0022dbef88fb8c77c9d8f623fa28aaa8" name="a0022dbef88fb8c77c9d8f623fa28aaa8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0022dbef88fb8c77c9d8f623fa28aaa8">&#9670;&#160;</a></span>distortion_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Vector&lt;double, 5&gt; rc_vision::core::Camera::distortion_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>相机畸变系数向量（k1, k2, p1, p2, k3）。 </p>
+
+</div>
+</div>
+<a id="a55daea632f8015586b21590f8a991344" name="a55daea632f8015586b21590f8a991344"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55daea632f8015586b21590f8a991344">&#9670;&#160;</a></span>extrinsic_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Matrix4d rc_vision::core::Camera::extrinsic_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>相机外参矩阵（世界坐标系到相机坐标系的4x4变换矩阵）。 </p>
+
+</div>
+</div>
+<a id="ab9af192f19d6d9de04abf68d6ae1694e" name="ab9af192f19d6d9de04abf68d6ae1694e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9af192f19d6d9de04abf68d6ae1694e">&#9670;&#160;</a></span>intrinsic_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Matrix3d rc_vision::core::Camera::intrinsic_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>相机内参矩阵（3x3）。 </p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>C:/Users/14168/1/rc_vision/core_lib/include/rc_vision/core/<a class="el" href="camera_8hpp_source.html">camera.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

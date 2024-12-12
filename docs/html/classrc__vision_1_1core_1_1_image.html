@@ -1,0 +1,1190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RC vision: rc_vision::core::Image类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RC vision<span id="projectnumber">&#160;beta0.1.0</span>
+   </div>
+   <div id="projectbrief">机器人视觉库</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacerc__vision.html">rc_vision</a></li><li class="navelem"><a class="el" href="namespacerc__vision_1_1core.html">core</a></li><li class="navelem"><a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pri-methods">Private 成员函数</a> &#124;
+<a href="#pri-attribs">Private 属性</a> &#124;
+<a href="classrc__vision_1_1core_1_1_image-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">rc_vision::core::Image类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>图像处理类，封装了多种常用的图像操作和分析功能。  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="image_8hpp_source.html">image.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a3e284c964579e23e5ce0f1ab25c7c17f" id="r_a3e284c964579e23e5ce0f1ab25c7c17f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e284c964579e23e5ce0f1ab25c7c17f">Image</a> ()</td></tr>
+<tr class="memdesc:a3e284c964579e23e5ce0f1ab25c7c17f"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认构造函数，创建一个空的图像对象。  <br /></td></tr>
+<tr class="separator:a3e284c964579e23e5ce0f1ab25c7c17f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab18dabb3b2dcec58a1bb7148671c756b" id="r_ab18dabb3b2dcec58a1bb7148671c756b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab18dabb3b2dcec58a1bb7148671c756b">Image</a> (const std::string &amp;file_path)</td></tr>
+<tr class="memdesc:ab18dabb3b2dcec58a1bb7148671c756b"><td class="mdescLeft">&#160;</td><td class="mdescRight">从文件路径加载图像。  <br /></td></tr>
+<tr class="separator:ab18dabb3b2dcec58a1bb7148671c756b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b7f97077f0d209d18450cb35639fc26" id="r_a9b7f97077f0d209d18450cb35639fc26"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b7f97077f0d209d18450cb35639fc26">Image</a> (const cv::Mat &amp;mat)</td></tr>
+<tr class="memdesc:a9b7f97077f0d209d18450cb35639fc26"><td class="mdescLeft">&#160;</td><td class="mdescRight">使用给定的 cv::Mat 对象初始化图像。  <br /></td></tr>
+<tr class="separator:a9b7f97077f0d209d18450cb35639fc26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b3ba5773d4bad440da0fac4efe3afcb" id="r_a7b3ba5773d4bad440da0fac4efe3afcb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b3ba5773d4bad440da0fac4efe3afcb">load</a> (const std::string &amp;file_path)</td></tr>
+<tr class="memdesc:a7b3ba5773d4bad440da0fac4efe3afcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">从文件路径加载图像。  <br /></td></tr>
+<tr class="separator:a7b3ba5773d4bad440da0fac4efe3afcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6346ed51fa1b7968d8c85616694fa789" id="r_a6346ed51fa1b7968d8c85616694fa789"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6346ed51fa1b7968d8c85616694fa789">save</a> (const std::string &amp;file_path) const</td></tr>
+<tr class="memdesc:a6346ed51fa1b7968d8c85616694fa789"><td class="mdescLeft">&#160;</td><td class="mdescRight">将图像保存到指定的文件路径。  <br /></td></tr>
+<tr class="separator:a6346ed51fa1b7968d8c85616694fa789"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac974a50ca3f91291a6de7d196151f88a" id="r_ac974a50ca3f91291a6de7d196151f88a"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac974a50ca3f91291a6de7d196151f88a">getMat</a> () const</td></tr>
+<tr class="memdesc:ac974a50ca3f91291a6de7d196151f88a"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前图像的 cv::Mat 对象。  <br /></td></tr>
+<tr class="separator:ac974a50ca3f91291a6de7d196151f88a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fa3e47c0390695e94489be676aaf79e" id="r_a3fa3e47c0390695e94489be676aaf79e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fa3e47c0390695e94489be676aaf79e">setMat</a> (const cv::Mat &amp;mat)</td></tr>
+<tr class="memdesc:a3fa3e47c0390695e94489be676aaf79e"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置当前图像的数据矩阵。  <br /></td></tr>
+<tr class="separator:a3fa3e47c0390695e94489be676aaf79e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade5bc5b6bde666fff305dea90ff4a153" id="r_ade5bc5b6bde666fff305dea90ff4a153"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade5bc5b6bde666fff305dea90ff4a153">convertColor</a> (int code)</td></tr>
+<tr class="memdesc:ade5bc5b6bde666fff305dea90ff4a153"><td class="mdescLeft">&#160;</td><td class="mdescRight">将图像转换为指定的颜色空间。  <br /></td></tr>
+<tr class="separator:ade5bc5b6bde666fff305dea90ff4a153"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a615a30a1ef52e9392b63b62f23997380" id="r_a615a30a1ef52e9392b63b62f23997380"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a615a30a1ef52e9392b63b62f23997380">resize</a> (int width, int height, int interpolation=cv::INTER_LINEAR)</td></tr>
+<tr class="memdesc:a615a30a1ef52e9392b63b62f23997380"><td class="mdescLeft">&#160;</td><td class="mdescRight">调整图像的尺寸。  <br /></td></tr>
+<tr class="separator:a615a30a1ef52e9392b63b62f23997380"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a244507abee57f7960401bd6383a706de" id="r_a244507abee57f7960401bd6383a706de"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a244507abee57f7960401bd6383a706de">crop</a> (int x, int y, int width, int height) const</td></tr>
+<tr class="memdesc:a244507abee57f7960401bd6383a706de"><td class="mdescLeft">&#160;</td><td class="mdescRight">裁剪图像的一部分。  <br /></td></tr>
+<tr class="separator:a244507abee57f7960401bd6383a706de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd4d670fec0cae15f288100dab2dba39" id="r_acd4d670fec0cae15f288100dab2dba39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd4d670fec0cae15f288100dab2dba39">rotate</a> (double angle, const cv::Point2f &amp;center=cv::Point2f(-1,-1), double scale=1.0)</td></tr>
+<tr class="memdesc:acd4d670fec0cae15f288100dab2dba39"><td class="mdescLeft">&#160;</td><td class="mdescRight">旋转图像。  <br /></td></tr>
+<tr class="separator:acd4d670fec0cae15f288100dab2dba39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabbb14266f2fa29ac80ef8b1a61f817a" id="r_aabbb14266f2fa29ac80ef8b1a61f817a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aabbb14266f2fa29ac80ef8b1a61f817a">flip</a> (int flip_code)</td></tr>
+<tr class="memdesc:aabbb14266f2fa29ac80ef8b1a61f817a"><td class="mdescLeft">&#160;</td><td class="mdescRight">翻转图像。  <br /></td></tr>
+<tr class="separator:aabbb14266f2fa29ac80ef8b1a61f817a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63d93b811fd1bd7516c547e211985cc5" id="r_a63d93b811fd1bd7516c547e211985cc5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63d93b811fd1bd7516c547e211985cc5">gaussianBlur</a> (int ksize=5, double sigmaX=1.0)</td></tr>
+<tr class="memdesc:a63d93b811fd1bd7516c547e211985cc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">对图像应用高斯模糊滤波。  <br /></td></tr>
+<tr class="separator:a63d93b811fd1bd7516c547e211985cc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b2aae72c940b098d4455223e5f9abce" id="r_a9b2aae72c940b098d4455223e5f9abce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b2aae72c940b098d4455223e5f9abce">medianBlur</a> (int ksize=5)</td></tr>
+<tr class="memdesc:a9b2aae72c940b098d4455223e5f9abce"><td class="mdescLeft">&#160;</td><td class="mdescRight">对图像应用中值滤波。  <br /></td></tr>
+<tr class="separator:a9b2aae72c940b098d4455223e5f9abce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75975e5300481c381474669e7b98f055" id="r_a75975e5300481c381474669e7b98f055"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75975e5300481c381474669e7b98f055">edgeDetection</a> (int threshold1=100, int threshold2=200)</td></tr>
+<tr class="memdesc:a75975e5300481c381474669e7b98f055"><td class="mdescLeft">&#160;</td><td class="mdescRight">对图像应用边缘检测。  <br /></td></tr>
+<tr class="separator:a75975e5300481c381474669e7b98f055"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4987dc5d9770c24448784aa11783c16" id="r_ac4987dc5d9770c24448784aa11783c16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4987dc5d9770c24448784aa11783c16">equalizeHist</a> ()</td></tr>
+<tr class="memdesc:ac4987dc5d9770c24448784aa11783c16"><td class="mdescLeft">&#160;</td><td class="mdescRight">对图像应用直方图均衡化。  <br /></td></tr>
+<tr class="separator:ac4987dc5d9770c24448784aa11783c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b6a459bd8c03d19041799ea76deee48" id="r_a0b6a459bd8c03d19041799ea76deee48"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b6a459bd8c03d19041799ea76deee48">adjustContrast</a> (double alpha, double beta)</td></tr>
+<tr class="memdesc:a0b6a459bd8c03d19041799ea76deee48"><td class="mdescLeft">&#160;</td><td class="mdescRight">调整图像的对比度和亮度。  <br /></td></tr>
+<tr class="separator:a0b6a459bd8c03d19041799ea76deee48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d572e03ac32ee1e173c7fd0b92ae935" id="r_a1d572e03ac32ee1e173c7fd0b92ae935"><td class="memItemLeft" align="right" valign="top">std::vector&lt; cv::KeyPoint &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d572e03ac32ee1e173c7fd0b92ae935">detectKeypoints</a> (const std::string &amp;detector_type=&quot;ORB&quot;) const</td></tr>
+<tr class="memdesc:a1d572e03ac32ee1e173c7fd0b92ae935"><td class="mdescLeft">&#160;</td><td class="mdescRight">检测图像中的关键点。  <br /></td></tr>
+<tr class="separator:a1d572e03ac32ee1e173c7fd0b92ae935"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82c69ac0cca7a587e23572e7e9462118" id="r_a82c69ac0cca7a587e23572e7e9462118"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82c69ac0cca7a587e23572e7e9462118">computeDescriptors</a> (const std::string &amp;descriptor_type=&quot;ORB&quot;) const</td></tr>
+<tr class="memdesc:a82c69ac0cca7a587e23572e7e9462118"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算图像中的描述子。  <br /></td></tr>
+<tr class="separator:a82c69ac0cca7a587e23572e7e9462118"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba77ced7239dc98c06a9f4788131b2d0" id="r_aba77ced7239dc98c06a9f4788131b2d0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba77ced7239dc98c06a9f4788131b2d0">mean</a> () const</td></tr>
+<tr class="memdesc:aba77ced7239dc98c06a9f4788131b2d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算图像的平均值。  <br /></td></tr>
+<tr class="separator:aba77ced7239dc98c06a9f4788131b2d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64ce95ec69d27066752f2dbe707ac308" id="r_a64ce95ec69d27066752f2dbe707ac308"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a64ce95ec69d27066752f2dbe707ac308">stddev</a> () const</td></tr>
+<tr class="memdesc:a64ce95ec69d27066752f2dbe707ac308"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算图像的标准差。  <br /></td></tr>
+<tr class="separator:a64ce95ec69d27066752f2dbe707ac308"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4681726b99b2959921d547d5509dfa01" id="r_a4681726b99b2959921d547d5509dfa01"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4681726b99b2959921d547d5509dfa01">histogram</a> (int histSize=256, float range[]={0, 256}) const</td></tr>
+<tr class="memdesc:a4681726b99b2959921d547d5509dfa01"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算图像的直方图。  <br /></td></tr>
+<tr class="separator:a4681726b99b2959921d547d5509dfa01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18f86cbd918a508f7047160f42158f29" id="r_a18f86cbd918a508f7047160f42158f29"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18f86cbd918a508f7047160f42158f29">operator+</a> (const <a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a> &amp;other) const</td></tr>
+<tr class="memdesc:a18f86cbd918a508f7047160f42158f29"><td class="mdescLeft">&#160;</td><td class="mdescRight">图像的加法运算。  <br /></td></tr>
+<tr class="separator:a18f86cbd918a508f7047160f42158f29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d56e1763683d14efbf47f06c1172c97" id="r_a9d56e1763683d14efbf47f06c1172c97"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d56e1763683d14efbf47f06c1172c97">operator-</a> (const <a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a> &amp;other) const</td></tr>
+<tr class="memdesc:a9d56e1763683d14efbf47f06c1172c97"><td class="mdescLeft">&#160;</td><td class="mdescRight">图像的减法运算。  <br /></td></tr>
+<tr class="separator:a9d56e1763683d14efbf47f06c1172c97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7b1bc93816b769c4aea2325967367de" id="r_ac7b1bc93816b769c4aea2325967367de"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7b1bc93816b769c4aea2325967367de">operator*</a> (const <a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a> &amp;other) const</td></tr>
+<tr class="memdesc:ac7b1bc93816b769c4aea2325967367de"><td class="mdescLeft">&#160;</td><td class="mdescRight">图像的乘法运算。  <br /></td></tr>
+<tr class="separator:ac7b1bc93816b769c4aea2325967367de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd2384c9c2343bf230ed6e1c48ee2c5c" id="r_afd2384c9c2343bf230ed6e1c48ee2c5c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd2384c9c2343bf230ed6e1c48ee2c5c">operator/</a> (const <a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a> &amp;other) const</td></tr>
+<tr class="memdesc:afd2384c9c2343bf230ed6e1c48ee2c5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">图像的除法运算。  <br /></td></tr>
+<tr class="separator:afd2384c9c2343bf230ed6e1c48ee2c5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c14e5958524f3d6e4f2340b9416ea72" id="r_a8c14e5958524f3d6e4f2340b9416ea72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c14e5958524f3d6e4f2340b9416ea72">setROI</a> (const cv::Rect &amp;roi)</td></tr>
+<tr class="memdesc:a8c14e5958524f3d6e4f2340b9416ea72"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置图像的感兴趣区域（ROI）。  <br /></td></tr>
+<tr class="separator:a8c14e5958524f3d6e4f2340b9416ea72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a631f3726b8743392db4bed4cc2ee7451" id="r_a631f3726b8743392db4bed4cc2ee7451"><td class="memItemLeft" align="right" valign="top">cv::Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a631f3726b8743392db4bed4cc2ee7451">getROI</a> () const</td></tr>
+<tr class="memdesc:a631f3726b8743392db4bed4cc2ee7451"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前图像的感兴趣区域（ROI）。  <br /></td></tr>
+<tr class="separator:a631f3726b8743392db4bed4cc2ee7451"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa81f7ec15eba684bc68de557fdc7deb6" id="r_aa81f7ec15eba684bc68de557fdc7deb6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa81f7ec15eba684bc68de557fdc7deb6">getROIImage</a> () const</td></tr>
+<tr class="memdesc:aa81f7ec15eba684bc68de557fdc7deb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前 ROI 区域内的图像。  <br /></td></tr>
+<tr class="separator:aa81f7ec15eba684bc68de557fdc7deb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93a4596f44fb5a92b07499ea53cf3157" id="r_a93a4596f44fb5a92b07499ea53cf3157"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93a4596f44fb5a92b07499ea53cf3157">matchTemplate</a> (const <a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a> &amp;template_img, int method=cv::TM_CCOEFF) const</td></tr>
+<tr class="memdesc:a93a4596f44fb5a92b07499ea53cf3157"><td class="mdescLeft">&#160;</td><td class="mdescRight">执行模板匹配。  <br /></td></tr>
+<tr class="separator:a93a4596f44fb5a92b07499ea53cf3157"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a692c49ffd0b7e724296f5b249836cedf" id="r_a692c49ffd0b7e724296f5b249836cedf"><td class="memItemLeft" align="right" valign="top">cv::Point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a692c49ffd0b7e724296f5b249836cedf">findBestMatch</a> (const <a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a> &amp;template_img, int method=cv::TM_CCOEFF, double *min_max_vals=nullptr) const</td></tr>
+<tr class="memdesc:a692c49ffd0b7e724296f5b249836cedf"><td class="mdescLeft">&#160;</td><td class="mdescRight">查找模板在源图像中的最佳匹配位置。  <br /></td></tr>
+<tr class="separator:a692c49ffd0b7e724296f5b249836cedf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2bab0073376795efd2366993540c7ba" id="r_ad2bab0073376795efd2366993540c7ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2bab0073376795efd2366993540c7ba">drawMatch</a> (const <a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a> &amp;template_img, const cv::Point &amp;top_left, const cv::Scalar &amp;color=cv::Scalar(0, 0, 255), int thickness=2)</td></tr>
+<tr class="memdesc:ad2bab0073376795efd2366993540c7ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">在源图像上绘制模板匹配结果。  <br /></td></tr>
+<tr class="separator:ad2bab0073376795efd2366993540c7ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private 成员函数</h2></td></tr>
+<tr class="memitem:a0de12c6fd705ce825b0fe1088b77292b" id="r_a0de12c6fd705ce825b0fe1088b77292b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0de12c6fd705ce825b0fe1088b77292b">applyROI</a> ()</td></tr>
+<tr class="memdesc:a0de12c6fd705ce825b0fe1088b77292b"><td class="mdescLeft">&#160;</td><td class="mdescRight">应用当前设置的 ROI 到图像数据。  <br /></td></tr>
+<tr class="separator:a0de12c6fd705ce825b0fe1088b77292b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private 属性</h2></td></tr>
+<tr class="memitem:aed5226eb2126f8c15ec0142d07f01268" id="r_aed5226eb2126f8c15ec0142d07f01268"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed5226eb2126f8c15ec0142d07f01268">mat_</a></td></tr>
+<tr class="separator:aed5226eb2126f8c15ec0142d07f01268"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1604638901e019c433315e2ca8f0deb8" id="r_a1604638901e019c433315e2ca8f0deb8"><td class="memItemLeft" align="right" valign="top">cv::Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1604638901e019c433315e2ca8f0deb8">roi_</a></td></tr>
+<tr class="separator:a1604638901e019c433315e2ca8f0deb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>图像处理类，封装了多种常用的图像操作和分析功能。 </p>
+<p>该类提供了图像的加载、保存、转换、滤波、特征检测与描述、统计分析等多种功能， 以及图像的算术操作和模板匹配等高级操作。 </p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a3e284c964579e23e5ce0f1ab25c7c17f" name="a3e284c964579e23e5ce0f1ab25c7c17f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e284c964579e23e5ce0f1ab25c7c17f">&#9670;&#160;</a></span>Image() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">rc_vision::core::Image::Image </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>默认构造函数，创建一个空的图像对象。 </p>
+
+</div>
+</div>
+<a id="ab18dabb3b2dcec58a1bb7148671c756b" name="ab18dabb3b2dcec58a1bb7148671c756b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab18dabb3b2dcec58a1bb7148671c756b">&#9670;&#160;</a></span>Image() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">rc_vision::core::Image::Image </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>file_path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从文件路径加载图像。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_path</td><td>要加载的图像文件路径。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>true 如果图像成功加载。 </dd>
+<dd>
+false 如果加载失败。 </dd></dl>
+
+</div>
+</div>
+<a id="a9b7f97077f0d209d18450cb35639fc26" name="a9b7f97077f0d209d18450cb35639fc26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b7f97077f0d209d18450cb35639fc26">&#9670;&#160;</a></span>Image() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">rc_vision::core::Image::Image </td>
+          <td>(</td>
+          <td class="paramtype">const cv::Mat &amp;</td>          <td class="paramname"><span class="paramname"><em>mat</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>使用给定的 cv::Mat 对象初始化图像。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mat</td><td>要使用的 OpenCV 图像矩阵。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a0b6a459bd8c03d19041799ea76deee48" name="a0b6a459bd8c03d19041799ea76deee48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b6a459bd8c03d19041799ea76deee48">&#9670;&#160;</a></span>adjustContrast()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::Image::adjustContrast </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>alpha</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>beta</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>调整图像的对比度和亮度。 </p>
+<p>新图像 = alpha * 原图像 + beta</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">alpha</td><td>对比度控制（1.0-3.0）。 </td></tr>
+    <tr><td class="paramname">beta</td><td>亮度控制（0-100）。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0de12c6fd705ce825b0fe1088b77292b" name="a0de12c6fd705ce825b0fe1088b77292b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0de12c6fd705ce825b0fe1088b77292b">&#9670;&#160;</a></span>applyROI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::Image::applyROI </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>应用当前设置的 ROI 到图像数据。 </p>
+<p>如果 ROI 被设置，则裁剪图像到 ROI 区域。 </p>
+
+</div>
+</div>
+<a id="a82c69ac0cca7a587e23572e7e9462118" name="a82c69ac0cca7a587e23572e7e9462118"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82c69ac0cca7a587e23572e7e9462118">&#9670;&#160;</a></span>computeDescriptors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cv::Mat rc_vision::core::Image::computeDescriptors </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>descriptor_type</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;ORB&quot;</span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算图像中的描述子。 </p>
+<p>支持多种描述子计算器，例如 ORB、SIFT、SURF 等。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">descriptor_type</td><td>描述子类型，默认为 "ORB"。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>cv::Mat 计算得到的描述子矩阵。 </dd></dl>
+
+</div>
+</div>
+<a id="ade5bc5b6bde666fff305dea90ff4a153" name="ade5bc5b6bde666fff305dea90ff4a153"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade5bc5b6bde666fff305dea90ff4a153">&#9670;&#160;</a></span>convertColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::Image::convertColor </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>code</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将图像转换为指定的颜色空间。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">code</td><td>颜色转换代码，例如 cv::COLOR_BGR2GRAY。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a244507abee57f7960401bd6383a706de" name="a244507abee57f7960401bd6383a706de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a244507abee57f7960401bd6383a706de">&#9670;&#160;</a></span>crop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a> rc_vision::core::Image::crop </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>width</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>height</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>裁剪图像的一部分。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>裁剪区域左上角的 x 坐标。 </td></tr>
+    <tr><td class="paramname">y</td><td>裁剪区域左上角的 y 坐标。 </td></tr>
+    <tr><td class="paramname">width</td><td>裁剪区域的宽度。 </td></tr>
+    <tr><td class="paramname">height</td><td>裁剪区域的高度。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><a class="el" href="classrc__vision_1_1core_1_1_image.html" title="图像处理类，封装了多种常用的图像操作和分析功能。">Image</a> 裁剪后的新图像对象。 </dd></dl>
+
+</div>
+</div>
+<a id="a1d572e03ac32ee1e173c7fd0b92ae935" name="a1d572e03ac32ee1e173c7fd0b92ae935"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d572e03ac32ee1e173c7fd0b92ae935">&#9670;&#160;</a></span>detectKeypoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; cv::KeyPoint &gt; rc_vision::core::Image::detectKeypoints </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>detector_type</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;ORB&quot;</span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>检测图像中的关键点。 </p>
+<p>支持多种关键点检测器，例如 ORB、SIFT、SURF 等。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">detector_type</td><td>关键点检测器类型，默认为 "ORB"。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>std::vector&lt;cv::KeyPoint&gt; 检测到的关键点列表。 </dd></dl>
+
+</div>
+</div>
+<a id="ad2bab0073376795efd2366993540c7ba" name="ad2bab0073376795efd2366993540c7ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2bab0073376795efd2366993540c7ba">&#9670;&#160;</a></span>drawMatch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::Image::drawMatch </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>template_img</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const cv::Point &amp;</td>          <td class="paramname"><span class="paramname"><em>top_left</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const cv::Scalar &amp;</td>          <td class="paramname"><span class="paramname"><em>color</em></span><span class="paramdefsep"> = </span><span class="paramdefval">cv::Scalar(0,&#160;0,&#160;255)</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>thickness</em></span><span class="paramdefsep"> = </span><span class="paramdefval">2</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在源图像上绘制模板匹配结果。 </p>
+<p>绘制一个矩形框标记出模板匹配的位置。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">template_img</td><td>模板图像对象。 </td></tr>
+    <tr><td class="paramname">top_left</td><td>匹配区域的左上角坐标。 </td></tr>
+    <tr><td class="paramname">color</td><td>绘制矩形的颜色，默认为红色 (0, 0, 255)。 </td></tr>
+    <tr><td class="paramname">thickness</td><td>矩形边框的厚度，默认为 2。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a75975e5300481c381474669e7b98f055" name="a75975e5300481c381474669e7b98f055"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75975e5300481c381474669e7b98f055">&#9670;&#160;</a></span>edgeDetection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::Image::edgeDetection </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>threshold1</em></span><span class="paramdefsep"> = </span><span class="paramdefval">100</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>threshold2</em></span><span class="paramdefsep"> = </span><span class="paramdefval">200</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>对图像应用边缘检测。 </p>
+<p>使用 Canny 边缘检测算法。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">threshold1</td><td>第一个阈值，默认为 100。 </td></tr>
+    <tr><td class="paramname">threshold2</td><td>第二个阈值，默认为 200。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac4987dc5d9770c24448784aa11783c16" name="ac4987dc5d9770c24448784aa11783c16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4987dc5d9770c24448784aa11783c16">&#9670;&#160;</a></span>equalizeHist()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::Image::equalizeHist </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>对图像应用直方图均衡化。 </p>
+<p>仅适用于单通道图像。 </p>
+
+</div>
+</div>
+<a id="a692c49ffd0b7e724296f5b249836cedf" name="a692c49ffd0b7e724296f5b249836cedf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a692c49ffd0b7e724296f5b249836cedf">&#9670;&#160;</a></span>findBestMatch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cv::Point rc_vision::core::Image::findBestMatch </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>template_img</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>method</em></span><span class="paramdefsep"> = </span><span class="paramdefval">cv::TM_CCOEFF</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>min_max_vals</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>查找模板在源图像中的最佳匹配位置。 </p>
+<p>使用 OpenCV 的 minMaxLoc 函数查找最佳匹配位置。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">template_img</td><td>模板图像对象。 </td></tr>
+    <tr><td class="paramname">method</td><td>匹配方法，如 cv::TM_CCOEFF, cv::TM_SQDIFF 等，默认为 cv::TM_CCOEFF。 </td></tr>
+    <tr><td class="paramname">min_max_vals</td><td>返回匹配结果的最小值和最大值，可为 nullptr。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>cv::Point 最佳匹配位置的左上角坐标。 </dd></dl>
+
+</div>
+</div>
+<a id="aabbb14266f2fa29ac80ef8b1a61f817a" name="aabbb14266f2fa29ac80ef8b1a61f817a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabbb14266f2fa29ac80ef8b1a61f817a">&#9670;&#160;</a></span>flip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::Image::flip </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>flip_code</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>翻转图像。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">flip_code</td><td>翻转代码： 0 - 垂直翻转， 1 - 水平翻转， -1 - 同时水平和垂直翻转。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a63d93b811fd1bd7516c547e211985cc5" name="a63d93b811fd1bd7516c547e211985cc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63d93b811fd1bd7516c547e211985cc5">&#9670;&#160;</a></span>gaussianBlur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::Image::gaussianBlur </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>ksize</em></span><span class="paramdefsep"> = </span><span class="paramdefval">5</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>sigmaX</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1.0</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>对图像应用高斯模糊滤波。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ksize</td><td>核大小，默认为 5。 </td></tr>
+    <tr><td class="paramname">sigmaX</td><td>高斯核在 X 方向的标准差，默认为 1.0。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac974a50ca3f91291a6de7d196151f88a" name="ac974a50ca3f91291a6de7d196151f88a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac974a50ca3f91291a6de7d196151f88a">&#9670;&#160;</a></span>getMat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cv::Mat rc_vision::core::Image::getMat </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取当前图像的 cv::Mat 对象。 </p>
+<dl class="section return"><dt>返回</dt><dd>cv::Mat 当前图像的数据矩阵。 </dd></dl>
+
+</div>
+</div>
+<a id="a631f3726b8743392db4bed4cc2ee7451" name="a631f3726b8743392db4bed4cc2ee7451"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a631f3726b8743392db4bed4cc2ee7451">&#9670;&#160;</a></span>getROI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cv::Rect rc_vision::core::Image::getROI </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取当前图像的感兴趣区域（ROI）。 </p>
+<dl class="section return"><dt>返回</dt><dd>cv::Rect 当前的 ROI 区域。 </dd></dl>
+
+</div>
+</div>
+<a id="aa81f7ec15eba684bc68de557fdc7deb6" name="aa81f7ec15eba684bc68de557fdc7deb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa81f7ec15eba684bc68de557fdc7deb6">&#9670;&#160;</a></span>getROIImage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a> rc_vision::core::Image::getROIImage </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取当前 ROI 区域内的图像。 </p>
+<dl class="section return"><dt>返回</dt><dd><a class="el" href="classrc__vision_1_1core_1_1_image.html" title="图像处理类，封装了多种常用的图像操作和分析功能。">Image</a> ROI 区域内的新图像对象。 </dd></dl>
+
+</div>
+</div>
+<a id="a4681726b99b2959921d547d5509dfa01" name="a4681726b99b2959921d547d5509dfa01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4681726b99b2959921d547d5509dfa01">&#9670;&#160;</a></span>histogram()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cv::Mat rc_vision::core::Image::histogram </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>histSize</em></span><span class="paramdefsep"> = </span><span class="paramdefval">256</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>range</em></span>[]<span class="paramdefsep"> = </span><span class="paramdefval">{0,&#160;256}</span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算图像的直方图。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">histSize</td><td>直方图大小，默认为 256。 </td></tr>
+    <tr><td class="paramname">range</td><td>直方图范围，默认为 {0, 256}。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>cv::Mat 计算得到的直方图矩阵。 </dd></dl>
+
+</div>
+</div>
+<a id="a7b3ba5773d4bad440da0fac4efe3afcb" name="a7b3ba5773d4bad440da0fac4efe3afcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b3ba5773d4bad440da0fac4efe3afcb">&#9670;&#160;</a></span>load()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool rc_vision::core::Image::load </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>file_path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从文件路径加载图像。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_path</td><td>要加载的图像文件路径。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>true 如果图像成功加载。 </dd>
+<dd>
+false 如果加载失败。 </dd></dl>
+
+</div>
+</div>
+<a id="a93a4596f44fb5a92b07499ea53cf3157" name="a93a4596f44fb5a92b07499ea53cf3157"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93a4596f44fb5a92b07499ea53cf3157">&#9670;&#160;</a></span>matchTemplate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cv::Mat rc_vision::core::Image::matchTemplate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>template_img</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>method</em></span><span class="paramdefsep"> = </span><span class="paramdefval">cv::TM_CCOEFF</span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>执行模板匹配。 </p>
+<p>使用 OpenCV 的 matchTemplate 函数进行模板匹配。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">template_img</td><td>模板图像对象。 </td></tr>
+    <tr><td class="paramname">method</td><td>匹配方法，如 cv::TM_CCOEFF, cv::TM_SQDIFF 等，默认为 cv::TM_CCOEFF。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>cv::Mat 匹配结果矩阵。 </dd></dl>
+
+</div>
+</div>
+<a id="aba77ced7239dc98c06a9f4788131b2d0" name="aba77ced7239dc98c06a9f4788131b2d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba77ced7239dc98c06a9f4788131b2d0">&#9670;&#160;</a></span>mean()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double rc_vision::core::Image::mean </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算图像的平均值。 </p>
+<dl class="section return"><dt>返回</dt><dd>double 图像像素的平均值。 </dd></dl>
+
+</div>
+</div>
+<a id="a9b2aae72c940b098d4455223e5f9abce" name="a9b2aae72c940b098d4455223e5f9abce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b2aae72c940b098d4455223e5f9abce">&#9670;&#160;</a></span>medianBlur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::Image::medianBlur </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>ksize</em></span><span class="paramdefsep"> = </span><span class="paramdefval">5</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>对图像应用中值滤波。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ksize</td><td>核大小，默认为 5。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac7b1bc93816b769c4aea2325967367de" name="ac7b1bc93816b769c4aea2325967367de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7b1bc93816b769c4aea2325967367de">&#9670;&#160;</a></span>operator*()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a> rc_vision::core::Image::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>图像的乘法运算。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>另一个图像对象。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><a class="el" href="classrc__vision_1_1core_1_1_image.html" title="图像处理类，封装了多种常用的图像操作和分析功能。">Image</a> 结果图像。 </dd></dl>
+
+</div>
+</div>
+<a id="a18f86cbd918a508f7047160f42158f29" name="a18f86cbd918a508f7047160f42158f29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18f86cbd918a508f7047160f42158f29">&#9670;&#160;</a></span>operator+()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a> rc_vision::core::Image::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>图像的加法运算。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>另一个图像对象。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><a class="el" href="classrc__vision_1_1core_1_1_image.html" title="图像处理类，封装了多种常用的图像操作和分析功能。">Image</a> 结果图像。 </dd></dl>
+
+</div>
+</div>
+<a id="a9d56e1763683d14efbf47f06c1172c97" name="a9d56e1763683d14efbf47f06c1172c97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d56e1763683d14efbf47f06c1172c97">&#9670;&#160;</a></span>operator-()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a> rc_vision::core::Image::operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>图像的减法运算。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>另一个图像对象。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><a class="el" href="classrc__vision_1_1core_1_1_image.html" title="图像处理类，封装了多种常用的图像操作和分析功能。">Image</a> 结果图像。 </dd></dl>
+
+</div>
+</div>
+<a id="afd2384c9c2343bf230ed6e1c48ee2c5c" name="afd2384c9c2343bf230ed6e1c48ee2c5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd2384c9c2343bf230ed6e1c48ee2c5c">&#9670;&#160;</a></span>operator/()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a> rc_vision::core::Image::operator/ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classrc__vision_1_1core_1_1_image.html">Image</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>图像的除法运算。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>另一个图像对象。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><a class="el" href="classrc__vision_1_1core_1_1_image.html" title="图像处理类，封装了多种常用的图像操作和分析功能。">Image</a> 结果图像。 </dd></dl>
+
+</div>
+</div>
+<a id="a615a30a1ef52e9392b63b62f23997380" name="a615a30a1ef52e9392b63b62f23997380"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a615a30a1ef52e9392b63b62f23997380">&#9670;&#160;</a></span>resize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::Image::resize </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>width</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>height</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>interpolation</em></span><span class="paramdefsep"> = </span><span class="paramdefval">cv::INTER_LINEAR</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>调整图像的尺寸。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>目标宽度。 </td></tr>
+    <tr><td class="paramname">height</td><td>目标高度。 </td></tr>
+    <tr><td class="paramname">interpolation</td><td>插值方法，默认为 cv::INTER_LINEAR。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acd4d670fec0cae15f288100dab2dba39" name="acd4d670fec0cae15f288100dab2dba39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd4d670fec0cae15f288100dab2dba39">&#9670;&#160;</a></span>rotate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::Image::rotate </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>angle</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const cv::Point2f &amp;</td>          <td class="paramname"><span class="paramname"><em>center</em></span><span class="paramdefsep"> = </span><span class="paramdefval">cv::Point2f(-1,-1)</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>scale</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1.0</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>旋转图像。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">angle</td><td>旋转角度，以度为单位。 </td></tr>
+    <tr><td class="paramname">center</td><td>旋转中心点，默认为 (-1, -1) 表示图像中心。 </td></tr>
+    <tr><td class="paramname">scale</td><td>缩放因子，默认为 1.0。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6346ed51fa1b7968d8c85616694fa789" name="a6346ed51fa1b7968d8c85616694fa789"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6346ed51fa1b7968d8c85616694fa789">&#9670;&#160;</a></span>save()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool rc_vision::core::Image::save </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>file_path</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将图像保存到指定的文件路径。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_path</td><td>要保存的图像文件路径。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>true 如果图像成功保存。 </dd>
+<dd>
+false 如果保存失败。 </dd></dl>
+
+</div>
+</div>
+<a id="a3fa3e47c0390695e94489be676aaf79e" name="a3fa3e47c0390695e94489be676aaf79e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fa3e47c0390695e94489be676aaf79e">&#9670;&#160;</a></span>setMat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::Image::setMat </td>
+          <td>(</td>
+          <td class="paramtype">const cv::Mat &amp;</td>          <td class="paramname"><span class="paramname"><em>mat</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置当前图像的数据矩阵。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mat</td><td>要设置的 OpenCV 图像矩阵。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8c14e5958524f3d6e4f2340b9416ea72" name="a8c14e5958524f3d6e4f2340b9416ea72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c14e5958524f3d6e4f2340b9416ea72">&#9670;&#160;</a></span>setROI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::Image::setROI </td>
+          <td>(</td>
+          <td class="paramtype">const cv::Rect &amp;</td>          <td class="paramname"><span class="paramname"><em>roi</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置图像的感兴趣区域（ROI）。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">roi</td><td>要设置的 ROI 区域。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a64ce95ec69d27066752f2dbe707ac308" name="a64ce95ec69d27066752f2dbe707ac308"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64ce95ec69d27066752f2dbe707ac308">&#9670;&#160;</a></span>stddev()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double rc_vision::core::Image::stddev </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算图像的标准差。 </p>
+<dl class="section return"><dt>返回</dt><dd>double 图像像素的标准差。 </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="aed5226eb2126f8c15ec0142d07f01268" name="aed5226eb2126f8c15ec0142d07f01268"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed5226eb2126f8c15ec0142d07f01268">&#9670;&#160;</a></span>mat_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">cv::Mat rc_vision::core::Image::mat_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>存储图像数据的 OpenCV 矩阵。 </p>
+
+</div>
+</div>
+<a id="a1604638901e019c433315e2ca8f0deb8" name="a1604638901e019c433315e2ca8f0deb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1604638901e019c433315e2ca8f0deb8">&#9670;&#160;</a></span>roi_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">cv::Rect rc_vision::core::Image::roi_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>当前图像的感兴趣区域（ROI）。 </p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>C:/Users/14168/1/rc_vision/core_lib/include/rc_vision/core/<a class="el" href="image_8hpp_source.html">image.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

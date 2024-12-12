@@ -1,0 +1,90 @@
+\doxysection{logger.\+hpp}
+\hypertarget{logger_8hpp_source}{}\label{logger_8hpp_source}\index{C:/Users/14168/1/rc\_vision/core\_lib/include/rc\_vision/core/logger.hpp@{C:/Users/14168/1/rc\_vision/core\_lib/include/rc\_vision/core/logger.hpp}}
+\mbox{\hyperlink{logger_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ RC\_VISION\_CORE\_LOGGER\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ RC\_VISION\_CORE\_LOGGER\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <condition\_variable>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <atomic>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerc__vision}{rc\_vision}}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{namespace\ }core\ \{}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger}{Logger}}\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220e}{LogLevel}}\ \{\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220eadc30ec20708ef7b0f641ef78b7880a15}{DEBUG}},\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220ea551b723eafd6a31d444fcb2f5920fbd3}{INFO}},\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220ea32bd8a1db2275458673903bdb84cb277}{WARN}},\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220eabb1ca97ec761fc37101737ba0aa2e7c5}{ERROR}}\ \};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger}{Logger}}\&\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_aa1ab603542fca1a65433fca4f4ed9991}{getInstance}}();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a848d4bea1667e3fd44060b8a3e7c3554}{setLogLevel}}(\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220e}{LogLevel}}\ level);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_acaffa4ff667094538a48ba46db50ffba}{setLogFile}}(\textcolor{keyword}{const}\ std::string\&\ file\_path,\ std::size\_t\ max\_file\_size\ =\ 10\ *\ 1024\ *\ 1024);\ \textcolor{comment}{//\ 默认10MB}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a52933946cc1c4dd5d442f073d05eb868}{log}}(\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220e}{LogLevel}}\ level,\ \textcolor{keyword}{const}\ std::string\&\ message,}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ file\ =\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{keywordtype}{int}\ line\ =\ 0,\ \textcolor{keyword}{const}\ std::string\&\ func\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a974ba16a470e83f6b8c278b44aa5c9f0}{shutdown}}();}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a7492dd577ec9d03c86413aaaa64f94e5}{Logger}}();}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ab38b7bf64da59c25119299136d62c3c3}{\string~Logger}}();}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 禁用拷贝构造和赋值操作}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a29d990b71201052a699cadd0bb355836}{Logger}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger}{Logger}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger}{Logger}}\&\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a657a08aeb7911f3b5c52fe5aafcc11c1}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger}{Logger}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220e}{LogLevel}}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a2a6fba87b883be298cb97aa6a10ad5b9}{current\_level\_}};\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ std::mutex\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae19045a60a9954ac2dc7ea0e82ede130}{mtx\_}};\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 日志文件相关}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ std::ofstream\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a30d50d5fe9e83cf2da33967515baa9cd}{log\_file\_}};\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_aeae5fa58ba2e16bb62174e784be7631c}{log\_file\_path\_}};\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a442b7a6531a764895938428e680d5d77}{max\_file\_size\_}};\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 日志消息队列及线程相关}}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ std::queue<std::string>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a0d980454765fe6085ef0ecfc4cf12881}{log\_queue\_}};\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ std::mutex\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae213092d5e6bfb26b65ebe6aedba93e5}{queue\_mtx\_}};\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ std::condition\_variable\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a85ca19f5960d7b97c5426e8c4d5a2186}{cv\_}};\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ std::thread\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ac3a7343f2dfa46c0cd76dc924abfbb98}{logging\_thread\_}};\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ std::atomic<bool>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a9104e42f718211c0195493a484fb81f3}{exit\_flag\_}};\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae00ace1909c4670442eccb6acba970cc}{processLogs}}();}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae82e6082a3f34d0f8ba06eeac376026c}{getCurrentTime}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a502b5d1666947c8951ab229314eb56b0}{getLogLevelString}}(\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220e}{LogLevel}}\ level)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae80cce9a3e03f0578f1a39b306ff6720}{getColorCode}}(\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220e}{LogLevel}}\ level)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ac50d68d9647e2fafbc38b05e09bdcb91}{resetColor}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a999e0b43a9fd334b45197a742ddad6d4}{rotateLogFile}}();}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#define\ LOG\_DEBUG(message)\ \(\backslash\)}}
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ rc\_vision::core::Logger::getInstance().log(rc\_vision::core::Logger::LogLevel::DEBUG,\ message,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_func\_\_)}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\#define\ LOG\_INFO(message)\ \(\backslash\)}}
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ rc\_vision::core::Logger::getInstance().log(rc\_vision::core::Logger::LogLevel::INFO,\ message,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_func\_\_)}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#define\ LOG\_WARN(message)\ \(\backslash\)}}
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ rc\_vision::core::Logger::getInstance().log(rc\_vision::core::Logger::LogLevel::WARN,\ message,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_func\_\_)}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\#define\ LOG\_ERROR(message)\ \(\backslash\)}}
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ rc\_vision::core::Logger::getInstance().log(rc\_vision::core::Logger::LogLevel::ERROR,\ message,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_func\_\_)}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ core}}
+\DoxyCodeLine{00188\ \}\ \textcolor{comment}{//\ namespace\ rc\_vision}}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ RC\_VISION\_CORE\_LOGGER\_HPP}}
+
+\end{DoxyCode}

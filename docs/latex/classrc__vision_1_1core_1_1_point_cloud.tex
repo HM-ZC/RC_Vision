@@ -1,0 +1,508 @@
+\doxysection{rc\+\_\+vision\+::core\+::Point\+Cloud类 参考}
+\hypertarget{classrc__vision_1_1core_1_1_point_cloud}{}\label{classrc__vision_1_1core_1_1_point_cloud}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+
+
+点云类，管理和处理三维点云数据。  
+
+
+
+
+{\ttfamily \#include $<$point\+\_\+cloud.\+hpp$>$}
+
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a334ba717b6ce6da62cd2e2acab90c1fc}{Point\+Cloud}} ()=default
+\begin{DoxyCompactList}\small\item\em 默认构造函数。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a33e0800bec14d451d87c00a78ea7e639}{add\+Point}} (const \mbox{\hyperlink{structrc__vision_1_1core_1_1_point}{Point}} \&point)
+\begin{DoxyCompactList}\small\item\em 添加一个点到点云。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a43eefa6138e5c856e6d1aa4211359322}{add\+Point}} (double x, double y, double z)
+\begin{DoxyCompactList}\small\item\em 添加一个点到点云。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a751523ee14d085a4e960356f44421991}{add\+Point}} (double x, double y, double z, const Eigen\+::\+Vector3d \&color)
+\begin{DoxyCompactList}\small\item\em 添加一个带颜色的点到点云。 \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a87b437110fcaa83268bf1282b4a02966}{size}} () const
+\begin{DoxyCompactList}\small\item\em 获取点云中的点数。 \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point}{Point}} $>$ \& \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a80b8a324eddcf4b45d554042c6e817c5}{get\+Points}} () const
+\begin{DoxyCompactList}\small\item\em 获取所有点的集合。 \end{DoxyCompactList}\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_abc398f49f61d543eb9401aef6dd0326d}{compute\+Centroid}} () const
+\begin{DoxyCompactList}\small\item\em 计算点云的质心。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a3024890c90b45397b012a94664690d25}{clear}} ()
+\begin{DoxyCompactList}\small\item\em 清空点云中的所有点。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_ada57fc208892103f87f7ce350bd6ad70}{transform}} (const Eigen\+::\+Matrix4d \&transformation)
+\begin{DoxyCompactList}\small\item\em 使用4x4变换矩阵对点云进行变换。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a35c20a96b89f6190e176cd777a5f6331}{rotate}} (const Eigen\+::\+Matrix3d \&rotation\+\_\+matrix)
+\begin{DoxyCompactList}\small\item\em 对点云进行旋转。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a49c22e1632475589e3ac4165d1a48e2c}{translate}} (const Eigen\+::\+Vector3d \&translation\+\_\+vector)
+\begin{DoxyCompactList}\small\item\em 对点云进行平移。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a972cfb43f6d2d41acb72c429b6285594}{downsample}} (double voxel\+\_\+size)
+\begin{DoxyCompactList}\small\item\em 对点云进行下采样。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_aecbaf044caa6f09ec56f4d8316b061bf}{statistical\+Outlier\+Removal}} (int mean\+\_\+k=50, double std\+\_\+dev\+\_\+mul\+\_\+thresh=1.\+0)
+\begin{DoxyCompactList}\small\item\em 统计异常点移除。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_ad53aa9613d5d3d42be00a5c73f4b2158}{radius\+Outlier\+Removal}} (double radius, int min\+\_\+neighbors)
+\begin{DoxyCompactList}\small\item\em 半径异常点移除。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a7ed32a0a585be15470df1977bbe3fd51}{compute\+Normals}} (int k=10)
+\begin{DoxyCompactList}\small\item\em 计算点云中每个点的法向量。 \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix4d \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a0cd8d7006aa19ce750444e00f1ed71b6}{icp}} (const \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud}{Point\+Cloud}} \&target, int max\+\_\+iterations=50, double tolerance=1e-\/6)
+\begin{DoxyCompactList}\small\item\em 使用\+ICP算法进行点云配准。 \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud}{Point\+Cloud}} $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_ac29fc4cb9e4b2bdc9d9286a945777a0c}{euclidean\+Clustering}} (double cluster\+\_\+tolerance, int min\+\_\+size, int max\+\_\+size) const
+\begin{DoxyCompactList}\small\item\em 使用欧式聚类对点云进行分割。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a6c47a42a53c785a27d2daeb27702a575}{merge}} (const \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud}{Point\+Cloud}} \&other)
+\begin{DoxyCompactList}\small\item\em 合并另一个点云到当前点云中。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_ab1d040a42d66df872acb26a7019fb60b}{merge\+With}} (const \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud}{Point\+Cloud}} \&other, const Eigen\+::\+Matrix4d \&transformation)
+\begin{DoxyCompactList}\small\item\em 合并另一个点云到当前点云中，并应用变换。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structrc__vision_1_1core_1_1_point_cloud_stats}{Point\+Cloud\+Stats}} \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a0d6537d33979a1ada7d5ad32c9c87b69}{compute\+Stats}} () const
+\begin{DoxyCompactList}\small\item\em 计算点云的统计信息。 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_aff92bbfb11f0875f8964342060674ccb}{load\+From\+PLY}} (const std\+::string \&file\+\_\+path)
+\begin{DoxyCompactList}\small\item\em 从\+PLY文件加载点云数据。 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_af3c87ac8c0d9939920f8d7d2c2c72734}{save\+To\+PLY}} (const std\+::string \&file\+\_\+path) const
+\begin{DoxyCompactList}\small\item\em 将点云数据保存到\+PLY文件。 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a7d28cc313c004bd8e889ad02340d26c5}{load\+From\+PCD}} (const std\+::string \&file\+\_\+path)
+\begin{DoxyCompactList}\small\item\em 从\+PCD文件加载点云数据。 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_afad42fe7d0dda2669855b6ae3baf21f3}{save\+To\+PCD}} (const std\+::string \&file\+\_\+path) const
+\begin{DoxyCompactList}\small\item\em 将点云数据保存到\+PCD文件。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a4560c6ddb8c33524063dcb39306c82d2}{apply\+Transformation}} (const Eigen\+::\+Matrix4d \&transformation)
+\begin{DoxyCompactList}\small\item\em 应用4x4变换矩阵到点云。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point}{Point}} $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a08060c954a98698c9d30501e42c5030f}{points\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+点云类，管理和处理三维点云数据。 
+
+提供点的添加、变换、滤波、法向量估计、配准、分割、合并以及统计信息计算等功能。 
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_a334ba717b6ce6da62cd2e2acab90c1fc}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!PointCloud@{PointCloud}}
+\index{PointCloud@{PointCloud}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{PointCloud()}{PointCloud()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_a334ba717b6ce6da62cd2e2acab90c1fc} 
+rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::\+Point\+Cloud (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+默认构造函数。 
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_a33e0800bec14d451d87c00a78ea7e639}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!addPoint@{addPoint}}
+\index{addPoint@{addPoint}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{addPoint()}{addPoint()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_a33e0800bec14d451d87c00a78ea7e639} 
+void rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::add\+Point (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structrc__vision_1_1core_1_1_point}{Point}} \&}]{point}{}\end{DoxyParamCaption})}
+
+
+
+添加一个点到点云。 
+
+
+\begin{DoxyParams}{参数}
+{\em point} & 需要添加的点。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_a43eefa6138e5c856e6d1aa4211359322}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!addPoint@{addPoint}}
+\index{addPoint@{addPoint}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{addPoint()}{addPoint()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_a43eefa6138e5c856e6d1aa4211359322} 
+void rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::add\+Point (\begin{DoxyParamCaption}\item[{double}]{x}{, }\item[{double}]{y}{, }\item[{double}]{z}{}\end{DoxyParamCaption})}
+
+
+
+添加一个点到点云。 
+
+
+\begin{DoxyParams}{参数}
+{\em x} & 点的\+X坐标。 \\
+\hline
+{\em y} & 点的\+Y坐标。 \\
+\hline
+{\em z} & 点的\+Z坐标。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_a751523ee14d085a4e960356f44421991}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!addPoint@{addPoint}}
+\index{addPoint@{addPoint}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{addPoint()}{addPoint()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_a751523ee14d085a4e960356f44421991} 
+void rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::add\+Point (\begin{DoxyParamCaption}\item[{double}]{x}{, }\item[{double}]{y}{, }\item[{double}]{z}{, }\item[{const Eigen\+::\+Vector3d \&}]{color}{}\end{DoxyParamCaption})}
+
+
+
+添加一个带颜色的点到点云。 
+
+
+\begin{DoxyParams}{参数}
+{\em x} & 点的\+X坐标。 \\
+\hline
+{\em y} & 点的\+Y坐标。 \\
+\hline
+{\em z} & 点的\+Z坐标。 \\
+\hline
+{\em color} & 点的\+RGB颜色。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_a4560c6ddb8c33524063dcb39306c82d2}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!applyTransformation@{applyTransformation}}
+\index{applyTransformation@{applyTransformation}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{applyTransformation()}{applyTransformation()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_a4560c6ddb8c33524063dcb39306c82d2} 
+void rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::apply\+Transformation (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix4d \&}]{transformation}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+应用4x4变换矩阵到点云。 
+
+
+\begin{DoxyParams}{参数}
+{\em transformation} & 4x4的变换矩阵。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_a3024890c90b45397b012a94664690d25}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!clear@{clear}}
+\index{clear@{clear}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_a3024890c90b45397b012a94664690d25} 
+void rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::clear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+清空点云中的所有点。 
+
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_abc398f49f61d543eb9401aef6dd0326d}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!computeCentroid@{computeCentroid}}
+\index{computeCentroid@{computeCentroid}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{computeCentroid()}{computeCentroid()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_abc398f49f61d543eb9401aef6dd0326d} 
+Eigen\+::\+Vector3d rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::compute\+Centroid (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+计算点云的质心。 
+
+\begin{DoxyReturn}{返回}
+点云的质心坐标。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_a7ed32a0a585be15470df1977bbe3fd51}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!computeNormals@{computeNormals}}
+\index{computeNormals@{computeNormals}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{computeNormals()}{computeNormals()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_a7ed32a0a585be15470df1977bbe3fd51} 
+void rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::compute\+Normals (\begin{DoxyParamCaption}\item[{int}]{k}{ = {\ttfamily 10}}\end{DoxyParamCaption})}
+
+
+
+计算点云中每个点的法向量。 
+
+使用\+K最近邻方法估计法向量。
+
+
+\begin{DoxyParams}{参数}
+{\em k} & 用于法向量估计的邻居点数量。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_a0d6537d33979a1ada7d5ad32c9c87b69}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!computeStats@{computeStats}}
+\index{computeStats@{computeStats}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{computeStats()}{computeStats()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_a0d6537d33979a1ada7d5ad32c9c87b69} 
+\mbox{\hyperlink{structrc__vision_1_1core_1_1_point_cloud_stats}{Point\+Cloud\+Stats}} rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::compute\+Stats (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+计算点云的统计信息。 
+
+\begin{DoxyReturn}{返回}
+点云的统计信息结构体。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_a972cfb43f6d2d41acb72c429b6285594}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!downsample@{downsample}}
+\index{downsample@{downsample}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{downsample()}{downsample()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_a972cfb43f6d2d41acb72c429b6285594} 
+void rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::downsample (\begin{DoxyParamCaption}\item[{double}]{voxel\+\_\+size}{}\end{DoxyParamCaption})}
+
+
+
+对点云进行下采样。 
+
+使用体素网格滤波器进行下采样。
+
+
+\begin{DoxyParams}{参数}
+{\em voxel\+\_\+size} & 体素大小。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_ac29fc4cb9e4b2bdc9d9286a945777a0c}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!euclideanClustering@{euclideanClustering}}
+\index{euclideanClustering@{euclideanClustering}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{euclideanClustering()}{euclideanClustering()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_ac29fc4cb9e4b2bdc9d9286a945777a0c} 
+std\+::vector$<$ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud}{Point\+Cloud}} $>$ rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::euclidean\+Clustering (\begin{DoxyParamCaption}\item[{double}]{cluster\+\_\+tolerance}{, }\item[{int}]{min\+\_\+size}{, }\item[{int}]{max\+\_\+size}{}\end{DoxyParamCaption}) const}
+
+
+
+使用欧式聚类对点云进行分割。 
+
+将点云分割为多个独立的聚类。
+
+
+\begin{DoxyParams}{参数}
+{\em cluster\+\_\+tolerance} & 聚类容差半径。 \\
+\hline
+{\em min\+\_\+size} & 每个聚类的最小点数。 \\
+\hline
+{\em max\+\_\+size} & 每个聚类的最大点数。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+分割后的点云集合。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_a80b8a324eddcf4b45d554042c6e817c5}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!getPoints@{getPoints}}
+\index{getPoints@{getPoints}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{getPoints()}{getPoints()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_a80b8a324eddcf4b45d554042c6e817c5} 
+const std\+::vector$<$ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point}{Point}} $>$ \& rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::get\+Points (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+获取所有点的集合。 
+
+\begin{DoxyReturn}{返回}
+常量引用，指向点云中的所有点。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_a0cd8d7006aa19ce750444e00f1ed71b6}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!icp@{icp}}
+\index{icp@{icp}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{icp()}{icp()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_a0cd8d7006aa19ce750444e00f1ed71b6} 
+Eigen\+::\+Matrix4d rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::icp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud}{Point\+Cloud}} \&}]{target}{, }\item[{int}]{max\+\_\+iterations}{ = {\ttfamily 50}, }\item[{double}]{tolerance}{ = {\ttfamily 1e-\/6}}\end{DoxyParamCaption})}
+
+
+
+使用\+ICP算法进行点云配准。 
+
+将当前点云与目标点云对齐。
+
+
+\begin{DoxyParams}{参数}
+{\em target} & 目标点云。 \\
+\hline
+{\em max\+\_\+iterations} & 最大迭代次数。 \\
+\hline
+{\em tolerance} & 收敛容差。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+最优的4x4变换矩阵。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_a7d28cc313c004bd8e889ad02340d26c5}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!loadFromPCD@{loadFromPCD}}
+\index{loadFromPCD@{loadFromPCD}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{loadFromPCD()}{loadFromPCD()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_a7d28cc313c004bd8e889ad02340d26c5} 
+bool rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::load\+From\+PCD (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+\_\+path}{}\end{DoxyParamCaption})}
+
+
+
+从\+PCD文件加载点云数据。 
+
+
+\begin{DoxyParams}{参数}
+{\em file\+\_\+path} & PCD文件路径。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+成功返回true，失败返回false。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_aff92bbfb11f0875f8964342060674ccb}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!loadFromPLY@{loadFromPLY}}
+\index{loadFromPLY@{loadFromPLY}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{loadFromPLY()}{loadFromPLY()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_aff92bbfb11f0875f8964342060674ccb} 
+bool rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::load\+From\+PLY (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+\_\+path}{}\end{DoxyParamCaption})}
+
+
+
+从\+PLY文件加载点云数据。 
+
+
+\begin{DoxyParams}{参数}
+{\em file\+\_\+path} & PLY文件路径。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+成功返回true，失败返回false。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_a6c47a42a53c785a27d2daeb27702a575}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!merge@{merge}}
+\index{merge@{merge}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{merge()}{merge()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_a6c47a42a53c785a27d2daeb27702a575} 
+void rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::merge (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud}{Point\+Cloud}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+合并另一个点云到当前点云中。 
+
+
+\begin{DoxyParams}{参数}
+{\em other} & 需要合并的点云。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_ab1d040a42d66df872acb26a7019fb60b}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!mergeWith@{mergeWith}}
+\index{mergeWith@{mergeWith}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{mergeWith()}{mergeWith()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_ab1d040a42d66df872acb26a7019fb60b} 
+void rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::merge\+With (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud}{Point\+Cloud}} \&}]{other}{, }\item[{const Eigen\+::\+Matrix4d \&}]{transformation}{}\end{DoxyParamCaption})}
+
+
+
+合并另一个点云到当前点云中，并应用变换。 
+
+
+\begin{DoxyParams}{参数}
+{\em other} & 需要合并的点云。 \\
+\hline
+{\em transformation} & 需要应用的4x4变换矩阵。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_ad53aa9613d5d3d42be00a5c73f4b2158}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!radiusOutlierRemoval@{radiusOutlierRemoval}}
+\index{radiusOutlierRemoval@{radiusOutlierRemoval}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{radiusOutlierRemoval()}{radiusOutlierRemoval()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_ad53aa9613d5d3d42be00a5c73f4b2158} 
+void rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::radius\+Outlier\+Removal (\begin{DoxyParamCaption}\item[{double}]{radius}{, }\item[{int}]{min\+\_\+neighbors}{}\end{DoxyParamCaption})}
+
+
+
+半径异常点移除。 
+
+移除点云中邻居点少于指定数量的点。
+
+
+\begin{DoxyParams}{参数}
+{\em radius} & 搜索半径。 \\
+\hline
+{\em min\+\_\+neighbors} & 最小邻居数量。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_a35c20a96b89f6190e176cd777a5f6331}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!rotate@{rotate}}
+\index{rotate@{rotate}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{rotate()}{rotate()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_a35c20a96b89f6190e176cd777a5f6331} 
+void rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::rotate (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix3d \&}]{rotation\+\_\+matrix}{}\end{DoxyParamCaption})}
+
+
+
+对点云进行旋转。 
+
+
+\begin{DoxyParams}{参数}
+{\em rotation\+\_\+matrix} & 3x3的旋转矩阵。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_afad42fe7d0dda2669855b6ae3baf21f3}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!saveToPCD@{saveToPCD}}
+\index{saveToPCD@{saveToPCD}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{saveToPCD()}{saveToPCD()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_afad42fe7d0dda2669855b6ae3baf21f3} 
+bool rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::save\+To\+PCD (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+\_\+path}{}\end{DoxyParamCaption}) const}
+
+
+
+将点云数据保存到\+PCD文件。 
+
+
+\begin{DoxyParams}{参数}
+{\em file\+\_\+path} & PCD文件路径。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+成功返回true，失败返回false。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_af3c87ac8c0d9939920f8d7d2c2c72734}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!saveToPLY@{saveToPLY}}
+\index{saveToPLY@{saveToPLY}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{saveToPLY()}{saveToPLY()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_af3c87ac8c0d9939920f8d7d2c2c72734} 
+bool rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::save\+To\+PLY (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+\_\+path}{}\end{DoxyParamCaption}) const}
+
+
+
+将点云数据保存到\+PLY文件。 
+
+
+\begin{DoxyParams}{参数}
+{\em file\+\_\+path} & PLY文件路径。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+成功返回true，失败返回false。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_a87b437110fcaa83268bf1282b4a02966}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!size@{size}}
+\index{size@{size}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_a87b437110fcaa83268bf1282b4a02966} 
+size\+\_\+t rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+获取点云中的点数。 
+
+\begin{DoxyReturn}{返回}
+点云中的点数。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_aecbaf044caa6f09ec56f4d8316b061bf}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!statisticalOutlierRemoval@{statisticalOutlierRemoval}}
+\index{statisticalOutlierRemoval@{statisticalOutlierRemoval}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{statisticalOutlierRemoval()}{statisticalOutlierRemoval()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_aecbaf044caa6f09ec56f4d8316b061bf} 
+void rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::statistical\+Outlier\+Removal (\begin{DoxyParamCaption}\item[{int}]{mean\+\_\+k}{ = {\ttfamily 50}, }\item[{double}]{std\+\_\+dev\+\_\+mul\+\_\+thresh}{ = {\ttfamily 1.0}}\end{DoxyParamCaption})}
+
+
+
+统计异常点移除。 
+
+移除点云中的统计异常点。
+
+
+\begin{DoxyParams}{参数}
+{\em mean\+\_\+k} & 邻域内点的数量。 \\
+\hline
+{\em std\+\_\+dev\+\_\+mul\+\_\+thresh} & 标准差倍数阈值。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_ada57fc208892103f87f7ce350bd6ad70}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!transform@{transform}}
+\index{transform@{transform}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{transform()}{transform()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_ada57fc208892103f87f7ce350bd6ad70} 
+void rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::transform (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix4d \&}]{transformation}{}\end{DoxyParamCaption})}
+
+
+
+使用4x4变换矩阵对点云进行变换。 
+
+
+\begin{DoxyParams}{参数}
+{\em transformation} & 4x4的变换矩阵。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_a49c22e1632475589e3ac4165d1a48e2c}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!translate@{translate}}
+\index{translate@{translate}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{translate()}{translate()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_a49c22e1632475589e3ac4165d1a48e2c} 
+void rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::translate (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector3d \&}]{translation\+\_\+vector}{}\end{DoxyParamCaption})}
+
+
+
+对点云进行平移。 
+
+
+\begin{DoxyParams}{参数}
+{\em translation\+\_\+vector} & 3维的平移向量。 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classrc__vision_1_1core_1_1_point_cloud_a08060c954a98698c9d30501e42c5030f}\index{rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}!points\_@{points\_}}
+\index{points\_@{points\_}!rc\_vision::core::PointCloud@{rc\_vision::core::PointCloud}}
+\doxysubsubsection{\texorpdfstring{points\_}{points\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_point_cloud_a08060c954a98698c9d30501e42c5030f} 
+std\+::vector$<$\mbox{\hyperlink{structrc__vision_1_1core_1_1_point}{Point}}$>$ rc\+\_\+vision\+::core\+::\+Point\+Cloud\+::points\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+存储点云中的所有点。 
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/14168/1/rc\+\_\+vision/core\+\_\+lib/include/rc\+\_\+vision/core/\mbox{\hyperlink{point__cloud_8hpp}{point\+\_\+cloud.\+hpp}}\end{DoxyCompactItemize}

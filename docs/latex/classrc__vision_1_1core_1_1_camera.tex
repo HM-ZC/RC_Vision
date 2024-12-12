@@ -1,0 +1,447 @@
+\doxysection{rc\+\_\+vision\+::core\+::Camera类 参考}
+\hypertarget{classrc__vision_1_1core_1_1_camera}{}\label{classrc__vision_1_1core_1_1_camera}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+
+
+相机模型类，包含内参、畸变系数和外参，并提供投影、去畸变等功能。  
+
+
+
+
+{\ttfamily \#include $<$camera.\+hpp$>$}
+
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_aeaba52057ef432da7214deaa4d20fcf5}{Camera}} ()
+\begin{DoxyCompactList}\small\item\em 默认构造函数，初始化内参为单位矩阵，畸变系数和外参为零。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_afbd31f5583a5c5ceef9f88ab5505f243}{Camera}} (const Eigen\+::\+Matrix3d \&intrinsic, const Eigen\+::\+Vector$<$ double, 5 $>$ \&distortion)
+\begin{DoxyCompactList}\small\item\em 带参数的构造函数，初始化内参、畸变系数和外参。 \end{DoxyCompactList}\item 
+const Eigen\+::\+Matrix3d \& \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a6c1d21372bf607218839c5e74fbf4034}{get\+Intrinsic}} () const
+\begin{DoxyCompactList}\small\item\em 获取相机内参矩阵。 \end{DoxyCompactList}\item 
+const Eigen\+::\+Vector$<$ double, 5 $>$ \& \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_aa3650fa259003b5c7c0dae7e36421945}{get\+Distortion}} () const
+\begin{DoxyCompactList}\small\item\em 获取相机畸变系数向量。 \end{DoxyCompactList}\item 
+const Eigen\+::\+Matrix4d \& \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a79d7979af5240dfb1bee863f210ce341}{get\+Extrinsic}} () const
+\begin{DoxyCompactList}\small\item\em 获取相机外参矩阵。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a03785dcc9544b7d7ae40dbd1dd3475ae}{set\+Intrinsic}} (const Eigen\+::\+Matrix3d \&intrinsic)
+\begin{DoxyCompactList}\small\item\em 设置相机内参矩阵。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_ae698065557c5fcd639f7e5d29dbf15a2}{set\+Distortion}} (const Eigen\+::\+Vector$<$ double, 5 $>$ \&distortion)
+\begin{DoxyCompactList}\small\item\em 设置相机畸变系数向量。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a4b442f5336c32b36433465fbc218fc16}{set\+Extrinsic}} (const Eigen\+::\+Matrix4d \&extrinsic)
+\begin{DoxyCompactList}\small\item\em 设置相机外参矩阵。 \end{DoxyCompactList}\item 
+Eigen\+::\+Vector2d \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a672d6a29718d51d765f01064b8476335}{project}} (const Eigen\+::\+Vector3d \&point\+\_\+3d) const
+\begin{DoxyCompactList}\small\item\em 将3\+D点投影到2\+D图像平面。 \end{DoxyCompactList}\item 
+std\+::vector$<$ Eigen\+::\+Vector2d $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a51554aaa208f81839b2debae64285879}{project}} (const std\+::vector$<$ Eigen\+::\+Vector3d $>$ \&points\+\_\+3d) const
+\begin{DoxyCompactList}\small\item\em 将多个3\+D点投影到2\+D图像平面。 \end{DoxyCompactList}\item 
+Eigen\+::\+Vector2d \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_aaf881ba56b195b15bae6342b510e1f0b}{undistort}} (const Eigen\+::\+Vector2d \&distorted\+\_\+point) const
+\begin{DoxyCompactList}\small\item\em 去畸变一个2\+D点。 \end{DoxyCompactList}\item 
+std\+::vector$<$ Eigen\+::\+Vector2d $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a69c0a49b80b435409e1061d425c59bdc}{undistort}} (const std\+::vector$<$ Eigen\+::\+Vector2d $>$ \&distorted\+\_\+points) const
+\begin{DoxyCompactList}\small\item\em 去畸变多个2\+D点。 \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a82fad57a750257228fbe5edb50d4d48e}{undistort\+Image}} (const cv\+::\+Mat \&distorted\+\_\+image) const
+\begin{DoxyCompactList}\small\item\em 去畸变一张图像。 \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a9610ed29a5440ab01bd9b1b857278124}{correct\+Distortion}} (const cv\+::\+Mat \&distorted\+\_\+image) const
+\begin{DoxyCompactList}\small\item\em 校正图像畸变。 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_aed259faedeedaf3bbe036f30ee6afdcc}{save\+Parameters}} (const std\+::string \&file\+\_\+path) const
+\begin{DoxyCompactList}\small\item\em 保存相机参数到文件。 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_ab2cc7ff629445c55af63990c8abeaa2a}{load\+Parameters}} (const std\+::string \&file\+\_\+path)
+\begin{DoxyCompactList}\small\item\em 从文件加载相机参数。 \end{DoxyCompactList}\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a3bb6600ac4ed05df884aa8f976a12121}{world\+To\+Camera}} (const Eigen\+::\+Vector3d \&point\+\_\+world) const
+\begin{DoxyCompactList}\small\item\em 将世界坐标系下的3\+D点转换到相机坐标系。 \end{DoxyCompactList}\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a81c8c9244f2e67988cf3355ab14c0f69}{camera\+To\+World}} (const Eigen\+::\+Vector3d \&point\+\_\+camera) const
+\begin{DoxyCompactList}\small\item\em 将相机坐标系下的3\+D点转换到世界坐标系。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_ac8f0427a2e741f6391c8c2c1b6cebc27}{calibrate\+Camera}} (const std\+::vector$<$ std\+::vector$<$ cv\+::\+Point3f $>$ $>$ \&object\+\_\+points, const std\+::vector$<$ std\+::vector$<$ cv\+::\+Point2f $>$ $>$ \&image\+\_\+points, const cv\+::\+Size \&image\+\_\+size, Eigen\+::\+Matrix3d \&out\+\_\+intrinsic, Eigen\+::\+Vector$<$ double, 5 $>$ \&out\+\_\+distortion)
+\begin{DoxyCompactList}\small\item\em 使用图像点和物体点进行相机标定。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_afe8726e46ee75154d937c9b845b83036}{update\+Open\+CVCamera\+Params}} ()
+\begin{DoxyCompactList}\small\item\em 更新 Open\+CV 格式的相机参数矩阵。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_ab9af192f19d6d9de04abf68d6ae1694e}{intrinsic\+\_\+}}
+\item 
+Eigen\+::\+Vector$<$ double, 5 $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a0022dbef88fb8c77c9d8f623fa28aaa8}{distortion\+\_\+}}
+\item 
+Eigen\+::\+Matrix4d \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a55daea632f8015586b21590f8a991344}{extrinsic\+\_\+}}
+\item 
+cv\+::\+Mat \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_a0957959c0d695e16dc972b57c52987c4}{cv\+\_\+intrinsic\+\_\+}}
+\item 
+cv\+::\+Mat \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera_af47216de881b06ca0589d6eb87095c0d}{cv\+\_\+distortion\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+相机模型类，包含内参、畸变系数和外参，并提供投影、去畸变等功能。 
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classrc__vision_1_1core_1_1_camera_aeaba52057ef432da7214deaa4d20fcf5}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{Camera()}{Camera()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_aeaba52057ef432da7214deaa4d20fcf5} 
+rc\+\_\+vision\+::core\+::\+Camera\+::\+Camera (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+默认构造函数，初始化内参为单位矩阵，畸变系数和外参为零。 
+
+\Hypertarget{classrc__vision_1_1core_1_1_camera_afbd31f5583a5c5ceef9f88ab5505f243}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{Camera()}{Camera()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_afbd31f5583a5c5ceef9f88ab5505f243} 
+rc\+\_\+vision\+::core\+::\+Camera\+::\+Camera (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix3d \&}]{intrinsic}{, }\item[{const Eigen\+::\+Vector$<$ double, 5 $>$ \&}]{distortion}{}\end{DoxyParamCaption})}
+
+
+
+带参数的构造函数，初始化内参、畸变系数和外参。 
+
+
+\begin{DoxyParams}{参数}
+{\em intrinsic} & 相机内参矩阵（3x3）。 \\
+\hline
+{\em distortion} & 相机畸变系数向量（5维）。 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classrc__vision_1_1core_1_1_camera_ac8f0427a2e741f6391c8c2c1b6cebc27}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!calibrateCamera@{calibrateCamera}}
+\index{calibrateCamera@{calibrateCamera}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{calibrateCamera()}{calibrateCamera()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_ac8f0427a2e741f6391c8c2c1b6cebc27} 
+static bool rc\+\_\+vision\+::core\+::\+Camera\+::calibrate\+Camera (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ cv\+::\+Point3f $>$ $>$ \&}]{object\+\_\+points}{, }\item[{const std\+::vector$<$ std\+::vector$<$ cv\+::\+Point2f $>$ $>$ \&}]{image\+\_\+points}{, }\item[{const cv\+::\+Size \&}]{image\+\_\+size}{, }\item[{Eigen\+::\+Matrix3d \&}]{out\+\_\+intrinsic}{, }\item[{Eigen\+::\+Vector$<$ double, 5 $>$ \&}]{out\+\_\+distortion}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+使用图像点和物体点进行相机标定。 
+
+
+\begin{DoxyParams}{参数}
+{\em object\+\_\+points} & 物体点集合，每个视图对应一组3\+D点。 \\
+\hline
+{\em image\+\_\+points} & 图像点集合，每个视图对应一组2\+D点。 \\
+\hline
+{\em image\+\_\+size} & 图像尺寸。 \\
+\hline
+{\em out\+\_\+intrinsic} & 输出的相机内参矩阵。 \\
+\hline
+{\em out\+\_\+distortion} & 输出的相机畸变系数向量。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+如果标定成功返回 true，否则返回 false。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_camera_a81c8c9244f2e67988cf3355ab14c0f69}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!cameraToWorld@{cameraToWorld}}
+\index{cameraToWorld@{cameraToWorld}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{cameraToWorld()}{cameraToWorld()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_a81c8c9244f2e67988cf3355ab14c0f69} 
+Eigen\+::\+Vector3d rc\+\_\+vision\+::core\+::\+Camera\+::camera\+To\+World (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector3d \&}]{point\+\_\+camera}{}\end{DoxyParamCaption}) const}
+
+
+
+将相机坐标系下的3\+D点转换到世界坐标系。 
+
+
+\begin{DoxyParams}{参数}
+{\em point\+\_\+camera} & 相机坐标系下的3\+D点。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+世界坐标系下的3\+D点。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_camera_a9610ed29a5440ab01bd9b1b857278124}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!correctDistortion@{correctDistortion}}
+\index{correctDistortion@{correctDistortion}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{correctDistortion()}{correctDistortion()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_a9610ed29a5440ab01bd9b1b857278124} 
+cv\+::\+Mat rc\+\_\+vision\+::core\+::\+Camera\+::correct\+Distortion (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat \&}]{distorted\+\_\+image}{}\end{DoxyParamCaption}) const}
+
+
+
+校正图像畸变。 
+
+
+\begin{DoxyParams}{参数}
+{\em distorted\+\_\+image} & 畸变的输入图像。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+校正后的输出图像。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_camera_aa3650fa259003b5c7c0dae7e36421945}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!getDistortion@{getDistortion}}
+\index{getDistortion@{getDistortion}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{getDistortion()}{getDistortion()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_aa3650fa259003b5c7c0dae7e36421945} 
+const Eigen\+::\+Vector$<$ double, 5 $>$ \& rc\+\_\+vision\+::core\+::\+Camera\+::get\+Distortion (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+获取相机畸变系数向量。 
+
+\begin{DoxyReturn}{返回}
+5维的畸变系数向量。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_camera_a79d7979af5240dfb1bee863f210ce341}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!getExtrinsic@{getExtrinsic}}
+\index{getExtrinsic@{getExtrinsic}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{getExtrinsic()}{getExtrinsic()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_a79d7979af5240dfb1bee863f210ce341} 
+const Eigen\+::\+Matrix4d \& rc\+\_\+vision\+::core\+::\+Camera\+::get\+Extrinsic (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+获取相机外参矩阵。 
+
+\begin{DoxyReturn}{返回}
+4x4 的外参矩阵（世界坐标系到相机坐标系的变换）。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_camera_a6c1d21372bf607218839c5e74fbf4034}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!getIntrinsic@{getIntrinsic}}
+\index{getIntrinsic@{getIntrinsic}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{getIntrinsic()}{getIntrinsic()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_a6c1d21372bf607218839c5e74fbf4034} 
+const Eigen\+::\+Matrix3d \& rc\+\_\+vision\+::core\+::\+Camera\+::get\+Intrinsic (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+获取相机内参矩阵。 
+
+\begin{DoxyReturn}{返回}
+3x3 的相机内参矩阵。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_camera_ab2cc7ff629445c55af63990c8abeaa2a}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!loadParameters@{loadParameters}}
+\index{loadParameters@{loadParameters}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{loadParameters()}{loadParameters()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_ab2cc7ff629445c55af63990c8abeaa2a} 
+bool rc\+\_\+vision\+::core\+::\+Camera\+::load\+Parameters (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+\_\+path}{}\end{DoxyParamCaption})}
+
+
+
+从文件加载相机参数。 
+
+
+\begin{DoxyParams}{参数}
+{\em file\+\_\+path} & 要加载的文件路径。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+如果加载成功返回 true，否则返回 false。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_camera_a672d6a29718d51d765f01064b8476335}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!project@{project}}
+\index{project@{project}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{project()}{project()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_a672d6a29718d51d765f01064b8476335} 
+Eigen\+::\+Vector2d rc\+\_\+vision\+::core\+::\+Camera\+::project (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector3d \&}]{point\+\_\+3d}{}\end{DoxyParamCaption}) const}
+
+
+
+将3\+D点投影到2\+D图像平面。 
+
+
+\begin{DoxyParams}{参数}
+{\em point\+\_\+3d} & 需要投影的3\+D点。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+投影后的2\+D点。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_camera_a51554aaa208f81839b2debae64285879}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!project@{project}}
+\index{project@{project}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{project()}{project()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_a51554aaa208f81839b2debae64285879} 
+std\+::vector$<$ Eigen\+::\+Vector2d $>$ rc\+\_\+vision\+::core\+::\+Camera\+::project (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ Eigen\+::\+Vector3d $>$ \&}]{points\+\_\+3d}{}\end{DoxyParamCaption}) const}
+
+
+
+将多个3\+D点投影到2\+D图像平面。 
+
+
+\begin{DoxyParams}{参数}
+{\em points\+\_\+3d} & 需要投影的3\+D点集合。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+投影后的2\+D点集合。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_camera_aed259faedeedaf3bbe036f30ee6afdcc}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!saveParameters@{saveParameters}}
+\index{saveParameters@{saveParameters}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{saveParameters()}{saveParameters()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_aed259faedeedaf3bbe036f30ee6afdcc} 
+bool rc\+\_\+vision\+::core\+::\+Camera\+::save\+Parameters (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+\_\+path}{}\end{DoxyParamCaption}) const}
+
+
+
+保存相机参数到文件。 
+
+
+\begin{DoxyParams}{参数}
+{\em file\+\_\+path} & 要保存的文件路径。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+如果保存成功返回 true，否则返回 false。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_camera_ae698065557c5fcd639f7e5d29dbf15a2}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!setDistortion@{setDistortion}}
+\index{setDistortion@{setDistortion}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{setDistortion()}{setDistortion()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_ae698065557c5fcd639f7e5d29dbf15a2} 
+void rc\+\_\+vision\+::core\+::\+Camera\+::set\+Distortion (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector$<$ double, 5 $>$ \&}]{distortion}{}\end{DoxyParamCaption})}
+
+
+
+设置相机畸变系数向量。 
+
+
+\begin{DoxyParams}{参数}
+{\em distortion} & 新的5维畸变系数向量。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_camera_a4b442f5336c32b36433465fbc218fc16}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!setExtrinsic@{setExtrinsic}}
+\index{setExtrinsic@{setExtrinsic}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{setExtrinsic()}{setExtrinsic()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_a4b442f5336c32b36433465fbc218fc16} 
+void rc\+\_\+vision\+::core\+::\+Camera\+::set\+Extrinsic (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix4d \&}]{extrinsic}{}\end{DoxyParamCaption})}
+
+
+
+设置相机外参矩阵。 
+
+
+\begin{DoxyParams}{参数}
+{\em extrinsic} & 新的4x4外参矩阵。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_camera_a03785dcc9544b7d7ae40dbd1dd3475ae}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!setIntrinsic@{setIntrinsic}}
+\index{setIntrinsic@{setIntrinsic}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{setIntrinsic()}{setIntrinsic()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_a03785dcc9544b7d7ae40dbd1dd3475ae} 
+void rc\+\_\+vision\+::core\+::\+Camera\+::set\+Intrinsic (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix3d \&}]{intrinsic}{}\end{DoxyParamCaption})}
+
+
+
+设置相机内参矩阵。 
+
+
+\begin{DoxyParams}{参数}
+{\em intrinsic} & 新的3x3相机内参矩阵。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_camera_aaf881ba56b195b15bae6342b510e1f0b}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!undistort@{undistort}}
+\index{undistort@{undistort}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{undistort()}{undistort()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_aaf881ba56b195b15bae6342b510e1f0b} 
+Eigen\+::\+Vector2d rc\+\_\+vision\+::core\+::\+Camera\+::undistort (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector2d \&}]{distorted\+\_\+point}{}\end{DoxyParamCaption}) const}
+
+
+
+去畸变一个2\+D点。 
+
+
+\begin{DoxyParams}{参数}
+{\em distorted\+\_\+point} & 畸变的2\+D点。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+去畸变后的2\+D点。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_camera_a69c0a49b80b435409e1061d425c59bdc}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!undistort@{undistort}}
+\index{undistort@{undistort}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{undistort()}{undistort()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_a69c0a49b80b435409e1061d425c59bdc} 
+std\+::vector$<$ Eigen\+::\+Vector2d $>$ rc\+\_\+vision\+::core\+::\+Camera\+::undistort (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ Eigen\+::\+Vector2d $>$ \&}]{distorted\+\_\+points}{}\end{DoxyParamCaption}) const}
+
+
+
+去畸变多个2\+D点。 
+
+
+\begin{DoxyParams}{参数}
+{\em distorted\+\_\+points} & 畸变的2\+D点集合。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+去畸变后的2\+D点集合。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_camera_a82fad57a750257228fbe5edb50d4d48e}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!undistortImage@{undistortImage}}
+\index{undistortImage@{undistortImage}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{undistortImage()}{undistortImage()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_a82fad57a750257228fbe5edb50d4d48e} 
+cv\+::\+Mat rc\+\_\+vision\+::core\+::\+Camera\+::undistort\+Image (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat \&}]{distorted\+\_\+image}{}\end{DoxyParamCaption}) const}
+
+
+
+去畸变一张图像。 
+
+
+\begin{DoxyParams}{参数}
+{\em distorted\+\_\+image} & 畸变的输入图像。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+去畸变后的输出图像。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_camera_afe8726e46ee75154d937c9b845b83036}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!updateOpenCVCameraParams@{updateOpenCVCameraParams}}
+\index{updateOpenCVCameraParams@{updateOpenCVCameraParams}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{updateOpenCVCameraParams()}{updateOpenCVCameraParams()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_afe8726e46ee75154d937c9b845b83036} 
+void rc\+\_\+vision\+::core\+::\+Camera\+::update\+Open\+CVCamera\+Params (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+更新 Open\+CV 格式的相机参数矩阵。 
+
+\Hypertarget{classrc__vision_1_1core_1_1_camera_a3bb6600ac4ed05df884aa8f976a12121}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!worldToCamera@{worldToCamera}}
+\index{worldToCamera@{worldToCamera}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{worldToCamera()}{worldToCamera()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_a3bb6600ac4ed05df884aa8f976a12121} 
+Eigen\+::\+Vector3d rc\+\_\+vision\+::core\+::\+Camera\+::world\+To\+Camera (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector3d \&}]{point\+\_\+world}{}\end{DoxyParamCaption}) const}
+
+
+
+将世界坐标系下的3\+D点转换到相机坐标系。 
+
+
+\begin{DoxyParams}{参数}
+{\em point\+\_\+world} & 世界坐标系下的3\+D点。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+相机坐标系下的3\+D点。 
+\end{DoxyReturn}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classrc__vision_1_1core_1_1_camera_af47216de881b06ca0589d6eb87095c0d}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!cv\_distortion\_@{cv\_distortion\_}}
+\index{cv\_distortion\_@{cv\_distortion\_}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{cv\_distortion\_}{cv\_distortion\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_af47216de881b06ca0589d6eb87095c0d} 
+cv\+::\+Mat rc\+\_\+vision\+::core\+::\+Camera\+::cv\+\_\+distortion\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+Open\+CV 格式的相机畸变系数。 \Hypertarget{classrc__vision_1_1core_1_1_camera_a0957959c0d695e16dc972b57c52987c4}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!cv\_intrinsic\_@{cv\_intrinsic\_}}
+\index{cv\_intrinsic\_@{cv\_intrinsic\_}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{cv\_intrinsic\_}{cv\_intrinsic\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_a0957959c0d695e16dc972b57c52987c4} 
+cv\+::\+Mat rc\+\_\+vision\+::core\+::\+Camera\+::cv\+\_\+intrinsic\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+Open\+CV 格式的相机内参矩阵。 \Hypertarget{classrc__vision_1_1core_1_1_camera_a0022dbef88fb8c77c9d8f623fa28aaa8}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!distortion\_@{distortion\_}}
+\index{distortion\_@{distortion\_}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{distortion\_}{distortion\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_a0022dbef88fb8c77c9d8f623fa28aaa8} 
+Eigen\+::\+Vector$<$double, 5$>$ rc\+\_\+vision\+::core\+::\+Camera\+::distortion\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+相机畸变系数向量（k1, k2, p1, p2, k3）。 \Hypertarget{classrc__vision_1_1core_1_1_camera_a55daea632f8015586b21590f8a991344}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!extrinsic\_@{extrinsic\_}}
+\index{extrinsic\_@{extrinsic\_}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{extrinsic\_}{extrinsic\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_a55daea632f8015586b21590f8a991344} 
+Eigen\+::\+Matrix4d rc\+\_\+vision\+::core\+::\+Camera\+::extrinsic\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+相机外参矩阵（世界坐标系到相机坐标系的4x4变换矩阵）。 \Hypertarget{classrc__vision_1_1core_1_1_camera_ab9af192f19d6d9de04abf68d6ae1694e}\index{rc\_vision::core::Camera@{rc\_vision::core::Camera}!intrinsic\_@{intrinsic\_}}
+\index{intrinsic\_@{intrinsic\_}!rc\_vision::core::Camera@{rc\_vision::core::Camera}}
+\doxysubsubsection{\texorpdfstring{intrinsic\_}{intrinsic\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_camera_ab9af192f19d6d9de04abf68d6ae1694e} 
+Eigen\+::\+Matrix3d rc\+\_\+vision\+::core\+::\+Camera\+::intrinsic\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+相机内参矩阵（3x3）。 
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/14168/1/rc\+\_\+vision/core\+\_\+lib/include/rc\+\_\+vision/core/\mbox{\hyperlink{camera_8hpp}{camera.\+hpp}}\end{DoxyCompactItemize}

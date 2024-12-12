@@ -1,0 +1,94 @@
+\doxysection{image.\+hpp}
+\hypertarget{image_8hpp_source}{}\label{image_8hpp_source}\index{C:/Users/14168/1/rc\_vision/core\_lib/include/rc\_vision/core/image.hpp@{C:/Users/14168/1/rc\_vision/core\_lib/include/rc\_vision/core/image.hpp}}
+\mbox{\hyperlink{image_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ RC\_VISION\_CORE\_IMAGE\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ RC\_VISION\_CORE\_IMAGE\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <opencv2/opencv.hpp>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <Eigen/Dense>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerc__vision}{rc\_vision}}\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{namespace\ }core\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}}\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a3e284c964579e23e5ce0f1ab25c7c17f}{Image}}();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_ab18dabb3b2dcec58a1bb7148671c756b}{Image}}(\textcolor{keyword}{const}\ std::string\&\ file\_path);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a9b7f97077f0d209d18450cb35639fc26}{Image}}(\textcolor{keyword}{const}\ cv::Mat\&\ mat);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a7b3ba5773d4bad440da0fac4efe3afcb}{load}}(\textcolor{keyword}{const}\ std::string\&\ file\_path);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a6346ed51fa1b7968d8c85616694fa789}{save}}(\textcolor{keyword}{const}\ std::string\&\ file\_path)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ cv::Mat\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_ac974a50ca3f91291a6de7d196151f88a}{getMat}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a3fa3e47c0390695e94489be676aaf79e}{setMat}}(\textcolor{keyword}{const}\ cv::Mat\&\ mat);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_ade5bc5b6bde666fff305dea90ff4a153}{convertColor}}(\textcolor{keywordtype}{int}\ code);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a615a30a1ef52e9392b63b62f23997380}{resize}}(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{int}\ interpolation\ =\ cv::INTER\_LINEAR);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a244507abee57f7960401bd6383a706de}{crop}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_acd4d670fec0cae15f288100dab2dba39}{rotate}}(\textcolor{keywordtype}{double}\ angle,\ \textcolor{keyword}{const}\ cv::Point2f\&\ center\ =\ cv::Point2f(-\/1,-\/1),\ \textcolor{keywordtype}{double}\ scale\ =\ 1.0);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_aabbb14266f2fa29ac80ef8b1a61f817a}{flip}}(\textcolor{keywordtype}{int}\ flip\_code);}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a63d93b811fd1bd7516c547e211985cc5}{gaussianBlur}}(\textcolor{keywordtype}{int}\ ksize\ =\ 5,\ \textcolor{keywordtype}{double}\ sigmaX\ =\ 1.0);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a9b2aae72c940b098d4455223e5f9abce}{medianBlur}}(\textcolor{keywordtype}{int}\ ksize\ =\ 5);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a75975e5300481c381474669e7b98f055}{edgeDetection}}(\textcolor{keywordtype}{int}\ threshold1\ =\ 100,\ \textcolor{keywordtype}{int}\ threshold2\ =\ 200);}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_ac4987dc5d9770c24448784aa11783c16}{equalizeHist}}();}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a0b6a459bd8c03d19041799ea76deee48}{adjustContrast}}(\textcolor{keywordtype}{double}\ alpha,\ \textcolor{keywordtype}{double}\ beta);\ \textcolor{comment}{//\ new\_image\ =\ alpha*image\ +\ beta}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<cv::KeyPoint>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a1d572e03ac32ee1e173c7fd0b92ae935}{detectKeypoints}}(\textcolor{keyword}{const}\ std::string\&\ detector\_type\ =\ \textcolor{stringliteral}{"{}ORB"{}})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ cv::Mat\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a82c69ac0cca7a587e23572e7e9462118}{computeDescriptors}}(\textcolor{keyword}{const}\ std::string\&\ descriptor\_type\ =\ \textcolor{stringliteral}{"{}ORB"{}})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_aba77ced7239dc98c06a9f4788131b2d0}{mean}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a64ce95ec69d27066752f2dbe707ac308}{stddev}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ cv::Mat\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a4681726b99b2959921d547d5509dfa01}{histogram}}(\textcolor{keywordtype}{int}\ histSize\ =\ 256,\ \textcolor{keywordtype}{float}\ range[]\ =\ \{0,\ 256\})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a18f86cbd918a508f7047160f42158f29}{operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a9d56e1763683d14efbf47f06c1172c97}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_ac7b1bc93816b769c4aea2325967367de}{operator*}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_afd2384c9c2343bf230ed6e1c48ee2c5c}{operator/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a8c14e5958524f3d6e4f2340b9416ea72}{setROI}}(\textcolor{keyword}{const}\ cv::Rect\&\ roi);}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ cv::Rect\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a631f3726b8743392db4bed4cc2ee7451}{getROI}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_aa81f7ec15eba684bc68de557fdc7deb6}{getROIImage}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ cv::Mat\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a93a4596f44fb5a92b07499ea53cf3157}{matchTemplate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}}\&\ template\_img,\ \textcolor{keywordtype}{int}\ method\ =\ cv::TM\_CCOEFF)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ cv::Point\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a692c49ffd0b7e724296f5b249836cedf}{findBestMatch}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}}\&\ template\_img,\ \textcolor{keywordtype}{int}\ method\ =\ cv::TM\_CCOEFF,\ \textcolor{keywordtype}{double}*\ min\_max\_vals\ =\ \textcolor{keyword}{nullptr})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_ad2bab0073376795efd2366993540c7ba}{drawMatch}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image}{Image}}\&\ template\_img,\ \textcolor{keyword}{const}\ cv::Point\&\ top\_left,\ \textcolor{keyword}{const}\ cv::Scalar\&\ color\ =\ cv::Scalar(0,\ 0,\ 255),\ \textcolor{keywordtype}{int}\ thickness\ =\ 2);}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ cv::Mat\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_aed5226eb2126f8c15ec0142d07f01268}{mat\_}};\ }
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ cv::Rect\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a1604638901e019c433315e2ca8f0deb8}{roi\_}};\ }
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_image_a0de12c6fd705ce825b0fe1088b77292b}{applyROI}}();}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ core}}
+\DoxyCodeLine{00306\ \}\ \textcolor{comment}{//\ namespace\ rc\_vision}}
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00308\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ RC\_VISION\_CORE\_IMAGE\_HPP}}
+
+\end{DoxyCode}

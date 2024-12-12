@@ -1,0 +1,213 @@
+\doxysection{rc\+\_\+vision\+::core\+::filters\+::Kalman\+Filter\texorpdfstring{$<$}{<} T, State\+Dim, Measurement\+Dim \texorpdfstring{$>$}{>} 模板类 参考}
+\hypertarget{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{}\label{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}\index{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}}
+
+
+提供各种滤波器的实现，包括卡尔曼滤波器、扩展卡尔曼滤波器、无迹卡尔曼滤波器、 粒子滤波器和移动平均滤波器。  
+
+
+
+
+{\ttfamily \#include $<$filters.\+hpp$>$}
+
+
+
+类 rc\+\_\+vision\+::core\+::filters\+::Kalman\+Filter\texorpdfstring{$<$}{<} T, State\+Dim, Measurement\+Dim \texorpdfstring{$>$}{>} 继承关系图\+:
+% FIG 0
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a189deef97c489ee1b9aae49c34a5e55c}{Kalman\+Filter}} ()
+\begin{DoxyCompactList}\small\item\em 默认构造函数。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a7fe3185c588882ef0112358f40854212}{init}} (const Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \&A, const Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \&Q, const Eigen\+::\+Matrix$<$ T, Measurement\+Dim, State\+Dim $>$ \&H, const Eigen\+::\+Matrix$<$ T, Measurement\+Dim, Measurement\+Dim $>$ \&R, const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&initial\+\_\+state, const Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \&initial\+\_\+covariance)
+\begin{DoxyCompactList}\small\item\em 初始化滤波器参数。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a05e2a10e7ab16b3319b874ee88da0013}{predict}} ()
+\begin{DoxyCompactList}\small\item\em 执行预测步骤。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_aa5563b9da9948d0fe10d2580ea62e24e}{update}} (const Eigen\+::\+Matrix$<$ T, Measurement\+Dim, 1 $>$ \&z)
+\begin{DoxyCompactList}\small\item\em 执行更新步骤。 \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_abeb58d78e6111fe8fda96ed54bd0870f}{get\+State}} () const
+\begin{DoxyCompactList}\small\item\em 获取当前状态向量。 \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a679132e5e8b31f3760c6361ab0cb809c}{get\+Covariance}} () const
+\begin{DoxyCompactList}\small\item\em 获取当前状态协方差矩阵。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected 属性}
+\begin{DoxyCompactItemize}
+\item 
+Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_aef72d48825815d51df789af924c483ad}{A\+\_\+}}
+\item 
+Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a06d4a192830faa48f32d7dbe5b794e71}{Q\+\_\+}}
+\item 
+Eigen\+::\+Matrix$<$ T, Measurement\+Dim, State\+Dim $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a5506c9960816215f1591d6452bcfb641}{H\+\_\+}}
+\item 
+Eigen\+::\+Matrix$<$ T, Measurement\+Dim, Measurement\+Dim $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a2220056fd9a848f0cfc4a4ee00415e2b}{R\+\_\+}}
+\item 
+Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a19a6878027dff4b2632db50011ca7953}{x\+\_\+}}
+\item 
+Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_abb05428d967a168f1ca0b46db12332ba}{P\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+\subsubsection*{template$<$typename T, int State\+Dim, int Measurement\+Dim$>$\newline
+class rc\+\_\+vision\+::core\+::filters\+::\+Kalman\+Filter$<$ T, State\+Dim, Measurement\+Dim $>$}
+提供各种滤波器的实现，包括卡尔曼滤波器、扩展卡尔曼滤波器、无迹卡尔曼滤波器、 粒子滤波器和移动平均滤波器。 
+
+通用卡尔曼滤波器模板类。
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & 数据类型（通常为 float 或 double）。 \\
+\hline
+{\em State\+Dim} & 状态向量的维度。 \\
+\hline
+{\em Measurement\+Dim} & 测量向量的维度。 \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a189deef97c489ee1b9aae49c34a5e55c}\index{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}!KalmanFilter@{KalmanFilter}}
+\index{KalmanFilter@{KalmanFilter}!rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{KalmanFilter()}{KalmanFilter()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a189deef97c489ee1b9aae49c34a5e55c} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Kalman\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::\+Kalman\+Filter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+默认构造函数。 
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a679132e5e8b31f3760c6361ab0cb809c}\index{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}!getCovariance@{getCovariance}}
+\index{getCovariance@{getCovariance}!rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{getCovariance()}{getCovariance()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a679132e5e8b31f3760c6361ab0cb809c} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Kalman\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::get\+Covariance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+获取当前状态协方差矩阵。 
+
+\begin{DoxyReturn}{返回}
+Eigen\+::\+Matrix$<$\+T, State\+Dim, State\+Dim$>$ 当前状态协方差矩阵。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_abeb58d78e6111fe8fda96ed54bd0870f}\index{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}!getState@{getState}}
+\index{getState@{getState}!rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_abeb58d78e6111fe8fda96ed54bd0870f} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Kalman\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::get\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+获取当前状态向量。 
+
+\begin{DoxyReturn}{返回}
+Eigen\+::\+Matrix$<$\+T, State\+Dim, 1$>$ 当前状态向量。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a7fe3185c588882ef0112358f40854212}\index{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}!init@{init}}
+\index{init@{init}!rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a7fe3185c588882ef0112358f40854212} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Kalman\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::init (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \&}]{A}{, }\item[{const Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \&}]{Q}{, }\item[{const Eigen\+::\+Matrix$<$ T, Measurement\+Dim, State\+Dim $>$ \&}]{H}{, }\item[{const Eigen\+::\+Matrix$<$ T, Measurement\+Dim, Measurement\+Dim $>$ \&}]{R}{, }\item[{const Eigen\+::\+Matrix$<$ T, State\+Dim, 1 $>$ \&}]{initial\+\_\+state}{, }\item[{const Eigen\+::\+Matrix$<$ T, State\+Dim, State\+Dim $>$ \&}]{initial\+\_\+covariance}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+初始化滤波器参数。 
+
+
+\begin{DoxyParams}{参数}
+{\em A} & 状态转移矩阵。 \\
+\hline
+{\em Q} & 过程噪声协方差矩阵。 \\
+\hline
+{\em H} & 测量矩阵。 \\
+\hline
+{\em R} & 测量噪声协方差矩阵。 \\
+\hline
+{\em initial\+\_\+state} & 初始状态向量。 \\
+\hline
+{\em initial\+\_\+covariance} & 初始状态协方差矩阵。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a05e2a10e7ab16b3319b874ee88da0013}\index{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}!predict@{predict}}
+\index{predict@{predict}!rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{predict()}{predict()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a05e2a10e7ab16b3319b874ee88da0013} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Kalman\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::predict (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+执行预测步骤。 
+
+更新状态向量和协方差矩阵的预测值。 \Hypertarget{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_aa5563b9da9948d0fe10d2580ea62e24e}\index{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}!update@{update}}
+\index{update@{update}!rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_aa5563b9da9948d0fe10d2580ea62e24e} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Kalman\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::update (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix$<$ T, Measurement\+Dim, 1 $>$ \&}]{z}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+执行更新步骤。 
+
+使用测量向量更新状态向量和协方差矩阵。
+
+
+\begin{DoxyParams}{参数}
+{\em z} & 测量向量。 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_aef72d48825815d51df789af924c483ad}\index{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}!A\_@{A\_}}
+\index{A\_@{A\_}!rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{A\_}{A\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_aef72d48825815d51df789af924c483ad} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+Eigen\+::\+Matrix$<$T, State\+Dim, State\+Dim$>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Kalman\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::\+A\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+状态转移矩阵。 \Hypertarget{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a5506c9960816215f1591d6452bcfb641}\index{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}!H\_@{H\_}}
+\index{H\_@{H\_}!rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{H\_}{H\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a5506c9960816215f1591d6452bcfb641} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+Eigen\+::\+Matrix$<$T, Measurement\+Dim, State\+Dim$>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Kalman\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::\+H\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+测量矩阵。 \Hypertarget{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_abb05428d967a168f1ca0b46db12332ba}\index{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}!P\_@{P\_}}
+\index{P\_@{P\_}!rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{P\_}{P\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_abb05428d967a168f1ca0b46db12332ba} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+Eigen\+::\+Matrix$<$T, State\+Dim, State\+Dim$>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Kalman\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::\+P\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+状态协方差矩阵。 \Hypertarget{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a06d4a192830faa48f32d7dbe5b794e71}\index{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}!Q\_@{Q\_}}
+\index{Q\_@{Q\_}!rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{Q\_}{Q\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a06d4a192830faa48f32d7dbe5b794e71} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+Eigen\+::\+Matrix$<$T, State\+Dim, State\+Dim$>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Kalman\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::\+Q\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+过程噪声协方差矩阵。 \Hypertarget{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a2220056fd9a848f0cfc4a4ee00415e2b}\index{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}!R\_@{R\_}}
+\index{R\_@{R\_}!rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{R\_}{R\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a2220056fd9a848f0cfc4a4ee00415e2b} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+Eigen\+::\+Matrix$<$T, Measurement\+Dim, Measurement\+Dim$>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Kalman\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::\+R\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+测量噪声协方差矩阵。 \Hypertarget{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a19a6878027dff4b2632db50011ca7953}\index{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}!x\_@{x\_}}
+\index{x\_@{x\_}!rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$@{rc\_vision::core::filters::KalmanFilter$<$ T, StateDim, MeasurementDim $>$}}
+\doxysubsubsection{\texorpdfstring{x\_}{x\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a19a6878027dff4b2632db50011ca7953} 
+template$<$typename T , int State\+Dim, int Measurement\+Dim$>$ \\
+Eigen\+::\+Matrix$<$T, State\+Dim, 1$>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{rc\+\_\+vision\+::core\+::filters\+::\+Kalman\+Filter}}$<$ T, State\+Dim, Measurement\+Dim $>$\+::x\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+状态向量。 
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/14168/1/rc\+\_\+vision/core\+\_\+lib/include/rc\+\_\+vision/core/\mbox{\hyperlink{filters_8hpp}{filters.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,412 @@
+\doxysection{filters.\+hpp}
+\hypertarget{filters_8hpp_source}{}\label{filters_8hpp_source}\index{C:/Users/14168/1/rc\_vision/core\_lib/include/rc\_vision/core/filters.hpp@{C:/Users/14168/1/rc\_vision/core\_lib/include/rc\_vision/core/filters.hpp}}
+\mbox{\hyperlink{filters_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ RC\_VISION\_CORE\_FILTERS\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ RC\_VISION\_CORE\_FILTERS\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <Eigen/Dense>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <deque>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerc__vision}{rc\_vision}}\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{namespace\ }core\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{namespace\ }filters\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ 卡尔曼滤波器\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{int}\ StateDim,\ \textcolor{keywordtype}{int}\ MeasurementDim>}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{KalmanFilter}}\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a189deef97c489ee1b9aae49c34a5e55c}{KalmanFilter}}()\ \{\}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a7fe3185c588882ef0112358f40854212}{init}}(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ StateDim>\&\ A,}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ StateDim>\&\ Q,}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Matrix<T,\ MeasurementDim,\ StateDim>\&\ H,}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Matrix<T,\ MeasurementDim,\ MeasurementDim>\&\ R,}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ 1>\&\ initial\_state,}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ StateDim>\&\ initial\_covariance)\ \{}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_aef72d48825815d51df789af924c483ad}{A\_}}\ =\ A;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a06d4a192830faa48f32d7dbe5b794e71}{Q\_}}\ =\ Q;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a5506c9960816215f1591d6452bcfb641}{H\_}}\ =\ H;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a2220056fd9a848f0cfc4a4ee00415e2b}{R\_}}\ =\ R;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a19a6878027dff4b2632db50011ca7953}{x\_}}\ =\ initial\_state;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_abb05428d967a168f1ca0b46db12332ba}{P\_}}\ =\ initial\_covariance;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a05e2a10e7ab16b3319b874ee88da0013}{predict}}()\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a19a6878027dff4b2632db50011ca7953}{x\_}}\ =\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_aef72d48825815d51df789af924c483ad}{A\_}}\ *\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a19a6878027dff4b2632db50011ca7953}{x\_}};}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_abb05428d967a168f1ca0b46db12332ba}{P\_}}\ =\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_aef72d48825815d51df789af924c483ad}{A\_}}\ *\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_abb05428d967a168f1ca0b46db12332ba}{P\_}}\ *\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_aef72d48825815d51df789af924c483ad}{A\_}}.transpose()\ +\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a06d4a192830faa48f32d7dbe5b794e71}{Q\_}};}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_aa5563b9da9948d0fe10d2580ea62e24e}{update}}(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ MeasurementDim,\ 1>\&\ z)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ MeasurementDim,\ 1>\ y\ =\ z\ -\/\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a5506c9960816215f1591d6452bcfb641}{H\_}}\ *\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a19a6878027dff4b2632db50011ca7953}{x\_}};}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ MeasurementDim,\ MeasurementDim>\ S\ =\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a5506c9960816215f1591d6452bcfb641}{H\_}}\ *\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_abb05428d967a168f1ca0b46db12332ba}{P\_}}\ *\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a5506c9960816215f1591d6452bcfb641}{H\_}}.transpose()\ +\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a2220056fd9a848f0cfc4a4ee00415e2b}{R\_}};}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ MeasurementDim>\ K\ =\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_abb05428d967a168f1ca0b46db12332ba}{P\_}}\ *\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a5506c9960816215f1591d6452bcfb641}{H\_}}.transpose()\ *\ S.inverse();}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a19a6878027dff4b2632db50011ca7953}{x\_}}\ =\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a19a6878027dff4b2632db50011ca7953}{x\_}}\ +\ K\ *\ y;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ StateDim>\ I\ =\ Eigen::Matrix<T,\ StateDim,\ StateDim>::Identity();}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_abb05428d967a168f1ca0b46db12332ba}{P\_}}\ =\ (I\ -\/\ K\ *\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a5506c9960816215f1591d6452bcfb641}{H\_}})\ *\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_abb05428d967a168f1ca0b46db12332ba}{P\_}};}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ 1>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_abeb58d78e6111fe8fda96ed54bd0870f}{getState}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a19a6878027dff4b2632db50011ca7953}{x\_}};}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ StateDim>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a679132e5e8b31f3760c6361ab0cb809c}{getCovariance}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_abb05428d967a168f1ca0b46db12332ba}{P\_}};}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ StateDim>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_aef72d48825815d51df789af924c483ad}{A\_}};\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ StateDim>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a06d4a192830faa48f32d7dbe5b794e71}{Q\_}};\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ MeasurementDim,\ StateDim>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a5506c9960816215f1591d6452bcfb641}{H\_}};\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ MeasurementDim,\ MeasurementDim>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a2220056fd9a848f0cfc4a4ee00415e2b}{R\_}};\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ 1>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a19a6878027dff4b2632db50011ca7953}{x\_}};\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ StateDim>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_abb05428d967a168f1ca0b46db12332ba}{P\_}};\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ 扩展卡尔曼滤波器\ (EKF)\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{int}\ StateDim,\ \textcolor{keywordtype}{int}\ MeasurementDim>}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_e_k_f}{EKF}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{KalmanFilter}}<T,\ StateDim,\ MeasurementDim>\ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_e_k_f_a1de1deb109a7dd1006b09f548408e143}{EKF}}()\ \{\}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_e_k_f_a5e43add764d3b2e4fce2268004f890d2}{init}}(}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::function<Eigen::Matrix<T,\ StateDim,\ 1>(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ 1>\&)>\&\ f,}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::function<Eigen::Matrix<T,\ MeasurementDim,\ 1>(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ 1>\&)>\&\ h,}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::function<Eigen::Matrix<T,\ StateDim,\ StateDim>(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ 1>\&)>\&\ F\_jacobian,}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::function<Eigen::Matrix<T,\ MeasurementDim,\ StateDim>(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ 1>\&)>\&\ H\_jacobian,}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ StateDim>\&\ Q,}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Matrix<T,\ MeasurementDim,\ MeasurementDim>\&\ R,}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ 1>\&\ initial\_state,}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ StateDim>\&\ initial\_covariance)\ \{}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_e_k_f_a0ba3837d6a96faf46b6bb4ef0570cecf}{f\_}}\ =\ f;}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_e_k_f_a771a90703ca7255a19da5183ac3427e9}{h\_}}\ =\ h;}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_e_k_f_a5cbf792659b2f8d9b69843c7a3801e32}{F\_jacobian\_}}\ =\ F\_jacobian;}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_e_k_f_a8a5ad50394fc3b47cabd448a351ea0c4}{H\_jacobian\_}}\ =\ H\_jacobian;}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 初始化父类}}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a7fe3185c588882ef0112358f40854212}{KalmanFilter<T,\ StateDim,\ MeasurementDim>::init}}(}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ StateDim>::Identity(),\ \textcolor{comment}{//\ A\_\ 将在预测步骤中更新}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Q,}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ MeasurementDim,\ StateDim>::Zero(),\ \textcolor{comment}{//\ H\_\ 将在更新步骤中更新}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ R,}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ initial\_state,}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ initial\_covariance);}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_e_k_f_af06c66e2b4db7b32002de535a33a69a3}{predict}}()\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 非线性状态转移}}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ 1>\ x\_pred\ =\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_e_k_f_a0ba3837d6a96faf46b6bb4ef0570cecf}{f\_}}(\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{KalmanFilter<T,\ StateDim,\ MeasurementDim>::x\_}});}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 计算雅可比矩阵\ F}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ StateDim>\ F\ =\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_e_k_f_a5cbf792659b2f8d9b69843c7a3801e32}{F\_jacobian\_}}(\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{KalmanFilter<T,\ StateDim,\ MeasurementDim>::x\_}});}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 更新状态转移矩阵}}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{KalmanFilter<T,\ StateDim,\ MeasurementDim>::A\_}}\ =\ F;}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 调用基类的预测步骤}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{KalmanFilter<T,\ StateDim,\ MeasurementDim>::x\_}}\ =\ x\_pred;}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{KalmanFilter<T,\ StateDim,\ MeasurementDim>::P\_}}\ =\ F\ *\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{KalmanFilter<T,\ StateDim,\ MeasurementDim>::P\_}}\ *\ F.transpose()\ +\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{KalmanFilter<T,\ StateDim,\ MeasurementDim>::Q\_}};}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_e_k_f_a7f410e586b2fdad49f08a72269b3d79f}{update}}(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ MeasurementDim,\ 1>\&\ z)\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 计算雅可比矩阵\ H}}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ MeasurementDim,\ StateDim>\ H\ =\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_e_k_f_a8a5ad50394fc3b47cabd448a351ea0c4}{H\_jacobian\_}}(\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{KalmanFilter<T,\ StateDim,\ MeasurementDim>::x\_}});}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 更新测量矩阵}}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{KalmanFilter<T,\ StateDim,\ MeasurementDim>::H\_}}\ =\ H;}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 调用基类的更新步骤}}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_aa5563b9da9948d0fe10d2580ea62e24e}{KalmanFilter<T,\ StateDim,\ MeasurementDim>::update}}(z);}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 状态转移函数}}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::function<Eigen::Matrix<T,\ StateDim,\ 1>(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ 1>\&)>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_e_k_f_a0ba3837d6a96faf46b6bb4ef0570cecf}{f\_}};}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 测量函数}}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::function<Eigen::Matrix<T,\ MeasurementDim,\ 1>(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ 1>\&)>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_e_k_f_a771a90703ca7255a19da5183ac3427e9}{h\_}};}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 状态转移函数的雅可比矩阵函数}}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::function<Eigen::Matrix<T,\ StateDim,\ StateDim>(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ 1>\&)>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_e_k_f_a5cbf792659b2f8d9b69843c7a3801e32}{F\_jacobian\_}};}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 测量函数的雅可比矩阵函数}}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::function<Eigen::Matrix<T,\ MeasurementDim,\ StateDim>(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ 1>\&)>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_e_k_f_a8a5ad50394fc3b47cabd448a351ea0c4}{H\_jacobian\_}};}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ 无迹卡尔曼滤波器\ (UKF)\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{int}\ StateDim,\ \textcolor{keywordtype}{int}\ MeasurementDim>}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f}{UKF}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{KalmanFilter}}<T,\ StateDim,\ MeasurementDim>\ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a35d40c93e222b4cbb29c60c754978078}{UKF}}()}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a6ca14fcc5e27bbf6e1961f28fc2e289d}{alpha\_}}(1e-\/3),\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_ad73a1dda4fae6a7c1e25c6d5103b11e5}{beta\_}}(2.0),\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_ad93f3caae18ae3271c2a4d3d77eb1fa1}{kappa\_}}(0.0)\ \{}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 计算权重}}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ lambda\ =\ std::pow(\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a6ca14fcc5e27bbf6e1961f28fc2e289d}{alpha\_}},\ 2)\ *\ (StateDim\ +\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_ad93f3caae18ae3271c2a4d3d77eb1fa1}{kappa\_}})\ -\/\ StateDim;}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a5a995fe897edd5a516c2ff54da34496b}{weights\_}}.resize(2\ *\ StateDim\ +\ 1);}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a5a995fe897edd5a516c2ff54da34496b}{weights\_}}(0)\ =\ lambda\ /\ (StateDim\ +\ lambda);}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ 2\ *\ StateDim\ +\ 1;\ ++i)\ \{}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a5a995fe897edd5a516c2ff54da34496b}{weights\_}}(i)\ =\ 1\ /\ (2\ *\ (StateDim\ +\ lambda));}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_abae4df6ee29dde64f301d7b631f2ccc9}{init}}(}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::function<Eigen::Matrix<T,\ StateDim,\ 1>(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ 1>\&)>\&\ f,}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::function<Eigen::Matrix<T,\ MeasurementDim,\ 1>(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ 1>\&)>\&\ h,}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::function<Eigen::Matrix<T,\ StateDim,\ StateDim>(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ 1>\&)>\&\ F\_jacobian,}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::function<Eigen::Matrix<T,\ MeasurementDim,\ StateDim>(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ 1>\&)>\&\ H\_jacobian,}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ StateDim>\&\ Q,}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Matrix<T,\ MeasurementDim,\ MeasurementDim>\&\ R,}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ 1>\&\ initial\_state,}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ StateDim>\&\ initial\_covariance)\ \{}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a99a37c32d947f45daf2d5f93baab53cf}{f\_}}\ =\ f;}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a6a33c35a0b6ed2a569f38857d0b74d0a}{h\_}}\ =\ h;}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a48212893fe9dc38e932a2bbf589fff5f}{F\_jacobian\_}}\ =\ F\_jacobian;}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_aa9aca2e345181f693510df2155a25f22}{H\_jacobian\_}}\ =\ H\_jacobian;}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 初始化父类}}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter_a7fe3185c588882ef0112358f40854212}{KalmanFilter<T,\ StateDim,\ MeasurementDim>::init}}(}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ StateDim>::Identity(),\ \textcolor{comment}{//\ A\_\ 将在预测步骤中更新}}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Q,}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ MeasurementDim,\ StateDim>::Zero(),\ \textcolor{comment}{//\ H\_\ 将在更新步骤中更新}}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ R,}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ initial\_state,}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ initial\_covariance);}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a4279739780f06a66d3d6f3e427b79b57}{predict}}()\ \{}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 生成\ sigma\ points}}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ 2\ *\ StateDim\ +\ 1>\ sigma\_points\ =\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_aa89d40152843fe79ba3329938bae8938}{computeSigmaPoints}}(\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{KalmanFilter<T,\ StateDim,\ MeasurementDim>::x\_}},\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{KalmanFilter<T,\ StateDim,\ MeasurementDim>::P\_}});}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 通过状态转移函数传递\ sigma\ 点}}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ 2\ *\ StateDim\ +\ 1>\ sigma\_points\_pred;}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 2\ *\ StateDim\ +\ 1;\ ++i)\ \{}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sigma\_points\_pred.col(i)\ =\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a99a37c32d947f45daf2d5f93baab53cf}{f\_}}(sigma\_points.col(i));}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 计算预测状态均值}}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ 1>\ x\_pred\ =\ Eigen::Matrix<T,\ StateDim,\ 1>::Zero();}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 2\ *\ StateDim\ +\ 1;\ ++i)\ \{}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\_pred\ +=\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a5a995fe897edd5a516c2ff54da34496b}{weights\_}}(i)\ *\ sigma\_points\_pred.col(i);}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 计算预测状态协方差}}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ StateDim>\ P\_pred\ =\ Eigen::Matrix<T,\ StateDim,\ StateDim>::Zero();}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 2\ *\ StateDim\ +\ 1;\ ++i)\ \{}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ 1>\ diff\ =\ sigma\_points\_pred.col(i)\ -\/\ x\_pred;}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ P\_pred\ +=\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a5a995fe897edd5a516c2ff54da34496b}{weights\_}}(i)\ *\ diff\ *\ diff.transpose();}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ P\_pred\ +=\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{KalmanFilter<T,\ StateDim,\ MeasurementDim>::Q\_}};}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 更新状态和协方差}}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{KalmanFilter<T,\ StateDim,\ MeasurementDim>::x\_}}\ =\ x\_pred;}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{KalmanFilter<T,\ StateDim,\ MeasurementDim>::P\_}}\ =\ P\_pred;}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a3fe501845cf45dfe39f5683e5c07703f}{update}}(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ MeasurementDim,\ 1>\&\ z)\ \{}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 生成\ sigma\ points\ from\ predicted\ state}}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ 2\ *\ StateDim\ +\ 1>\ sigma\_points\ =\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_aa89d40152843fe79ba3329938bae8938}{computeSigmaPoints}}(\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{KalmanFilter<T,\ StateDim,\ MeasurementDim>::x\_}},\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{KalmanFilter<T,\ StateDim,\ MeasurementDim>::P\_}});}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 通过测量函数传递\ sigma\ 点}}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ MeasurementDim,\ 2\ *\ StateDim\ +\ 1>\ Z\_sigma;}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 2\ *\ StateDim\ +\ 1;\ ++i)\ \{}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Z\_sigma.col(i)\ =\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a6a33c35a0b6ed2a569f38857d0b74d0a}{h\_}}(sigma\_points.col(i));}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 计算预测测量均值}}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ MeasurementDim,\ 1>\ z\_pred\ =\ Eigen::Matrix<T,\ MeasurementDim,\ 1>::Zero();}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 2\ *\ StateDim\ +\ 1;\ ++i)\ \{}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ z\_pred\ +=\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a5a995fe897edd5a516c2ff54da34496b}{weights\_}}(i)\ *\ Z\_sigma.col(i);}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 计算预测测量协方差}}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ MeasurementDim,\ MeasurementDim>\ S\ =\ Eigen::Matrix<T,\ MeasurementDim,\ MeasurementDim>::Zero();}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 2\ *\ StateDim\ +\ 1;\ ++i)\ \{}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ MeasurementDim,\ 1>\ diff\ =\ Z\_sigma.col(i)\ -\/\ z\_pred;}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ S\ +=\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a5a995fe897edd5a516c2ff54da34496b}{weights\_}}(i)\ *\ diff\ *\ diff.transpose();}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ S\ +=\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{KalmanFilter<T,\ StateDim,\ MeasurementDim>::R\_}};}
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 计算交叉协方差}}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ MeasurementDim>\ Tc\ =\ Eigen::Matrix<T,\ StateDim,\ MeasurementDim>::Zero();}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 2\ *\ StateDim\ +\ 1;\ ++i)\ \{}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ 1>\ x\_diff\ =\ sigma\_points.col(i)\ -\/\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{KalmanFilter<T,\ StateDim,\ MeasurementDim>::x\_}};}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ MeasurementDim,\ 1>\ z\_diff\ =\ Z\_sigma.col(i)\ -\/\ z\_pred;}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Tc\ +=\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a5a995fe897edd5a516c2ff54da34496b}{weights\_}}(i)\ *\ x\_diff\ *\ z\_diff.transpose();}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 计算卡尔曼增益}}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ MeasurementDim>\ K\ =\ Tc\ *\ S.inverse();}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 更新状态均值和协方差矩阵}}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{KalmanFilter<T,\ StateDim,\ MeasurementDim>::x\_}}\ +=\ K\ *\ (z\ -\/\ z\_pred);}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_kalman_filter}{KalmanFilter<T,\ StateDim,\ MeasurementDim>::P\_}}\ -\/=\ K\ *\ S\ *\ K.transpose();}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 状态转移函数}}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::function<Eigen::Matrix<T,\ StateDim,\ 1>(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ 1>\&)>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a99a37c32d947f45daf2d5f93baab53cf}{f\_}};}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 测量函数}}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::function<Eigen::Matrix<T,\ MeasurementDim,\ 1>(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ 1>\&)>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a6a33c35a0b6ed2a569f38857d0b74d0a}{h\_}};}
+\DoxyCodeLine{00368\ }
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 状态转移函数的雅可比矩阵函数}}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::function<Eigen::Matrix<T,\ StateDim,\ StateDim>(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ 1>\&)>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a48212893fe9dc38e932a2bbf589fff5f}{F\_jacobian\_}};}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 测量函数的雅可比矩阵函数}}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::function<Eigen::Matrix<T,\ MeasurementDim,\ StateDim>(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ 1>\&)>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_aa9aca2e345181f693510df2155a25f22}{H\_jacobian\_}};}
+\DoxyCodeLine{00374\ }
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 权重向量}}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ 2\ *\ StateDim\ +\ 1,\ 1>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a5a995fe897edd5a516c2ff54da34496b}{weights\_}};}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 无迹卡尔曼滤波器参数}}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a6ca14fcc5e27bbf6e1961f28fc2e289d}{alpha\_}};\ }
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_ad73a1dda4fae6a7c1e25c6d5103b11e5}{beta\_}};\ \ }
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_ad93f3caae18ae3271c2a4d3d77eb1fa1}{kappa\_}};\ }
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ 2\ *\ StateDim\ +\ 1>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_aa89d40152843fe79ba3329938bae8938}{computeSigmaPoints}}(}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ 1>\&\ x,}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ StateDim>\&\ P)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00393\ }
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ 2\ *\ StateDim\ +\ 1>\ sigma\_points;}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ StateDim>\ sqrt\_P\ =\ P.llt().matrixL();}
+\DoxyCodeLine{00396\ }
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sigma\_points.col(0)\ =\ x;}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ lambda\ =\ std::pow(\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_u_k_f_a6ca14fcc5e27bbf6e1961f28fc2e289d}{alpha\_}},\ 2)\ *\ (StateDim\ +\ 0.0)\ -\/\ StateDim;\ \textcolor{comment}{//\ kappa\_\ =\ 0}}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ StateDim;\ ++i)\ \{}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sigma\_points.col(i\ +\ 1)\ =\ x\ +\ std::sqrt(StateDim\ +\ lambda)\ *\ sqrt\_P.col(i);}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sigma\_points.col(i\ +\ 1\ +\ StateDim)\ =\ x\ -\/\ std::sqrt(StateDim\ +\ lambda)\ *\ sqrt\_P.col(i);}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sigma\_points;}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00408\ }
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ 粒子滤波器\ (Particle\ Filter)\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{int}\ StateDim,\ \textcolor{keywordtype}{int}\ MeasurementDim>}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter}{ParticleFilter}}\ \{}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a4f9dbbe33318c24f1e83b1daa9dfd97f}{ParticleFilter}}(\textcolor{keywordtype}{int}\ num\_particles)}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a7cff2c76628f8b0ec453bcf7a774f603}{num\_particles\_}}(num\_particles),\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_ad4d6f2fa47b29c60479eaffb4c59dc87}{gen\_}}(\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a05d1d465374b8561b2fe285284725de3}{rd\_}}()),\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_ad566b65abb02c1174f0b34f77500a85c}{dist\_}}(0.0,\ 1.0)\ \{}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a8e237f9a738605aa2d1eb1b3cf9718ab}{particles\_}}.resize(\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a7cff2c76628f8b0ec453bcf7a774f603}{num\_particles\_}});}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_aabb8010383826086dafd8314a5712c10}{weights\_}}.resize(\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a7cff2c76628f8b0ec453bcf7a774f603}{num\_particles\_}},\ 1.0\ /\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a7cff2c76628f8b0ec453bcf7a774f603}{num\_particles\_}});}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a0f4a7d3de90e6cbe59c6f853c84581aa}{init}}(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ 1>\&\ initial\_state,}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ StateDim>\&\ initial\_covariance)\ \{}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ StateDim>\ cov\_sqrt\ =\ initial\_covariance.llt().matrixL();}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a7cff2c76628f8b0ec453bcf7a774f603}{num\_particles\_}};\ ++i)\ \{}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a8e237f9a738605aa2d1eb1b3cf9718ab}{particles\_}}[i]\ =\ initial\_state\ +\ cov\_sqrt\ *\ Eigen::Matrix<T,\ StateDim,\ 1>::Random();}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00444\ }
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a4acc6d47db805d3c252e803aa5ec71d0}{predict}}(\textcolor{keyword}{const}\ std::function<Eigen::Matrix<T,\ StateDim,\ 1>(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ 1>\&)>\&\ f,}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ StateDim>\&\ Q)\ \{}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ StateDim>\ cov\_sqrt\ =\ Q.llt().matrixL();}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a7cff2c76628f8b0ec453bcf7a774f603}{num\_particles\_}};\ ++i)\ \{}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a8e237f9a738605aa2d1eb1b3cf9718ab}{particles\_}}[i]\ =\ f(\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a8e237f9a738605aa2d1eb1b3cf9718ab}{particles\_}}[i])\ +\ cov\_sqrt\ *\ Eigen::Matrix<T,\ StateDim,\ 1>::Random();}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_aecea56ea3eec25c258fa012cff217e2b}{update}}(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ MeasurementDim,\ 1>\&\ z,}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::function<Eigen::Matrix<T,\ MeasurementDim,\ 1>(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ StateDim,\ 1>\&)>\&\ h,}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Matrix<T,\ MeasurementDim,\ MeasurementDim>\&\ R)\ \{}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a7cff2c76628f8b0ec453bcf7a774f603}{num\_particles\_}};\ ++i)\ \{}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ MeasurementDim,\ 1>\ z\_pred\ =\ h(\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a8e237f9a738605aa2d1eb1b3cf9718ab}{particles\_}}[i]);}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ MeasurementDim,\ MeasurementDim>\ S\ =\ R;}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ MeasurementDim,\ 1>\ y\ =\ z\ -\/\ z\_pred;}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 假设高斯噪声，计算似然度}}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ exponent\ =\ -\/0.5\ *\ y.transpose()\ *\ S.inverse()\ *\ y;}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ likelihood\ =\ std::exp(exponent);}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_aabb8010383826086dafd8314a5712c10}{weights\_}}[i]\ *=\ likelihood;}
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_afab964ea1c0f186f1ade9ecefd5e1edc}{normalizeWeights}}();}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a3f77d5db226f51bd21bc2b60c5028fb7}{resample}}();}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00485\ }
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ 1>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a2333dc81f5e8b3bb7c13e45bf6725121}{getState}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ StateDim,\ 1>\ state\ =\ Eigen::Matrix<T,\ StateDim,\ 1>::Zero();}
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a7cff2c76628f8b0ec453bcf7a774f603}{num\_particles\_}};\ ++i)\ \{}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\ +=\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_aabb8010383826086dafd8314a5712c10}{weights\_}}[i]\ *\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a8e237f9a738605aa2d1eb1b3cf9718ab}{particles\_}}[i];}
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ state;}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00498\ }
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a7cff2c76628f8b0ec453bcf7a774f603}{num\_particles\_}};\ }
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Eigen::Matrix<T,\ StateDim,\ 1>>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a8e237f9a738605aa2d1eb1b3cf9718ab}{particles\_}};\ }
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<T>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_aabb8010383826086dafd8314a5712c10}{weights\_}};\ }
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::random\_device\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a05d1d465374b8561b2fe285284725de3}{rd\_}};\ }
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::mt19937\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_ad4d6f2fa47b29c60479eaffb4c59dc87}{gen\_}};\ }
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::uniform\_real\_distribution<>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_ad566b65abb02c1174f0b34f77500a85c}{dist\_}};\ }
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_afab964ea1c0f186f1ade9ecefd5e1edc}{normalizeWeights}}()\ \{}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ sum\ =\ 0.0;}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\ w\ :\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_aabb8010383826086dafd8314a5712c10}{weights\_}})\ sum\ +=\ w;}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\ w\ :\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_aabb8010383826086dafd8314a5712c10}{weights\_}})\ w\ /=\ sum;}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00517\ }
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a3f77d5db226f51bd21bc2b60c5028fb7}{resample}}()\ \{}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Eigen::Matrix<T,\ StateDim,\ 1>>\ new\_particles;}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ new\_particles.reserve(\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a7cff2c76628f8b0ec453bcf7a774f603}{num\_particles\_}});}
+\DoxyCodeLine{00526\ }
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 创建累积分布}}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<T>\ cumulative\_weights(\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a7cff2c76628f8b0ec453bcf7a774f603}{num\_particles\_}},\ 0.0);}
+\DoxyCodeLine{00529\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cumulative\_weights[0]\ =\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_aabb8010383826086dafd8314a5712c10}{weights\_}}[0];}
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a7cff2c76628f8b0ec453bcf7a774f603}{num\_particles\_}};\ ++i)\ \{}
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cumulative\_weights[i]\ =\ cumulative\_weights[i-\/1]\ +\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_aabb8010383826086dafd8314a5712c10}{weights\_}}[i];}
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00533\ }
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 重采样}}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a7cff2c76628f8b0ec453bcf7a774f603}{num\_particles\_}};\ ++i)\ \{}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ rand\_weight\ =\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_ad566b65abb02c1174f0b34f77500a85c}{dist\_}}(\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_ad4d6f2fa47b29c60479eaffb4c59dc87}{gen\_}});}
+\DoxyCodeLine{00537\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ std::lower\_bound(cumulative\_weights.begin(),\ cumulative\_weights.end(),\ rand\_weight);}
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ index\ =\ std::distance(cumulative\_weights.begin(),\ it);}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ new\_particles.push\_back(\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a8e237f9a738605aa2d1eb1b3cf9718ab}{particles\_}}[index]);}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00541\ }
+\DoxyCodeLine{00542\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a8e237f9a738605aa2d1eb1b3cf9718ab}{particles\_}}\ =\ std::move(new\_particles);}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::fill(\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_aabb8010383826086dafd8314a5712c10}{weights\_}}.begin(),\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_aabb8010383826086dafd8314a5712c10}{weights\_}}.end(),\ 1.0\ /\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_particle_filter_a7cff2c76628f8b0ec453bcf7a774f603}{num\_particles\_}});}
+\DoxyCodeLine{00544\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00546\ }
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ 移动平均滤波器\ (Moving\ Average\ Filter)\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{int}\ Dim>}
+\DoxyCodeLine{00555\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter}{MovingAverageFilter}}\ \{}
+\DoxyCodeLine{00556\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_a99d7f6b227c31c2d2784036566641355}{MovingAverageFilter}}(\textcolor{keywordtype}{int}\ window\_size)}
+\DoxyCodeLine{00563\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_a4361ec79bc79328bfd83c585ea52159f}{window\_size\_}}(window\_size)\ \{\}}
+\DoxyCodeLine{00564\ }
+\DoxyCodeLine{00572\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_a833f8720e4a1bbbd6565e480a66f3c53}{addMeasurement}}(\textcolor{keyword}{const}\ Eigen::Matrix<T,\ Dim,\ 1>\&\ measurement)\ \{}
+\DoxyCodeLine{00573\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_aa91a934fc5e94c6535892d21af2b9597}{measurements\_}}.size()\ >=\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_a4361ec79bc79328bfd83c585ea52159f}{window\_size\_}})\ \{}
+\DoxyCodeLine{00574\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_aa91a934fc5e94c6535892d21af2b9597}{measurements\_}}.pop\_front();}
+\DoxyCodeLine{00575\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00576\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_aa91a934fc5e94c6535892d21af2b9597}{measurements\_}}.push\_back(measurement);}
+\DoxyCodeLine{00577\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00578\ }
+\DoxyCodeLine{00584\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ Dim,\ 1>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_af8d7d82078d7e30be00299fd93319653}{getAverage}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00585\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix<T,\ Dim,\ 1>\ avg\ =\ Eigen::Matrix<T,\ Dim,\ 1>::Zero();}
+\DoxyCodeLine{00586\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ m\ :\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_aa91a934fc5e94c6535892d21af2b9597}{measurements\_}})\ \{}
+\DoxyCodeLine{00587\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avg\ +=\ m;}
+\DoxyCodeLine{00588\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00589\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_aa91a934fc5e94c6535892d21af2b9597}{measurements\_}}.empty())\ \{}
+\DoxyCodeLine{00590\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avg\ /=\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(\mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_aa91a934fc5e94c6535892d21af2b9597}{measurements\_}}.size());}
+\DoxyCodeLine{00591\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ avg;}
+\DoxyCodeLine{00593\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00594\ }
+\DoxyCodeLine{00595\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00596\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_a4361ec79bc79328bfd83c585ea52159f}{window\_size\_}};\ }
+\DoxyCodeLine{00597\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::deque<Eigen::Matrix<T,\ Dim,\ 1>>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1filters_1_1_moving_average_filter_aa91a934fc5e94c6535892d21af2b9597}{measurements\_}};\ }
+\DoxyCodeLine{00598\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00599\ }
+\DoxyCodeLine{00600\ \ \ \ \ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ filters}}
+\DoxyCodeLine{00601\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ core}}
+\DoxyCodeLine{00602\ \}\ \textcolor{comment}{//\ namespace\ rc\_vision}}
+\DoxyCodeLine{00603\ }
+\DoxyCodeLine{00604\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ RC\_VISION\_CORE\_FILTERS\_HPP}}
+
+\end{DoxyCode}

@@ -1,0 +1,582 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RC vision: rc_vision::core::StereoCamera类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RC vision<span id="projectnumber">&#160;beta0.1.0</span>
+   </div>
+   <div id="projectbrief">机器人视觉库</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacerc__vision.html">rc_vision</a></li><li class="navelem"><a class="el" href="namespacerc__vision_1_1core.html">core</a></li><li class="navelem"><a class="el" href="classrc__vision_1_1core_1_1_stereo_camera.html">StereoCamera</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="#pri-attribs">Private 属性</a> &#124;
+<a href="classrc__vision_1_1core_1_1_stereo_camera-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">rc_vision::core::StereoCamera类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>立体相机模型类，包含左右相机及其相对外参，并提供图像校正和视差计算功能。  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="camera_8hpp_source.html">camera.hpp</a>&gt;</code></p>
+<div class="dynheader">
+rc_vision::core::StereoCamera 的协作图:</div>
+<div class="dyncontent">
+<div class="center"><img src="classrc__vision_1_1core_1_1_stereo_camera__coll__graph.png" border="0" usemap="#arc__vision_1_1core_1_1_stereo_camera_coll__map" alt="Collaboration graph"/></div>
+<center><span class="legend">[<a href="graph_legend.html">图例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a72eef0d42659d4cd49e54ae8a6a37daf" id="r_a72eef0d42659d4cd49e54ae8a6a37daf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72eef0d42659d4cd49e54ae8a6a37daf">StereoCamera</a> ()</td></tr>
+<tr class="memdesc:a72eef0d42659d4cd49e54ae8a6a37daf"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认构造函数，初始化左右相机和外参。  <br /></td></tr>
+<tr class="separator:a72eef0d42659d4cd49e54ae8a6a37daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7aad32f0676dcd206fb25ef3cea248b0" id="r_a7aad32f0676dcd206fb25ef3cea248b0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7aad32f0676dcd206fb25ef3cea248b0">StereoCamera</a> (const <a class="el" href="classrc__vision_1_1core_1_1_camera.html">Camera</a> &amp;left_camera, const <a class="el" href="classrc__vision_1_1core_1_1_camera.html">Camera</a> &amp;right_camera, const Eigen::Matrix4d &amp;extrinsic)</td></tr>
+<tr class="memdesc:a7aad32f0676dcd206fb25ef3cea248b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">带参数的构造函数，初始化左右相机及其相对外参。  <br /></td></tr>
+<tr class="separator:a7aad32f0676dcd206fb25ef3cea248b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30cbfd0d1d7e59db5608b0ec3a28452a" id="r_a30cbfd0d1d7e59db5608b0ec3a28452a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classrc__vision_1_1core_1_1_camera.html">Camera</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30cbfd0d1d7e59db5608b0ec3a28452a">getLeftCamera</a> () const</td></tr>
+<tr class="memdesc:a30cbfd0d1d7e59db5608b0ec3a28452a"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取左相机模型。  <br /></td></tr>
+<tr class="separator:a30cbfd0d1d7e59db5608b0ec3a28452a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a854c2462e14702c4e9a18253a769b94b" id="r_a854c2462e14702c4e9a18253a769b94b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classrc__vision_1_1core_1_1_camera.html">Camera</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a854c2462e14702c4e9a18253a769b94b">getRightCamera</a> () const</td></tr>
+<tr class="memdesc:a854c2462e14702c4e9a18253a769b94b"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取右相机模型。  <br /></td></tr>
+<tr class="separator:a854c2462e14702c4e9a18253a769b94b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88388e02b9df276049facdb521b4310c" id="r_a88388e02b9df276049facdb521b4310c"><td class="memItemLeft" align="right" valign="top">const Eigen::Matrix4d &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88388e02b9df276049facdb521b4310c">getExtrinsic</a> () const</td></tr>
+<tr class="memdesc:a88388e02b9df276049facdb521b4310c"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取左右相机之间的外参矩阵。  <br /></td></tr>
+<tr class="separator:a88388e02b9df276049facdb521b4310c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab507977a37abed1988ec020bb276c9b5" id="r_ab507977a37abed1988ec020bb276c9b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab507977a37abed1988ec020bb276c9b5">setLeftCamera</a> (const <a class="el" href="classrc__vision_1_1core_1_1_camera.html">Camera</a> &amp;left_camera)</td></tr>
+<tr class="memdesc:ab507977a37abed1988ec020bb276c9b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置左相机模型。  <br /></td></tr>
+<tr class="separator:ab507977a37abed1988ec020bb276c9b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dbecbdd894b0cc3585585fdcb195689" id="r_a0dbecbdd894b0cc3585585fdcb195689"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0dbecbdd894b0cc3585585fdcb195689">setRightCamera</a> (const <a class="el" href="classrc__vision_1_1core_1_1_camera.html">Camera</a> &amp;right_camera)</td></tr>
+<tr class="memdesc:a0dbecbdd894b0cc3585585fdcb195689"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置右相机模型。  <br /></td></tr>
+<tr class="separator:a0dbecbdd894b0cc3585585fdcb195689"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a153e06fe13239607d22181166c30b633" id="r_a153e06fe13239607d22181166c30b633"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a153e06fe13239607d22181166c30b633">setExtrinsic</a> (const Eigen::Matrix4d &amp;extrinsic)</td></tr>
+<tr class="memdesc:a153e06fe13239607d22181166c30b633"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置左右相机之间的外参矩阵。  <br /></td></tr>
+<tr class="separator:a153e06fe13239607d22181166c30b633"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcad7887b277fb32479b1301cd6d0dee" id="r_abcad7887b277fb32479b1301cd6d0dee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abcad7887b277fb32479b1301cd6d0dee">rectifyImages</a> (const cv::Mat &amp;left_image, const cv::Mat &amp;right_image, cv::Mat &amp;rectified_left, cv::Mat &amp;rectified_right) const</td></tr>
+<tr class="memdesc:abcad7887b277fb32479b1301cd6d0dee"><td class="mdescLeft">&#160;</td><td class="mdescRight">对左右图像进行校正。  <br /></td></tr>
+<tr class="separator:abcad7887b277fb32479b1301cd6d0dee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afad601374738b16c21464ab8299b8c61" id="r_afad601374738b16c21464ab8299b8c61"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afad601374738b16c21464ab8299b8c61">computeDisparity</a> (const cv::Mat &amp;rectified_left, const cv::Mat &amp;rectified_right, cv::Mat &amp;disparity_map) const</td></tr>
+<tr class="memdesc:afad601374738b16c21464ab8299b8c61"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算视差图。  <br /></td></tr>
+<tr class="separator:afad601374738b16c21464ab8299b8c61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:afc474ba8bf197528b5aa1abe70e1548a" id="r_afc474ba8bf197528b5aa1abe70e1548a"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc474ba8bf197528b5aa1abe70e1548a">calibrateStereoCamera</a> (const std::vector&lt; std::vector&lt; cv::Point3f &gt; &gt; &amp;object_points, const std::vector&lt; std::vector&lt; cv::Point2f &gt; &gt; &amp;image_points_left, const std::vector&lt; std::vector&lt; cv::Point2f &gt; &gt; &amp;image_points_right, const cv::Size &amp;image_size, <a class="el" href="classrc__vision_1_1core_1_1_camera.html">Camera</a> &amp;left_camera, <a class="el" href="classrc__vision_1_1core_1_1_camera.html">Camera</a> &amp;right_camera, Eigen::Matrix4d &amp;out_extrinsic)</td></tr>
+<tr class="memdesc:afc474ba8bf197528b5aa1abe70e1548a"><td class="mdescLeft">&#160;</td><td class="mdescRight">使用图像点和物体点进行立体相机标定。  <br /></td></tr>
+<tr class="separator:afc474ba8bf197528b5aa1abe70e1548a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private 属性</h2></td></tr>
+<tr class="memitem:a115958da9254d2ff40c1a1d55e3ff4cf" id="r_a115958da9254d2ff40c1a1d55e3ff4cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrc__vision_1_1core_1_1_camera.html">Camera</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a115958da9254d2ff40c1a1d55e3ff4cf">left_camera_</a></td></tr>
+<tr class="separator:a115958da9254d2ff40c1a1d55e3ff4cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c08fb78ae5944473018c527c34cb756" id="r_a9c08fb78ae5944473018c527c34cb756"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrc__vision_1_1core_1_1_camera.html">Camera</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c08fb78ae5944473018c527c34cb756">right_camera_</a></td></tr>
+<tr class="separator:a9c08fb78ae5944473018c527c34cb756"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b08b888824be38f601674159cac0536" id="r_a4b08b888824be38f601674159cac0536"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix4d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b08b888824be38f601674159cac0536">extrinsic_</a></td></tr>
+<tr class="separator:a4b08b888824be38f601674159cac0536"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>立体相机模型类，包含左右相机及其相对外参，并提供图像校正和视差计算功能。 </p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a72eef0d42659d4cd49e54ae8a6a37daf" name="a72eef0d42659d4cd49e54ae8a6a37daf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72eef0d42659d4cd49e54ae8a6a37daf">&#9670;&#160;</a></span>StereoCamera() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">rc_vision::core::StereoCamera::StereoCamera </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>默认构造函数，初始化左右相机和外参。 </p>
+
+</div>
+</div>
+<a id="a7aad32f0676dcd206fb25ef3cea248b0" name="a7aad32f0676dcd206fb25ef3cea248b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7aad32f0676dcd206fb25ef3cea248b0">&#9670;&#160;</a></span>StereoCamera() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">rc_vision::core::StereoCamera::StereoCamera </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classrc__vision_1_1core_1_1_camera.html">Camera</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>left_camera</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classrc__vision_1_1core_1_1_camera.html">Camera</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>right_camera</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Eigen::Matrix4d &amp;</td>          <td class="paramname"><span class="paramname"><em>extrinsic</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>带参数的构造函数，初始化左右相机及其相对外参。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">left_camera</td><td>左相机模型。 </td></tr>
+    <tr><td class="paramname">right_camera</td><td>右相机模型。 </td></tr>
+    <tr><td class="paramname">extrinsic</td><td>左右相机之间的4x4外参矩阵。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="afc474ba8bf197528b5aa1abe70e1548a" name="afc474ba8bf197528b5aa1abe70e1548a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc474ba8bf197528b5aa1abe70e1548a">&#9670;&#160;</a></span>calibrateStereoCamera()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool rc_vision::core::StereoCamera::calibrateStereoCamera </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; cv::Point3f &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>object_points</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; cv::Point2f &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>image_points_left</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; cv::Point2f &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>image_points_right</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const cv::Size &amp;</td>          <td class="paramname"><span class="paramname"><em>image_size</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classrc__vision_1_1core_1_1_camera.html">Camera</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>left_camera</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classrc__vision_1_1core_1_1_camera.html">Camera</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>right_camera</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::Matrix4d &amp;</td>          <td class="paramname"><span class="paramname"><em>out_extrinsic</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>使用图像点和物体点进行立体相机标定。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">object_points</td><td>物体点集合，每个视图对应一组3D点。 </td></tr>
+    <tr><td class="paramname">image_points_left</td><td>左图像点集合，每个视图对应一组2D点。 </td></tr>
+    <tr><td class="paramname">image_points_right</td><td>右图像点集合，每个视图对应一组2D点。 </td></tr>
+    <tr><td class="paramname">image_size</td><td>图像尺寸。 </td></tr>
+    <tr><td class="paramname">left_camera</td><td>输出的左相机模型。 </td></tr>
+    <tr><td class="paramname">right_camera</td><td>输出的右相机模型。 </td></tr>
+    <tr><td class="paramname">out_extrinsic</td><td>输出的左右相机之间的4x4外参矩阵。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果标定成功返回 true，否则返回 false。 </dd></dl>
+
+</div>
+</div>
+<a id="afad601374738b16c21464ab8299b8c61" name="afad601374738b16c21464ab8299b8c61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afad601374738b16c21464ab8299b8c61">&#9670;&#160;</a></span>computeDisparity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool rc_vision::core::StereoCamera::computeDisparity </td>
+          <td>(</td>
+          <td class="paramtype">const cv::Mat &amp;</td>          <td class="paramname"><span class="paramname"><em>rectified_left</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const cv::Mat &amp;</td>          <td class="paramname"><span class="paramname"><em>rectified_right</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">cv::Mat &amp;</td>          <td class="paramname"><span class="paramname"><em>disparity_map</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>计算视差图。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rectified_left</td><td>校正后的左图像。 </td></tr>
+    <tr><td class="paramname">rectified_right</td><td>校正后的右图像。 </td></tr>
+    <tr><td class="paramname">disparity_map</td><td>输出的视差图。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果计算成功返回 true，否则返回 false。 </dd></dl>
+
+</div>
+</div>
+<a id="a88388e02b9df276049facdb521b4310c" name="a88388e02b9df276049facdb521b4310c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88388e02b9df276049facdb521b4310c">&#9670;&#160;</a></span>getExtrinsic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const Eigen::Matrix4d &amp; rc_vision::core::StereoCamera::getExtrinsic </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取左右相机之间的外参矩阵。 </p>
+<dl class="section return"><dt>返回</dt><dd>左右相机之间的4x4外参矩阵。 </dd></dl>
+
+</div>
+</div>
+<a id="a30cbfd0d1d7e59db5608b0ec3a28452a" name="a30cbfd0d1d7e59db5608b0ec3a28452a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30cbfd0d1d7e59db5608b0ec3a28452a">&#9670;&#160;</a></span>getLeftCamera()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classrc__vision_1_1core_1_1_camera.html">Camera</a> &amp; rc_vision::core::StereoCamera::getLeftCamera </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取左相机模型。 </p>
+<dl class="section return"><dt>返回</dt><dd>左相机模型的引用。 </dd></dl>
+
+</div>
+</div>
+<a id="a854c2462e14702c4e9a18253a769b94b" name="a854c2462e14702c4e9a18253a769b94b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a854c2462e14702c4e9a18253a769b94b">&#9670;&#160;</a></span>getRightCamera()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classrc__vision_1_1core_1_1_camera.html">Camera</a> &amp; rc_vision::core::StereoCamera::getRightCamera </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取右相机模型。 </p>
+<dl class="section return"><dt>返回</dt><dd>右相机模型的引用。 </dd></dl>
+
+</div>
+</div>
+<a id="abcad7887b277fb32479b1301cd6d0dee" name="abcad7887b277fb32479b1301cd6d0dee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcad7887b277fb32479b1301cd6d0dee">&#9670;&#160;</a></span>rectifyImages()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool rc_vision::core::StereoCamera::rectifyImages </td>
+          <td>(</td>
+          <td class="paramtype">const cv::Mat &amp;</td>          <td class="paramname"><span class="paramname"><em>left_image</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const cv::Mat &amp;</td>          <td class="paramname"><span class="paramname"><em>right_image</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">cv::Mat &amp;</td>          <td class="paramname"><span class="paramname"><em>rectified_left</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">cv::Mat &amp;</td>          <td class="paramname"><span class="paramname"><em>rectified_right</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>对左右图像进行校正。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">left_image</td><td>左图像。 </td></tr>
+    <tr><td class="paramname">right_image</td><td>右图像。 </td></tr>
+    <tr><td class="paramname">rectified_left</td><td>校正后的左图像。 </td></tr>
+    <tr><td class="paramname">rectified_right</td><td>校正后的右图像。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果校正成功返回 true，否则返回 false。 </dd></dl>
+
+</div>
+</div>
+<a id="a153e06fe13239607d22181166c30b633" name="a153e06fe13239607d22181166c30b633"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a153e06fe13239607d22181166c30b633">&#9670;&#160;</a></span>setExtrinsic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::StereoCamera::setExtrinsic </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::Matrix4d &amp;</td>          <td class="paramname"><span class="paramname"><em>extrinsic</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置左右相机之间的外参矩阵。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">extrinsic</td><td>新的4x4外参矩阵。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab507977a37abed1988ec020bb276c9b5" name="ab507977a37abed1988ec020bb276c9b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab507977a37abed1988ec020bb276c9b5">&#9670;&#160;</a></span>setLeftCamera()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::StereoCamera::setLeftCamera </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classrc__vision_1_1core_1_1_camera.html">Camera</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>left_camera</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置左相机模型。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">left_camera</td><td>新的左相机模型。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0dbecbdd894b0cc3585585fdcb195689" name="a0dbecbdd894b0cc3585585fdcb195689"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dbecbdd894b0cc3585585fdcb195689">&#9670;&#160;</a></span>setRightCamera()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc_vision::core::StereoCamera::setRightCamera </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classrc__vision_1_1core_1_1_camera.html">Camera</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>right_camera</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置右相机模型。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">right_camera</td><td>新的右相机模型。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="a4b08b888824be38f601674159cac0536" name="a4b08b888824be38f601674159cac0536"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b08b888824be38f601674159cac0536">&#9670;&#160;</a></span>extrinsic_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Matrix4d rc_vision::core::StereoCamera::extrinsic_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>左右相机之间的外参矩阵（4x4）。 </p>
+
+</div>
+</div>
+<a id="a115958da9254d2ff40c1a1d55e3ff4cf" name="a115958da9254d2ff40c1a1d55e3ff4cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a115958da9254d2ff40c1a1d55e3ff4cf">&#9670;&#160;</a></span>left_camera_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrc__vision_1_1core_1_1_camera.html">Camera</a> rc_vision::core::StereoCamera::left_camera_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>左相机模型。 </p>
+
+</div>
+</div>
+<a id="a9c08fb78ae5944473018c527c34cb756" name="a9c08fb78ae5944473018c527c34cb756"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c08fb78ae5944473018c527c34cb756">&#9670;&#160;</a></span>right_camera_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrc__vision_1_1core_1_1_camera.html">Camera</a> rc_vision::core::StereoCamera::right_camera_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>右相机模型。 </p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>C:/Users/14168/1/rc_vision/core_lib/include/rc_vision/core/<a class="el" href="camera_8hpp_source.html">camera.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

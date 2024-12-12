@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="yolo_lidar_fusion" type="yolo_detector.py" name="yolo_detector" output="screen"/>
+    <node pkg="yolo_lidar_fusion" type="sensor_fusion_node.py" name="sensor_fusion_node" output="screen"/>
+</launch>

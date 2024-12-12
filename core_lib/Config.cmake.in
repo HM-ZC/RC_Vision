@@ -1,0 +1,8 @@
+@PACKAGE_INIT@
+
+find_dependency(OpenCV REQUIRED)
+find_dependency(Eigen3 REQUIRED)
+find_dependency(yaml-cpp REQUIRED)
+find_dependency(nlohmann_json REQUIRED)
+
+include("${CMAKE_CURRENT_LIST_DIR}/rc_vision_coreTargets.cmake")

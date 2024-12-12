@@ -1,0 +1,9 @@
+digraph "类继承关系图"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node0 [id="Node000000",label="rc_vision::core::Camera",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classrc__vision_1_1core_1_1_camera.html",tooltip="相机模型类，包含内参、畸变系数和外参，并提供投影、去畸变等功能。"];
+}

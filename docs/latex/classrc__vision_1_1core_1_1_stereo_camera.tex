@@ -1,0 +1,276 @@
+\doxysection{rc\+\_\+vision\+::core\+::Stereo\+Camera类 参考}
+\hypertarget{classrc__vision_1_1core_1_1_stereo_camera}{}\label{classrc__vision_1_1core_1_1_stereo_camera}\index{rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}}
+
+
+立体相机模型类，包含左右相机及其相对外参，并提供图像校正和视差计算功能。  
+
+
+
+
+{\ttfamily \#include $<$camera.\+hpp$>$}
+
+
+
+rc\+\_\+vision\+::core\+::Stereo\+Camera 的协作图\+:
+% FIG 0
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_a72eef0d42659d4cd49e54ae8a6a37daf}{Stereo\+Camera}} ()
+\begin{DoxyCompactList}\small\item\em 默认构造函数，初始化左右相机和外参。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_a7aad32f0676dcd206fb25ef3cea248b0}{Stereo\+Camera}} (const \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}} \&left\+\_\+camera, const \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}} \&right\+\_\+camera, const Eigen\+::\+Matrix4d \&extrinsic)
+\begin{DoxyCompactList}\small\item\em 带参数的构造函数，初始化左右相机及其相对外参。 \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}} \& \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_a30cbfd0d1d7e59db5608b0ec3a28452a}{get\+Left\+Camera}} () const
+\begin{DoxyCompactList}\small\item\em 获取左相机模型。 \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}} \& \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_a854c2462e14702c4e9a18253a769b94b}{get\+Right\+Camera}} () const
+\begin{DoxyCompactList}\small\item\em 获取右相机模型。 \end{DoxyCompactList}\item 
+const Eigen\+::\+Matrix4d \& \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_a88388e02b9df276049facdb521b4310c}{get\+Extrinsic}} () const
+\begin{DoxyCompactList}\small\item\em 获取左右相机之间的外参矩阵。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_ab507977a37abed1988ec020bb276c9b5}{set\+Left\+Camera}} (const \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}} \&left\+\_\+camera)
+\begin{DoxyCompactList}\small\item\em 设置左相机模型。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_a0dbecbdd894b0cc3585585fdcb195689}{set\+Right\+Camera}} (const \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}} \&right\+\_\+camera)
+\begin{DoxyCompactList}\small\item\em 设置右相机模型。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_a153e06fe13239607d22181166c30b633}{set\+Extrinsic}} (const Eigen\+::\+Matrix4d \&extrinsic)
+\begin{DoxyCompactList}\small\item\em 设置左右相机之间的外参矩阵。 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_abcad7887b277fb32479b1301cd6d0dee}{rectify\+Images}} (const cv\+::\+Mat \&left\+\_\+image, const cv\+::\+Mat \&right\+\_\+image, cv\+::\+Mat \&rectified\+\_\+left, cv\+::\+Mat \&rectified\+\_\+right) const
+\begin{DoxyCompactList}\small\item\em 对左右图像进行校正。 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_afad601374738b16c21464ab8299b8c61}{compute\+Disparity}} (const cv\+::\+Mat \&rectified\+\_\+left, const cv\+::\+Mat \&rectified\+\_\+right, cv\+::\+Mat \&disparity\+\_\+map) const
+\begin{DoxyCompactList}\small\item\em 计算视差图。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_afc474ba8bf197528b5aa1abe70e1548a}{calibrate\+Stereo\+Camera}} (const std\+::vector$<$ std\+::vector$<$ cv\+::\+Point3f $>$ $>$ \&object\+\_\+points, const std\+::vector$<$ std\+::vector$<$ cv\+::\+Point2f $>$ $>$ \&image\+\_\+points\+\_\+left, const std\+::vector$<$ std\+::vector$<$ cv\+::\+Point2f $>$ $>$ \&image\+\_\+points\+\_\+right, const cv\+::\+Size \&image\+\_\+size, \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}} \&left\+\_\+camera, \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}} \&right\+\_\+camera, Eigen\+::\+Matrix4d \&out\+\_\+extrinsic)
+\begin{DoxyCompactList}\small\item\em 使用图像点和物体点进行立体相机标定。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}} \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_a115958da9254d2ff40c1a1d55e3ff4cf}{left\+\_\+camera\+\_\+}}
+\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}} \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_a9c08fb78ae5944473018c527c34cb756}{right\+\_\+camera\+\_\+}}
+\item 
+Eigen\+::\+Matrix4d \mbox{\hyperlink{classrc__vision_1_1core_1_1_stereo_camera_a4b08b888824be38f601674159cac0536}{extrinsic\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+立体相机模型类，包含左右相机及其相对外参，并提供图像校正和视差计算功能。 
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classrc__vision_1_1core_1_1_stereo_camera_a72eef0d42659d4cd49e54ae8a6a37daf}\index{rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}!StereoCamera@{StereoCamera}}
+\index{StereoCamera@{StereoCamera}!rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}}
+\doxysubsubsection{\texorpdfstring{StereoCamera()}{StereoCamera()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_stereo_camera_a72eef0d42659d4cd49e54ae8a6a37daf} 
+rc\+\_\+vision\+::core\+::\+Stereo\+Camera\+::\+Stereo\+Camera (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+默认构造函数，初始化左右相机和外参。 
+
+\Hypertarget{classrc__vision_1_1core_1_1_stereo_camera_a7aad32f0676dcd206fb25ef3cea248b0}\index{rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}!StereoCamera@{StereoCamera}}
+\index{StereoCamera@{StereoCamera}!rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}}
+\doxysubsubsection{\texorpdfstring{StereoCamera()}{StereoCamera()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_stereo_camera_a7aad32f0676dcd206fb25ef3cea248b0} 
+rc\+\_\+vision\+::core\+::\+Stereo\+Camera\+::\+Stereo\+Camera (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}} \&}]{left\+\_\+camera}{, }\item[{const \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}} \&}]{right\+\_\+camera}{, }\item[{const Eigen\+::\+Matrix4d \&}]{extrinsic}{}\end{DoxyParamCaption})}
+
+
+
+带参数的构造函数，初始化左右相机及其相对外参。 
+
+
+\begin{DoxyParams}{参数}
+{\em left\+\_\+camera} & 左相机模型。 \\
+\hline
+{\em right\+\_\+camera} & 右相机模型。 \\
+\hline
+{\em extrinsic} & 左右相机之间的4x4外参矩阵。 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classrc__vision_1_1core_1_1_stereo_camera_afc474ba8bf197528b5aa1abe70e1548a}\index{rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}!calibrateStereoCamera@{calibrateStereoCamera}}
+\index{calibrateStereoCamera@{calibrateStereoCamera}!rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}}
+\doxysubsubsection{\texorpdfstring{calibrateStereoCamera()}{calibrateStereoCamera()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_stereo_camera_afc474ba8bf197528b5aa1abe70e1548a} 
+static bool rc\+\_\+vision\+::core\+::\+Stereo\+Camera\+::calibrate\+Stereo\+Camera (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ cv\+::\+Point3f $>$ $>$ \&}]{object\+\_\+points}{, }\item[{const std\+::vector$<$ std\+::vector$<$ cv\+::\+Point2f $>$ $>$ \&}]{image\+\_\+points\+\_\+left}{, }\item[{const std\+::vector$<$ std\+::vector$<$ cv\+::\+Point2f $>$ $>$ \&}]{image\+\_\+points\+\_\+right}{, }\item[{const cv\+::\+Size \&}]{image\+\_\+size}{, }\item[{\mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}} \&}]{left\+\_\+camera}{, }\item[{\mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}} \&}]{right\+\_\+camera}{, }\item[{Eigen\+::\+Matrix4d \&}]{out\+\_\+extrinsic}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+使用图像点和物体点进行立体相机标定。 
+
+
+\begin{DoxyParams}{参数}
+{\em object\+\_\+points} & 物体点集合，每个视图对应一组3\+D点。 \\
+\hline
+{\em image\+\_\+points\+\_\+left} & 左图像点集合，每个视图对应一组2\+D点。 \\
+\hline
+{\em image\+\_\+points\+\_\+right} & 右图像点集合，每个视图对应一组2\+D点。 \\
+\hline
+{\em image\+\_\+size} & 图像尺寸。 \\
+\hline
+{\em left\+\_\+camera} & 输出的左相机模型。 \\
+\hline
+{\em right\+\_\+camera} & 输出的右相机模型。 \\
+\hline
+{\em out\+\_\+extrinsic} & 输出的左右相机之间的4x4外参矩阵。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+如果标定成功返回 true，否则返回 false。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_stereo_camera_afad601374738b16c21464ab8299b8c61}\index{rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}!computeDisparity@{computeDisparity}}
+\index{computeDisparity@{computeDisparity}!rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}}
+\doxysubsubsection{\texorpdfstring{computeDisparity()}{computeDisparity()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_stereo_camera_afad601374738b16c21464ab8299b8c61} 
+bool rc\+\_\+vision\+::core\+::\+Stereo\+Camera\+::compute\+Disparity (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat \&}]{rectified\+\_\+left}{, }\item[{const cv\+::\+Mat \&}]{rectified\+\_\+right}{, }\item[{cv\+::\+Mat \&}]{disparity\+\_\+map}{}\end{DoxyParamCaption}) const}
+
+
+
+计算视差图。 
+
+
+\begin{DoxyParams}{参数}
+{\em rectified\+\_\+left} & 校正后的左图像。 \\
+\hline
+{\em rectified\+\_\+right} & 校正后的右图像。 \\
+\hline
+{\em disparity\+\_\+map} & 输出的视差图。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+如果计算成功返回 true，否则返回 false。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_stereo_camera_a88388e02b9df276049facdb521b4310c}\index{rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}!getExtrinsic@{getExtrinsic}}
+\index{getExtrinsic@{getExtrinsic}!rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}}
+\doxysubsubsection{\texorpdfstring{getExtrinsic()}{getExtrinsic()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_stereo_camera_a88388e02b9df276049facdb521b4310c} 
+const Eigen\+::\+Matrix4d \& rc\+\_\+vision\+::core\+::\+Stereo\+Camera\+::get\+Extrinsic (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+获取左右相机之间的外参矩阵。 
+
+\begin{DoxyReturn}{返回}
+左右相机之间的4x4外参矩阵。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_stereo_camera_a30cbfd0d1d7e59db5608b0ec3a28452a}\index{rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}!getLeftCamera@{getLeftCamera}}
+\index{getLeftCamera@{getLeftCamera}!rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}}
+\doxysubsubsection{\texorpdfstring{getLeftCamera()}{getLeftCamera()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_stereo_camera_a30cbfd0d1d7e59db5608b0ec3a28452a} 
+const \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}} \& rc\+\_\+vision\+::core\+::\+Stereo\+Camera\+::get\+Left\+Camera (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+获取左相机模型。 
+
+\begin{DoxyReturn}{返回}
+左相机模型的引用。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_stereo_camera_a854c2462e14702c4e9a18253a769b94b}\index{rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}!getRightCamera@{getRightCamera}}
+\index{getRightCamera@{getRightCamera}!rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}}
+\doxysubsubsection{\texorpdfstring{getRightCamera()}{getRightCamera()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_stereo_camera_a854c2462e14702c4e9a18253a769b94b} 
+const \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}} \& rc\+\_\+vision\+::core\+::\+Stereo\+Camera\+::get\+Right\+Camera (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+获取右相机模型。 
+
+\begin{DoxyReturn}{返回}
+右相机模型的引用。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_stereo_camera_abcad7887b277fb32479b1301cd6d0dee}\index{rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}!rectifyImages@{rectifyImages}}
+\index{rectifyImages@{rectifyImages}!rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}}
+\doxysubsubsection{\texorpdfstring{rectifyImages()}{rectifyImages()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_stereo_camera_abcad7887b277fb32479b1301cd6d0dee} 
+bool rc\+\_\+vision\+::core\+::\+Stereo\+Camera\+::rectify\+Images (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat \&}]{left\+\_\+image}{, }\item[{const cv\+::\+Mat \&}]{right\+\_\+image}{, }\item[{cv\+::\+Mat \&}]{rectified\+\_\+left}{, }\item[{cv\+::\+Mat \&}]{rectified\+\_\+right}{}\end{DoxyParamCaption}) const}
+
+
+
+对左右图像进行校正。 
+
+
+\begin{DoxyParams}{参数}
+{\em left\+\_\+image} & 左图像。 \\
+\hline
+{\em right\+\_\+image} & 右图像。 \\
+\hline
+{\em rectified\+\_\+left} & 校正后的左图像。 \\
+\hline
+{\em rectified\+\_\+right} & 校正后的右图像。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+如果校正成功返回 true，否则返回 false。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_stereo_camera_a153e06fe13239607d22181166c30b633}\index{rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}!setExtrinsic@{setExtrinsic}}
+\index{setExtrinsic@{setExtrinsic}!rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}}
+\doxysubsubsection{\texorpdfstring{setExtrinsic()}{setExtrinsic()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_stereo_camera_a153e06fe13239607d22181166c30b633} 
+void rc\+\_\+vision\+::core\+::\+Stereo\+Camera\+::set\+Extrinsic (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix4d \&}]{extrinsic}{}\end{DoxyParamCaption})}
+
+
+
+设置左右相机之间的外参矩阵。 
+
+
+\begin{DoxyParams}{参数}
+{\em extrinsic} & 新的4x4外参矩阵。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_stereo_camera_ab507977a37abed1988ec020bb276c9b5}\index{rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}!setLeftCamera@{setLeftCamera}}
+\index{setLeftCamera@{setLeftCamera}!rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}}
+\doxysubsubsection{\texorpdfstring{setLeftCamera()}{setLeftCamera()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_stereo_camera_ab507977a37abed1988ec020bb276c9b5} 
+void rc\+\_\+vision\+::core\+::\+Stereo\+Camera\+::set\+Left\+Camera (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}} \&}]{left\+\_\+camera}{}\end{DoxyParamCaption})}
+
+
+
+设置左相机模型。 
+
+
+\begin{DoxyParams}{参数}
+{\em left\+\_\+camera} & 新的左相机模型。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_stereo_camera_a0dbecbdd894b0cc3585585fdcb195689}\index{rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}!setRightCamera@{setRightCamera}}
+\index{setRightCamera@{setRightCamera}!rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}}
+\doxysubsubsection{\texorpdfstring{setRightCamera()}{setRightCamera()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_stereo_camera_a0dbecbdd894b0cc3585585fdcb195689} 
+void rc\+\_\+vision\+::core\+::\+Stereo\+Camera\+::set\+Right\+Camera (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}} \&}]{right\+\_\+camera}{}\end{DoxyParamCaption})}
+
+
+
+设置右相机模型。 
+
+
+\begin{DoxyParams}{参数}
+{\em right\+\_\+camera} & 新的右相机模型。 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classrc__vision_1_1core_1_1_stereo_camera_a4b08b888824be38f601674159cac0536}\index{rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}!extrinsic\_@{extrinsic\_}}
+\index{extrinsic\_@{extrinsic\_}!rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}}
+\doxysubsubsection{\texorpdfstring{extrinsic\_}{extrinsic\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_stereo_camera_a4b08b888824be38f601674159cac0536} 
+Eigen\+::\+Matrix4d rc\+\_\+vision\+::core\+::\+Stereo\+Camera\+::extrinsic\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+左右相机之间的外参矩阵（4x4）。 \Hypertarget{classrc__vision_1_1core_1_1_stereo_camera_a115958da9254d2ff40c1a1d55e3ff4cf}\index{rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}!left\_camera\_@{left\_camera\_}}
+\index{left\_camera\_@{left\_camera\_}!rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}}
+\doxysubsubsection{\texorpdfstring{left\_camera\_}{left\_camera\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_stereo_camera_a115958da9254d2ff40c1a1d55e3ff4cf} 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}} rc\+\_\+vision\+::core\+::\+Stereo\+Camera\+::left\+\_\+camera\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+左相机模型。 \Hypertarget{classrc__vision_1_1core_1_1_stereo_camera_a9c08fb78ae5944473018c527c34cb756}\index{rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}!right\_camera\_@{right\_camera\_}}
+\index{right\_camera\_@{right\_camera\_}!rc\_vision::core::StereoCamera@{rc\_vision::core::StereoCamera}}
+\doxysubsubsection{\texorpdfstring{right\_camera\_}{right\_camera\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_stereo_camera_a9c08fb78ae5944473018c527c34cb756} 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_camera}{Camera}} rc\+\_\+vision\+::core\+::\+Stereo\+Camera\+::right\+\_\+camera\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+右相机模型。 
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/14168/1/rc\+\_\+vision/core\+\_\+lib/include/rc\+\_\+vision/core/\mbox{\hyperlink{camera_8hpp}{camera.\+hpp}}\end{DoxyCompactItemize}

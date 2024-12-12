@@ -1,0 +1,82 @@
+\doxysection{edge\+\_\+detector.\+hpp}
+\hypertarget{edge__detector_8hpp_source}{}\label{edge__detector_8hpp_source}\index{C:/Users/14168/1/rc\_vision/core\_lib/include/rc\_vision/core/edge\_detector.hpp@{C:/Users/14168/1/rc\_vision/core\_lib/include/rc\_vision/core/edge\_detector.hpp}}
+\mbox{\hyperlink{edge__detector_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ RC\_VISION\_CORE\_EDGE\_DETECTOR\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ RC\_VISION\_CORE\_EDGE\_DETECTOR\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <opencv2/opencv.hpp>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{logger_8hpp}{rc\_vision/core/logger.hpp}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerc__vision}{rc\_vision}}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{namespace\ }core\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10}{EdgeDetectionMethod}}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10a3701051f20fd8dd55bcd9f355a511745}{CANNY}},\ \ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10a2eb35f75582ca62917714c438551bba5}{SOBEL}},\ \ \ \ \ \ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10a1c2d5f3f8e6cbb0c7b033c388c905d22}{LAPLACIAN}},\ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 可以添加更多方法}}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048}{EdgeType}}\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048ab61773b9b3968a9988d765d728985862}{GENERAL}},\ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048a17b8ef2c330f1430e00c9de5469fc7e7}{LINE}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048ac411afd31d32cec664d372acc12f404a}{CORNER}},\ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048a0af50777920c1401ab975cab64c4d491}{CIRCLE}},\ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048aecdc92bf56d960b73b02ee40125758bc}{POLYGON}},\ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 可以添加更多类型}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{EdgeDetectionResult}}\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ cv::Mat\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result_a0407d29cbd22b49eda6720a63e0c2fda}{edges}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<cv::Point>\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result_a72865c65d00551367de418fda206995a}{edge\_points}};\ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<EdgeType>\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result_a5169866f9b69eb118161494bd34ddbc5}{edge\_types}};\ \ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector}{EdgeDetector}}\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_aa3e8133d4c347807da0490436a728ba0}{EdgeDetector}}();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_a44a4ee20a173202df13785af4ed138f2}{\string~EdgeDetector}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_a32a008786bcf0212965bacbf3bbecf07}{setMethod}}(\mbox{\hyperlink{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10}{EdgeDetectionMethod}}\ method);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_a1dc37a0731980fae2c010e0331618e24}{setParameters}}(\textcolor{keyword}{const}\ std::vector<double>\&\ params);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_abfffa612a5025c2a60c79203b4df8ccb}{loadConfig}}(\textcolor{keyword}{const}\ std::string\&\ config\_file);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{EdgeDetectionResult}}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_ade22230c04ed0c6909eebd4c1a8e824d}{detectEdges}}(\textcolor{keyword}{const}\ cv::Mat\&\ image);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10}{EdgeDetectionMethod}}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_a7989cc2a039cf069a124856e54f321bd}{getMethod}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_acbe4e47208e3e1f1f44e77b0df35d9c8}{setDetectEdgeTypes}}(\textcolor{keyword}{const}\ std::vector<EdgeType>\&\ types);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10}{EdgeDetectionMethod}}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_a9eb3069d7bcb59fa399559811e276fae}{current\_method\_}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_a9be0beaa54b33ba298157c64ba938194}{parameters\_}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<EdgeType>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_a7befbc0174178ddb0a52a82dcd23d52d}{detect\_edge\_types\_}};\ \ \ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{EdgeDetectionResult}}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_a3c353a11b619867c58aa5280dd56879a}{detectCanny}}(\textcolor{keyword}{const}\ cv::Mat\&\ image);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{EdgeDetectionResult}}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_a4e810b938cc293cfebbd0e0c21dc95f0}{detectSobel}}(\textcolor{keyword}{const}\ cv::Mat\&\ image);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{EdgeDetectionResult}}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_aadacff19a254613068ec7d602b80c985}{detectLaplacian}}(\textcolor{keyword}{const}\ cv::Mat\&\ image);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_ac79c4298197b96be4418966c08deaa24}{classifyEdgeTypes}}(\textcolor{keyword}{const}\ cv::Mat\&\ edges,\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{EdgeDetectionResult}}\&\ result);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_a673c672de9ca9038bca93e51e86ca8ae}{detectLines}}(\textcolor{keyword}{const}\ cv::Mat\&\ edges,\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{EdgeDetectionResult}}\&\ result);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_a9cd15d95746ea9cdd99f67e89f6a979f}{detectCorners}}(\textcolor{keyword}{const}\ cv::Mat\&\ edges,\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{EdgeDetectionResult}}\&\ result);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_a2fb3d0af93c47c1773ce69826ce12ab6}{detectCircles}}(\textcolor{keyword}{const}\ cv::Mat\&\ edges,\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{EdgeDetectionResult}}\&\ result);\ \ \ \ \ \textcolor{comment}{//\ 新增}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_af4ff19f1105bd35ab6513c6f89dc4141}{detectPolygons}}(\textcolor{keyword}{const}\ cv::Mat\&\ edges,\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{EdgeDetectionResult}}\&\ result);\ \ \ \ \textcolor{comment}{//\ 新增}}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ core}}
+\DoxyCodeLine{00171\ \}\ \textcolor{comment}{//\ namespace\ rc\_vision}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ RC\_VISION\_CORE\_EDGE\_DETECTOR\_HPP}}
+
+\end{DoxyCode}

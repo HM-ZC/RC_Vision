@@ -1,0 +1,7 @@
+camera_matrix:
+  data: [478.3854, 0.31690, 331.9190, 0, 478.5842, 226.7371, 0, 0, 1]
+distortion_coefficients:
+  data: [-0.4085, 0.1536, 6.157666674460974e-04, -0.0017, 0.0]
+extrinsic:
+  rotation: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+  translation: [0, 0, 0]

@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RC vision: C:/Users/14168/1/rc_vision/core_lib/include/rc_vision/core/config.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RC vision<span id="projectnumber">&#160;beta0.1.0</span>
+   </div>
+   <div id="projectbrief">机器人视觉库</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_6b71f9c233d9519f4af35a38b852209b.html">core_lib</a></li><li class="navelem"><a class="el" href="dir_91bce8cc46c2d1a1c49b6c892b066b0d.html">include</a></li><li class="navelem"><a class="el" href="dir_8027d5a996a7752b55704260e4cc0697.html">rc_vision</a></li><li class="navelem"><a class="el" href="dir_cd238af50b2a6e1d947d51424d846599.html">core</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">config.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="config_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef RC_VISION_CORE_CONFIG_HPP</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define RC_VISION_CORE_CONFIG_HPP</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;yaml-cpp/yaml.h&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="logger_8hpp.html">rc_vision/core/logger.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacerc__vision.html">rc_vision</a> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">namespace </span>core {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespacerc__vision_1_1core.html#aa2f681867cdda0c2c1ae50537b983689">   16</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespacerc__vision_1_1core.html#aa2f681867cdda0c2c1ae50537b983689">ConfigFormat</a> {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            <a class="code hl_enumvalue" href="namespacerc__vision_1_1core.html#aa2f681867cdda0c2c1ae50537b983689a9463f87bbed1fcdacfb8d40e185ca2bc">YAML</a>, </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            <a class="code hl_enumvalue" href="namespacerc__vision_1_1core.html#aa2f681867cdda0c2c1ae50537b983689a0ecd11c1d7a287401d148a23bbd7a2f8">JSON</a> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        };</div>
+</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_config.html">   26</a></span>        <span class="keyword">class </span><a class="code hl_class" href="classrc__vision_1_1core_1_1_config.html">Config</a> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_config.html#a544d6407f4e26e46a23d4f800caf5c6c">   31</a></span>            <a class="code hl_enumeration" href="namespacerc__vision_1_1core.html#aa2f681867cdda0c2c1ae50537b983689">ConfigFormat</a> <a class="code hl_variable" href="classrc__vision_1_1core_1_1_config.html#a544d6407f4e26e46a23d4f800caf5c6c">format</a> = <a class="code hl_enumvalue" href="namespacerc__vision_1_1core.html#aa2f681867cdda0c2c1ae50537b983689a9463f87bbed1fcdacfb8d40e185ca2bc">ConfigFormat::YAML</a>; </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_config.html#a6d1fc7702bdc3c5348752b0defe59e83">   41</a></span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_config.html#a6d1fc7702bdc3c5348752b0defe59e83">loadFromFile</a>(<span class="keyword">const</span> std::string&amp; file_path);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            T <a class="code hl_function" href="classrc__vision_1_1core_1_1_config.html#a23d5b6563d78aeb622ac3c6b223b707d">get</a>(<span class="keyword">const</span> std::string&amp; key) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_config.html#a543f425dca7f01aa69ec9579dc03f021">   57</a></span>            YAML::Node <a class="code hl_variable" href="classrc__vision_1_1core_1_1_config.html#a543f425dca7f01aa69ec9579dc03f021">config_yaml_</a>; </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_config.html#a7242a53bb02dbb8d4aaab905c592b381">   58</a></span>            nlohmann::json <a class="code hl_variable" href="classrc__vision_1_1core_1_1_config.html#a7242a53bb02dbb8d4aaab905c592b381">config_json_</a>; </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_config.html#af85c4dae283114e823281244d7128009">   66</a></span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_config.html#af85c4dae283114e823281244d7128009">loadYAML</a>(<span class="keyword">const</span> std::string&amp; file_path);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_config.html#ae85168267d824247efb5d3d843224070">   74</a></span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="classrc__vision_1_1core_1_1_config.html#ae85168267d824247efb5d3d843224070">loadJSON</a>(<span class="keyword">const</span> std::string&amp; file_path);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        };</div>
+</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="comment">// 模板方法需要在头文件中定义</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00090" data-start="{" data-end="}">
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classrc__vision_1_1core_1_1_config.html#a23d5b6563d78aeb622ac3c6b223b707d">   90</a></span>        T <a class="code hl_function" href="classrc__vision_1_1core_1_1_config.html#a23d5b6563d78aeb622ac3c6b223b707d">Config::get</a>(<span class="keyword">const</span> std::string&amp; key)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            <span class="keywordflow">if</span>(<a class="code hl_variable" href="classrc__vision_1_1core_1_1_config.html#a544d6407f4e26e46a23d4f800caf5c6c">format</a> == <a class="code hl_enumvalue" href="namespacerc__vision_1_1core.html#aa2f681867cdda0c2c1ae50537b983689a9463f87bbed1fcdacfb8d40e185ca2bc">ConfigFormat::YAML</a>) {</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>                <span class="keywordflow">if</span>(!<a class="code hl_variable" href="classrc__vision_1_1core_1_1_config.html#a543f425dca7f01aa69ec9579dc03f021">config_yaml_</a>[key]) {</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                    <a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#aa1ab603542fca1a65433fca4f4ed9991">Logger::getInstance</a>().<a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#a52933946cc1c4dd5d442f073d05eb868">log</a>(<a class="code hl_enumvalue" href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220eabb1ca97ec761fc37101737ba0aa2e7c5">Logger::LogLevel::ERROR</a>, <span class="stringliteral">&quot;Key not found in YAML config: &quot;</span> + key);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                    <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Key not found in YAML config: &quot;</span> + key);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>                }</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                <span class="keywordflow">return</span> <a class="code hl_variable" href="classrc__vision_1_1core_1_1_config.html#a543f425dca7f01aa69ec9579dc03f021">config_yaml_</a>[key].as&lt;T&gt;();</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            }</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code hl_variable" href="classrc__vision_1_1core_1_1_config.html#a544d6407f4e26e46a23d4f800caf5c6c">format</a> == <a class="code hl_enumvalue" href="namespacerc__vision_1_1core.html#aa2f681867cdda0c2c1ae50537b983689a0ecd11c1d7a287401d148a23bbd7a2f8">ConfigFormat::JSON</a>) {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                <span class="keywordflow">if</span>(<a class="code hl_variable" href="classrc__vision_1_1core_1_1_config.html#a7242a53bb02dbb8d4aaab905c592b381">config_json_</a>.find(key) == <a class="code hl_variable" href="classrc__vision_1_1core_1_1_config.html#a7242a53bb02dbb8d4aaab905c592b381">config_json_</a>.end()) {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                    <a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#aa1ab603542fca1a65433fca4f4ed9991">Logger::getInstance</a>().<a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#a52933946cc1c4dd5d442f073d05eb868">log</a>(<a class="code hl_enumvalue" href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220eabb1ca97ec761fc37101737ba0aa2e7c5">Logger::LogLevel::ERROR</a>, <span class="stringliteral">&quot;Key not found in JSON config: &quot;</span> + key);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                    <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Key not found in JSON config: &quot;</span> + key);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                }</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>                <span class="keywordflow">return</span> <a class="code hl_variable" href="classrc__vision_1_1core_1_1_config.html#a7242a53bb02dbb8d4aaab905c592b381">config_json_</a>.at(key).get&lt;T&gt;();</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            }</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                <a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#aa1ab603542fca1a65433fca4f4ed9991">Logger::getInstance</a>().<a class="code hl_function" href="classrc__vision_1_1core_1_1_logger.html#a52933946cc1c4dd5d442f073d05eb868">log</a>(<a class="code hl_enumvalue" href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220eabb1ca97ec761fc37101737ba0aa2e7c5">Logger::LogLevel::ERROR</a>, <span class="stringliteral">&quot;Unsupported config format.&quot;</span>);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Unsupported config format.&quot;</span>);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            }</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        }</div>
+</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    } <span class="comment">// namespace core</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>} <span class="comment">// namespace rc_vision</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="preprocessor">#endif </span><span class="comment">// RC_VISION_CORE_CONFIG_HPP</span></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_config_html"><div class="ttname"><a href="classrc__vision_1_1core_1_1_config.html">rc_vision::core::Config</a></div><div class="ttdoc">配置管理类，支持 YAML 和 JSON 格式的配置文件加载与访问。</div><div class="ttdef"><b>定义</b> config.hpp:26</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_config_html_a23d5b6563d78aeb622ac3c6b223b707d"><div class="ttname"><a href="classrc__vision_1_1core_1_1_config.html#a23d5b6563d78aeb622ac3c6b223b707d">rc_vision::core::Config::get</a></div><div class="ttdeci">T get(const std::string &amp;key) const</div><div class="ttdoc">根据键获取配置值。</div><div class="ttdef"><b>定义</b> config.hpp:90</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_config_html_a543f425dca7f01aa69ec9579dc03f021"><div class="ttname"><a href="classrc__vision_1_1core_1_1_config.html#a543f425dca7f01aa69ec9579dc03f021">rc_vision::core::Config::config_yaml_</a></div><div class="ttdeci">YAML::Node config_yaml_</div><div class="ttdef"><b>定义</b> config.hpp:57</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_config_html_a544d6407f4e26e46a23d4f800caf5c6c"><div class="ttname"><a href="classrc__vision_1_1core_1_1_config.html#a544d6407f4e26e46a23d4f800caf5c6c">rc_vision::core::Config::format</a></div><div class="ttdeci">ConfigFormat format</div><div class="ttdoc">构造函数，默认配置格式为 YAML。</div><div class="ttdef"><b>定义</b> config.hpp:31</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_config_html_a6d1fc7702bdc3c5348752b0defe59e83"><div class="ttname"><a href="classrc__vision_1_1core_1_1_config.html#a6d1fc7702bdc3c5348752b0defe59e83">rc_vision::core::Config::loadFromFile</a></div><div class="ttdeci">bool loadFromFile(const std::string &amp;file_path)</div><div class="ttdoc">从指定文件加载配置。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_config_html_a7242a53bb02dbb8d4aaab905c592b381"><div class="ttname"><a href="classrc__vision_1_1core_1_1_config.html#a7242a53bb02dbb8d4aaab905c592b381">rc_vision::core::Config::config_json_</a></div><div class="ttdeci">nlohmann::json config_json_</div><div class="ttdef"><b>定义</b> config.hpp:58</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_config_html_ae85168267d824247efb5d3d843224070"><div class="ttname"><a href="classrc__vision_1_1core_1_1_config.html#ae85168267d824247efb5d3d843224070">rc_vision::core::Config::loadJSON</a></div><div class="ttdeci">bool loadJSON(const std::string &amp;file_path)</div><div class="ttdoc">从 JSON 文件加载配置。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_config_html_af85c4dae283114e823281244d7128009"><div class="ttname"><a href="classrc__vision_1_1core_1_1_config.html#af85c4dae283114e823281244d7128009">rc_vision::core::Config::loadYAML</a></div><div class="ttdeci">bool loadYAML(const std::string &amp;file_path)</div><div class="ttdoc">从 YAML 文件加载配置。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_a52933946cc1c4dd5d442f073d05eb868"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#a52933946cc1c4dd5d442f073d05eb868">rc_vision::core::Logger::log</a></div><div class="ttdeci">void log(LogLevel level, const std::string &amp;message, const std::string &amp;file=&quot;&quot;, int line=0, const std::string &amp;func=&quot;&quot;)</div><div class="ttdoc">记录日志消息。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_aa1ab603542fca1a65433fca4f4ed9991"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#aa1ab603542fca1a65433fca4f4ed9991">rc_vision::core::Logger::getInstance</a></div><div class="ttdeci">static Logger &amp; getInstance()</div><div class="ttdoc">获取 Logger 的单例实例。</div></div>
+<div class="ttc" id="aclassrc__vision_1_1core_1_1_logger_html_ae470bd63a16ab67d5a48d0ef6972220eabb1ca97ec761fc37101737ba0aa2e7c5"><div class="ttname"><a href="classrc__vision_1_1core_1_1_logger.html#ae470bd63a16ab67d5a48d0ef6972220eabb1ca97ec761fc37101737ba0aa2e7c5">rc_vision::core::Logger::LogLevel::ERROR</a></div><div class="ttdeci">@ ERROR</div></div>
+<div class="ttc" id="alogger_8hpp_html"><div class="ttname"><a href="logger_8hpp.html">logger.hpp</a></div></div>
+<div class="ttc" id="anamespacerc__vision_1_1core_html_aa2f681867cdda0c2c1ae50537b983689"><div class="ttname"><a href="namespacerc__vision_1_1core.html#aa2f681867cdda0c2c1ae50537b983689">rc_vision::core::ConfigFormat</a></div><div class="ttdeci">ConfigFormat</div><div class="ttdoc">配置文件支持的格式。</div><div class="ttdef"><b>定义</b> config.hpp:16</div></div>
+<div class="ttc" id="anamespacerc__vision_1_1core_html_aa2f681867cdda0c2c1ae50537b983689a0ecd11c1d7a287401d148a23bbd7a2f8"><div class="ttname"><a href="namespacerc__vision_1_1core.html#aa2f681867cdda0c2c1ae50537b983689a0ecd11c1d7a287401d148a23bbd7a2f8">rc_vision::core::ConfigFormat::JSON</a></div><div class="ttdeci">@ JSON</div></div>
+<div class="ttc" id="anamespacerc__vision_1_1core_html_aa2f681867cdda0c2c1ae50537b983689a9463f87bbed1fcdacfb8d40e185ca2bc"><div class="ttname"><a href="namespacerc__vision_1_1core.html#aa2f681867cdda0c2c1ae50537b983689a9463f87bbed1fcdacfb8d40e185ca2bc">rc_vision::core::ConfigFormat::YAML</a></div><div class="ttdeci">@ YAML</div></div>
+<div class="ttc" id="anamespacerc__vision_html"><div class="ttname"><a href="namespacerc__vision.html">rc_vision</a></div><div class="ttdef"><b>定义</b> camera.hpp:10</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

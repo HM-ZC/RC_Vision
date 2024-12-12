@@ -1,0 +1,101 @@
+\doxysection{point\+\_\+cloud.\+hpp}
+\hypertarget{point__cloud_8hpp_source}{}\label{point__cloud_8hpp_source}\index{C:/Users/14168/1/rc\_vision/core\_lib/include/rc\_vision/core/point\_cloud.hpp@{C:/Users/14168/1/rc\_vision/core\_lib/include/rc\_vision/core/point\_cloud.hpp}}
+\mbox{\hyperlink{point__cloud_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ RC\_VISION\_CORE\_POINT\_CLOUD\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ RC\_VISION\_CORE\_POINT\_CLOUD\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <Eigen/Dense>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <opencv2/opencv.hpp>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerc__vision}{rc\_vision}}\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{namespace\ }core\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structrc__vision_1_1core_1_1_point}{Point}}\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_a06d7bc322a5c1c8fd1de6b667dc4098c}{x}};\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_a12a1a698ea0e10c16cf97be69c70edb9}{y}};\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_a493c0be6f8e417edb2a30e40de5c5753}{z}};\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<Eigen::Vector3d>\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_a505f2048929037a152c39190a58120ed}{color}};\ \ \ \ \ \ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<Eigen::Vector3d>\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_a4f9667434169fb5f33af797065e18c1f}{normal}};\ \ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<double>\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_a3fa8e01e07cfc3392b95d52cf2f903ce}{intensity}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_a3bd60b42a602b5942c97448a88b5e1ab}{Point}}(\textcolor{keywordtype}{double}\ x\_,\ \textcolor{keywordtype}{double}\ y\_,\ \textcolor{keywordtype}{double}\ z\_)\ :\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_a06d7bc322a5c1c8fd1de6b667dc4098c}{x}}(x\_),\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_a12a1a698ea0e10c16cf97be69c70edb9}{y}}(y\_),\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_a493c0be6f8e417edb2a30e40de5c5753}{z}}(z\_)\ \{\}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_a040147cdad1ad0242f26ae691b70b9e6}{Point}}(\textcolor{keywordtype}{double}\ x\_,\ \textcolor{keywordtype}{double}\ y\_,\ \textcolor{keywordtype}{double}\ z\_,\ \textcolor{keyword}{const}\ Eigen::Vector3d\&\ color\_)}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_a06d7bc322a5c1c8fd1de6b667dc4098c}{x}}(x\_),\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_a12a1a698ea0e10c16cf97be69c70edb9}{y}}(y\_),\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_a493c0be6f8e417edb2a30e40de5c5753}{z}}(z\_),\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_a505f2048929037a152c39190a58120ed}{color}}(color\_)\ \{\}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 可根据需要添加更多构造函数}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structrc__vision_1_1core_1_1_point_cloud_stats}{PointCloudStats}}\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_cloud_stats_a4ed0bc15f417f20753d1d958d1867108}{min\_x}},\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_cloud_stats_addb4251c714b58159c190f02025ed9c2}{max\_x}};\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_cloud_stats_a67ee58a7b7db72b6e257b3f202f4f904}{min\_y}},\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_cloud_stats_abd1c9cad921f3609118728fb88eb53dc}{max\_y}};\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_cloud_stats_aadf3dfdbe5d31cf0f3df8bb8b1d81bf8}{min\_z}},\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_cloud_stats_ae8e80cfe2350ec00736546b974606ed0}{max\_z}};\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_cloud_stats_a30b6b300a7e6e93bca9b475ef25e806b}{mean\_x}},\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_cloud_stats_ac38b64427aeb5233157b4fbb4580f5de}{mean\_y}},\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_cloud_stats_a025612b5dcbb4b7b3c2ad39f73134d29}{mean\_z}};\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_cloud_stats_ab3441cc69dd94247a5c9748da9a8e488}{variance\_x}},\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_cloud_stats_ada7cd91b8a444ca632769b9b595e36e9}{variance\_y}},\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_cloud_stats_a36ff54c82fcd9536bb1cd43cc068e2de}{variance\_z}};\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud}{PointCloud}}\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a334ba717b6ce6da62cd2e2acab90c1fc}{PointCloud}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a33e0800bec14d451d87c00a78ea7e639}{addPoint}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point}{Point}}\&\ point);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a43eefa6138e5c856e6d1aa4211359322}{addPoint}}(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y,\ \textcolor{keywordtype}{double}\ z);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a751523ee14d085a4e960356f44421991}{addPoint}}(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y,\ \textcolor{keywordtype}{double}\ z,\ \textcolor{keyword}{const}\ Eigen::Vector3d\&\ color);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a87b437110fcaa83268bf1282b4a02966}{size}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Point>\&\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a80b8a324eddcf4b45d554042c6e817c5}{getPoints}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Vector3d\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_abc398f49f61d543eb9401aef6dd0326d}{computeCentroid}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a3024890c90b45397b012a94664690d25}{clear}}();}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_ada57fc208892103f87f7ce350bd6ad70}{transform}}(\textcolor{keyword}{const}\ Eigen::Matrix4d\&\ transformation);}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a35c20a96b89f6190e176cd777a5f6331}{rotate}}(\textcolor{keyword}{const}\ Eigen::Matrix3d\&\ rotation\_matrix);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a49c22e1632475589e3ac4165d1a48e2c}{translate}}(\textcolor{keyword}{const}\ Eigen::Vector3d\&\ translation\_vector);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a972cfb43f6d2d41acb72c429b6285594}{downsample}}(\textcolor{keywordtype}{double}\ voxel\_size);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_aecbaf044caa6f09ec56f4d8316b061bf}{statisticalOutlierRemoval}}(\textcolor{keywordtype}{int}\ mean\_k\ =\ 50,\ \textcolor{keywordtype}{double}\ std\_dev\_mul\_thresh\ =\ 1.0);}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_ad53aa9613d5d3d42be00a5c73f4b2158}{radiusOutlierRemoval}}(\textcolor{keywordtype}{double}\ radius,\ \textcolor{keywordtype}{int}\ min\_neighbors);}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a7ed32a0a585be15470df1977bbe3fd51}{computeNormals}}(\textcolor{keywordtype}{int}\ k\ =\ 10);}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix4d\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a0cd8d7006aa19ce750444e00f1ed71b6}{icp}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud}{PointCloud}}\&\ target,\ \textcolor{keywordtype}{int}\ max\_iterations\ =\ 50,\ \textcolor{keywordtype}{double}\ tolerance\ =\ 1e-\/6);}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<PointCloud>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_ac29fc4cb9e4b2bdc9d9286a945777a0c}{euclideanClustering}}(\textcolor{keywordtype}{double}\ cluster\_tolerance,\ \textcolor{keywordtype}{int}\ min\_size,\ \textcolor{keywordtype}{int}\ max\_size)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a6c47a42a53c785a27d2daeb27702a575}{merge}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud}{PointCloud}}\&\ other);}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_ab1d040a42d66df872acb26a7019fb60b}{mergeWith}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud}{PointCloud}}\&\ other,\ \textcolor{keyword}{const}\ Eigen::Matrix4d\&\ transformation);}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrc__vision_1_1core_1_1_point_cloud_stats}{PointCloudStats}}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a0d6537d33979a1ada7d5ad32c9c87b69}{computeStats}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_aff92bbfb11f0875f8964342060674ccb}{loadFromPLY}}(\textcolor{keyword}{const}\ std::string\&\ file\_path);}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_af3c87ac8c0d9939920f8d7d2c2c72734}{saveToPLY}}(\textcolor{keyword}{const}\ std::string\&\ file\_path)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a7d28cc313c004bd8e889ad02340d26c5}{loadFromPCD}}(\textcolor{keyword}{const}\ std::string\&\ file\_path);}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_afad42fe7d0dda2669855b6ae3baf21f3}{saveToPCD}}(\textcolor{keyword}{const}\ std::string\&\ file\_path)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Point>\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a08060c954a98698c9d30501e42c5030f}{points\_}};\ }
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrc__vision_1_1core_1_1_point_cloud_a4560c6ddb8c33524063dcb39306c82d2}{applyTransformation}}(\textcolor{keyword}{const}\ Eigen::Matrix4d\&\ transformation);}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ core}}
+\DoxyCodeLine{00276\ \}\ \textcolor{comment}{//\ namespace\ rc\_vision}}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ RC\_VISION\_CORE\_POINT\_CLOUD\_HPP}}
+
+\end{DoxyCode}

@@ -1,0 +1,399 @@
+\doxysection{rc\+\_\+vision\+::core\+::Logger类 参考}
+\hypertarget{classrc__vision_1_1core_1_1_logger}{}\label{classrc__vision_1_1core_1_1_logger}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+
+
+日志记录类，提供多级别日志记录功能，支持异步写入和日志文件旋转。  
+
+
+
+
+{\ttfamily \#include $<$logger.\+hpp$>$}
+
+\doxysubsubsection*{Public 类型}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220e}{Log\+Level}} \{ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220eadc30ec20708ef7b0f641ef78b7880a15}{DEBUG}}
+, \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220ea551b723eafd6a31d444fcb2f5920fbd3}{INFO}}
+, \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220ea32bd8a1db2275458673903bdb84cb277}{WARN}}
+, \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220eabb1ca97ec761fc37101737ba0aa2e7c5}{ERROR}}
+ \}
+\begin{DoxyCompactList}\small\item\em 日志级别枚举。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a848d4bea1667e3fd44060b8a3e7c3554}{set\+Log\+Level}} (\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220e}{Log\+Level}} level)
+\begin{DoxyCompactList}\small\item\em 设置当前日志级别。 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_acaffa4ff667094538a48ba46db50ffba}{set\+Log\+File}} (const std\+::string \&file\+\_\+path, std\+::size\+\_\+t max\+\_\+file\+\_\+size=10 \texorpdfstring{$\ast$}{*}1024 \texorpdfstring{$\ast$}{*}1024)
+\begin{DoxyCompactList}\small\item\em 设置日志文件输出，并指定最大文件大小。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a52933946cc1c4dd5d442f073d05eb868}{log}} (\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220e}{Log\+Level}} level, const std\+::string \&message, const std\+::string \&file="{}"{}, int line=0, const std\+::string \&func="{}"{})
+\begin{DoxyCompactList}\small\item\em 记录日志消息。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a974ba16a470e83f6b8c278b44aa5c9f0}{shutdown}} ()
+\begin{DoxyCompactList}\small\item\em 关闭日志系统。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger}{Logger}} \& \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_aa1ab603542fca1a65433fca4f4ed9991}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em 获取 \doxylink{classrc__vision_1_1core_1_1_logger}{Logger} 的单例实例。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a7492dd577ec9d03c86413aaaa64f94e5}{Logger}} ()
+\begin{DoxyCompactList}\small\item\em 默认构造函数。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ab38b7bf64da59c25119299136d62c3c3}{\texorpdfstring{$\sim$}{\string~}\+Logger}} ()
+\begin{DoxyCompactList}\small\item\em 析构函数。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a29d990b71201052a699cadd0bb355836}{Logger}} (const \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger}{Logger}} \&)=delete
+\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger}{Logger}} \& \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a657a08aeb7911f3b5c52fe5aafcc11c1}{operator=}} (const \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger}{Logger}} \&)=delete
+\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae00ace1909c4670442eccb6acba970cc}{process\+Logs}} ()
+\begin{DoxyCompactList}\small\item\em 日志处理线程的方法。 \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae82e6082a3f34d0f8ba06eeac376026c}{get\+Current\+Time}} () const
+\begin{DoxyCompactList}\small\item\em 获取当前时间的字符串表示。 \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a502b5d1666947c8951ab229314eb56b0}{get\+Log\+Level\+String}} (\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220e}{Log\+Level}} level) const
+\begin{DoxyCompactList}\small\item\em 获取日志级别的字符串表示。 \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae80cce9a3e03f0578f1a39b306ff6720}{get\+Color\+Code}} (\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220e}{Log\+Level}} level) const
+\begin{DoxyCompactList}\small\item\em 获取对应日志级别的颜色代码。 \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ac50d68d9647e2fafbc38b05e09bdcb91}{reset\+Color}} () const
+\begin{DoxyCompactList}\small\item\em 重置终端颜色。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a999e0b43a9fd334b45197a742ddad6d4}{rotate\+Log\+File}} ()
+\begin{DoxyCompactList}\small\item\em 检查日志文件大小，并在必要时执行日志文件旋转。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220e}{Log\+Level}} \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a2a6fba87b883be298cb97aa6a10ad5b9}{current\+\_\+level\+\_\+}}
+\item 
+std\+::mutex \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae19045a60a9954ac2dc7ea0e82ede130}{mtx\+\_\+}}
+\item 
+std\+::ofstream \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a30d50d5fe9e83cf2da33967515baa9cd}{log\+\_\+file\+\_\+}}
+\item 
+std\+::string \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_aeae5fa58ba2e16bb62174e784be7631c}{log\+\_\+file\+\_\+path\+\_\+}}
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a442b7a6531a764895938428e680d5d77}{max\+\_\+file\+\_\+size\+\_\+}}
+\item 
+std\+::queue$<$ std\+::string $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a0d980454765fe6085ef0ecfc4cf12881}{log\+\_\+queue\+\_\+}}
+\item 
+std\+::mutex \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae213092d5e6bfb26b65ebe6aedba93e5}{queue\+\_\+mtx\+\_\+}}
+\item 
+std\+::condition\+\_\+variable \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a85ca19f5960d7b97c5426e8c4d5a2186}{cv\+\_\+}}
+\item 
+std\+::thread \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ac3a7343f2dfa46c0cd76dc924abfbb98}{logging\+\_\+thread\+\_\+}}
+\item 
+std\+::atomic$<$ bool $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a9104e42f718211c0195493a484fb81f3}{exit\+\_\+flag\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+日志记录类，提供多级别日志记录功能，支持异步写入和日志文件旋转。 
+
+该类采用单例模式，确保全局只有一个日志实例。支持将日志输出到控制台和文件， 并根据设置的最大文件大小自动旋转日志文件。 
+
+\doxysubsection{成员枚举类型说明}
+\Hypertarget{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220e}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!LogLevel@{LogLevel}}
+\index{LogLevel@{LogLevel}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{LogLevel}{LogLevel}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220e} 
+enum class \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220e}{rc\+\_\+vision\+::core\+::\+Logger\+::\+Log\+Level}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+日志级别枚举。 
+
+定义了四个日志级别：\+DEBUG, INFO, WARN, ERROR。 \begin{DoxyEnumFields}[2]{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DEBUG@{DEBUG}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!DEBUG@{DEBUG}}}\Hypertarget{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220eadc30ec20708ef7b0f641ef78b7880a15}\label{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220e} 
+DEBUG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INFO@{INFO}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!INFO@{INFO}}}\Hypertarget{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220ea551b723eafd6a31d444fcb2f5920fbd3}\label{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220e} 
+INFO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WARN@{WARN}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!WARN@{WARN}}}\Hypertarget{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220ea32bd8a1db2275458673903bdb84cb277}\label{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220e} 
+WARN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERROR@{ERROR}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!ERROR@{ERROR}}}\Hypertarget{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220eabb1ca97ec761fc37101737ba0aa2e7c5}\label{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220e} 
+ERROR&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classrc__vision_1_1core_1_1_logger_a7492dd577ec9d03c86413aaaa64f94e5}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{Logger()}{Logger()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_a7492dd577ec9d03c86413aaaa64f94e5} 
+rc\+\_\+vision\+::core\+::\+Logger\+::\+Logger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+默认构造函数。 
+
+初始化日志级别为 INFO，并启动日志处理线程。 \Hypertarget{classrc__vision_1_1core_1_1_logger_ab38b7bf64da59c25119299136d62c3c3}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!````~Logger@{\texorpdfstring{$\sim$}{\string~}Logger}}
+\index{````~Logger@{\texorpdfstring{$\sim$}{\string~}Logger}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Logger()}{\string~Logger()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_ab38b7bf64da59c25119299136d62c3c3} 
+rc\+\_\+vision\+::core\+::\+Logger\+::\texorpdfstring{$\sim$}{\string~}\+Logger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+析构函数。 
+
+确保日志系统被正确关闭，释放相关资源。 \Hypertarget{classrc__vision_1_1core_1_1_logger_a29d990b71201052a699cadd0bb355836}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{Logger()}{Logger()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_a29d990b71201052a699cadd0bb355836} 
+rc\+\_\+vision\+::core\+::\+Logger\+::\+Logger (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger}{Logger}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [delete]}}
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classrc__vision_1_1core_1_1_logger_ae80cce9a3e03f0578f1a39b306ff6720}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!getColorCode@{getColorCode}}
+\index{getColorCode@{getColorCode}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{getColorCode()}{getColorCode()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_ae80cce9a3e03f0578f1a39b306ff6720} 
+std\+::string rc\+\_\+vision\+::core\+::\+Logger\+::get\+Color\+Code (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220e}{Log\+Level}}}]{level}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+获取对应日志级别的颜色代码。 
+
+仅在支持 ANSI 颜色码的终端中有效。
+
+
+\begin{DoxyParams}{参数}
+{\em level} & 日志级别。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+std\+::string 颜色代码。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_logger_ae82e6082a3f34d0f8ba06eeac376026c}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!getCurrentTime@{getCurrentTime}}
+\index{getCurrentTime@{getCurrentTime}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{getCurrentTime()}{getCurrentTime()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_ae82e6082a3f34d0f8ba06eeac376026c} 
+std\+::string rc\+\_\+vision\+::core\+::\+Logger\+::get\+Current\+Time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+获取当前时间的字符串表示。 
+
+格式为 "{}\+YYYY-\/\+MM-\/\+DD HH\+:\+MM\+:\+SS.\+mmm"{}。
+
+\begin{DoxyReturn}{返回}
+std\+::string 当前时间的字符串。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_logger_aa1ab603542fca1a65433fca4f4ed9991}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_aa1ab603542fca1a65433fca4f4ed9991} 
+static \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger}{Logger}} \& rc\+\_\+vision\+::core\+::\+Logger\+::get\+Instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+获取 \doxylink{classrc__vision_1_1core_1_1_logger}{Logger} 的单例实例。 
+
+\begin{DoxyReturn}{返回}
+\doxylink{classrc__vision_1_1core_1_1_logger}{Logger}\& 单例实例的引用。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_logger_a502b5d1666947c8951ab229314eb56b0}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!getLogLevelString@{getLogLevelString}}
+\index{getLogLevelString@{getLogLevelString}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{getLogLevelString()}{getLogLevelString()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_a502b5d1666947c8951ab229314eb56b0} 
+std\+::string rc\+\_\+vision\+::core\+::\+Logger\+::get\+Log\+Level\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220e}{Log\+Level}}}]{level}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+获取日志级别的字符串表示。 
+
+
+\begin{DoxyParams}{参数}
+{\em level} & 日志级别。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+std\+::string 日志级别的字符串。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_logger_a52933946cc1c4dd5d442f073d05eb868}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!log@{log}}
+\index{log@{log}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_a52933946cc1c4dd5d442f073d05eb868} 
+void rc\+\_\+vision\+::core\+::\+Logger\+::log (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220e}{Log\+Level}}}]{level}{, }\item[{const std\+::string \&}]{message}{, }\item[{const std\+::string \&}]{file}{ = {\ttfamily "{}"{}}, }\item[{int}]{line}{ = {\ttfamily 0}, }\item[{const std\+::string \&}]{func}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})}
+
+
+
+记录日志消息。 
+
+根据日志级别和当前设置，将日志消息输出到控制台和/或日志文件。 该方法是线程安全的，并且日志消息会被异步写入。
+
+
+\begin{DoxyParams}{参数}
+{\em level} & 日志级别。 \\
+\hline
+{\em message} & 日志内容。 \\
+\hline
+{\em file} & 源文件名（自动填充）。 \\
+\hline
+{\em line} & 行号（自动填充）。 \\
+\hline
+{\em func} & 函数名（自动填充）。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_logger_a657a08aeb7911f3b5c52fe5aafcc11c1}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!operator=@{operator=}}
+\index{operator=@{operator=}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_a657a08aeb7911f3b5c52fe5aafcc11c1} 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger}{Logger}} \& rc\+\_\+vision\+::core\+::\+Logger\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger}{Logger}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [delete]}}
+
+\Hypertarget{classrc__vision_1_1core_1_1_logger_ae00ace1909c4670442eccb6acba970cc}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!processLogs@{processLogs}}
+\index{processLogs@{processLogs}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{processLogs()}{processLogs()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_ae00ace1909c4670442eccb6acba970cc} 
+void rc\+\_\+vision\+::core\+::\+Logger\+::process\+Logs (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+日志处理线程的方法。 
+
+不断从日志队列中取出消息，并将其写入控制台和日志文件。 当收到退出信号时，线程会终止。 \Hypertarget{classrc__vision_1_1core_1_1_logger_ac50d68d9647e2fafbc38b05e09bdcb91}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!resetColor@{resetColor}}
+\index{resetColor@{resetColor}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{resetColor()}{resetColor()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_ac50d68d9647e2fafbc38b05e09bdcb91} 
+std\+::string rc\+\_\+vision\+::core\+::\+Logger\+::reset\+Color (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+重置终端颜色。 
+
+\begin{DoxyReturn}{返回}
+std\+::string 重置颜色的 ANSI 代码。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_logger_a999e0b43a9fd334b45197a742ddad6d4}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!rotateLogFile@{rotateLogFile}}
+\index{rotateLogFile@{rotateLogFile}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{rotateLogFile()}{rotateLogFile()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_a999e0b43a9fd334b45197a742ddad6d4} 
+void rc\+\_\+vision\+::core\+::\+Logger\+::rotate\+Log\+File (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+检查日志文件大小，并在必要时执行日志文件旋转。 
+
+将当前日志文件重命名为带时间戳的备份文件，并重新创建新的日志文件。 \Hypertarget{classrc__vision_1_1core_1_1_logger_acaffa4ff667094538a48ba46db50ffba}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!setLogFile@{setLogFile}}
+\index{setLogFile@{setLogFile}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{setLogFile()}{setLogFile()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_acaffa4ff667094538a48ba46db50ffba} 
+bool rc\+\_\+vision\+::core\+::\+Logger\+::set\+Log\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+\_\+path}{, }\item[{std\+::size\+\_\+t}]{max\+\_\+file\+\_\+size}{ = {\ttfamily 10~\texorpdfstring{$\ast$}{*}1024~\texorpdfstring{$\ast$}{*}1024}}\end{DoxyParamCaption})}
+
+
+
+设置日志文件输出，并指定最大文件大小。 
+
+如果设置了日志文件，日志消息将被写入该文件。超过最大文件大小时， 日志文件将被旋转（重命名并新建文件）。
+
+
+\begin{DoxyParams}{参数}
+{\em file\+\_\+path} & 日志文件的路径。 \\
+\hline
+{\em max\+\_\+file\+\_\+size} & 最大文件大小，单位为字节。默认为10\+MB。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true 如果日志文件设置成功。 
+
+false 如果无法打开日志文件。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_logger_a848d4bea1667e3fd44060b8a3e7c3554}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!setLogLevel@{setLogLevel}}
+\index{setLogLevel@{setLogLevel}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{setLogLevel()}{setLogLevel()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_a848d4bea1667e3fd44060b8a3e7c3554} 
+void rc\+\_\+vision\+::core\+::\+Logger\+::set\+Log\+Level (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220e}{Log\+Level}}}]{level}{}\end{DoxyParamCaption})}
+
+
+
+设置当前日志级别。 
+
+只有级别高于或等于当前设置级别的日志消息会被记录。
+
+
+\begin{DoxyParams}{参数}
+{\em level} & 需要设置的日志级别。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_logger_a974ba16a470e83f6b8c278b44aa5c9f0}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_a974ba16a470e83f6b8c278b44aa5c9f0} 
+void rc\+\_\+vision\+::core\+::\+Logger\+::shutdown (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+关闭日志系统。 
+
+该方法会终止日志写入线程，并确保所有待写入的日志消息被处理。 
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classrc__vision_1_1core_1_1_logger_a2a6fba87b883be298cb97aa6a10ad5b9}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!current\_level\_@{current\_level\_}}
+\index{current\_level\_@{current\_level\_}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{current\_level\_}{current\_level\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_a2a6fba87b883be298cb97aa6a10ad5b9} 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220e}{Log\+Level}} rc\+\_\+vision\+::core\+::\+Logger\+::current\+\_\+level\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+当前日志级别。 \Hypertarget{classrc__vision_1_1core_1_1_logger_a85ca19f5960d7b97c5426e8c4d5a2186}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!cv\_@{cv\_}}
+\index{cv\_@{cv\_}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{cv\_}{cv\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_a85ca19f5960d7b97c5426e8c4d5a2186} 
+std\+::condition\+\_\+variable rc\+\_\+vision\+::core\+::\+Logger\+::cv\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+条件变量，用于通知日志线程有新消息。 \Hypertarget{classrc__vision_1_1core_1_1_logger_a9104e42f718211c0195493a484fb81f3}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!exit\_flag\_@{exit\_flag\_}}
+\index{exit\_flag\_@{exit\_flag\_}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{exit\_flag\_}{exit\_flag\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_a9104e42f718211c0195493a484fb81f3} 
+std\+::atomic$<$bool$>$ rc\+\_\+vision\+::core\+::\+Logger\+::exit\+\_\+flag\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+退出标志，指示日志线程是否应终止。 \Hypertarget{classrc__vision_1_1core_1_1_logger_a30d50d5fe9e83cf2da33967515baa9cd}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!log\_file\_@{log\_file\_}}
+\index{log\_file\_@{log\_file\_}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{log\_file\_}{log\_file\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_a30d50d5fe9e83cf2da33967515baa9cd} 
+std\+::ofstream rc\+\_\+vision\+::core\+::\+Logger\+::log\+\_\+file\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+输出文件流，用于写入日志文件。 \Hypertarget{classrc__vision_1_1core_1_1_logger_aeae5fa58ba2e16bb62174e784be7631c}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!log\_file\_path\_@{log\_file\_path\_}}
+\index{log\_file\_path\_@{log\_file\_path\_}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{log\_file\_path\_}{log\_file\_path\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_aeae5fa58ba2e16bb62174e784be7631c} 
+std\+::string rc\+\_\+vision\+::core\+::\+Logger\+::log\+\_\+file\+\_\+path\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+当前日志文件路径。 \Hypertarget{classrc__vision_1_1core_1_1_logger_a0d980454765fe6085ef0ecfc4cf12881}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!log\_queue\_@{log\_queue\_}}
+\index{log\_queue\_@{log\_queue\_}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{log\_queue\_}{log\_queue\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_a0d980454765fe6085ef0ecfc4cf12881} 
+std\+::queue$<$std\+::string$>$ rc\+\_\+vision\+::core\+::\+Logger\+::log\+\_\+queue\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+日志消息队列。 \Hypertarget{classrc__vision_1_1core_1_1_logger_ac3a7343f2dfa46c0cd76dc924abfbb98}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!logging\_thread\_@{logging\_thread\_}}
+\index{logging\_thread\_@{logging\_thread\_}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{logging\_thread\_}{logging\_thread\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_ac3a7343f2dfa46c0cd76dc924abfbb98} 
+std\+::thread rc\+\_\+vision\+::core\+::\+Logger\+::logging\+\_\+thread\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+日志处理线程。 \Hypertarget{classrc__vision_1_1core_1_1_logger_a442b7a6531a764895938428e680d5d77}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!max\_file\_size\_@{max\_file\_size\_}}
+\index{max\_file\_size\_@{max\_file\_size\_}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{max\_file\_size\_}{max\_file\_size\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_a442b7a6531a764895938428e680d5d77} 
+std\+::size\+\_\+t rc\+\_\+vision\+::core\+::\+Logger\+::max\+\_\+file\+\_\+size\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+最大日志文件大小，超过时进行文件旋转。 \Hypertarget{classrc__vision_1_1core_1_1_logger_ae19045a60a9954ac2dc7ea0e82ede130}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!mtx\_@{mtx\_}}
+\index{mtx\_@{mtx\_}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{mtx\_}{mtx\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_ae19045a60a9954ac2dc7ea0e82ede130} 
+std\+::mutex rc\+\_\+vision\+::core\+::\+Logger\+::mtx\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+互斥锁，用于保护日志级别的修改。 \Hypertarget{classrc__vision_1_1core_1_1_logger_ae213092d5e6bfb26b65ebe6aedba93e5}\index{rc\_vision::core::Logger@{rc\_vision::core::Logger}!queue\_mtx\_@{queue\_mtx\_}}
+\index{queue\_mtx\_@{queue\_mtx\_}!rc\_vision::core::Logger@{rc\_vision::core::Logger}}
+\doxysubsubsection{\texorpdfstring{queue\_mtx\_}{queue\_mtx\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_logger_ae213092d5e6bfb26b65ebe6aedba93e5} 
+std\+::mutex rc\+\_\+vision\+::core\+::\+Logger\+::queue\+\_\+mtx\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+互斥锁，用于保护日志队列。 
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/14168/1/rc\+\_\+vision/core\+\_\+lib/include/rc\+\_\+vision/core/\mbox{\hyperlink{logger_8hpp}{logger.\+hpp}}\end{DoxyCompactItemize}

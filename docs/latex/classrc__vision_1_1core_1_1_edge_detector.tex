@@ -1,0 +1,352 @@
+\doxysection{rc\+\_\+vision\+::core\+::Edge\+Detector类 参考}
+\hypertarget{classrc__vision_1_1core_1_1_edge_detector}{}\label{classrc__vision_1_1core_1_1_edge_detector}\index{rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}}
+
+
+边缘检测类，支持多种边缘检测方法和边缘类型分类。  
+
+
+
+
+{\ttfamily \#include $<$edge\+\_\+detector.\+hpp$>$}
+
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_aa3e8133d4c347807da0490436a728ba0}{Edge\+Detector}} ()
+\begin{DoxyCompactList}\small\item\em 默认构造函数，初始化边缘检测方法为 CANNY。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_a44a4ee20a173202df13785af4ed138f2}{\texorpdfstring{$\sim$}{\string~}\+Edge\+Detector}} ()=default
+\begin{DoxyCompactList}\small\item\em 默认析构函数。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_a32a008786bcf0212965bacbf3bbecf07}{set\+Method}} (\mbox{\hyperlink{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10}{Edge\+Detection\+Method}} method)
+\begin{DoxyCompactList}\small\item\em 设置边缘检测方法。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_a1dc37a0731980fae2c010e0331618e24}{set\+Parameters}} (const std\+::vector$<$ double $>$ \&params)
+\begin{DoxyCompactList}\small\item\em 配置算法参数。 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_abfffa612a5025c2a60c79203b4df8ccb}{load\+Config}} (const std\+::string \&config\+\_\+file)
+\begin{DoxyCompactList}\small\item\em 从配置文件加载边缘检测配置。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{Edge\+Detection\+Result}} \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_ade22230c04ed0c6909eebd4c1a8e824d}{detect\+Edges}} (const cv\+::\+Mat \&image)
+\begin{DoxyCompactList}\small\item\em 执行边缘检测。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10}{Edge\+Detection\+Method}} \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_a7989cc2a039cf069a124856e54f321bd}{get\+Method}} () const
+\begin{DoxyCompactList}\small\item\em 获取当前使用的边缘检测方法。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_acbe4e47208e3e1f1f44e77b0df35d9c8}{set\+Detect\+Edge\+Types}} (const std\+::vector$<$ \mbox{\hyperlink{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048}{Edge\+Type}} $>$ \&types)
+\begin{DoxyCompactList}\small\item\em 设置要检测的边缘类型。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{Edge\+Detection\+Result}} \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_a3c353a11b619867c58aa5280dd56879a}{detect\+Canny}} (const cv\+::\+Mat \&image)
+\begin{DoxyCompactList}\small\item\em 执行 Canny 边缘检测。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{Edge\+Detection\+Result}} \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_a4e810b938cc293cfebbd0e0c21dc95f0}{detect\+Sobel}} (const cv\+::\+Mat \&image)
+\begin{DoxyCompactList}\small\item\em 执行 Sobel 边缘检测。 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{Edge\+Detection\+Result}} \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_aadacff19a254613068ec7d602b80c985}{detect\+Laplacian}} (const cv\+::\+Mat \&image)
+\begin{DoxyCompactList}\small\item\em 执行 Laplacian 边缘检测。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_ac79c4298197b96be4418966c08deaa24}{classify\+Edge\+Types}} (const cv\+::\+Mat \&edges, \mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{Edge\+Detection\+Result}} \&result)
+\begin{DoxyCompactList}\small\item\em 分类边缘类型。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_a673c672de9ca9038bca93e51e86ca8ae}{detect\+Lines}} (const cv\+::\+Mat \&edges, \mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{Edge\+Detection\+Result}} \&result)
+\begin{DoxyCompactList}\small\item\em 检测直线边缘。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_a9cd15d95746ea9cdd99f67e89f6a979f}{detect\+Corners}} (const cv\+::\+Mat \&edges, \mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{Edge\+Detection\+Result}} \&result)
+\begin{DoxyCompactList}\small\item\em 检测角点边缘。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_a2fb3d0af93c47c1773ce69826ce12ab6}{detect\+Circles}} (const cv\+::\+Mat \&edges, \mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{Edge\+Detection\+Result}} \&result)
+\begin{DoxyCompactList}\small\item\em 检测圆形边缘。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_af4ff19f1105bd35ab6513c6f89dc4141}{detect\+Polygons}} (const cv\+::\+Mat \&edges, \mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{Edge\+Detection\+Result}} \&result)
+\begin{DoxyCompactList}\small\item\em 检测多边形边缘。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10}{Edge\+Detection\+Method}} \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_a9eb3069d7bcb59fa399559811e276fae}{current\+\_\+method\+\_\+}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_a9be0beaa54b33ba298157c64ba938194}{parameters\+\_\+}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048}{Edge\+Type}} $>$ \mbox{\hyperlink{classrc__vision_1_1core_1_1_edge_detector_a7befbc0174178ddb0a52a82dcd23d52d}{detect\+\_\+edge\+\_\+types\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+边缘检测类，支持多种边缘检测方法和边缘类型分类。 
+
+\doxylink{classrc__vision_1_1core_1_1_edge_detector}{Edge\+Detector} 提供了多种边缘检测算法，并能够根据检测到的边缘特征将其分类为不同类型的边缘。 
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classrc__vision_1_1core_1_1_edge_detector_aa3e8133d4c347807da0490436a728ba0}\index{rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}!EdgeDetector@{EdgeDetector}}
+\index{EdgeDetector@{EdgeDetector}!rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{EdgeDetector()}{EdgeDetector()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_edge_detector_aa3e8133d4c347807da0490436a728ba0} 
+rc\+\_\+vision\+::core\+::\+Edge\+Detector\+::\+Edge\+Detector (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+默认构造函数，初始化边缘检测方法为 CANNY。 
+
+\Hypertarget{classrc__vision_1_1core_1_1_edge_detector_a44a4ee20a173202df13785af4ed138f2}\index{rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}!````~EdgeDetector@{\texorpdfstring{$\sim$}{\string~}EdgeDetector}}
+\index{````~EdgeDetector@{\texorpdfstring{$\sim$}{\string~}EdgeDetector}!rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}EdgeDetector()}{\string~EdgeDetector()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_edge_detector_a44a4ee20a173202df13785af4ed138f2} 
+rc\+\_\+vision\+::core\+::\+Edge\+Detector\+::\texorpdfstring{$\sim$}{\string~}\+Edge\+Detector (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+默认析构函数。 
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classrc__vision_1_1core_1_1_edge_detector_ac79c4298197b96be4418966c08deaa24}\index{rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}!classifyEdgeTypes@{classifyEdgeTypes}}
+\index{classifyEdgeTypes@{classifyEdgeTypes}!rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{classifyEdgeTypes()}{classifyEdgeTypes()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_edge_detector_ac79c4298197b96be4418966c08deaa24} 
+void rc\+\_\+vision\+::core\+::\+Edge\+Detector\+::classify\+Edge\+Types (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat \&}]{edges}{, }\item[{\mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{Edge\+Detection\+Result}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+分类边缘类型。 
+
+根据检测到的边缘图像，对边缘点进行类型分类。
+
+
+\begin{DoxyParams}{参数}
+{\em edges} & 边缘图像。 \\
+\hline
+{\em result} & 边缘检测结果结构体。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_edge_detector_a3c353a11b619867c58aa5280dd56879a}\index{rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}!detectCanny@{detectCanny}}
+\index{detectCanny@{detectCanny}!rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{detectCanny()}{detectCanny()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_edge_detector_a3c353a11b619867c58aa5280dd56879a} 
+\mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{Edge\+Detection\+Result}} rc\+\_\+vision\+::core\+::\+Edge\+Detector\+::detect\+Canny (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat \&}]{image}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+执行 Canny 边缘检测。 
+
+
+\begin{DoxyParams}{参数}
+{\em image} & 输入图像。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+边缘检测结果结构体。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_edge_detector_a2fb3d0af93c47c1773ce69826ce12ab6}\index{rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}!detectCircles@{detectCircles}}
+\index{detectCircles@{detectCircles}!rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{detectCircles()}{detectCircles()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_edge_detector_a2fb3d0af93c47c1773ce69826ce12ab6} 
+void rc\+\_\+vision\+::core\+::\+Edge\+Detector\+::detect\+Circles (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat \&}]{edges}{, }\item[{\mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{Edge\+Detection\+Result}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+检测圆形边缘。 
+
+
+\begin{DoxyParams}{参数}
+{\em edges} & 边缘图像。 \\
+\hline
+{\em result} & 边缘检测结果结构体。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_edge_detector_a9cd15d95746ea9cdd99f67e89f6a979f}\index{rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}!detectCorners@{detectCorners}}
+\index{detectCorners@{detectCorners}!rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{detectCorners()}{detectCorners()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_edge_detector_a9cd15d95746ea9cdd99f67e89f6a979f} 
+void rc\+\_\+vision\+::core\+::\+Edge\+Detector\+::detect\+Corners (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat \&}]{edges}{, }\item[{\mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{Edge\+Detection\+Result}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+检测角点边缘。 
+
+
+\begin{DoxyParams}{参数}
+{\em edges} & 边缘图像。 \\
+\hline
+{\em result} & 边缘检测结果结构体。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_edge_detector_ade22230c04ed0c6909eebd4c1a8e824d}\index{rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}!detectEdges@{detectEdges}}
+\index{detectEdges@{detectEdges}!rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{detectEdges()}{detectEdges()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_edge_detector_ade22230c04ed0c6909eebd4c1a8e824d} 
+\mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{Edge\+Detection\+Result}} rc\+\_\+vision\+::core\+::\+Edge\+Detector\+::detect\+Edges (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat \&}]{image}{}\end{DoxyParamCaption})}
+
+
+
+执行边缘检测。 
+
+
+\begin{DoxyParams}{参数}
+{\em image} & 输入图像。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+边缘检测结果结构体。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_edge_detector_aadacff19a254613068ec7d602b80c985}\index{rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}!detectLaplacian@{detectLaplacian}}
+\index{detectLaplacian@{detectLaplacian}!rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{detectLaplacian()}{detectLaplacian()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_edge_detector_aadacff19a254613068ec7d602b80c985} 
+\mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{Edge\+Detection\+Result}} rc\+\_\+vision\+::core\+::\+Edge\+Detector\+::detect\+Laplacian (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat \&}]{image}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+执行 Laplacian 边缘检测。 
+
+
+\begin{DoxyParams}{参数}
+{\em image} & 输入图像。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+边缘检测结果结构体。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_edge_detector_a673c672de9ca9038bca93e51e86ca8ae}\index{rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}!detectLines@{detectLines}}
+\index{detectLines@{detectLines}!rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{detectLines()}{detectLines()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_edge_detector_a673c672de9ca9038bca93e51e86ca8ae} 
+void rc\+\_\+vision\+::core\+::\+Edge\+Detector\+::detect\+Lines (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat \&}]{edges}{, }\item[{\mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{Edge\+Detection\+Result}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+检测直线边缘。 
+
+
+\begin{DoxyParams}{参数}
+{\em edges} & 边缘图像。 \\
+\hline
+{\em result} & 边缘检测结果结构体。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_edge_detector_af4ff19f1105bd35ab6513c6f89dc4141}\index{rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}!detectPolygons@{detectPolygons}}
+\index{detectPolygons@{detectPolygons}!rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{detectPolygons()}{detectPolygons()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_edge_detector_af4ff19f1105bd35ab6513c6f89dc4141} 
+void rc\+\_\+vision\+::core\+::\+Edge\+Detector\+::detect\+Polygons (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat \&}]{edges}{, }\item[{\mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{Edge\+Detection\+Result}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+检测多边形边缘。 
+
+
+\begin{DoxyParams}{参数}
+{\em edges} & 边缘图像。 \\
+\hline
+{\em result} & 边缘检测结果结构体。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_edge_detector_a4e810b938cc293cfebbd0e0c21dc95f0}\index{rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}!detectSobel@{detectSobel}}
+\index{detectSobel@{detectSobel}!rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{detectSobel()}{detectSobel()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_edge_detector_a4e810b938cc293cfebbd0e0c21dc95f0} 
+\mbox{\hyperlink{structrc__vision_1_1core_1_1_edge_detection_result}{Edge\+Detection\+Result}} rc\+\_\+vision\+::core\+::\+Edge\+Detector\+::detect\+Sobel (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat \&}]{image}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+执行 Sobel 边缘检测。 
+
+
+\begin{DoxyParams}{参数}
+{\em image} & 输入图像。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+边缘检测结果结构体。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_edge_detector_a7989cc2a039cf069a124856e54f321bd}\index{rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}!getMethod@{getMethod}}
+\index{getMethod@{getMethod}!rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{getMethod()}{getMethod()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_edge_detector_a7989cc2a039cf069a124856e54f321bd} 
+\mbox{\hyperlink{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10}{Edge\+Detection\+Method}} rc\+\_\+vision\+::core\+::\+Edge\+Detector\+::get\+Method (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+获取当前使用的边缘检测方法。 
+
+\begin{DoxyReturn}{返回}
+当前边缘检测方法枚举值。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_edge_detector_abfffa612a5025c2a60c79203b4df8ccb}\index{rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}!loadConfig@{loadConfig}}
+\index{loadConfig@{loadConfig}!rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{loadConfig()}{loadConfig()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_edge_detector_abfffa612a5025c2a60c79203b4df8ccb} 
+bool rc\+\_\+vision\+::core\+::\+Edge\+Detector\+::load\+Config (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{config\+\_\+file}{}\end{DoxyParamCaption})}
+
+
+
+从配置文件加载边缘检测配置。 
+
+
+\begin{DoxyParams}{参数}
+{\em config\+\_\+file} & 配置文件路径（例如 YAML 文件）。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+成功加载返回 true，失败返回 false。 
+\end{DoxyReturn}
+\Hypertarget{classrc__vision_1_1core_1_1_edge_detector_acbe4e47208e3e1f1f44e77b0df35d9c8}\index{rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}!setDetectEdgeTypes@{setDetectEdgeTypes}}
+\index{setDetectEdgeTypes@{setDetectEdgeTypes}!rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{setDetectEdgeTypes()}{setDetectEdgeTypes()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_edge_detector_acbe4e47208e3e1f1f44e77b0df35d9c8} 
+void rc\+\_\+vision\+::core\+::\+Edge\+Detector\+::set\+Detect\+Edge\+Types (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048}{Edge\+Type}} $>$ \&}]{types}{}\end{DoxyParamCaption})}
+
+
+
+设置要检测的边缘类型。 
+
+
+\begin{DoxyParams}{参数}
+{\em types} & 边缘类型枚举值的向量。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_edge_detector_a32a008786bcf0212965bacbf3bbecf07}\index{rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}!setMethod@{setMethod}}
+\index{setMethod@{setMethod}!rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{setMethod()}{setMethod()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_edge_detector_a32a008786bcf0212965bacbf3bbecf07} 
+void rc\+\_\+vision\+::core\+::\+Edge\+Detector\+::set\+Method (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10}{Edge\+Detection\+Method}}}]{method}{}\end{DoxyParamCaption})}
+
+
+
+设置边缘检测方法。 
+
+
+\begin{DoxyParams}{参数}
+{\em method} & 边缘检测方法枚举值。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrc__vision_1_1core_1_1_edge_detector_a1dc37a0731980fae2c010e0331618e24}\index{rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}!setParameters@{setParameters}}
+\index{setParameters@{setParameters}!rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{setParameters()}{setParameters()}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_edge_detector_a1dc37a0731980fae2c010e0331618e24} 
+void rc\+\_\+vision\+::core\+::\+Edge\+Detector\+::set\+Parameters (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{params}{}\end{DoxyParamCaption})}
+
+
+
+配置算法参数。 
+
+根据不同的边缘检测方法，参数的含义可能不同。例如，\+Canny 边缘检测需要设置阈值。
+
+
+\begin{DoxyParams}{参数}
+{\em params} & 参数列表。 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classrc__vision_1_1core_1_1_edge_detector_a9eb3069d7bcb59fa399559811e276fae}\index{rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}!current\_method\_@{current\_method\_}}
+\index{current\_method\_@{current\_method\_}!rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{current\_method\_}{current\_method\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_edge_detector_a9eb3069d7bcb59fa399559811e276fae} 
+\mbox{\hyperlink{namespacerc__vision_1_1core_ac65d8a5ae9c897b6ffd74a4f1a417b10}{Edge\+Detection\+Method}} rc\+\_\+vision\+::core\+::\+Edge\+Detector\+::current\+\_\+method\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+当前使用的边缘检测方法。 \Hypertarget{classrc__vision_1_1core_1_1_edge_detector_a7befbc0174178ddb0a52a82dcd23d52d}\index{rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}!detect\_edge\_types\_@{detect\_edge\_types\_}}
+\index{detect\_edge\_types\_@{detect\_edge\_types\_}!rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{detect\_edge\_types\_}{detect\_edge\_types\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_edge_detector_a7befbc0174178ddb0a52a82dcd23d52d} 
+std\+::vector$<$\mbox{\hyperlink{namespacerc__vision_1_1core_aaa2e7cf3c8acdaf99158aecd76cba048}{Edge\+Type}}$>$ rc\+\_\+vision\+::core\+::\+Edge\+Detector\+::detect\+\_\+edge\+\_\+types\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+要检测的边缘类型。 \Hypertarget{classrc__vision_1_1core_1_1_edge_detector_a9be0beaa54b33ba298157c64ba938194}\index{rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}!parameters\_@{parameters\_}}
+\index{parameters\_@{parameters\_}!rc\_vision::core::EdgeDetector@{rc\_vision::core::EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{parameters\_}{parameters\_}}
+{\footnotesize\ttfamily \label{classrc__vision_1_1core_1_1_edge_detector_a9be0beaa54b33ba298157c64ba938194} 
+std\+::vector$<$double$>$ rc\+\_\+vision\+::core\+::\+Edge\+Detector\+::parameters\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+边缘检测算法参数。 
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/14168/1/rc\+\_\+vision/core\+\_\+lib/include/rc\+\_\+vision/core/\mbox{\hyperlink{edge__detector_8hpp}{edge\+\_\+detector.\+hpp}}\end{DoxyCompactItemize}

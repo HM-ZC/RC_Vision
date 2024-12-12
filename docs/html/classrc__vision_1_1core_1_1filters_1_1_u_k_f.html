@@ -1,0 +1,622 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RC vision: rc_vision::core::filters::UKF&lt; T, StateDim, MeasurementDim &gt; 模板类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RC vision<span id="projectnumber">&#160;beta0.1.0</span>
+   </div>
+   <div id="projectbrief">机器人视觉库</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacerc__vision.html">rc_vision</a></li><li class="navelem"><a class="el" href="namespacerc__vision_1_1core.html">core</a></li><li class="navelem"><a class="el" href="namespacerc__vision_1_1core_1_1filters.html">filters</a></li><li class="navelem"><a class="el" href="classrc__vision_1_1core_1_1filters_1_1_u_k_f.html">UKF</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pri-methods">Private 成员函数</a> &#124;
+<a href="#pri-attribs">Private 属性</a> &#124;
+<a href="classrc__vision_1_1core_1_1filters_1_1_u_k_f-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">rc_vision::core::filters::UKF&lt; T, StateDim, MeasurementDim &gt; 模板类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>无迹卡尔曼滤波器模板类，适用于非线性系统。  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="filters_8hpp_source.html">filters.hpp</a>&gt;</code></p>
+<div class="dynheader">
+类 rc_vision::core::filters::UKF&lt; T, StateDim, MeasurementDim &gt; 继承关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="classrc__vision_1_1core_1_1filters_1_1_u_k_f__inherit__graph.png" border="0" usemap="#arc__vision_1_1core_1_1filters_1_1_u_k_f_3_01_t_00_01_state_dim_00_01_measurement_dim_01_4_inherit__map" alt="Inheritance graph"/></div>
+<center><span class="legend">[<a href="graph_legend.html">图例</a>]</span></center></div>
+<div class="dynheader">
+rc_vision::core::filters::UKF&lt; T, StateDim, MeasurementDim &gt; 的协作图:</div>
+<div class="dyncontent">
+<div class="center"><img src="classrc__vision_1_1core_1_1filters_1_1_u_k_f__coll__graph.png" border="0" usemap="#arc__vision_1_1core_1_1filters_1_1_u_k_f_3_01_t_00_01_state_dim_00_01_measurement_dim_01_4_coll__map" alt="Collaboration graph"/></div>
+<center><span class="legend">[<a href="graph_legend.html">图例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a35d40c93e222b4cbb29c60c754978078" id="r_a35d40c93e222b4cbb29c60c754978078"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35d40c93e222b4cbb29c60c754978078">UKF</a> ()</td></tr>
+<tr class="memdesc:a35d40c93e222b4cbb29c60c754978078"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认构造函数，初始化权重和参数。  <br /></td></tr>
+<tr class="separator:a35d40c93e222b4cbb29c60c754978078"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abae4df6ee29dde64f301d7b631f2ccc9" id="r_abae4df6ee29dde64f301d7b631f2ccc9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abae4df6ee29dde64f301d7b631f2ccc9">init</a> (const std::function&lt; Eigen::Matrix&lt; T, StateDim, 1 &gt;(const Eigen::Matrix&lt; T, StateDim, 1 &gt; &amp;)&gt; &amp;f, const std::function&lt; Eigen::Matrix&lt; T, MeasurementDim, 1 &gt;(const Eigen::Matrix&lt; T, StateDim, 1 &gt; &amp;)&gt; &amp;h, const std::function&lt; Eigen::Matrix&lt; T, StateDim, StateDim &gt;(const Eigen::Matrix&lt; T, StateDim, 1 &gt; &amp;)&gt; &amp;F_jacobian, const std::function&lt; Eigen::Matrix&lt; T, MeasurementDim, StateDim &gt;(const Eigen::Matrix&lt; T, StateDim, 1 &gt; &amp;)&gt; &amp;H_jacobian, const Eigen::Matrix&lt; T, StateDim, StateDim &gt; &amp;Q, const Eigen::Matrix&lt; T, MeasurementDim, MeasurementDim &gt; &amp;R, const Eigen::Matrix&lt; T, StateDim, 1 &gt; &amp;initial_state, const Eigen::Matrix&lt; T, StateDim, StateDim &gt; &amp;initial_covariance)</td></tr>
+<tr class="memdesc:abae4df6ee29dde64f301d7b631f2ccc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">初始化滤波器参数。  <br /></td></tr>
+<tr class="separator:abae4df6ee29dde64f301d7b631f2ccc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4279739780f06a66d3d6f3e427b79b57" id="r_a4279739780f06a66d3d6f3e427b79b57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4279739780f06a66d3d6f3e427b79b57">predict</a> ()</td></tr>
+<tr class="memdesc:a4279739780f06a66d3d6f3e427b79b57"><td class="mdescLeft">&#160;</td><td class="mdescRight">执行预测步骤（非线性）。  <br /></td></tr>
+<tr class="separator:a4279739780f06a66d3d6f3e427b79b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fe501845cf45dfe39f5683e5c07703f" id="r_a3fe501845cf45dfe39f5683e5c07703f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fe501845cf45dfe39f5683e5c07703f">update</a> (const Eigen::Matrix&lt; T, MeasurementDim, 1 &gt; &amp;z)</td></tr>
+<tr class="memdesc:a3fe501845cf45dfe39f5683e5c07703f"><td class="mdescLeft">&#160;</td><td class="mdescRight">执行更新步骤（非线性）。  <br /></td></tr>
+<tr class="separator:a3fe501845cf45dfe39f5683e5c07703f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classrc__vision_1_1core_1_1filters_1_1_kalman_filter"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classrc__vision_1_1core_1_1filters_1_1_kalman_filter')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classrc__vision_1_1core_1_1filters_1_1_kalman_filter.html">rc_vision::core::filters::KalmanFilter&lt; T, StateDim, MeasurementDim &gt;</a></td></tr>
+<tr class="memitem:a189deef97c489ee1b9aae49c34a5e55c inherit pub_methods_classrc__vision_1_1core_1_1filters_1_1_kalman_filter" id="r_a189deef97c489ee1b9aae49c34a5e55c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrc__vision_1_1core_1_1filters_1_1_kalman_filter.html#a189deef97c489ee1b9aae49c34a5e55c">KalmanFilter</a> ()</td></tr>
+<tr class="memdesc:a189deef97c489ee1b9aae49c34a5e55c inherit pub_methods_classrc__vision_1_1core_1_1filters_1_1_kalman_filter"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认构造函数。  <br /></td></tr>
+<tr class="separator:a189deef97c489ee1b9aae49c34a5e55c inherit pub_methods_classrc__vision_1_1core_1_1filters_1_1_kalman_filter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fe3185c588882ef0112358f40854212 inherit pub_methods_classrc__vision_1_1core_1_1filters_1_1_kalman_filter" id="r_a7fe3185c588882ef0112358f40854212"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrc__vision_1_1core_1_1filters_1_1_kalman_filter.html#a7fe3185c588882ef0112358f40854212">init</a> (const Eigen::Matrix&lt; T, StateDim, StateDim &gt; &amp;A, const Eigen::Matrix&lt; T, StateDim, StateDim &gt; &amp;Q, const Eigen::Matrix&lt; T, MeasurementDim, StateDim &gt; &amp;H, const Eigen::Matrix&lt; T, MeasurementDim, MeasurementDim &gt; &amp;R, const Eigen::Matrix&lt; T, StateDim, 1 &gt; &amp;initial_state, const Eigen::Matrix&lt; T, StateDim, StateDim &gt; &amp;initial_covariance)</td></tr>
+<tr class="memdesc:a7fe3185c588882ef0112358f40854212 inherit pub_methods_classrc__vision_1_1core_1_1filters_1_1_kalman_filter"><td class="mdescLeft">&#160;</td><td class="mdescRight">初始化滤波器参数。  <br /></td></tr>
+<tr class="separator:a7fe3185c588882ef0112358f40854212 inherit pub_methods_classrc__vision_1_1core_1_1filters_1_1_kalman_filter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05e2a10e7ab16b3319b874ee88da0013 inherit pub_methods_classrc__vision_1_1core_1_1filters_1_1_kalman_filter" id="r_a05e2a10e7ab16b3319b874ee88da0013"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrc__vision_1_1core_1_1filters_1_1_kalman_filter.html#a05e2a10e7ab16b3319b874ee88da0013">predict</a> ()</td></tr>
+<tr class="memdesc:a05e2a10e7ab16b3319b874ee88da0013 inherit pub_methods_classrc__vision_1_1core_1_1filters_1_1_kalman_filter"><td class="mdescLeft">&#160;</td><td class="mdescRight">执行预测步骤。  <br /></td></tr>
+<tr class="separator:a05e2a10e7ab16b3319b874ee88da0013 inherit pub_methods_classrc__vision_1_1core_1_1filters_1_1_kalman_filter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5563b9da9948d0fe10d2580ea62e24e inherit pub_methods_classrc__vision_1_1core_1_1filters_1_1_kalman_filter" id="r_aa5563b9da9948d0fe10d2580ea62e24e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrc__vision_1_1core_1_1filters_1_1_kalman_filter.html#aa5563b9da9948d0fe10d2580ea62e24e">update</a> (const Eigen::Matrix&lt; T, MeasurementDim, 1 &gt; &amp;z)</td></tr>
+<tr class="memdesc:aa5563b9da9948d0fe10d2580ea62e24e inherit pub_methods_classrc__vision_1_1core_1_1filters_1_1_kalman_filter"><td class="mdescLeft">&#160;</td><td class="mdescRight">执行更新步骤。  <br /></td></tr>
+<tr class="separator:aa5563b9da9948d0fe10d2580ea62e24e inherit pub_methods_classrc__vision_1_1core_1_1filters_1_1_kalman_filter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abeb58d78e6111fe8fda96ed54bd0870f inherit pub_methods_classrc__vision_1_1core_1_1filters_1_1_kalman_filter" id="r_abeb58d78e6111fe8fda96ed54bd0870f"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; T, StateDim, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrc__vision_1_1core_1_1filters_1_1_kalman_filter.html#abeb58d78e6111fe8fda96ed54bd0870f">getState</a> () const</td></tr>
+<tr class="memdesc:abeb58d78e6111fe8fda96ed54bd0870f inherit pub_methods_classrc__vision_1_1core_1_1filters_1_1_kalman_filter"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前状态向量。  <br /></td></tr>
+<tr class="separator:abeb58d78e6111fe8fda96ed54bd0870f inherit pub_methods_classrc__vision_1_1core_1_1filters_1_1_kalman_filter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a679132e5e8b31f3760c6361ab0cb809c inherit pub_methods_classrc__vision_1_1core_1_1filters_1_1_kalman_filter" id="r_a679132e5e8b31f3760c6361ab0cb809c"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; T, StateDim, StateDim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrc__vision_1_1core_1_1filters_1_1_kalman_filter.html#a679132e5e8b31f3760c6361ab0cb809c">getCovariance</a> () const</td></tr>
+<tr class="memdesc:a679132e5e8b31f3760c6361ab0cb809c inherit pub_methods_classrc__vision_1_1core_1_1filters_1_1_kalman_filter"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前状态协方差矩阵。  <br /></td></tr>
+<tr class="separator:a679132e5e8b31f3760c6361ab0cb809c inherit pub_methods_classrc__vision_1_1core_1_1filters_1_1_kalman_filter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private 成员函数</h2></td></tr>
+<tr class="memitem:aa89d40152843fe79ba3329938bae8938" id="r_aa89d40152843fe79ba3329938bae8938"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; T, StateDim, 2 *StateDim+1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa89d40152843fe79ba3329938bae8938">computeSigmaPoints</a> (const Eigen::Matrix&lt; T, StateDim, 1 &gt; &amp;x, const Eigen::Matrix&lt; T, StateDim, StateDim &gt; &amp;P) const</td></tr>
+<tr class="memdesc:aa89d40152843fe79ba3329938bae8938"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算 sigma 点。  <br /></td></tr>
+<tr class="separator:aa89d40152843fe79ba3329938bae8938"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private 属性</h2></td></tr>
+<tr class="memitem:a99a37c32d947f45daf2d5f93baab53cf" id="r_a99a37c32d947f45daf2d5f93baab53cf"><td class="memItemLeft" align="right" valign="top">std::function&lt; Eigen::Matrix&lt; T, StateDim, 1 &gt;(const Eigen::Matrix&lt; T, StateDim, 1 &gt; &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99a37c32d947f45daf2d5f93baab53cf">f_</a></td></tr>
+<tr class="separator:a99a37c32d947f45daf2d5f93baab53cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a33c35a0b6ed2a569f38857d0b74d0a" id="r_a6a33c35a0b6ed2a569f38857d0b74d0a"><td class="memItemLeft" align="right" valign="top">std::function&lt; Eigen::Matrix&lt; T, MeasurementDim, 1 &gt;(const Eigen::Matrix&lt; T, StateDim, 1 &gt; &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a33c35a0b6ed2a569f38857d0b74d0a">h_</a></td></tr>
+<tr class="separator:a6a33c35a0b6ed2a569f38857d0b74d0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48212893fe9dc38e932a2bbf589fff5f" id="r_a48212893fe9dc38e932a2bbf589fff5f"><td class="memItemLeft" align="right" valign="top">std::function&lt; Eigen::Matrix&lt; T, StateDim, StateDim &gt;(const Eigen::Matrix&lt; T, StateDim, 1 &gt; &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a48212893fe9dc38e932a2bbf589fff5f">F_jacobian_</a></td></tr>
+<tr class="separator:a48212893fe9dc38e932a2bbf589fff5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9aca2e345181f693510df2155a25f22" id="r_aa9aca2e345181f693510df2155a25f22"><td class="memItemLeft" align="right" valign="top">std::function&lt; Eigen::Matrix&lt; T, MeasurementDim, StateDim &gt;(const Eigen::Matrix&lt; T, StateDim, 1 &gt; &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9aca2e345181f693510df2155a25f22">H_jacobian_</a></td></tr>
+<tr class="separator:aa9aca2e345181f693510df2155a25f22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a995fe897edd5a516c2ff54da34496b" id="r_a5a995fe897edd5a516c2ff54da34496b"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; T, 2 *StateDim+1, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a995fe897edd5a516c2ff54da34496b">weights_</a></td></tr>
+<tr class="separator:a5a995fe897edd5a516c2ff54da34496b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ca14fcc5e27bbf6e1961f28fc2e289d" id="r_a6ca14fcc5e27bbf6e1961f28fc2e289d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ca14fcc5e27bbf6e1961f28fc2e289d">alpha_</a></td></tr>
+<tr class="separator:a6ca14fcc5e27bbf6e1961f28fc2e289d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad73a1dda4fae6a7c1e25c6d5103b11e5" id="r_ad73a1dda4fae6a7c1e25c6d5103b11e5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad73a1dda4fae6a7c1e25c6d5103b11e5">beta_</a></td></tr>
+<tr class="separator:ad73a1dda4fae6a7c1e25c6d5103b11e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad93f3caae18ae3271c2a4d3d77eb1fa1" id="r_ad93f3caae18ae3271c2a4d3d77eb1fa1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad93f3caae18ae3271c2a4d3d77eb1fa1">kappa_</a></td></tr>
+<tr class="separator:ad93f3caae18ae3271c2a4d3d77eb1fa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+额外继承的成员函数</h2></td></tr>
+<tr class="inherit_header pro_attribs_classrc__vision_1_1core_1_1filters_1_1_kalman_filter"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classrc__vision_1_1core_1_1filters_1_1_kalman_filter')"><img src="closed.png" alt="-"/>&#160;Protected 属性 继承自 <a class="el" href="classrc__vision_1_1core_1_1filters_1_1_kalman_filter.html">rc_vision::core::filters::KalmanFilter&lt; T, StateDim, MeasurementDim &gt;</a></td></tr>
+<tr class="memitem:aef72d48825815d51df789af924c483ad inherit pro_attribs_classrc__vision_1_1core_1_1filters_1_1_kalman_filter" id="r_aef72d48825815d51df789af924c483ad"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; T, StateDim, StateDim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrc__vision_1_1core_1_1filters_1_1_kalman_filter.html#aef72d48825815d51df789af924c483ad">A_</a></td></tr>
+<tr class="separator:aef72d48825815d51df789af924c483ad inherit pro_attribs_classrc__vision_1_1core_1_1filters_1_1_kalman_filter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06d4a192830faa48f32d7dbe5b794e71 inherit pro_attribs_classrc__vision_1_1core_1_1filters_1_1_kalman_filter" id="r_a06d4a192830faa48f32d7dbe5b794e71"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; T, StateDim, StateDim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrc__vision_1_1core_1_1filters_1_1_kalman_filter.html#a06d4a192830faa48f32d7dbe5b794e71">Q_</a></td></tr>
+<tr class="separator:a06d4a192830faa48f32d7dbe5b794e71 inherit pro_attribs_classrc__vision_1_1core_1_1filters_1_1_kalman_filter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5506c9960816215f1591d6452bcfb641 inherit pro_attribs_classrc__vision_1_1core_1_1filters_1_1_kalman_filter" id="r_a5506c9960816215f1591d6452bcfb641"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; T, MeasurementDim, StateDim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrc__vision_1_1core_1_1filters_1_1_kalman_filter.html#a5506c9960816215f1591d6452bcfb641">H_</a></td></tr>
+<tr class="separator:a5506c9960816215f1591d6452bcfb641 inherit pro_attribs_classrc__vision_1_1core_1_1filters_1_1_kalman_filter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2220056fd9a848f0cfc4a4ee00415e2b inherit pro_attribs_classrc__vision_1_1core_1_1filters_1_1_kalman_filter" id="r_a2220056fd9a848f0cfc4a4ee00415e2b"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; T, MeasurementDim, MeasurementDim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrc__vision_1_1core_1_1filters_1_1_kalman_filter.html#a2220056fd9a848f0cfc4a4ee00415e2b">R_</a></td></tr>
+<tr class="separator:a2220056fd9a848f0cfc4a4ee00415e2b inherit pro_attribs_classrc__vision_1_1core_1_1filters_1_1_kalman_filter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19a6878027dff4b2632db50011ca7953 inherit pro_attribs_classrc__vision_1_1core_1_1filters_1_1_kalman_filter" id="r_a19a6878027dff4b2632db50011ca7953"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; T, StateDim, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrc__vision_1_1core_1_1filters_1_1_kalman_filter.html#a19a6878027dff4b2632db50011ca7953">x_</a></td></tr>
+<tr class="separator:a19a6878027dff4b2632db50011ca7953 inherit pro_attribs_classrc__vision_1_1core_1_1filters_1_1_kalman_filter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb05428d967a168f1ca0b46db12332ba inherit pro_attribs_classrc__vision_1_1core_1_1filters_1_1_kalman_filter" id="r_abb05428d967a168f1ca0b46db12332ba"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; T, StateDim, StateDim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrc__vision_1_1core_1_1filters_1_1_kalman_filter.html#abb05428d967a168f1ca0b46db12332ba">P_</a></td></tr>
+<tr class="separator:abb05428d967a168f1ca0b46db12332ba inherit pro_attribs_classrc__vision_1_1core_1_1filters_1_1_kalman_filter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T, int StateDim, int MeasurementDim&gt;<br />
+class rc_vision::core::filters::UKF&lt; T, StateDim, MeasurementDim &gt;</div><p>无迹卡尔曼滤波器模板类，适用于非线性系统。 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>数据类型（通常为 float 或 double）。 </td></tr>
+    <tr><td class="paramname">StateDim</td><td>状态向量的维度。 </td></tr>
+    <tr><td class="paramname">MeasurementDim</td><td>测量向量的维度。 </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a35d40c93e222b4cbb29c60c754978078" name="a35d40c93e222b4cbb29c60c754978078"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35d40c93e222b4cbb29c60c754978078">&#9670;&#160;</a></span>UKF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int StateDim, int MeasurementDim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrc__vision_1_1core_1_1filters_1_1_u_k_f.html">rc_vision::core::filters::UKF</a>&lt; T, StateDim, MeasurementDim &gt;::UKF </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>默认构造函数，初始化权重和参数。 </p>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="aa89d40152843fe79ba3329938bae8938" name="aa89d40152843fe79ba3329938bae8938"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa89d40152843fe79ba3329938bae8938">&#9670;&#160;</a></span>computeSigmaPoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int StateDim, int MeasurementDim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Matrix&lt; T, StateDim, 2 *StateDim+1 &gt; <a class="el" href="classrc__vision_1_1core_1_1filters_1_1_u_k_f.html">rc_vision::core::filters::UKF</a>&lt; T, StateDim, MeasurementDim &gt;::computeSigmaPoints </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::Matrix&lt; T, StateDim, 1 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Eigen::Matrix&lt; T, StateDim, StateDim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>P</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>计算 sigma 点。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>当前状态向量。 </td></tr>
+    <tr><td class="paramname">P</td><td>当前状态协方差矩阵。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Eigen::Matrix&lt;T, StateDim, 2 * StateDim + 1&gt; 生成的 sigma 点矩阵。 </dd></dl>
+
+</div>
+</div>
+<a id="abae4df6ee29dde64f301d7b631f2ccc9" name="abae4df6ee29dde64f301d7b631f2ccc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abae4df6ee29dde64f301d7b631f2ccc9">&#9670;&#160;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int StateDim, int MeasurementDim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classrc__vision_1_1core_1_1filters_1_1_u_k_f.html">rc_vision::core::filters::UKF</a>&lt; T, StateDim, MeasurementDim &gt;::init </td>
+          <td>(</td>
+          <td class="paramtype">const std::function&lt; Eigen::Matrix&lt; T, StateDim, 1 &gt;(const Eigen::Matrix&lt; T, StateDim, 1 &gt; &amp;)&gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>f</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::function&lt; Eigen::Matrix&lt; T, MeasurementDim, 1 &gt;(const Eigen::Matrix&lt; T, StateDim, 1 &gt; &amp;)&gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>h</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::function&lt; Eigen::Matrix&lt; T, StateDim, StateDim &gt;(const Eigen::Matrix&lt; T, StateDim, 1 &gt; &amp;)&gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>F_jacobian</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::function&lt; Eigen::Matrix&lt; T, MeasurementDim, StateDim &gt;(const Eigen::Matrix&lt; T, StateDim, 1 &gt; &amp;)&gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>H_jacobian</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Eigen::Matrix&lt; T, StateDim, StateDim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Q</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Eigen::Matrix&lt; T, MeasurementDim, MeasurementDim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>R</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Eigen::Matrix&lt; T, StateDim, 1 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>initial_state</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Eigen::Matrix&lt; T, StateDim, StateDim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>initial_covariance</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>初始化滤波器参数。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>状态转移函数。 </td></tr>
+    <tr><td class="paramname">h</td><td>测量函数。 </td></tr>
+    <tr><td class="paramname">F_jacobian</td><td>状态转移函数的雅可比矩阵函数。 </td></tr>
+    <tr><td class="paramname">H_jacobian</td><td>测量函数的雅可比矩阵函数。 </td></tr>
+    <tr><td class="paramname">Q</td><td>过程噪声协方差矩阵。 </td></tr>
+    <tr><td class="paramname">R</td><td>测量噪声协方差矩阵。 </td></tr>
+    <tr><td class="paramname">initial_state</td><td>初始状态向量。 </td></tr>
+    <tr><td class="paramname">initial_covariance</td><td>初始状态协方差矩阵。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4279739780f06a66d3d6f3e427b79b57" name="a4279739780f06a66d3d6f3e427b79b57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4279739780f06a66d3d6f3e427b79b57">&#9670;&#160;</a></span>predict()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int StateDim, int MeasurementDim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classrc__vision_1_1core_1_1filters_1_1_u_k_f.html">rc_vision::core::filters::UKF</a>&lt; T, StateDim, MeasurementDim &gt;::predict </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>执行预测步骤（非线性）。 </p>
+<p>使用无迹变换生成 sigma 点，通过状态转移函数预测状态，并更新状态向量和协方差矩阵。 </p>
+
+</div>
+</div>
+<a id="a3fe501845cf45dfe39f5683e5c07703f" name="a3fe501845cf45dfe39f5683e5c07703f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fe501845cf45dfe39f5683e5c07703f">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int StateDim, int MeasurementDim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classrc__vision_1_1core_1_1filters_1_1_u_k_f.html">rc_vision::core::filters::UKF</a>&lt; T, StateDim, MeasurementDim &gt;::update </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::Matrix&lt; T, MeasurementDim, 1 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>z</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>执行更新步骤（非线性）。 </p>
+<p>使用无迹变换生成测量 sigma 点，通过测量函数预测测量，并更新状态向量和协方差矩阵。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">z</td><td>测量向量。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="a6ca14fcc5e27bbf6e1961f28fc2e289d" name="a6ca14fcc5e27bbf6e1961f28fc2e289d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ca14fcc5e27bbf6e1961f28fc2e289d">&#9670;&#160;</a></span>alpha_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int StateDim, int MeasurementDim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="classrc__vision_1_1core_1_1filters_1_1_u_k_f.html">rc_vision::core::filters::UKF</a>&lt; T, StateDim, MeasurementDim &gt;::alpha_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>超参数 alpha，用于调整 sigma 点的分布。 </p>
+
+</div>
+</div>
+<a id="ad73a1dda4fae6a7c1e25c6d5103b11e5" name="ad73a1dda4fae6a7c1e25c6d5103b11e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad73a1dda4fae6a7c1e25c6d5103b11e5">&#9670;&#160;</a></span>beta_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int StateDim, int MeasurementDim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="classrc__vision_1_1core_1_1filters_1_1_u_k_f.html">rc_vision::core::filters::UKF</a>&lt; T, StateDim, MeasurementDim &gt;::beta_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>超参数 beta，用于考虑先验知识，通常设置为 2。 </p>
+
+</div>
+</div>
+<a id="a99a37c32d947f45daf2d5f93baab53cf" name="a99a37c32d947f45daf2d5f93baab53cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99a37c32d947f45daf2d5f93baab53cf">&#9670;&#160;</a></span>f_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int StateDim, int MeasurementDim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt;Eigen::Matrix&lt;T, StateDim, 1&gt;(const Eigen::Matrix&lt;T, StateDim, 1&gt;&amp;)&gt; <a class="el" href="classrc__vision_1_1core_1_1filters_1_1_u_k_f.html">rc_vision::core::filters::UKF</a>&lt; T, StateDim, MeasurementDim &gt;::f_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a48212893fe9dc38e932a2bbf589fff5f" name="a48212893fe9dc38e932a2bbf589fff5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48212893fe9dc38e932a2bbf589fff5f">&#9670;&#160;</a></span>F_jacobian_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int StateDim, int MeasurementDim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt;Eigen::Matrix&lt;T, StateDim, StateDim&gt;(const Eigen::Matrix&lt;T, StateDim, 1&gt;&amp;)&gt; <a class="el" href="classrc__vision_1_1core_1_1filters_1_1_u_k_f.html">rc_vision::core::filters::UKF</a>&lt; T, StateDim, MeasurementDim &gt;::F_jacobian_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6a33c35a0b6ed2a569f38857d0b74d0a" name="a6a33c35a0b6ed2a569f38857d0b74d0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a33c35a0b6ed2a569f38857d0b74d0a">&#9670;&#160;</a></span>h_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int StateDim, int MeasurementDim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt;Eigen::Matrix&lt;T, MeasurementDim, 1&gt;(const Eigen::Matrix&lt;T, StateDim, 1&gt;&amp;)&gt; <a class="el" href="classrc__vision_1_1core_1_1filters_1_1_u_k_f.html">rc_vision::core::filters::UKF</a>&lt; T, StateDim, MeasurementDim &gt;::h_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa9aca2e345181f693510df2155a25f22" name="aa9aca2e345181f693510df2155a25f22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9aca2e345181f693510df2155a25f22">&#9670;&#160;</a></span>H_jacobian_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int StateDim, int MeasurementDim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt;Eigen::Matrix&lt;T, MeasurementDim, StateDim&gt;(const Eigen::Matrix&lt;T, StateDim, 1&gt;&amp;)&gt; <a class="el" href="classrc__vision_1_1core_1_1filters_1_1_u_k_f.html">rc_vision::core::filters::UKF</a>&lt; T, StateDim, MeasurementDim &gt;::H_jacobian_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad93f3caae18ae3271c2a4d3d77eb1fa1" name="ad93f3caae18ae3271c2a4d3d77eb1fa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad93f3caae18ae3271c2a4d3d77eb1fa1">&#9670;&#160;</a></span>kappa_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int StateDim, int MeasurementDim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="classrc__vision_1_1core_1_1filters_1_1_u_k_f.html">rc_vision::core::filters::UKF</a>&lt; T, StateDim, MeasurementDim &gt;::kappa_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>超参数 kappa，用于调整 sigma 点的分布。 </p>
+
+</div>
+</div>
+<a id="a5a995fe897edd5a516c2ff54da34496b" name="a5a995fe897edd5a516c2ff54da34496b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a995fe897edd5a516c2ff54da34496b">&#9670;&#160;</a></span>weights_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int StateDim, int MeasurementDim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Matrix&lt;T, 2 * StateDim + 1, 1&gt; <a class="el" href="classrc__vision_1_1core_1_1filters_1_1_u_k_f.html">rc_vision::core::filters::UKF</a>&lt; T, StateDim, MeasurementDim &gt;::weights_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>C:/Users/14168/1/rc_vision/core_lib/include/rc_vision/core/<a class="el" href="filters_8hpp_source.html">filters.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

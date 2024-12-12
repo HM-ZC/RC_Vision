@@ -1,0 +1,126 @@
+\doxysection{math\+\_\+utils.\+hpp}
+\hypertarget{math__utils_8hpp_source}{}\label{math__utils_8hpp_source}\index{C:/Users/14168/1/rc\_vision/core\_lib/include/rc\_vision/core/math\_utils.hpp@{C:/Users/14168/1/rc\_vision/core\_lib/include/rc\_vision/core/math\_utils.hpp}}
+\mbox{\hyperlink{math__utils_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{math__utils_8hpp}{rc\_vision/core/math\_utils.hpp}}"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{logger_8hpp}{rc\_vision/core/logger.hpp}}"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerc__vision}{rc\_vision}}\ \{}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keyword}{namespace\ }core\ \{}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ Eigen::Matrix4d\ MathUtils::createTransformationMatrix(\textcolor{keyword}{const}\ Eigen::Vector3d\&\ translation,\ \textcolor{keyword}{const}\ Eigen::Quaterniond\&\ rotation)\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix4d\ transformation\ =\ Eigen::Matrix4d::Identity();}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ transformation.block<3,3>(0,0)\ =\ rotation.toRotationMatrix();}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ transformation.block<3,1>(0,3)\ =\ translation;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ transformation;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ MathUtils::computeReprojectionError(\textcolor{keyword}{const}\ Eigen::Vector2d\&\ observed,\ \textcolor{keyword}{const}\ Eigen::Vector2d\&\ projected)\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (observed\ -\/\ projected).norm();}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ Eigen::Matrix3d\ MathUtils::quaternionToRotationMatrix(\textcolor{keyword}{const}\ Eigen::Quaterniond\&\ q)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ q.toRotationMatrix();}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ Eigen::Quaterniond\ MathUtils::rotationMatrixToQuaternion(\textcolor{keyword}{const}\ Eigen::Matrix3d\&\ R)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Quaterniond\ q(R);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ q;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ MathUtils::closestPointsBetweenSegments(\textcolor{keyword}{const}\ Eigen::Vector3d\&\ p1,\ \textcolor{keyword}{const}\ Eigen::Vector3d\&\ p2,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Vector3d\&\ p3,\ \textcolor{keyword}{const}\ Eigen::Vector3d\&\ p4,}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Vector3d\&\ closestPoint1,\ Eigen::Vector3d\&\ closestPoint2)\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Vector3d\ u\ =\ p2\ -\/\ p1;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Vector3d\ v\ =\ p4\ -\/\ p3;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Vector3d\ w\ =\ p1\ -\/\ p3;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ a\ =\ u.dot(u);\ \textcolor{comment}{//\ always\ >=\ 0}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ b\ =\ u.dot(v);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ c\ =\ v.dot(v);\ \textcolor{comment}{//\ always\ >=\ 0}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ d\ =\ u.dot(w);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ e\ =\ v.dot(w);}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ D\ =\ a*c\ -\/\ b*b;\ \textcolor{comment}{//\ always\ >=\ 0}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ sc,\ tc;}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ compute\ the\ line\ parameters\ of\ the\ two\ closest\ points}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (D\ <\ 1e-\/8)\ \{\ \textcolor{comment}{//\ the\ lines\ are\ almost\ parallel}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sc\ =\ 0.0;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tc\ =\ (b\ >\ c\ ?\ d/b\ :\ e/c);\ \textcolor{comment}{//\ use\ the\ largest\ denominator}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sc\ =\ (b*e\ -\/\ c*d)\ /\ D;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tc\ =\ (a*e\ -\/\ b*d)\ /\ D;}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ clamp\ sc\ to\ [0,1]\ to\ stay\ within\ the\ segments}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ sc\ =\ std::min(std::max(sc,\ 0.0),\ 1.0);}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ tc\ =\ std::min(std::max(tc,\ 0.0),\ 1.0);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ closestPoint1\ =\ p1\ +\ sc\ *\ u;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ closestPoint2\ =\ p3\ +\ tc\ *\ v;}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (closestPoint1\ -\/\ closestPoint2).norm();}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ MathUtils::pointToPlaneDistance(\textcolor{keyword}{const}\ Eigen::Vector3d\&\ point,}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Vector3d\&\ plane\_point,}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Vector3d\&\ plane\_normal)\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (point\ -\/\ plane\_point).dot(plane\_normal);}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ MathUtils::fitPlane(\textcolor{keyword}{const}\ std::vector<Eigen::Vector3d>\&\ points,}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Vector3d\&\ plane\_point,}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Vector3d\&\ plane\_normal)\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (points.size()\ <\ 3)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_aa1ab603542fca1a65433fca4f4ed9991}{Logger::getInstance}}().\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a52933946cc1c4dd5d442f073d05eb868}{log}}(\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220eabb1ca97ec761fc37101737ba0aa2e7c5}{Logger::LogLevel::ERROR}},\ \textcolor{stringliteral}{"{}Not\ enough\ points\ to\ fit\ a\ plane."{}});}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Compute\ the\ centroid}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Vector3d\ centroid(0,\ 0,\ 0);}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ p\ :\ points)\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ centroid\ +=\ p;}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ centroid\ /=\ points.size();}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Compute\ the\ covariance\ matrix}}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix3d\ cov\ =\ Eigen::Matrix3d::Zero();}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ p\ :\ points)\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Vector3d\ centered\ =\ p\ -\/\ centroid;}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cov\ +=\ centered\ *\ centered.transpose();}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Perform\ Eigen\ decomposition}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::SelfAdjointEigenSolver<Eigen::Matrix3d>\ solver(cov);}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(solver.info()\ !=\ Eigen::Success)\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_aa1ab603542fca1a65433fca4f4ed9991}{Logger::getInstance}}().\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_a52933946cc1c4dd5d442f073d05eb868}{log}}(\mbox{\hyperlink{classrc__vision_1_1core_1_1_logger_ae470bd63a16ab67d5a48d0ef6972220eabb1ca97ec761fc37101737ba0aa2e7c5}{Logger::LogLevel::ERROR}},\ \textcolor{stringliteral}{"{}Eigen\ decomposition\ failed."{}});}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ normal\ of\ the\ plane\ is\ the\ eigenvector\ corresponding\ to\ the\ smallest\ eigenvalue}}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ plane\_normal\ =\ solver.eigenvectors().col(0).normalized();}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ plane\_point\ =\ centroid;}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ Eigen::Matrix3d\ MathUtils::eulerAnglesToRotationMatrix(\textcolor{keywordtype}{double}\ roll,\ \textcolor{keywordtype}{double}\ pitch,\ \textcolor{keywordtype}{double}\ yaw)\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::AngleAxisd\ rollAngle(roll,\ Eigen::Vector3d::UnitX());}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::AngleAxisd\ pitchAngle(pitch,\ Eigen::Vector3d::UnitY());}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::AngleAxisd\ yawAngle(yaw,\ Eigen::Vector3d::UnitZ());}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Quaterniond\ q\ =\ yawAngle\ *\ pitchAngle\ *\ rollAngle;}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ q.toRotationMatrix();}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ MathUtils::rotationMatrixToEulerAngles(\textcolor{keyword}{const}\ Eigen::Matrix3d\&\ R,\ \textcolor{keywordtype}{double}\&\ roll,\ \textcolor{keywordtype}{double}\&\ pitch,\ \textcolor{keywordtype}{double}\&\ yaw)\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 使用\ Eigen\ 提供的方法提取欧拉角（ZYX顺序）}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Vector3d\ euler\ =\ R.eulerAngles(2,\ 1,\ 0);\ \textcolor{comment}{//\ yaw,\ pitch,\ roll}}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ yaw\ =\ euler[0];}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ pitch\ =\ euler[1];}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ roll\ =\ euler[2];}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ core}}
+\DoxyCodeLine{00207\ \}\ \textcolor{comment}{//\ namespace\ rc\_vision}}
+
+\end{DoxyCode}
