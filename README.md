@@ -12,10 +12,9 @@
    - [Windows](#windows)
 4. [构建 RC Vision](#构建-rc-vision)
 5. [运行单元测试](#运行单元测试)
-6. [生成文档](#生成文档)
-7. [Python 绑定](#python-绑定)
-8. [常见问题](#常见问题)
-9. [附录](#附录)
+6. [rc_vision_core库的API文档](#rc_vision_core库的API文档)
+6. [常见问题](#常见问题)
+7. [附录](#附录)
 
 ## 简介
 
@@ -206,5 +205,38 @@
 
 ```bash
 cd ~/workspace
-git clone https://github.com/your_username/rc_vision.git
-cd rc_vision
+git clone https://github.com/HM_ZC/RC_Vision.git
+cd RC_Vision
+```
+
+### 运行 build.sh 脚本
+
+在项目根目录下，运行以下命令以开始构建过程：
+
+```bash
+./build.sh
+```
+
+## 运行单元测试
+
+### 运行测试
+
+```bash
+ctest --output-on-failure
+```
+
+在 Windows 上使用：
+
+```powershell
+ctest --output-on-failure
+```
+
+## [rc_vision_core库的API文档](docs/html/index.html "API文档")
+
+docs/html/index.html
+
+## 常见问题
+
+## 附录
+
+### 参考资料
